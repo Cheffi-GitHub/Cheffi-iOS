@@ -14,6 +14,13 @@
 		549B1FA02C0607C9005C9432 /* CheffiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1F9F2C0607C9005C9432 /* CheffiTests.swift */; };
 		549B1FAA2C0607C9005C9432 /* CheffiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FA92C0607C9005C9432 /* CheffiUITests.swift */; };
 		549B1FAC2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */; };
+		549B1FCD2C0617E7005C9432 /* SUIT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 549B1FC82C0617E7005C9432 /* SUIT-Bold.otf */; };
+		549B1FCE2C0617E7005C9432 /* SUIT-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 549B1FC92C0617E7005C9432 /* SUIT-ExtraBold.otf */; };
+		549B1FCF2C0617E7005C9432 /* SUIT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 549B1FCA2C0617E7005C9432 /* SUIT-Medium.otf */; };
+		549B1FD02C0617E7005C9432 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 549B1FCB2C0617E7005C9432 /* SUIT-Regular.otf */; };
+		549B1FD12C0617E7005C9432 /* SUIT-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 549B1FCC2C0617E7005C9432 /* SUIT-SemiBold.otf */; };
+		549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FD42C0618D7005C9432 /* FontExtension.swift */; };
+		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,14 @@
 		549B1FA52C0607C9005C9432 /* CheffiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheffiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		549B1FA92C0607C9005C9432 /* CheffiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheffiUITests.swift; sourceTree = "<group>"; };
 		549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheffiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		549B1FC82C0617E7005C9432 /* SUIT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SUIT-Bold.otf"; path = "../../../../Downloads/suit/otf/SUIT-Bold.otf"; sourceTree = "<group>"; };
+		549B1FC92C0617E7005C9432 /* SUIT-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SUIT-ExtraBold.otf"; path = "../../../../Downloads/suit/otf/SUIT-ExtraBold.otf"; sourceTree = "<group>"; };
+		549B1FCA2C0617E7005C9432 /* SUIT-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SUIT-Medium.otf"; path = "../../../../Downloads/suit/otf/SUIT-Medium.otf"; sourceTree = "<group>"; };
+		549B1FCB2C0617E7005C9432 /* SUIT-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SUIT-Regular.otf"; path = "../../../../Downloads/suit/otf/SUIT-Regular.otf"; sourceTree = "<group>"; };
+		549B1FCC2C0617E7005C9432 /* SUIT-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SUIT-SemiBold.otf"; path = "../../../../Downloads/suit/otf/SUIT-SemiBold.otf"; sourceTree = "<group>"; };
+		549B1FD42C0618D7005C9432 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		549B1FD62C061A68005C9432 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +112,9 @@
 				549B1F8E2C0607C7005C9432 /* CheffiApp.swift */,
 				549B1F902C0607C7005C9432 /* ContentView.swift */,
 				549B1F922C0607C9005C9432 /* Assets.xcassets */,
+				549B1FD32C0618B7005C9432 /* Extensions */,
+				549B1FC62C0617C1005C9432 /* Resources */,
+				549B1FD62C061A68005C9432 /* Info.plist */,
 				549B1F942C0607C9005C9432 /* Preview Content */,
 			);
 			path = Cheffi;
@@ -125,6 +143,35 @@
 				549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */,
 			);
 			path = CheffiUITests;
+			sourceTree = "<group>";
+		};
+		549B1FC62C0617C1005C9432 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				549B1FC72C0617C6005C9432 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		549B1FC72C0617C6005C9432 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				549B1FC82C0617E7005C9432 /* SUIT-Bold.otf */,
+				549B1FC92C0617E7005C9432 /* SUIT-ExtraBold.otf */,
+				549B1FCA2C0617E7005C9432 /* SUIT-Medium.otf */,
+				549B1FCB2C0617E7005C9432 /* SUIT-Regular.otf */,
+				549B1FCC2C0617E7005C9432 /* SUIT-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		549B1FD32C0618B7005C9432 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				549B1FD42C0618D7005C9432 /* FontExtension.swift */,
+				549B1FDA2C061CE3005C9432 /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				549B1FCE2C0617E7005C9432 /* SUIT-ExtraBold.otf in Resources */,
+				549B1FD02C0617E7005C9432 /* SUIT-Regular.otf in Resources */,
+				549B1FCD2C0617E7005C9432 /* SUIT-Bold.otf in Resources */,
+				549B1FCF2C0617E7005C9432 /* SUIT-Medium.otf in Resources */,
+				549B1FD12C0617E7005C9432 /* SUIT-SemiBold.otf in Resources */,
 				549B1F962C0607C9005C9432 /* Preview Assets.xcassets in Resources */,
 				549B1F932C0607C9005C9432 /* Assets.xcassets in Resources */,
 			);
@@ -257,8 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
+				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -404,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -425,11 +479,14 @@
 				DEVELOPMENT_TEAM = A9F8XLHP2Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cheffi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,6 +494,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cheffi.Cheffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -454,11 +515,14 @@
 				DEVELOPMENT_TEAM = A9F8XLHP2Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cheffi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,6 +530,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cheffi.Cheffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

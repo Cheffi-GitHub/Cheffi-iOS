@@ -15,21 +15,21 @@ struct NavigationBarFeature: Reducer {
     }
     
     enum Action: Equatable {
-        case pushSelectRegion
-        case pushSearch
-        case pushAlarm
+        case regionTapped
+        case searchTapped
+        case alarmTapped
     }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .pushSelectRegion:
+            case .regionTapped:
                 print("지역 선택 화면 이동")
                 return .none
-            case .pushSearch:
+            case .searchTapped:
                 print("검색 화면 이동")
                 return .none
-            case .pushAlarm:
+            case .alarmTapped:
                 print("알림 화면 이동")
                 return .none
             }

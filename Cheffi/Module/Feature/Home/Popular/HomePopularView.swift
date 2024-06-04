@@ -94,6 +94,7 @@ struct HomePopularView: View {
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .animation(.easeInOut, value: currentpage)
                 
+                // 탭뷰 페이징
                 HStack(spacing: 0) {
                     Image(name: .previousPage)
                         .padding(.trailing, 12)

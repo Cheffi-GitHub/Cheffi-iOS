@@ -22,7 +22,6 @@
 		54588ADB2C074CF9000DD5A9 /* SUIT-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD62C074CF9000DD5A9 /* SUIT-SemiBold.otf */; };
 		548BC0662C086B1800A73F66 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC0652C086B1800A73F66 /* Dummy.swift */; };
 		548BC06A2C086B2400A73F66 /* Dummy2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC0692C086B2400A73F66 /* Dummy2.swift */; };
-		548BC06F2C086B6000A73F66 /* Dummy1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC06E2C086B6000A73F66 /* Dummy1.swift */; };
 		549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1F8E2C0607C7005C9432 /* CheffiApp.swift */; };
 		549B1F912C0607C7005C9432 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1F902C0607C7005C9432 /* ContentView.swift */; };
 		549B1F932C0607C9005C9432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 549B1F922C0607C9005C9432 /* Assets.xcassets */; };
@@ -66,7 +65,6 @@
 		54588AD62C074CF9000DD5A9 /* SUIT-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-SemiBold.otf"; sourceTree = "<group>"; };
 		548BC0652C086B1800A73F66 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		548BC0692C086B2400A73F66 /* Dummy2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy2.swift; sourceTree = "<group>"; };
-		548BC06E2C086B6000A73F66 /* Dummy1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy1.swift; sourceTree = "<group>"; };
 		549B1F8B2C0607C7005C9432 /* Cheffi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheffi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549B1F8E2C0607C7005C9432 /* CheffiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheffiApp.swift; sourceTree = "<group>"; };
 		549B1F902C0607C7005C9432 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 		548BC0622C086ADE00A73F66 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				548BC06E2C086B6000A73F66 /* Dummy1.swift */,
 				54073B8B2C0D98E400597973 /* PlaceCell.swift */,
 			);
 			path = View;
@@ -437,7 +434,6 @@
 			files = (
 				54073B7D2C0C564700597973 /* HomeView.swift in Sources */,
 				549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */,
-				548BC06F2C086B6000A73F66 /* Dummy1.swift in Sources */,
 				548BC06A2C086B2400A73F66 /* Dummy2.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				54073B852C0D908200597973 /* NavigationBarView.swift in Sources */,

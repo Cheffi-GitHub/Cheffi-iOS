@@ -18,21 +18,36 @@ struct PlaceCell: View {
         let largeSize = screenWidth - 55
         
         VStack(spacing: 0) {
-            Image(name: .sample)
-                .resizable()
-                .frame(
-                    width: type == .small
-                    ? smallSize
-                    : type == .medium
-                    ? mediumWidth
-                    : largeSize,
-                    height: type == .small
-                    ? smallSize
-                    : type == .medium
-                    ? mediumHeight
-                    : largeSize
-                )
-                .clipShape(.rect(cornerRadius: 8))
+            ZStack(alignment: .topTrailing) {
+                Image(name: .sample)
+                    .resizable()
+                    .frame(
+                        width: type == .small
+                        ? smallSize
+                        : type == .medium
+                        ? mediumWidth
+                        : largeSize,
+                        height: type == .small
+                        ? smallSize
+                        : type == .medium
+                        ? mediumHeight
+                        : largeSize
+                    )
+                    .clipShape(.rect(cornerRadius: 8))
+                
+                HStack(spacing: 8) {
+                    Image(name: .lock)
+                    Text("00:30")
+                        .foregroundStyle(Color.white)
+                        .font(.suit(.semiBold, 14))
+                }
+                .padding(.vertical, 4)
+                .padding(.horizontal, 12)
+                .background(Color.black.opacity(0.32))
+                .clipShape(.rect(cornerRadius: 20))
+                .padding([.top, .trailing], 10)
+                
+            }
             Spacer().frame(height: 12)
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {

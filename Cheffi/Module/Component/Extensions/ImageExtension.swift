@@ -15,6 +15,7 @@ extension Image {
         case rightArrow = "rightArrow"
         case clock = "clock"
         case info = "info"
+        case lock = "lock"
         
         // 탭뷰 관련
         case normalHome = "normalHome"

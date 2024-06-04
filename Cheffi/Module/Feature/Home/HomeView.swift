@@ -13,12 +13,14 @@ struct HomeView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 HomePopularView()
+                    .padding(.top, 32)
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     NavigationBarView()
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
             let appearace = UINavigationBarAppearance()

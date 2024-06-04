@@ -15,17 +15,17 @@ struct HomePopularFeature: Reducer {
     }
     
     enum Action: Equatable {
-        case showToolTip
-        case pushViewAll
+        case toolTipTapped
+        case viewAllTapped
     }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .showToolTip:
+            case .toolTipTapped:
                 print("툴팁 보여주기")
                 return .none
-            case .pushViewAll:
+            case .viewAllTapped:
                 print("전체보기 화면 이동")
                 return .none
             }

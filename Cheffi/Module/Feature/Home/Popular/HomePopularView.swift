@@ -38,7 +38,7 @@ struct HomePopularView: View {
                             .font(.suit(.regular, 18))
                         Image(name: .info)
                             .onTapGesture {
-                                viewStore.send(.showToolTip)
+                                viewStore.send(.toolTipTapped)
                             }
                         Spacer()
                         HStack {
@@ -52,7 +52,7 @@ struct HomePopularView: View {
                                 .foregroundStyle(Color.grey6)
                         }
                         .onTapGesture {
-                            viewStore.send(.pushViewAll)
+                            viewStore.send(.viewAllTapped)
                         }
                     }
                 }

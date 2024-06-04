@@ -32,18 +32,18 @@ struct NavigationBarView: View {
                         .clipShape(.rect(cornerRadius: 16))
                 }
                 .onTapGesture {
-                    viewStore.send(.pushSelectRegion)
+                    viewStore.send(.regionTapped)
                 }
                 Spacer()
                 Image(name: .search)
                     .padding(10)
                     .onTapGesture {
-                        viewStore.send(.pushSearch)
+                        viewStore.send(.searchTapped)
                     }
                 Image(name: .alarm)
                     .padding(10)
                     .onTapGesture {
-                        viewStore.send(.pushAlarm)
+                        viewStore.send(.alarmTapped)
                     }
             }
         }

@@ -11,8 +11,13 @@ import ComposableArchitecture
 struct HomeView: View {
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 HomePopularView()
+            }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    NavigationBarView()
+                }
             }
         }
         .onAppear {

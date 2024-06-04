@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct PlaceCell: View {
-    let type: PlaceType = .medium
+    let type: PlaceType
+    let screenWidth = UIWindow().screen.bounds.width
     
     var body: some View {
-        let smallSize = (UIWindow().screen.bounds.width - 45) / 2
+        let smallSize = (screenWidth - 45) / 2
         let mediumHeight: CGFloat = 200
-        let mediumWidth = UIWindow().screen.bounds.width - 32
-        let largeSize = UIWindow().screen.bounds.width - 55
+        let mediumWidth = screenWidth - 32
+        let largeSize = screenWidth - 55
         
         VStack(spacing: 0) {
             Image(name: .sample)
@@ -66,5 +67,5 @@ enum PlaceType {
 }
 
 #Preview {
-    PlaceCell()
+    PlaceCell(type: .medium)
 }

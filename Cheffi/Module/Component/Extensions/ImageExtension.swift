@@ -28,6 +28,9 @@ extension Image {
         // 홈 화면
         case search = "search"
         case alarm = "alarm"
+        case previousPage = "previousPage"
+        case nextPage = "nextPage"
+        
       
         // TODO: 추후 삭제
         case sample = "sample"

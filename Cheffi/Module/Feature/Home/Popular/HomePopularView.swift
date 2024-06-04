@@ -10,10 +10,18 @@ import ComposableArchitecture
 
 struct HomePopularView: View {
     
-    let store: StoreOf<HomePopularFeature> = .init(
+    private let store: StoreOf<HomePopularFeature> = .init(
         initialState: HomePopularFeature.State()) {
             HomePopularFeature()
         }
+    
+    private let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
+    @State private var currentpage = 1
+    private let totalPage = 4
     
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
@@ -56,16 +64,59 @@ struct HomePopularView: View {
                         }
                     }
                 }
-                Spacer().frame(height: 24)
-                PlaceCell()
-            }
-            .padding(.horizontal, 16)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    NavigationBarView()
+                .padding(.horizontal, 16)
+                
+                TabView(selection: $currentpage) {
+                    ForEach(1...totalPage, id: \.self) { index in
+                        if index == 1 {
+                            VStack {
+                                PlaceCell(type: .medium)
+                                LazyVGrid(columns: columns) {
+                                    PlaceCell(type: .small)
+                                    PlaceCell(type: .small)
+                                }
+                            }
+                            .padding(.horizontal, 16)
+                            .tag(index)
+                        } else {
+                            LazyVGrid(columns: columns) {
+                                PlaceCell(type: .small)
+                                PlaceCell(type: .small)
+                                PlaceCell(type: .small)
+                                PlaceCell(type: .small)
+                            }
+                            .padding(.horizontal, 16)
+                            .tag(index)
+                        }
+                    }
+                }
+                .frame(height: 600)
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .animation(.easeInOut, value: currentpage)
+                
+                HStack(spacing: 0) {
+                    Image(name: .previousPage)
+                        .padding(.trailing, 12)
+                        .onTapGesture {
+                            if currentpage != 1 {
+                                currentpage -= 1
+                            }
+                        }
+                    Text("\(currentpage)")
+                        .foregroundStyle(Color.black)
+                        .font(.suit(.medium, 16))
+                    Text(" / \(totalPage)")
+                        .foregroundStyle(Color.grey8)
+                        .font(.suit(.medium, 16))
+                    Image(name: .nextPage)
+                        .padding(.leading, 12)
+                        .onTapGesture {
+                            if currentpage != totalPage {
+                                currentpage += 1
+                            }
+                        }
                 }
             }
         }
     }
 }
-

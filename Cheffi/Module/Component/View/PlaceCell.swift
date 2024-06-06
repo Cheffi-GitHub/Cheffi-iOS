@@ -19,7 +19,7 @@ struct PlaceCell: View {
         
         VStack(spacing: 0) {
             ZStack(alignment: .topTrailing) {
-                Image(name: .sample)
+                Image(name: Dummy.sample)
                     .resizable()
                     .frame(
                         width: type == .small
@@ -36,7 +36,7 @@ struct PlaceCell: View {
                     .clipShape(.rect(cornerRadius: 8))
                 
                 HStack(spacing: 8) {
-                    Image(name: .lock)
+                    Image(name: Common.lock)
                     Text("00:30")
                         .foregroundStyle(Color.white)
                         .font(.suit(.semiBold, 14))
@@ -56,7 +56,7 @@ struct PlaceCell: View {
                         .font(.suit(.bold, 18))
                         .lineLimit(type == .small ? 2 : 1)
                     Spacer()
-                    Image(name: .emptyHeart)
+                    Image(name: Common.emptyHeart)
                 }
                 Spacer().frame(height: 8)
                 Text("짬뽕 외길의 근본이 느껴지는 중식당짬뽕이 맛있는 집이 있습니다.")

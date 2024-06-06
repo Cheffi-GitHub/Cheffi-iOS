@@ -26,7 +26,7 @@ struct NavigationBarView: View {
                         .foregroundStyle(.white)
                         .font(.suit(.medium, 16))
                         .clipShape(.rect(cornerRadius: 20))
-                    Image(name: .rightArrow)
+                    Image(name: Common.rightArrow)
                         .padding(3)
                         .background(.black)
                         .clipShape(.rect(cornerRadius: 16))
@@ -35,12 +35,12 @@ struct NavigationBarView: View {
                     viewStore.send(.regionTapped)
                 }
                 Spacer()
-                Image(name: .search)
+                Image(name: Home.search)
                     .padding(10)
                     .onTapGesture {
                         viewStore.send(.searchTapped)
                     }
-                Image(name: .alarm)
+                Image(name: Home.alarm)
                     .padding(10)
                     .onTapGesture {
                         viewStore.send(.alarmTapped)

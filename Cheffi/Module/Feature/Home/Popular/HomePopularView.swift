@@ -32,7 +32,7 @@ struct HomePopularView: View {
                         .font(.suit(.bold, 20))
                         .padding(.bottom, 16)
                     HStack(spacing: 0) {
-                        Image(name: .clock)
+                        Image(name: Common.clock)
                         Text("00 : 13 : 43")
                             .foregroundStyle(Color.primary)
                             .font(.suit(.bold, 18))
@@ -44,7 +44,7 @@ struct HomePopularView: View {
                         Text("인기 급등 맛집이 변경돼요.")
                             .foregroundStyle(Color.black)
                             .font(.suit(.regular, 18))
-                        Image(name: .info)
+                        Image(name: Common.info)
                             .onTapGesture {
                                 viewStore.send(.toolTipTapped)
                             }
@@ -53,7 +53,7 @@ struct HomePopularView: View {
                             Text("전체보기")
                                 .foregroundStyle(Color.grey6)
                                 .font(.suit(.medium, 14))
-                            Image(name: .rightArrow)
+                            Image(name: Common.rightArrow)
                                 .resizable()
                                 .renderingMode(.template)
                                 .frame(width: 16, height: 16)
@@ -96,7 +96,7 @@ struct HomePopularView: View {
                 
                 // 탭뷰 페이징
                 HStack(spacing: 0) {
-                    Image(name: .previousPage)
+                    Image(name: Home.previousPage)
                         .padding(.trailing, 12)
                         .onTapGesture {
                             if currentpage != 1 {
@@ -109,7 +109,7 @@ struct HomePopularView: View {
                     Text(" / \(totalPage)")
                         .foregroundStyle(Color.grey8)
                         .font(.suit(.medium, 16))
-                    Image(name: .nextPage)
+                    Image(name: Home.nextPage)
                         .padding(.leading, 12)
                         .onTapGesture {
                             if currentpage != totalPage {

@@ -10,5 +10,10 @@
 		<string>SUIT-Regular.otf</string>
 		<string>SUIT-SemiBold.otf</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

@@ -12,7 +12,6 @@
 		54588AD92C074CF9000DD5A9 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */; };
 		54588ADA2C074CF9000DD5A9 /* SUIT-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD52C074CF9000DD5A9 /* SUIT-ExtraBold.otf */; };
 		54588ADB2C074CF9000DD5A9 /* SUIT-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD62C074CF9000DD5A9 /* SUIT-SemiBold.otf */; };
-		548BC0662C086B1800A73F66 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC0652C086B1800A73F66 /* Dummy.swift */; };
 		548BC06A2C086B2400A73F66 /* Dummy2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC0692C086B2400A73F66 /* Dummy2.swift */; };
 		548BC06F2C086B6000A73F66 /* Dummy1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC06E2C086B6000A73F66 /* Dummy1.swift */; };
 		549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1F8E2C0607C7005C9432 /* CheffiApp.swift */; };
@@ -24,6 +23,11 @@
 		549B1FAC2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */; };
 		549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FD42C0618D7005C9432 /* FontExtension.swift */; };
 		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
+		A6B154642C118FA7002CA828 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B154632C118FA7002CA828 /* EndPoint.swift */; };
+		A6B154672C119019002CA828 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A6B154662C119019002CA828 /* Alamofire */; };
+		A6B154692C11935E002CA828 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B154682C11935E002CA828 /* NetworkClient.swift */; };
+		A6B1546D2C119AE6002CA828 /* NetworkRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B1546C2C119AE6002CA828 /* NetworkRetrier.swift */; };
+		A6B154702C11A414002CA828 /* CheffiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B1546F2C11A414002CA828 /* CheffiAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +53,6 @@
 		54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.otf"; sourceTree = "<group>"; };
 		54588AD52C074CF9000DD5A9 /* SUIT-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-ExtraBold.otf"; sourceTree = "<group>"; };
 		54588AD62C074CF9000DD5A9 /* SUIT-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-SemiBold.otf"; sourceTree = "<group>"; };
-		548BC0652C086B1800A73F66 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		548BC0692C086B2400A73F66 /* Dummy2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy2.swift; sourceTree = "<group>"; };
 		548BC06E2C086B6000A73F66 /* Dummy1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy1.swift; sourceTree = "<group>"; };
 		549B1F8B2C0607C7005C9432 /* Cheffi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheffi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +68,10 @@
 		549B1FD42C0618D7005C9432 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		549B1FD62C061A68005C9432 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		A6B154632C118FA7002CA828 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		A6B154682C11935E002CA828 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		A6B1546C2C119AE6002CA828 /* NetworkRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRetrier.swift; sourceTree = "<group>"; };
+		A6B1546F2C11A414002CA828 /* CheffiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheffiAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B154672C119019002CA828 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +139,10 @@
 		548BC0612C086AD500A73F66 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				548BC0652C086B1800A73F66 /* Dummy.swift */,
+				A6B1546F2C11A414002CA828 /* CheffiAPI.swift */,
+				A6B154632C118FA7002CA828 /* EndPoint.swift */,
+				A6B154682C11935E002CA828 /* NetworkClient.swift */,
+				A6B1546C2C119AE6002CA828 /* NetworkRetrier.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -177,6 +188,7 @@
 				549B1F9E2C0607C9005C9432 /* CheffiTests */,
 				549B1FA82C0607C9005C9432 /* CheffiUITests */,
 				549B1F8C2C0607C7005C9432 /* Products */,
+				A6B154652C119019002CA828 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +259,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A6B154652C119019002CA828 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,6 +282,9 @@
 			dependencies = (
 			);
 			name = Cheffi;
+			packageProductDependencies = (
+				A6B154662C119019002CA828 /* Alamofire */,
+			);
 			productName = Cheffi;
 			productReference = 549B1F8B2C0607C7005C9432 /* Cheffi.app */;
 			productType = "com.apple.product-type.application";
@@ -335,6 +357,9 @@
 				Base,
 			);
 			mainGroup = 549B1F822C0607C7005C9432;
+			packageReferences = (
+				A6B154622C118F8A002CA828 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 549B1F8C2C0607C7005C9432 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -382,11 +407,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B1546D2C119AE6002CA828 /* NetworkRetrier.swift in Sources */,
+				A6B154702C11A414002CA828 /* CheffiAPI.swift in Sources */,
 				549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */,
 				548BC06F2C086B6000A73F66 /* Dummy1.swift in Sources */,
+				A6B154642C118FA7002CA828 /* EndPoint.swift in Sources */,
 				548BC06A2C086B2400A73F66 /* Dummy2.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
-				548BC0662C086B1800A73F66 /* Dummy.swift in Sources */,
+				A6B154692C11935E002CA828 /* NetworkClient.swift in Sources */,
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
 			);
@@ -732,6 +760,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A6B154622C118F8A002CA828 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A6B154662C119019002CA828 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A6B154622C118F8A002CA828 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 549B1F832C0607C7005C9432 /* Project object */;
 }

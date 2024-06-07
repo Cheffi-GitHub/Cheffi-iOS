@@ -13,10 +13,7 @@ protocol NetworkClientable {
     var session: Session { get }
     var queue: DispatchQueue { get }
     
-    func request<T: Codable>(
-        _ endPoint: URLRequestConvertible,
-        type: T.Type
-    ) -> AnyPublisher<T, AFError>
+    func request<Value: Codable>(_ endPoint: EndPoint) -> AnyPublisher<Value, AFError>
 }
 
 final class NetworkClient: NetworkClientable {
@@ -36,26 +33,16 @@ final class NetworkClient: NetworkClientable {
         self.queue = queue
     }
     
-    // TODO: request method 랩핑하여 타입추론 개선하기
-    func request<T: Codable>(
-        _ endPoint: URLRequestConvertible,
-        type: T.Type
-    ) -> AnyPublisher<T, AFError> {
-        do {
-            let urlRequest = try endPoint.asURLRequest()
-            
-            return session.request(urlRequest)
-                .validate()
-                // TODO: Progress 핸들링 -> Loading indicator 표시
-                .publishDecodable(type: T.self)
-                .value()
-                .subscribe(on: queue)
-                .receive(on: DispatchQueue.main)
-                .eraseToAnyPublisher()
-            
-        } catch {
-            return Fail(error: AFError.createURLRequestFailed(error: error))
-                .eraseToAnyPublisher()
-        }
+    func request<Value: Codable>(
+        _ endPoint: EndPoint
+    ) -> AnyPublisher<Value, AFError> {
+        return session.request(endPoint)
+            .validate()
+            // TODO: Progress 핸들링 -> Loading indicator 표시
+            .publishDecodable(type: Value.self)
+            .value()
+            .subscribe(on: queue)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }

@@ -24,18 +24,19 @@ struct ContentView: View {
         }
         .padding()
         .onAppear {
-            networkClient.request(CheffiAPI.testAuth, type: TestResponse.self)
-                .sink(receiveCompletion: { completion in
-                    switch completion {
-                    case .finished:
-                        print("finished")
-                    case .failure(let failure):
-                        print(failure)
-                    }
-                }, receiveValue: { response in
-                    print(response)
-                })
-                .store(in: &cancellable)
+            // TODO: type을 전달해줄 필요없도록 타입래핑 리팩토링
+//            networkClient.request(CheffiAPI.testAuth, type: TestResponse.self)
+//                .sink(receiveCompletion: { completion in
+//                    switch completion {
+//                    case .finished:
+//                        print("finished")
+//                    case .failure(let failure):
+//                        print(failure)
+//                    }
+//                }, receiveValue: { response in
+//                    print(response)
+//                })
+//                .store(in: &cancellable)
         }
     }
 }

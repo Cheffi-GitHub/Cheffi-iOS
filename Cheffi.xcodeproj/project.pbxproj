@@ -15,6 +15,8 @@
 		54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54073B872C0D913800597973 /* NavigationBarFeature.swift */; };
 		54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54073B892C0D932D00597973 /* HomePopularView.swift */; };
 		54073B8C2C0D98E500597973 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54073B8B2C0D98E400597973 /* PlaceCell.swift */; };
+		543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */; };
+		543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */; };
 		54588AD72C074CF9000DD5A9 /* SUIT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD22C074CF8000DD5A9 /* SUIT-Bold.otf */; };
 		54588AD82C074CF9000DD5A9 /* SUIT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD32C074CF8000DD5A9 /* SUIT-Medium.otf */; };
 		54588AD92C074CF9000DD5A9 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */; };
@@ -58,6 +60,8 @@
 		54073B872C0D913800597973 /* NavigationBarFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarFeature.swift; sourceTree = "<group>"; };
 		54073B892C0D932D00597973 /* HomePopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularView.swift; sourceTree = "<group>"; };
 		54073B8B2C0D98E400597973 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryView.swift; sourceTree = "<group>"; };
+		543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryFeature.swift; sourceTree = "<group>"; };
 		54588AD22C074CF8000DD5A9 /* SUIT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Bold.otf"; sourceTree = "<group>"; };
 		54588AD32C074CF8000DD5A9 /* SUIT-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Medium.otf"; sourceTree = "<group>"; };
 		54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.otf"; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				54073B7C2C0C564700597973 /* HomeView.swift */,
 				54073B862C0D90B400597973 /* NavigationBar */,
 				54073B812C0D904200597973 /* Popular */,
+				543F0AE22C10261B00DFBDB1 /* CheffiStory */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -132,6 +137,15 @@
 				54073B872C0D913800597973 /* NavigationBarFeature.swift */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		543F0AE22C10261B00DFBDB1 /* CheffiStory */ = {
+			isa = PBXGroup;
+			children = (
+				543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */,
+				543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */,
+			);
+			path = CheffiStory;
 			sourceTree = "<group>";
 		};
 		548BC05D2C086A8F00A73F66 /* Application */ = {
@@ -440,7 +454,9 @@
 				548BC0662C086B1800A73F66 /* Dummy.swift in Sources */,
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
+				543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */,
 				54073B8C2C0D98E500597973 /* PlaceCell.swift in Sources */,
+				543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,
@@ -615,6 +631,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -651,6 +668,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;

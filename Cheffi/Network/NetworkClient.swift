@@ -13,7 +13,7 @@ protocol NetworkClientable {
     var session: Session { get }
     var queue: DispatchQueue { get }
     
-    func request<Value: Codable>(_ endPoint: EndPoint) -> AnyPublisher<Value, AFError>
+    func request<Value: Codable>(_ endPoint: RestRouter) -> AnyPublisher<Value, AFError>
 }
 
 final class NetworkClient: NetworkClientable {
@@ -33,9 +33,7 @@ final class NetworkClient: NetworkClientable {
         self.queue = queue
     }
     
-    func request<Value: Codable>(
-        _ endPoint: EndPoint
-    ) -> AnyPublisher<Value, AFError> {
+    func request<Value: Codable>(_ endPoint: RestRouter) -> AnyPublisher<Value, AFError> {
         return session.request(endPoint)
             .validate()
             // TODO: Progress 핸들링 -> Loading indicator 표시

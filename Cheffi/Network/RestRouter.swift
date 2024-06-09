@@ -11,7 +11,7 @@ import Alamofire
 enum RestRouter {
     case testUpload
     case testSessionIssue
-    case testAuth
+    case testAuth(String)
 }
 
 extension RestRouter: EndPoint {

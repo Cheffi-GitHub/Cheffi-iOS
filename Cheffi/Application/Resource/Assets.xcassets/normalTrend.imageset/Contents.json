@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "normalTrend.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

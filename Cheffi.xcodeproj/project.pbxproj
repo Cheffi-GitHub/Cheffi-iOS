@@ -17,6 +17,8 @@
 		54073B8C2C0D98E500597973 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54073B8B2C0D98E400597973 /* PlaceCell.swift */; };
 		543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */; };
 		543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */; };
+		544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BB7662C168F8400BD43E0 /* MainTabView.swift */; };
+		544BB7692C1699C800BD43E0 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BB7682C1699C800BD43E0 /* UIImageExtension.swift */; };
 		54588AD72C074CF9000DD5A9 /* SUIT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD22C074CF8000DD5A9 /* SUIT-Bold.otf */; };
 		54588AD82C074CF9000DD5A9 /* SUIT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD32C074CF8000DD5A9 /* SUIT-Medium.otf */; };
 		54588AD92C074CF9000DD5A9 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */; };
@@ -62,6 +64,8 @@
 		54073B8B2C0D98E400597973 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryView.swift; sourceTree = "<group>"; };
 		543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryFeature.swift; sourceTree = "<group>"; };
+		544BB7662C168F8400BD43E0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		544BB7682C1699C800BD43E0 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		54588AD22C074CF8000DD5A9 /* SUIT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Bold.otf"; sourceTree = "<group>"; };
 		54588AD32C074CF8000DD5A9 /* SUIT-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Medium.otf"; sourceTree = "<group>"; };
 		54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.otf"; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 		548BC06D2C086B4D00A73F66 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				544BB7662C168F8400BD43E0 /* MainTabView.swift */,
 				54073B7B2C0C55C400597973 /* Home */,
 				549B1F902C0607C7005C9432 /* ContentView.swift */,
 			);
@@ -301,6 +306,7 @@
 				549B1FD42C0618D7005C9432 /* FontExtension.swift */,
 				549B1FDA2C061CE3005C9432 /* ColorExtension.swift */,
 				54073B6B2C0C474200597973 /* ImageExtension.swift */,
+				544BB7682C1699C800BD43E0 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -448,7 +454,9 @@
 			files = (
 				54073B7D2C0C564700597973 /* HomeView.swift in Sources */,
 				549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */,
+				544BB7692C1699C800BD43E0 /* UIImageExtension.swift in Sources */,
 				548BC06A2C086B2400A73F66 /* Dummy2.swift in Sources */,
+				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				54073B852C0D908200597973 /* NavigationBarView.swift in Sources */,
 				548BC0662C086B1800A73F66 /* Dummy.swift in Sources */,

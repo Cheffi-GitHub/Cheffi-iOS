@@ -1,0 +1,11 @@
+//
+//  Release.xcconfig
+//  Cheffi
+//
+//  Created by 이서준 on 6/10/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Secrets.xcconfig"

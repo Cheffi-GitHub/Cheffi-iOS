@@ -17,7 +17,8 @@ struct HomeView: View {
                     .padding(.top, 32)
                 
                 // TODO: 쉐피들의 이야기
-                
+                HomeCheffiStoryView()
+                    .padding(.top, 48)
                 // TODO: 쉐피들의 인정 맛집
             }
             .toolbar {

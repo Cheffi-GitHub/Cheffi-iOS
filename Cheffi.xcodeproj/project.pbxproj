@@ -35,6 +35,7 @@
 		549B1FAC2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */; };
 		549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FD42C0618D7005C9432 /* FontExtension.swift */; };
 		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
+		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,10 @@
 		549B1FD42C0618D7005C9432 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		549B1FD62C061A68005C9432 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		A67677E92C1730C60089A269 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		A67677F22C1738EF0089A269 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		A67677F62C1740230089A269 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		A67677F72C1740600089A269 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				549B1F8E2C0607C7005C9432 /* CheffiApp.swift */,
+				A67677F22C1738EF0089A269 /* AppEnvironment.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 			children = (
 				549B1FD62C061A68005C9432 /* Info.plist */,
 				549B1F922C0607C9005C9432 /* Assets.xcassets */,
+				A67677F82C1740790089A269 /* Environment */,
 				549B1FC72C0617C6005C9432 /* Fonts */,
 			);
 			path = Resource;
@@ -309,6 +316,16 @@
 				544BB7682C1699C800BD43E0 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A67677F82C1740790089A269 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				A67677E92C1730C60089A269 /* Debug.xcconfig */,
+				A67677F72C1740600089A269 /* Release.xcconfig */,
+				A67677F62C1740230089A269 /* Secrets.xcconfig */,
+			);
+			path = Environment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,6 +486,7 @@
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,
+				A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +525,7 @@
 /* Begin XCBuildConfiguration section */
 		549B1FAD2C0607C9005C9432 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A67677E92C1730C60089A269 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -570,6 +589,7 @@
 		};
 		549B1FAE2C0607C9005C9432 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A67677F72C1740600089A269 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

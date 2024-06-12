@@ -35,6 +35,11 @@
 		549B1FAC2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */; };
 		549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FD42C0618D7005C9432 /* FontExtension.swift */; };
 		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
+		A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D02C187D6500ABF38C /* EndPoint.swift */; };
+		A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D22C187D7800ABF38C /* RestRouter.swift */; };
+		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
+		A611D9D72C187DBC00ABF38C /* NetworkRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D62C187DBC00ABF38C /* NetworkRetrier.swift */; };
+		A611D9DB2C187F6000ABF38C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A611D9DA2C187F6000ABF38C /* Alamofire */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +92,10 @@
 		549B1FD42C0618D7005C9432 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		549B1FD62C061A68005C9432 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		A611D9D02C187D6500ABF38C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		A611D9D22C187D7800ABF38C /* RestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
+		A611D9D42C187D8400ABF38C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		A611D9D62C187DBC00ABF38C /* NetworkRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRetrier.swift; sourceTree = "<group>"; };
 		A67677E92C1730C60089A269 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		A67677F22C1738EF0089A269 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A67677F62C1740230089A269 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
@@ -99,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54073B802C0CBC6500597973 /* ComposableArchitecture in Frameworks */,
+				A611D9DB2C187F6000ABF38C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +209,10 @@
 			isa = PBXGroup;
 			children = (
 				548BC0652C086B1800A73F66 /* Dummy.swift */,
+				A611D9D02C187D6500ABF38C /* EndPoint.swift */,
+				A611D9D22C187D7800ABF38C /* RestRouter.swift */,
+				A611D9D42C187D8400ABF38C /* NetworkClient.swift */,
+				A611D9D62C187DBC00ABF38C /* NetworkRetrier.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -246,6 +260,7 @@
 				549B1F9E2C0607C9005C9432 /* CheffiTests */,
 				549B1FA82C0607C9005C9432 /* CheffiUITests */,
 				549B1F8C2C0607C7005C9432 /* Products */,
+				A611D9D92C187F6000ABF38C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -318,6 +333,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A611D9D92C187F6000ABF38C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A67677F82C1740790089A269 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +368,7 @@
 			name = Cheffi;
 			packageProductDependencies = (
 				54073B7F2C0CBC6500597973 /* ComposableArchitecture */,
+				A611D9DA2C187F6000ABF38C /* Alamofire */,
 			);
 			productName = Cheffi;
 			productReference = 549B1F8B2C0607C7005C9432 /* Cheffi.app */;
@@ -421,6 +444,7 @@
 			mainGroup = 549B1F822C0607C7005C9432;
 			packageReferences = (
 				54073B7E2C0CBC6500597973 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				A611D9D82C187F5600ABF38C /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 549B1F8C2C0607C7005C9432 /* Products */;
 			projectDirPath = "";
@@ -480,12 +504,16 @@
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
 				543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */,
+				A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */,
+				A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */,
 				54073B8C2C0D98E500597973 /* PlaceCell.swift in Sources */,
 				543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */,
+				A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,
+				A611D9D72C187DBC00ABF38C /* NetworkRetrier.swift in Sources */,
 				A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -844,6 +872,14 @@
 				version = 1.10.0;
 			};
 		};
+		A611D9D82C187F5600ABF38C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -851,6 +887,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 54073B7E2C0CBC6500597973 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		A611D9DA2C187F6000ABF38C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A611D9D82C187F5600ABF38C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

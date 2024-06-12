@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Alamofire
 
-final class NetworkRetrier: RequestRetrier {
+struct NetworkRetrier: RequestRetrier {
     
     private var limit: Int
     private var delay: TimeInterval

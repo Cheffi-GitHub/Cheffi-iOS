@@ -55,10 +55,13 @@ extension NetworkClient: DependencyKey {
         return NetworkClient(
             session: Session(
                 configuration: configuration,
-                interceptor: Interceptor(
-                    adapter: NetworkAdapter(),
-                    retrier: NetworkRetrier(limit: 30, delay: 3)
-                )
+                interceptor: NetworkRequestInterceptor(
+                    limit: 30,
+                    delay: 3
+                ),
+                eventMonitors: [
+                    NetworkEventLogger()
+                ]
             ),
             queue: queue
         )

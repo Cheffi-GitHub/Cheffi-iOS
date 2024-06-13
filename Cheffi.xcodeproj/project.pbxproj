@@ -34,13 +34,14 @@
 		549B1FAC2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */; };
 		549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FD42C0618D7005C9432 /* FontExtension.swift */; };
 		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
-		A60478F22C19D3DB00F7DEAC /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60478F12C19D3DB00F7DEAC /* NetworkAdapter.swift */; };
 		A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D02C187D6500ABF38C /* EndPoint.swift */; };
 		A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D22C187D7800ABF38C /* RestRouter.swift */; };
 		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
-		A611D9D72C187DBC00ABF38C /* NetworkRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D62C187DBC00ABF38C /* NetworkRetrier.swift */; };
 		A611D9DB2C187F6000ABF38C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A611D9DA2C187F6000ABF38C /* Alamofire */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
+		A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */; };
+		A6F5E6CC2C1B22C00053C2E8 /* NetworkEventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */; };
+		A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,15 +92,16 @@
 		549B1FD42C0618D7005C9432 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		549B1FD62C061A68005C9432 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		A60478F12C19D3DB00F7DEAC /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		A611D9D02C187D6500ABF38C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A611D9D22C187D7800ABF38C /* RestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
 		A611D9D42C187D8400ABF38C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
-		A611D9D62C187DBC00ABF38C /* NetworkRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRetrier.swift; sourceTree = "<group>"; };
 		A67677E92C1730C60089A269 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		A67677F22C1738EF0089A269 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A67677F62C1740230089A269 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A67677F72C1740600089A269 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestInterceptor.swift; sourceTree = "<group>"; };
+		A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEventLogger.swift; sourceTree = "<group>"; };
+		A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,8 +213,8 @@
 				A611D9D02C187D6500ABF38C /* EndPoint.swift */,
 				A611D9D22C187D7800ABF38C /* RestRouter.swift */,
 				A611D9D42C187D8400ABF38C /* NetworkClient.swift */,
-				A60478F12C19D3DB00F7DEAC /* NetworkAdapter.swift */,
-				A611D9D62C187DBC00ABF38C /* NetworkRetrier.swift */,
+				A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */,
+				A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -329,6 +331,7 @@
 				549B1FDA2C061CE3005C9432 /* ColorExtension.swift */,
 				54073B6B2C0C474200597973 /* ImageExtension.swift */,
 				544BB7682C1699C800BD43E0 /* UIImageExtension.swift */,
+				A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -501,19 +504,20 @@
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				54073B852C0D908200597973 /* NavigationBarView.swift in Sources */,
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
-				A60478F22C19D3DB00F7DEAC /* NetworkAdapter.swift in Sources */,
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
 				543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */,
 				A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */,
+				A6F5E6CC2C1B22C00053C2E8 /* NetworkEventLogger.swift in Sources */,
 				A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */,
 				54073B8C2C0D98E500597973 /* PlaceCell.swift in Sources */,
 				543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */,
 				A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
+				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,
-				A611D9D72C187DBC00ABF38C /* NetworkRetrier.swift in Sources */,
+				A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */,
 				A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,15 +1,14 @@
 //
-//  NetworkRetrier.swift
+//  NetworkRequestInterceptor.swift
 //  Cheffi
 //
-//  Created by 이서준 on 6/6/24.
+//  Created by 이서준 on 6/13/24.
 //
 
 import Foundation
-import Combine
 import Alamofire
 
-struct NetworkRetrier: RequestRetrier {
+struct NetworkRequestInterceptor: RequestInterceptor {
     
     private var limit: Int
     private var delay: TimeInterval
@@ -17,6 +16,15 @@ struct NetworkRetrier: RequestRetrier {
     init(limit: Int, delay: TimeInterval) {
         self.limit = limit
         self.delay = delay
+    }
+    
+    func adapt(
+        _ urlRequest: URLRequest,
+        for session: Session,
+        completion: @escaping (Result<URLRequest, any Error>) -> Void
+    ) {
+        // TODO: Invaild Token Handler
+        completion(.success(urlRequest))
     }
     
     func retry(
@@ -38,5 +46,4 @@ struct NetworkRetrier: RequestRetrier {
         // TODO: 재시도 불가능 케이스 수집
         // ex) 접근 권한 없음, 토큰 만료 등
     }
-    
 }

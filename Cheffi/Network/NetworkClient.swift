@@ -8,21 +8,15 @@
 import Foundation
 import Combine
 import Alamofire
+import ComposableArchitecture
 
-protocol NetworkClientable {
-    var session: Session { get }
-    var queue: DispatchQueue { get }
-    
-    func request<Value: Codable>(_ endPoint: RestRouter) -> AnyPublisher<Value, AFError>
-}
-
-final class NetworkClient: NetworkClientable {
+struct NetworkClient {
     
     let session: Session
     let queue: DispatchQueue
     
     init(
-        session: Session = Session.default,
+        session: Session,
         queue: DispatchQueue = DispatchQueue(
             label: "network.queue",
             qos: .userInitiated,
@@ -42,5 +36,43 @@ final class NetworkClient: NetworkClientable {
             .subscribe(on: queue)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+    }
+}
+
+extension NetworkClient: DependencyKey {
+    static var liveValue: NetworkClient {
+        let configuration = URLSessionConfiguration.af.default
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+        configuration.timeoutIntervalForRequest = 30
+        configuration.timeoutIntervalForResource = 30
+        
+        let queue: DispatchQueue = DispatchQueue(
+            label: "network.queue",
+            qos: .userInitiated,
+            attributes: .concurrent
+        )
+        
+        return NetworkClient(
+            session: Session(
+                configuration: configuration,
+                interceptor: NetworkRequestInterceptor(
+                    limit: 30,
+                    delay: 3
+                ),
+                eventMonitors: [
+                    NetworkEventLogger()
+                ]
+            ),
+            queue: queue
+        )
+    }
+    
+    // TODO: testValue(mocking)
+}
+
+extension DependencyValues {
+    var networkClient: NetworkClient {
+        get { self[NetworkClient.self] }
+        set { self[NetworkClient.self] = newValue }
     }
 }

@@ -16,10 +16,13 @@ struct HomeView: View {
                 HomePopularView()
                     .padding(.top, 32)
                 
-                // TODO: 쉐피들의 이야기
+                // 쉐피들의 이야기
                 HomeCheffiStoryView()
                     .padding(.top, 48)
-                // TODO: 쉐피들의 인정 맛집
+                
+                // 쉐피들의 인정 맛집
+                HomeCheffiPlaceView()
+                    .padding(.top, 32)
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {

@@ -85,7 +85,7 @@ struct HomeCheffiPlaceView: View {
                     }
                 }
                 .frame(height: height)
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // TODO: Nested ScrollView 스크롤 버그 수정하기
             }, header: {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(spacing: 8) {
@@ -96,22 +96,30 @@ struct HomeCheffiPlaceView: View {
                     }
                     .padding(.leading, 16)
                     .padding(.bottom, 24)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0..<tags.count, id: \.self) { index in
-                                VStack {
-                                    Text(tags[index].name)
-                                        .foregroundColor(selectedTab == index ? Color.primary : Color.grey5)
-                                        .font(.suit(.bold, 15))
-                                        .frame(maxWidth: .infinity)
-                                        .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
-                                        .onTapGesture {
-                                            selectedTab = index
+                    ScrollViewReader { proxy in
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 0) {
+                                ForEach(0..<tags.count, id: \.self) { index in
+                                    VStack {
+                                        Text(tags[index].name)
+                                            .foregroundColor(selectedTab == index ? Color.primary : Color.grey5)
+                                            .font(.suit(.bold, 15))
+                                            .frame(maxWidth: .infinity)
+                                            .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
+                                            .onTapGesture {
+                                                selectedTab = index
+                                            }
+                                        Rectangle()
+                                            .frame(height: 2)
+                                            .foregroundColor(selectedTab == index ? .red : .clear)
+                                            .layoutPriority(1)
+                                    }
+                                    .id(index)
+                                    .onChange(of: selectedTab) { index in
+                                        withAnimation {
+                                            proxy.scrollTo(index, anchor: .center)
                                         }
-                                    Rectangle()
-                                        .frame(height: 2)
-                                        .foregroundColor(selectedTab == index ? .red : .clear)
-                                        .layoutPriority(1)
+                                    }
                                 }
                             }
                         }

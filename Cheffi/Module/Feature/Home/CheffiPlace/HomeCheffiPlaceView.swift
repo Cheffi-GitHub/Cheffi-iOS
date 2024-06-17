@@ -9,9 +9,7 @@ import SwiftUI
 
 struct HomeCheffiPlaceView: View {
     @State private var selectedTab: Int = 0
-    @State private var tabViewHeight: CGFloat = 150
-    @State private var tabViewHeightTemp: CGFloat = 150
-    @State private var height: CGFloat = 500
+    @State private var tabViewHeight: CGFloat = UIWindow().screen.bounds.height - 284
     
     private let columns = [
         GridItem(.flexible(), alignment: .top),
@@ -84,7 +82,7 @@ struct HomeCheffiPlaceView: View {
                         }
                     }
                 }
-                .frame(height: height)
+                .frame(height: tabViewHeight)
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // TODO: Nested ScrollView 스크롤 버그 수정하기
             }, header: {
                 VStack(alignment: .leading, spacing: 0) {
@@ -131,9 +129,6 @@ struct HomeCheffiPlaceView: View {
                         .padding(.bottom, 12)
                 }
                 .background(Color.white)
-                .onAppear {
-                    height = UIWindow().screen.bounds.height - 284
-                }
             })
         }
     }

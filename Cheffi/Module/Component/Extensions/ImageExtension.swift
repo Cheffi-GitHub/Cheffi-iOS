@@ -15,6 +15,7 @@ enum Common: String, ImageNameProtocol {
     case fillHeart = "fillHeart"
     case emptyHeart = "emptyHeart"
     case rightArrow = "rightArrow"
+    case leftArrow = "leftArrow"
     case clock = "clock"
     case info = "info"
     case lock = "lock"
@@ -35,6 +36,16 @@ enum Home: String, ImageNameProtocol {
     case alarm = "alarm"
     case previousPage = "previousPage"
     case nextPage = "nextPage"
+}
+
+enum Review: String, ImageNameProtocol {
+    case dots = "dots"
+    case normalGood = "normalGood"
+    case normalSoso = "normalSoso"
+    case normalBad = "normalBad"
+    case selectedGood = "selectedGood"
+    case selectedSoso = "selectedSoso"
+    case selectedBad = "selectedBad"
 }
 
 // TODO: 추후 삭제

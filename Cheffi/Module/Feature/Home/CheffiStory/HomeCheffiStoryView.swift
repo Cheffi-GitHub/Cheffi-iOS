@@ -91,47 +91,12 @@ struct HomeCheffiStoryView: View {
                             let endIndex = min(startIndex + itemsPerPage, dummyDatas.count)
                             let items = Array(dummyDatas[startIndex..<endIndex])
                             ForEach(items, id: \.title) { item in
-                                HStack {
-                                    Image(name: Dummy.sample)
-                                        .resizable()
-                                        .frame(width: 64, height: 64)
-                                        .clipShape(.rect(cornerRadius: 8))
-                                    Spacer().frame(width: 12)
-                                    VStack(alignment: .leading, spacing: 6) {
-                                        Text(item.title)
-                                            .foregroundStyle(Color.black)
-                                            .font(.suit(.semiBold, 16))
-                                            .lineLimit(1)
-                                        Text(item.intro)
-                                            .foregroundStyle(Color.grey5)
-                                            .font(.suit(.regular, 12))
-                                            .lineLimit(2)
-                                    }
-                                    Spacer().frame(minWidth: 32)
-                                    
-                                    Group {
-                                        if item.isFollowed {
-                                            Text("팔로우")
-                                                .padding(.vertical, 6)
-                                                .padding(.horizontal, 20)
-                                                .background(Color.black)
-                                                .foregroundStyle(Color.white)
-                                                .font(.suit(.bold, 12))
-                                                .clipShape(.rect(cornerRadius: 8))
-                                        } else {
-                                            Text("팔로잉")
-                                                .padding(.vertical, 6)
-                                                .padding(.horizontal, 20)
-                                                .foregroundStyle(Color.black)
-                                                .font(.suit(.bold, 12))
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 8)
-                                                        .strokeBorder(Color.grey2)
-                                                )
-                                        }
-                                    }
-                                }
-                                .frame(height: 64)
+                                WriterRow(
+                                    imageUrl: String(),
+                                    title: item.title,
+                                    intro: item.intro,
+                                    isFollowed: item.isFollowed
+                                )
                             }
                             .padding(.horizontal, 16)
                             if items.count != 3 {

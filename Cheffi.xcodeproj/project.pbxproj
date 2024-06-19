@@ -34,6 +34,8 @@
 		549B1FAC2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */; };
 		549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FD42C0618D7005C9432 /* FontExtension.swift */; };
 		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
+		54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */; };
+		54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */; };
 		A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D02C187D6500ABF38C /* EndPoint.swift */; };
 		A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D22C187D7800ABF38C /* RestRouter.swift */; };
 		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
@@ -97,6 +99,8 @@
 		549B1FD42C0618D7005C9432 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		549B1FD62C061A68005C9432 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceFeature.swift; sourceTree = "<group>"; };
+		54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
 		A611D9D02C187D6500ABF38C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A611D9D22C187D7800ABF38C /* RestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
 		A611D9D42C187D8400ABF38C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		54073B7B2C0C55C400597973 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				54DF6D972C1D60EB0031E95B /* CheffiPlace */,
 				54073B7C2C0C564700597973 /* HomeView.swift */,
 				54073B862C0D90B400597973 /* NavigationBar */,
 				54073B812C0D904200597973 /* Popular */,
@@ -347,6 +352,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		54DF6D972C1D60EB0031E95B /* CheffiPlace */ = {
+			isa = PBXGroup;
+			children = (
+				54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */,
+				54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */,
+			);
+			path = CheffiPlace;
+			sourceTree = "<group>";
+		};
 		A611D9D92C187F6000ABF38C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +541,7 @@
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
+				54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */,
 				54073B852C0D908200597973 /* NavigationBarView.swift in Sources */,
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
@@ -541,6 +556,7 @@
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,
+				54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */,
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,
 				A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */,
 				A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */,

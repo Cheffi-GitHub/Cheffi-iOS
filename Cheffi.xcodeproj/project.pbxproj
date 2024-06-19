@@ -53,6 +53,7 @@
 		A6F5E6DF2C23213F0053C2E8 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A6F5E6DE2C23213F0053C2E8 /* KakaoSDKAuth */; };
 		A6F5E6E12C23215B0053C2E8 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = A6F5E6E02C23215B0053C2E8 /* KakaoSDKUser */; };
 		A6F5E6E32C23215F0053C2E8 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A6F5E6E22C23215F0053C2E8 /* KakaoSDKCommon */; };
+		A6F5E6E62C2325160053C2E8 /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6E52C2325160053C2E8 /* AuthClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEventLogger.swift; sourceTree = "<group>"; };
 		A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		A6F5E6D02C2065750053C2E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A6F5E6E52C2325160053C2E8 /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
 		A6F5E6F82C280AC00053C2E8 /* RestRouter+EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestRouter+EndPoint.swift"; sourceTree = "<group>"; };
 		A6F5E6FA2C280AD00053C2E8 /* RestRouter+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestRouter+Path.swift"; sourceTree = "<group>"; };
 		A6F5E6FD2C284D350053C2E8 /* TokenStorageEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageEventMonitor.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			children = (
 				548BC05D2C086A8F00A73F66 /* Application */,
 				548BC0602C086AC500A73F66 /* Module */,
+				A6F5E6E42C2324980053C2E8 /* Auth */,
 				548BC0612C086AD500A73F66 /* Network */,
 				549B1F942C0607C9005C9432 /* Preview Content */,
 			);
@@ -404,6 +407,14 @@
 				A6F5E6D02C2065750053C2E8 /* LoginView.swift */,
 			);
 			path = LoginView;
+			sourceTree = "<group>";
+		};
+		A6F5E6E42C2324980053C2E8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A6F5E6E52C2325160053C2E8 /* AuthClient.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -577,6 +588,7 @@
 				A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */,
 				A6F5E6F92C280AC00053C2E8 /* RestRouter+EndPoint.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
+				A6F5E6E62C2325160053C2E8 /* AuthClient.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,

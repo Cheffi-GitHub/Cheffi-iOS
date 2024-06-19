@@ -19,6 +19,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>KAKAO_LOGIN_URL_SCHEME</key>
+	<string>KAKAO_LOGIN_URL_SCHEME</string>
 	<key>KAKAO_NATIVE_APP_KEY</key>
 	<string>$(KAKAO_NATIVE_APP_KEY)</string>
 	<key>NSAppTransportSecurity</key>

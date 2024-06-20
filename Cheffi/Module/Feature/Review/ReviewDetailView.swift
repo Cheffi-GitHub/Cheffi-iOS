@@ -17,28 +17,37 @@ struct ReviewDetailView: View {
     @State private var scale: CGFloat = 1
     @State private var navigationBarOpacity: CGFloat = 0
     
+    private var navigationForegroundColor: Color {
+        Color(white: Double(1 - navigationBarOpacity))
+    }
+    
+    private var navigationBackgroundColor: Color {
+        Color.black.opacity(0.5 * Double(1 - navigationBarOpacity))
+    }
+    
     var body: some View {
         ZStack(alignment: .top) {
             HStack {
                 Image(name: Common.leftArrow)
                     .resizable()
+                    .renderingMode(.template)
+                    .foregroundStyle(navigationForegroundColor)
                     .frame(width: 24, height: 24)
                     .padding(8)
-                    .background(Color.black.opacity(0.5))
+                    .background(navigationBackgroundColor)
                     .clipShape(.rect(cornerRadius: 20))
-                Spacer()
-                Text("그시절낭만의근본 경양식 돈가스")
-                    .opacity(navigationBarOpacity)
                 Spacer()
                 Image(name: Review.dots)
                     .resizable()
+                    .renderingMode(.template)
+                    .foregroundStyle(navigationForegroundColor)
                     .frame(width: 24, height: 24)
                     .padding(8)
-                    .background(Color.black.opacity(0.5))
+                    .background(navigationBackgroundColor)
                     .clipShape(.rect(cornerRadius: 20))
             }
             .padding(.horizontal, 16)
-            .padding(.bottom, 12)
+            .padding(.bottom, 10)
             .background(Color.white.opacity(navigationBarOpacity))
             .zIndex(1)
             
@@ -63,7 +72,6 @@ struct ReviewDetailView: View {
                     .frame(width: screenWidth, height: screenWidth)
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     VStack(alignment: .leading, spacing: 0) {
-                        
                         Spacer()
                         Text("취향일치 60%")
                             .font(.suit(.bold, 14))
@@ -82,7 +90,7 @@ struct ReviewDetailView: View {
                                 GeometryReader { geometry -> Color in
                                     let maxY = geometry.frame(in: .global).midY
                                     DispatchQueue.main.async {
-                                        navigationBarOpacity = max(0, -maxY / 100)
+                                        navigationBarOpacity = max(0, (-maxY + 40) / 100)
                                     }
                                     return Color.clear
                                 }
@@ -134,32 +142,34 @@ struct ReviewDetailView: View {
                             .foregroundStyle(Color.black)
                             .padding(.bottom, 8)
                         ForEach(0..<5) { _ in
-                            HStack(spacing: 16) {
+                            HStack {
                                 Text("전풍 수제 돈까스")
                                     .font(.suit(.regular, 16))
                                     .foregroundStyle(Color.grey8)
-                                Line()
-                                    .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                                    .frame(width: screenWidth / 3, height: 1)
-                                    .foregroundStyle(Color.grey2)
+                                    .frame(width: (screenWidth - 32) * 0.58, alignment: .leading)
+                                    .lineLimit(1)
+                                Spacer()
                                 Text("12,000원")
                                     .font(.suit(.medium, 16))
                                     .foregroundStyle(Color.grey7)
+                                    .frame(width: (screenWidth - 32) * 0.36, alignment: .trailing)
+                                    .lineLimit(1)
                             }
-                            .padding(.leading, 24)
                         }
                     }
                     .padding(.bottom, 32)
                     // 위치
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("메뉴")
+                        Text("위치")
                             .font(.suit(.bold, 18))
                             .foregroundStyle(Color.black)
-                            .padding(.bottom, 12)
+                            .padding(.bottom, 6)
                         HStack {
                             Text("서울 성동구 무학봉28길 7 1층")
                                 .font(.suit(.regular, 16))
                                 .foregroundStyle(Color.grey8)
+                                .frame(width: (screenWidth - 32) * 0.88, alignment: .leading)
+                                .lineLimit(1)
                             Spacer()
                             Text("복사")
                                 .underline()
@@ -167,24 +177,24 @@ struct ReviewDetailView: View {
                                 .foregroundStyle(Color.init(hex: 0x34AFF7))
                         }
                     }
-                    .padding(.bottom, 48)
+                    .padding(.bottom, 32)
+                    // 경계선
+                    Color.grey1.frame(height: 1)
+                        .padding(.bottom, 32)
                     // 작성자
                     VStack(alignment: .leading, spacing: 16) {
-                        Color.grey1.frame(height: 1)
                         Text("작성자")
                             .font(.suit(.bold, 18))
                             .foregroundStyle(Color.black)
-                            .padding(.bottom, 12)
+                            .padding(.bottom, 6)
                         WriterRow(
                             imageUrl: String(),
                             title: "김맛집",
                             intro: "더 많은 맛집을 찾으러 여정을 따나는 중인 초보 맛집러",
                             isFollowed: true
                         )
-                        .padding(.bottom, 14)
-                        Color.grey1.frame(height: 1)
                     }
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 32)
                     // 평가
                     VStack(alignment: .leading, spacing: 16) {
                         Text("이 식당 어떠셨나요?")

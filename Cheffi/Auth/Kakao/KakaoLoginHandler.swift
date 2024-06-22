@@ -19,7 +19,7 @@ struct KakaoLoginHandler {
                 UserApi.shared.loginWithKakaoTalk { (token, error) in
                     if let error = error {
                         // TODO: 카카오톡 간편 로그인을 실행할 수 없는 상태(= case 수집 필요)
-                        // ex) 사용자에 의한 취소?
+                        // ex) 권한 요청 취소, 혹은 로그인 취소(사용자에 의한 의도적 취소)
                         promise(.failure(.unknown(error)))
                     } else {
                         // TODO: print -> Common Logger

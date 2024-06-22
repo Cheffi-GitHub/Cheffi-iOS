@@ -25,6 +25,7 @@ struct KakaoTokenVerifier {
                 if let error = error {
                     if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() {
                         // 새로운 로그인을 통해 정상적인 토큰 발급이 필요한 상태
+                        // 또는 Developer QNA 조사결과 AuthFailureReason 구조체 참고하여 대응이 필요함
                         promise(.failure(.sdk(sdkError)))
                     }
                     // 카카오 SDK 이외의 기타 에러외의 토큰이 유효하지 않은 상태

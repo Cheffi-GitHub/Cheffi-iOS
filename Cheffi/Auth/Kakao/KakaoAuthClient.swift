@@ -29,10 +29,13 @@ struct KakaoAuthClient {
             .replaceError(with: nil)
             .flatMap { accessTokenInfo in
                 if let accessTokenInfo = accessTokenInfo {
-                    // FIXME: 그대로 서버에 전달/오토로그인?
-                    print(accessTokenInfo)
+                    // 토큰 저장소, 기기 고유값으로 암호화된 OAuth 토큰 가져옴, 로그인 다시 할 필요 없음
+                    return Just(TokenManager.manager.getToken())
+                        .setFailureType(to: KakaoAuthError.self)
+                        .eraseToAnyPublisher()
                 }
                 
+                // 토큰이 존재하지 않거나, 유효하지 않다면 새로운 로그인을 통해 OAuthToken을 발급
                 return loginHandler.handleKakaoLogin()
                     .eraseToAnyPublisher()
             }

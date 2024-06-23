@@ -25,12 +25,19 @@ extension RestRouter: EndPoint {
     
     var parameters: Parameters {
         let mirror = Mirror(reflecting: self)
+        var parameters: Parameters = [:]
         
-        guard let (_, value) = mirror.children.first else {
-            return [:]
+        for case let (_, rest) in mirror.children {
+            let api = Mirror(reflecting: rest)
+            
+            for case let (key, value) in api.children {
+                if let key = key, !key.isEmpty {
+                    parameters.updateValue(value, forKey: key)
+                }
+            }
         }
         
-        return value as? [String: Codable] ?? [:]
+        return parameters
     }
     
     var method: HTTPMethod {

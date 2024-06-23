@@ -46,6 +46,8 @@
 		A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */; };
 		A6F5E6F92C280AC00053C2E8 /* RestRouter+EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6F82C280AC00053C2E8 /* RestRouter+EndPoint.swift */; };
 		A6F5E6FB2C280AD00053C2E8 /* RestRouter+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6FA2C280AD00053C2E8 /* RestRouter+Path.swift */; };
+		A6F5E6FE2C284D350053C2E8 /* TokenStorageEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6FD2C284D350053C2E8 /* TokenStorageEventMonitor.swift */; };
+		A6F5E7002C284E400053C2E8 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		A6F5E6F82C280AC00053C2E8 /* RestRouter+EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestRouter+EndPoint.swift"; sourceTree = "<group>"; };
 		A6F5E6FA2C280AD00053C2E8 /* RestRouter+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestRouter+Path.swift"; sourceTree = "<group>"; };
+		A6F5E6FD2C284D350053C2E8 /* TokenStorageEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageEventMonitor.swift; sourceTree = "<group>"; };
+		A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +227,7 @@
 				A611D9D42C187D8400ABF38C /* NetworkClient.swift */,
 				A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */,
 				A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */,
+				A6F5E6FD2C284D350053C2E8 /* TokenStorageEventMonitor.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				548BC0692C086B2400A73F66 /* Dummy2.swift */,
+				A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -533,9 +539,11 @@
 				54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */,
 				54073B852C0D908200597973 /* NavigationBarView.swift in Sources */,
 				A6F5E6FB2C280AD00053C2E8 /* RestRouter+Path.swift in Sources */,
+				A6F5E6FE2C284D350053C2E8 /* TokenStorageEventMonitor.swift in Sources */,
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
 				543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */,
+				A6F5E7002C284E400053C2E8 /* KeychainManager.swift in Sources */,
 				A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */,
 				A6F5E6CC2C1B22C00053C2E8 /* NetworkEventLogger.swift in Sources */,
 				A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */,

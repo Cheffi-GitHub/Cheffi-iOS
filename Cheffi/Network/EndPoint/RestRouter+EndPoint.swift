@@ -1,18 +1,12 @@
 //
-//  RestRouter.swift
+//  RestRouter+EndPoint.swift
 //  Cheffi
 //
-//  Created by 이서준 on 6/7/24.
+//  Created by 이서준 on 6/23/24.
 //
 
 import Foundation
 import Alamofire
-
-enum RestRouter {
-    case testUpload
-    case testSessionIssue
-    case testAuth(String)
-}
 
 extension RestRouter: EndPoint {
     var baseURL: String {
@@ -21,10 +15,6 @@ extension RestRouter: EndPoint {
         } catch {
             return ""
         }
-    }
-    
-    var path: String {
-        return fetchPath()
     }
     
     var headers: HTTPHeaders {
@@ -49,20 +39,6 @@ extension RestRouter: EndPoint {
             return .post
         case .testSessionIssue, .testAuth:
             return .get
-        }
-    }
-}
- 
-extension RestRouter {
-    // TODO: 코드 길이가 길어져서 가독성에 문제가 생길 경우 파일 분리하기
-    func fetchPath() -> String {
-        switch self {
-        case .testUpload:
-            return "/test/upload"
-        case .testSessionIssue:
-            return "/test/session/issue"
-        case .testAuth:
-            return "/test/auth"
         }
     }
 }

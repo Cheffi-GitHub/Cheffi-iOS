@@ -23,7 +23,13 @@ struct NetworkRequestInterceptor: RequestInterceptor {
         for session: Session,
         completion: @escaping (Result<URLRequest, any Error>) -> Void
     ) {
-        // TODO: Invaild Token Handler
+        var urlRequest = urlRequest
+        
+        if let token: String = KeychainManager.shared.load(for: "cheffi.authorization") {
+            urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
+        }
+        
+        // TODO: Keychain에 저장된 OAuthToken은 만료되지 않았지만, Cheffi Session에서 만료된 경우
         completion(.success(urlRequest))
     }
     

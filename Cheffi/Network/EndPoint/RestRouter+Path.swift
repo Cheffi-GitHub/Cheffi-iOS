@@ -10,6 +10,10 @@ import Foundation
 extension RestRouter {
     var path: String {
         switch self {
+        case .oauthLoginKakao:
+            return "/api/v1/oauth/login/kakao"
+        case .avatarsNickname:
+            return "/api/v1/avatars/nickname/inuse"
         case .testUpload:
             return "/test/upload"
         case .testSessionIssue:

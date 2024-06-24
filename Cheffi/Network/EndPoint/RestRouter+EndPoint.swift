@@ -42,9 +42,13 @@ extension RestRouter: EndPoint {
     
     var method: HTTPMethod {
         switch self {
-        case .testUpload:
+        case .oauthLoginKakao,
+             .testUpload:
             return .post
-        case .testSessionIssue, .testAuth:
+            
+        case .avatarsNickname,
+             .testSessionIssue,
+             .testAuth:
             return .get
         }
     }

@@ -19,16 +19,39 @@ struct KakaoAuthClient {
         case unknown(Error?)
         case sdk(SdkError)
         case notFoundKakaotalk
+        case failedOAuthLoginKakao
     }
+    
+    @Dependency(\.networkClient) var networkClient
     
     private let tokenVerifier = KakaoTokenVerifier()
     private let loginHandler = KakaoLoginHandler()
     
-    func loginWithKakao() -> AnyPublisher<OAuthToken?, KakaoAuthError> {
+    /// 카카오 소셜 로그인 결과 Token(id token)으로 Cheffi API Session Token을 발급받습니다.
+    func requestOAuthLoginKakao() -> AnyPublisher<LoginKakaoResponse, KakaoAuthError> {
+        return loginWithKakao()
+            .flatMap { oauthToken in
+                return networkClient.request(
+                    .oauthLoginKakao(
+                        token: oauthToken?.idToken ?? "",
+                        platform: "IOS"
+                    )
+                )
+                .mapError { _ in
+                    // TODO: Cheffi API Error 종류에 따라 다양화해야 할 가능성 있음
+                    return KakaoAuthError.failedOAuthLoginKakao
+                }
+                .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    /// 카카오 SDK 기반으로 토큰 유효성 검사를 진행하고, 카카오 소셜 로그인을 수행합니다.
+    private func loginWithKakao() -> AnyPublisher<OAuthToken?, KakaoAuthError> {
         return tokenVerifier.verifyKakaoToken()
             .replaceError(with: nil)
             .flatMap { accessTokenInfo in
-                if let accessTokenInfo = accessTokenInfo {
+                if let _ = accessTokenInfo {
                     // 토큰 저장소, 기기 고유값으로 암호화된 OAuth 토큰 가져옴, 로그인 다시 할 필요 없음
                     return Just(TokenManager.manager.getToken())
                         .setFailureType(to: KakaoAuthError.self)

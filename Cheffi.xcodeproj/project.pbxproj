@@ -41,22 +41,24 @@
 		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
 		A611D9DB2C187F6000ABF38C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A611D9DA2C187F6000ABF38C /* Alamofire */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
+		A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */; };
+		A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */; };
+		A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AF2C29B6A800E4E3A2 /* Authority.swift */; };
 		A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */; };
 		A6F5E6CC2C1B22C00053C2E8 /* NetworkEventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */; };
 		A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */; };
-		A6F5E6F92C280AC00053C2E8 /* RestRouter+EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6F82C280AC00053C2E8 /* RestRouter+EndPoint.swift */; };
-		A6F5E6FB2C280AD00053C2E8 /* RestRouter+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6FA2C280AD00053C2E8 /* RestRouter+Path.swift */; };
-		A6F5E6FE2C284D350053C2E8 /* TokenStorageEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6FD2C284D350053C2E8 /* TokenStorageEventMonitor.swift */; };
-		A6F5E7002C284E400053C2E8 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */; };
 		A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6D02C2065750053C2E8 /* LoginView.swift */; };
 		A6F5E6DD2C23213D0053C2E8 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A6F5E6DC2C23213D0053C2E8 /* KakaoSDK */; };
 		A6F5E6DF2C23213F0053C2E8 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A6F5E6DE2C23213F0053C2E8 /* KakaoSDKAuth */; };
 		A6F5E6E12C23215B0053C2E8 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = A6F5E6E02C23215B0053C2E8 /* KakaoSDKUser */; };
 		A6F5E6E32C23215F0053C2E8 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A6F5E6E22C23215F0053C2E8 /* KakaoSDKCommon */; };
-		A6F5E6E62C2325160053C2E8 /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6E52C2325160053C2E8 /* AuthClient.swift */; };
 		A6F5E6E82C245EBD0053C2E8 /* KakaoAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6E72C245EBD0053C2E8 /* KakaoAuthClient.swift */; };
 		A6F5E6EB2C246A670053C2E8 /* KakaoTokenVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6EA2C246A670053C2E8 /* KakaoTokenVerifier.swift */; };
 		A6F5E6ED2C246A750053C2E8 /* KakaoLoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6EC2C246A750053C2E8 /* KakaoLoginHandler.swift */; };
+		A6F5E6F92C280AC00053C2E8 /* RestRouter+EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6F82C280AC00053C2E8 /* RestRouter+EndPoint.swift */; };
+		A6F5E6FB2C280AD00053C2E8 /* RestRouter+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6FA2C280AD00053C2E8 /* RestRouter+Path.swift */; };
+		A6F5E6FE2C284D350053C2E8 /* TokenStorageEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6FD2C284D350053C2E8 /* TokenStorageEventMonitor.swift */; };
+		A6F5E7002C284E400053C2E8 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,11 +118,13 @@
 		A67677F22C1738EF0089A269 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A67677F62C1740230089A269 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A67677F72C1740600089A269 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
+		A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKakaoModel.swift; sourceTree = "<group>"; };
+		A688B0AF2C29B6A800E4E3A2 /* Authority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authority.swift; sourceTree = "<group>"; };
 		A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestInterceptor.swift; sourceTree = "<group>"; };
 		A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEventLogger.swift; sourceTree = "<group>"; };
 		A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		A6F5E6D02C2065750053C2E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		A6F5E6E52C2325160053C2E8 /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
 		A6F5E6E72C245EBD0053C2E8 /* KakaoAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthClient.swift; sourceTree = "<group>"; };
 		A6F5E6EA2C246A670053C2E8 /* KakaoTokenVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTokenVerifier.swift; sourceTree = "<group>"; };
 		A6F5E6EC2C246A750053C2E8 /* KakaoLoginHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginHandler.swift; sourceTree = "<group>"; };
@@ -270,6 +274,7 @@
 		548BC06B2C086B4000A73F66 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				A688B0A92C29B67600E4E3A2 /* Models */,
 				548BC0622C086ADE00A73F66 /* View */,
 				548BC0632C086AE300A73F66 /* Util */,
 				549B1FD32C0618B7005C9432 /* Extensions */,
@@ -396,15 +401,22 @@
 			path = Environment;
 			sourceTree = "<group>";
 		};
-		A6F5E6FC2C280AF60053C2E8 /* EndPoint */ = {
+		A688B0A92C29B67600E4E3A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A611D9D02C187D6500ABF38C /* EndPoint.swift */,
-				A611D9D22C187D7800ABF38C /* RestRouter.swift */,
-				A6F5E6F82C280AC00053C2E8 /* RestRouter+EndPoint.swift */,
-				A6F5E6FA2C280AD00053C2E8 /* RestRouter+Path.swift */,
+				A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */,
+				A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */,
+				A688B0AE2C29B69600E4E3A2 /* Objects */,
 			);
-			path = EndPoint;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A688B0AE2C29B69600E4E3A2 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A688B0AF2C29B6A800E4E3A2 /* Authority.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		A6F5E6CF2C2065420053C2E8 /* LoginView */ = {
@@ -418,7 +430,6 @@
 		A6F5E6E42C2324980053C2E8 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				A6F5E6E52C2325160053C2E8 /* AuthClient.swift */,
 				A6F5E6E92C246A480053C2E8 /* Kakao */,
 			);
 			path = Auth;
@@ -432,6 +443,17 @@
 				A6F5E6EC2C246A750053C2E8 /* KakaoLoginHandler.swift */,
 			);
 			path = Kakao;
+			sourceTree = "<group>";
+		};
+		A6F5E6FC2C280AF60053C2E8 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				A611D9D02C187D6500ABF38C /* EndPoint.swift */,
+				A611D9D22C187D7800ABF38C /* RestRouter.swift */,
+				A6F5E6F82C280AC00053C2E8 /* RestRouter+EndPoint.swift */,
+				A6F5E6FA2C280AD00053C2E8 /* RestRouter+Path.swift */,
+			);
+			path = EndPoint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,8 +627,9 @@
 				543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */,
 				A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */,
 				A6F5E6F92C280AC00053C2E8 /* RestRouter+EndPoint.swift in Sources */,
+				A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
-				A6F5E6E62C2325160053C2E8 /* AuthClient.swift in Sources */,
+				A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */,
 				A6F5E6E82C245EBD0053C2E8 /* KakaoAuthClient.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,
@@ -614,6 +637,7 @@
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,
 				54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */,
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,
+				A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */,
 				A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */,
 				A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */,
 			);

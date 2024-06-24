@@ -25,6 +25,7 @@ enum AppEnvironmentError: Error {
 
 enum AppEnvironment: String {
     case baseURL = "BASE_URL"
+    case kakaoNativeAppKey = "KAKAO_NATIVE_APP_KEY"
 }
 
 extension AppEnvironment {

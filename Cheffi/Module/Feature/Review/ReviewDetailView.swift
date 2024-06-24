@@ -58,18 +58,13 @@ struct ReviewDetailView: View {
                 ZStack {
                     TabView(selection: $selection) {
                         ForEach(0..<5) { _ in
-                            GeometryReader { _ in
-                                Image(name: Dummy.sample)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: screenWidth * scale, height: screenWidth * scale)
-                                    .clipped()
-                                    .offset(x: scrollOffset <= 0 ? 0 : -scrollOffset / 2, y: scrollOffset <= 0 ? 0 : -scrollOffset)
-                            }
-                            .frame(height: screenWidth)
+                            Image(name: Dummy.sample)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: screenWidth * scale, height: screenWidth * scale)
+                                .clipped()
                         }
                     }
-                    .frame(width: screenWidth, height: screenWidth)
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     VStack(alignment: .leading, spacing: 0) {
                         Spacer()
@@ -116,7 +111,8 @@ struct ReviewDetailView: View {
                     }
                     .padding(.horizontal, 16)
                 }
-                .offset(y: scrollOffset <= 0 ? 0 : -scrollOffset)
+                .frame(width: screenWidth, height: screenWidth + (scrollOffset > 0 ? scrollOffset : 0))
+                .offset(y: (scrollOffset > 0 ? -scrollOffset : 0))
                 
                 Spacer().frame(height: 32)
                 
@@ -253,13 +249,4 @@ struct ReviewDetailView: View {
 
 #Preview {
     ReviewDetailView()
-}
-
-struct Line: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: rect.width, y: 0))
-        return path
-    }
 }

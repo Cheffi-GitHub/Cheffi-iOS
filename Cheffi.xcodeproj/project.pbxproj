@@ -611,6 +611,7 @@
 				548BC06A2C086B2400A73F66 /* Dummy2.swift in Sources */,
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
+				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
 				54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */,
 				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
 				54073B852C0D908200597973 /* NavigationBarView.swift in Sources */,

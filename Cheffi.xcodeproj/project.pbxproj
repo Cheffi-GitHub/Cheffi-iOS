@@ -63,6 +63,7 @@
 		A61FC3CF2C3D68E200C732C6 /* DataRequest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */; };
 		A61FC3D22C3D849700C732C6 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = A61FC3D12C3D849700C732C6 /* AnyCodable */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
+		A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */; };
 		A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */; };
 		A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */; };
 		A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AF2C29B6A800E4E3A2 /* Authority.swift */; };
@@ -161,6 +162,7 @@
 		A67677F22C1738EF0089A269 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A67677F62C1740230089A269 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A67677F72C1740600089A269 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKakaoModel.swift; sourceTree = "<group>"; };
 		A688B0AF2C29B6A800E4E3A2 /* Authority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authority.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			children = (
 				549B1FD62C061A68005C9432 /* Info.plist */,
 				549B1F922C0607C9005C9432 /* Assets.xcassets */,
+				A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */,
 				A67677F82C1740790089A269 /* Environment */,
 				549B1FC72C0617C6005C9432 /* Fonts */,
 			);
@@ -677,6 +680,7 @@
 			files = (
 				54588AD72C074CF9000DD5A9 /* SUIT-Bold.otf in Resources */,
 				54588AD82C074CF9000DD5A9 /* SUIT-Medium.otf in Resources */,
+				A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */,
 				549B1F962C0607C9005C9432 /* Preview Assets.xcassets in Resources */,
 				54588AD92C074CF9000DD5A9 /* SUIT-Regular.otf in Resources */,
 				54588ADB2C074CF9000DD5A9 /* SUIT-SemiBold.otf in Resources */,
@@ -935,6 +939,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -972,6 +977,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

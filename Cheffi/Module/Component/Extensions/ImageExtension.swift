@@ -37,6 +37,10 @@ enum Home: String, ImageNameProtocol {
     case nextPage = "nextPage"
 }
 
+enum Login: String, ImageNameProtocol {
+    case loginKakao = "loginKakao"
+}
+
 // TODO: 추후 삭제
 enum Dummy: String, ImageNameProtocol {
     case sample = "sample"

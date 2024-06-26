@@ -6,12 +6,31 @@
 //
 
 import SwiftUI
+import KakaoSDKAuth
+import KakaoSDKCommon
 
 @main
 struct CheffiApp: App {
+    
+    init() {
+        try? configureKakaoSDK()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onOpenURL { url in
+                    if AuthApi.isKakaoTalkLoginUrl(url) {
+                        _ = AuthController.handleOpenUrl(url: url)
+                    }
+                }
         }
+    }
+}
+
+extension CheffiApp {
+    private func configureKakaoSDK() throws {
+        let appKey: String = try AppEnvironment.kakaoNativeAppKey.getValue()
+        KakaoSDK.initSDK(appKey: appKey)
     }
 }

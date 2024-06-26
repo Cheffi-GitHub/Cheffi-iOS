@@ -60,7 +60,8 @@ extension NetworkClient: DependencyKey {
                     delay: 3
                 ),
                 eventMonitors: [
-                    NetworkEventLogger()
+                    NetworkEventLogger(),
+                    TokenStorageEventMonitor()
                 ]
             ),
             queue: queue

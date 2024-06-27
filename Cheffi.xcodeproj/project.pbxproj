@@ -64,6 +64,7 @@
 		A61FC3D22C3D849700C732C6 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = A61FC3D12C3D849700C732C6 /* AnyCodable */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 		A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */; };
+		A678A4882C2C632F00A3D16B /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */; };
 		A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */; };
 		A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */; };
 		A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AF2C29B6A800E4E3A2 /* Authority.swift */; };
@@ -163,6 +164,7 @@
 		A67677F62C1740230089A269 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A67677F72C1740600089A269 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKakaoModel.swift; sourceTree = "<group>"; };
 		A688B0AF2C29B6A800E4E3A2 /* Authority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authority.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			children = (
 				544BB7662C168F8400BD43E0 /* MainTabView.swift */,
 				54073B7B2C0C55C400597973 /* Home */,
+				A678A4862C2C626E00A3D16B /* LaunchScreen */,
 				A6F5E6CF2C2065420053C2E8 /* LoginView */,
 				549B1F902C0607C7005C9432 /* ContentView.swift */,
 				548FC68A2C2177C1003866A9 /* Review */,
@@ -490,6 +493,14 @@
 				A67677F62C1740230089A269 /* Secrets.xcconfig */,
 			);
 			path = Environment;
+			sourceTree = "<group>";
+		};
+		A678A4862C2C626E00A3D16B /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		A688B0A92C29B67600E4E3A2 /* Models */ = {
@@ -757,6 +768,7 @@
 				A6F5E6E82C245EBD0053C2E8 /* KakaoAuthClient.swift in Sources */,
 				5488EDD22C3E534700252A92 /* ViewExtension.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
+				A678A4882C2C632F00A3D16B /* LaunchScreenView.swift in Sources */,
 				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,
 				A6F5E6EB2C246A670053C2E8 /* KakaoTokenVerifier.swift in Sources */,
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,

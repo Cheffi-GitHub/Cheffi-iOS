@@ -18,7 +18,7 @@ struct CheffiApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchScreenView()
                 .onOpenURL { url in
                     if AuthApi.isKakaoTalkLoginUrl(url) {
                         _ = AuthController.handleOpenUrl(url: url)

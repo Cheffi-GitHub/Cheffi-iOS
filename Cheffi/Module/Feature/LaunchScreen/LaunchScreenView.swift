@@ -6,20 +6,36 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct LaunchScreenView: View {
+    
+    @Perception.Bindable var store: StoreOf<LaunchScreenFeature>
+    
     var body: some View {
-        ZStack {
-            Color.cheffiPrimary
-                .ignoresSafeArea()
-            
-            Image("launchScreenLogo")
-                .resizable()
-                .frame(width: 120, height: 36)
+        WithPerceptionTracking {
+            ZStack {
+                Color.cheffiPrimary
+                    .ignoresSafeArea()
+                
+                Image("launchScreenLogo")
+                    .resizable()
+                    .frame(width: 120, height: 36)
+            }
+            .onAppear {
+                store.send(.onAppear)
+            }
+            .alert(
+                $store.scope(state: \.destination?.alert, action: \.destination.alert)
+            )
         }
     }
 }
 
 #Preview {
-    LaunchScreenView()
+    LaunchScreenView(
+        store: Store(initialState: LaunchScreenFeature.State()) {
+            LaunchScreenFeature()
+        }
+    )
 }

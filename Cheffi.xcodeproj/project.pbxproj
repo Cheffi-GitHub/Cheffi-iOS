@@ -15,6 +15,8 @@
 		54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54073B872C0D913800597973 /* NavigationBarFeature.swift */; };
 		54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54073B892C0D932D00597973 /* HomePopularView.swift */; };
 		54073B8C2C0D98E500597973 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54073B8B2C0D98E400597973 /* PlaceCell.swift */; };
+		540BE9B02C22C607009180AE /* ReviewDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540BE9AF2C22C607009180AE /* ReviewDetailFeature.swift */; };
+		540BE9B42C231036009180AE /* WriterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540BE9B32C231036009180AE /* WriterRow.swift */; };
 		543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */; };
 		543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */; };
 		544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BB7662C168F8400BD43E0 /* MainTabView.swift */; };
@@ -24,7 +26,7 @@
 		54588AD92C074CF9000DD5A9 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */; };
 		54588ADA2C074CF9000DD5A9 /* SUIT-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD52C074CF9000DD5A9 /* SUIT-ExtraBold.otf */; };
 		54588ADB2C074CF9000DD5A9 /* SUIT-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD62C074CF9000DD5A9 /* SUIT-SemiBold.otf */; };
-		548BC06A2C086B2400A73F66 /* Dummy2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BC0692C086B2400A73F66 /* Dummy2.swift */; };
+		548FC68C2C2177E8003866A9 /* ReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FC68B2C2177E8003866A9 /* ReviewDetailView.swift */; };
 		549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1F8E2C0607C7005C9432 /* CheffiApp.swift */; };
 		549B1F912C0607C7005C9432 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1F902C0607C7005C9432 /* ContentView.swift */; };
 		549B1F932C0607C9005C9432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 549B1F922C0607C9005C9432 /* Assets.xcassets */; };
@@ -36,6 +38,7 @@
 		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
 		54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */; };
 		54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */; };
+		54F217A92C2BC42A00892DBD /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */; };
 		A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D02C187D6500ABF38C /* EndPoint.swift */; };
 		A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D22C187D7800ABF38C /* RestRouter.swift */; };
 		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
@@ -86,6 +89,9 @@
 		54073B872C0D913800597973 /* NavigationBarFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarFeature.swift; sourceTree = "<group>"; };
 		54073B892C0D932D00597973 /* HomePopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularView.swift; sourceTree = "<group>"; };
 		54073B8B2C0D98E400597973 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		540BE9AF2C22C607009180AE /* ReviewDetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailFeature.swift; sourceTree = "<group>"; };
+		540BE9B12C22C853009180AE /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
+		540BE9B32C231036009180AE /* WriterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterRow.swift; sourceTree = "<group>"; };
 		543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryView.swift; sourceTree = "<group>"; };
 		543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryFeature.swift; sourceTree = "<group>"; };
 		544BB7662C168F8400BD43E0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -95,7 +101,7 @@
 		54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.otf"; sourceTree = "<group>"; };
 		54588AD52C074CF9000DD5A9 /* SUIT-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-ExtraBold.otf"; sourceTree = "<group>"; };
 		54588AD62C074CF9000DD5A9 /* SUIT-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-SemiBold.otf"; sourceTree = "<group>"; };
-		548BC0692C086B2400A73F66 /* Dummy2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy2.swift; sourceTree = "<group>"; };
+		548FC68B2C2177E8003866A9 /* ReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailView.swift; sourceTree = "<group>"; };
 		549B1F8B2C0607C7005C9432 /* Cheffi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheffi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549B1F8E2C0607C7005C9432 /* CheffiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheffiApp.swift; sourceTree = "<group>"; };
 		549B1F902C0607C7005C9432 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceFeature.swift; sourceTree = "<group>"; };
 		54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
+		54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		A611D9D02C187D6500ABF38C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A611D9D22C187D7800ABF38C /* RestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
 		A611D9D42C187D8400ABF38C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -258,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				54073B8B2C0D98E400597973 /* PlaceCell.swift */,
+				540BE9B32C231036009180AE /* WriterRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,7 +273,7 @@
 		548BC0632C086AE300A73F66 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				548BC0692C086B2400A73F66 /* Dummy2.swift */,
+				54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */,
 				A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */,
 			);
 			path = Util;
@@ -289,8 +297,18 @@
 				54073B7B2C0C55C400597973 /* Home */,
 				A6F5E6CF2C2065420053C2E8 /* LoginView */,
 				549B1F902C0607C7005C9432 /* ContentView.swift */,
+				548FC68A2C2177C1003866A9 /* Review */,
 			);
 			path = Feature;
+			sourceTree = "<group>";
+		};
+		548FC68A2C2177C1003866A9 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				548FC68B2C2177E8003866A9 /* ReviewDetailView.swift */,
+				540BE9AF2C22C607009180AE /* ReviewDetailFeature.swift */,
+			);
+			path = Review;
 			sourceTree = "<group>";
 		};
 		549B1F822C0607C7005C9432 = {
@@ -301,6 +319,7 @@
 				549B1FA82C0607C9005C9432 /* CheffiUITests */,
 				549B1F8C2C0607C7005C9432 /* Products */,
 				A611D9D92C187F6000ABF38C /* Frameworks */,
+				54F217A72C2BC40900892DBD /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -382,6 +401,14 @@
 				54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */,
 			);
 			path = CheffiPlace;
+			sourceTree = "<group>";
+		};
+		54F217A72C2BC40900892DBD /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				540BE9B12C22C853009180AE /* ScrollViewOffset.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		A611D9D92C187F6000ABF38C /* Frameworks */ = {
@@ -606,9 +633,9 @@
 			files = (
 				A6F5E6ED2C246A750053C2E8 /* KakaoLoginHandler.swift in Sources */,
 				54073B7D2C0C564700597973 /* HomeView.swift in Sources */,
+				548FC68C2C2177E8003866A9 /* ReviewDetailView.swift in Sources */,
 				549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */,
 				544BB7692C1699C800BD43E0 /* UIImageExtension.swift in Sources */,
-				548BC06A2C086B2400A73F66 /* Dummy2.swift in Sources */,
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
@@ -618,12 +645,14 @@
 				A6F5E6FB2C280AD00053C2E8 /* RestRouter+Path.swift in Sources */,
 				A6F5E6FE2C284D350053C2E8 /* TokenStorageEventMonitor.swift in Sources */,
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
+				540BE9B42C231036009180AE /* WriterRow.swift in Sources */,
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
 				543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */,
 				A6F5E7002C284E400053C2E8 /* KeychainManager.swift in Sources */,
 				A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */,
 				A6F5E6CC2C1B22C00053C2E8 /* NetworkEventLogger.swift in Sources */,
 				A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */,
+				54F217A92C2BC42A00892DBD /* ScrollViewOffset.swift in Sources */,
 				54073B8C2C0D98E500597973 /* PlaceCell.swift in Sources */,
 				543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */,
 				A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */,
@@ -641,6 +670,7 @@
 				A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */,
 				A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */,
 				A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */,
+				540BE9B02C22C607009180AE /* ReviewDetailFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

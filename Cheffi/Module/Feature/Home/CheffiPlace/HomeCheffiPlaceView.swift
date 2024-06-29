@@ -23,27 +23,6 @@ struct HomeCheffiPlaceView: View {
         GridItem(.flexible(), alignment: .top)
     ]
     
-    @State private var tagDatas: [(Int, [Int])] = [
-        (1, [1]),
-        (2, [1,2]),
-        (3, [1,2,3]),
-        (4, [1,2,3,4]),
-        (5, [1,2,3,4,5]),
-        (6, [1,2,3,4,5,6]),
-        (7, [1,2,3,4,5,6,7]),
-        (8, [1,2,3,4,5,6,7,8]),
-        (9, [1,2,3,4,5,6,7,8,9]),
-        (10, [1,2,3,4,5,6,7,8,9,10])
-        //        (1, [1,2,3]),
-        //        (1, [1,2,3]),
-        //        (1, [1,2,3]),
-        //        (1, [1,2,3]),
-        //        (1, [1,2,3]),
-        //        (1, [1,2,3]),
-        //        (1, [1,2,3]),
-        //        (1, [1,2,3]),
-        
-    ]
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
@@ -51,11 +30,12 @@ struct HomeCheffiPlaceView: View {
                     VStack(spacing: 0) {
                         TabView(selection: $selectedTab) {
                             ForEach(0..<viewStore.state.tags.count, id: \.self) { index in
-                                if let data = tagDatas.first(where: { $0.0 == viewStore.state.tags[index].id }) {
+                                let tagId = viewStore.state.tags[index].id
+                                if let reviews = viewStore.state.cheffiPlaceReviews[tagId], !reviews.isEmpty {
                                     ScrollView(showsIndicators: false) {
                                         LazyVGrid(columns: columns, spacing: 24) {
-                                            ForEach(data.1, id: \.self) { item in
-                                                PlaceCell(type: .small)
+                                            ForEach(reviews, id: \.id) { review in
+                                                PlaceCell(review: review, type: .small)
                                             }
                                         }
                                         .padding(.horizontal, 16)
@@ -103,6 +83,7 @@ struct HomeCheffiPlaceView: View {
                                             withAnimation {
                                                 proxy.scrollTo(index, anchor: .center)
                                             }
+                                            viewStore.send(.requestCheffiPlace(tagId: (viewStore.state.tags[index].id)))
                                         }
                                     }
                                 }
@@ -119,6 +100,7 @@ struct HomeCheffiPlaceView: View {
             }
             .onAppear {
                 viewStore.send(.requestTags)
+                viewStore.send(.requestCheffiPlace(tagId: 1))
             }
         }
     }

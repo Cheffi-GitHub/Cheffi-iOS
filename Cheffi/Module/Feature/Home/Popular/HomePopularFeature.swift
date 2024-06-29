@@ -18,12 +18,12 @@ struct HomePopularFeature: Reducer {
             let count = popularReviews.count
             return count > 3 ? min(4, ((count - 4) / 4) + 2) : 1
         }
-        var popularReviews: [PopularReviewModel] = []
+        var popularReviews: [ReviewModel] = []
     }
     
     enum Action {
         case requestPopularReviews
-        case popularReviewsResponse(Result<PopularReviewResponse, Error>)
+        case popularReviewsResponse(Result<ReviewResponse, Error>)
         case toolTipTapped
         case viewAllTapped
     }

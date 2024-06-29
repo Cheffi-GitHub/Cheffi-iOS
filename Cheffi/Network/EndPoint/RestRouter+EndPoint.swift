@@ -48,6 +48,7 @@ extension RestRouter: EndPoint {
             
         case .avatarsNickname,
              .popularReviews,
+             .cheffiPlace,
              .tags,
              .testSessionIssue,
              .testAuth:

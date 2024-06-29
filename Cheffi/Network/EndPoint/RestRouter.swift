@@ -17,6 +17,7 @@ enum RestRouter {
     
     // - MARK: 홈
     case popularReviews(province: String, city: String, cursor: Int, size: Int)
+    case cheffiPlace(province: String, city: String, cursor: Int, size: Int, tag_id: Int)
     
     // - MARK: 태그
     case tags(type: String)

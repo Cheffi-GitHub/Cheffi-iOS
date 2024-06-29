@@ -12,7 +12,8 @@ import ComposableArchitecture
 
 @DependencyClient
 struct HomeClient {
-    var popularReviews: @Sendable (_ province: String, _ city: String, _ cursor: Int, _ size: Int) async throws -> PopularReviewResponse
+    var popularReviews: @Sendable (_ province: String, _ city: String, _ cursor: Int, _ size: Int) async throws -> ReviewResponse
+    var cheffiPlaceReviews: @Sendable (_ province: String, _ city: String, _ cursor: Int, _ size: Int, _ tag_id: Int) async throws -> ReviewResponse
     var tags: @Sendable (_ type: String) async throws -> TagsResponse
 }
 
@@ -29,8 +30,27 @@ extension HomeClient: DependencyKey {
 
         return HomeClient(
             popularReviews: { province, city, cursor, size in
-                let publisher: AnyPublisher<PopularReviewResponse, AFError> = networkClient
+                let publisher: AnyPublisher<ReviewResponse, AFError> = networkClient
                     .request(.popularReviews(province: province, city: city, cursor: cursor, size: size))
+                    .eraseToAnyPublisher()
+                
+                return try await withCheckedThrowingContinuation { continuation in
+                    var cancellable: AnyCancellable?
+                    cancellable = publisher.sink(
+                        receiveCompletion: { completion in
+                            if case let .failure(error) = completion {
+                                continuation.resume(throwing: error)
+                            }
+                            cancellable?.cancel()
+                        },
+                        receiveValue: { response in
+                            continuation.resume(returning: response)
+                        }
+                    )
+                }
+            }, cheffiPlaceReviews: { province, city, cursor, size, tagId in
+                let publisher: AnyPublisher<ReviewResponse, AFError> = networkClient
+                    .request(.cheffiPlace(province: province, city: city, cursor: cursor, size: size, tag_id: tagId))
                     .eraseToAnyPublisher()
                 
                 return try await withCheckedThrowingContinuation { continuation in

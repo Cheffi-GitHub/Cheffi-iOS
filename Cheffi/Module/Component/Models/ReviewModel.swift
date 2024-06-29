@@ -1,5 +1,5 @@
 //
-//  PopularReviewModel.swift
+//  ReviewModel.swift
 //  Cheffi
 //
 //  Created by 정건호 on 6/27/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-typealias PopularReviewResponse = RestResponse<[PopularReviewModel]>
+typealias ReviewResponse = RestResponse<[ReviewModel]>
 
-struct PopularReviewModel: Codable, Equatable {
+struct ReviewModel: Codable, Equatable {
     let id: Int
     let title: String
     let text: String
@@ -25,7 +25,7 @@ struct PopularReviewModel: Codable, Equatable {
     let active: Bool
 }
 
-extension PopularReviewModel {
+extension ReviewModel {
     enum CodingKeys: String, CodingKey {
         case id
         case title
@@ -43,9 +43,9 @@ extension PopularReviewModel {
     }
 }
 
-extension PopularReviewModel {
-    static var dummyData: PopularReviewModel {
-        return PopularReviewModel(
+extension ReviewModel {
+    static var dummyData: ReviewModel {
+        return ReviewModel(
             id: 1,
             title: "Amazing Restaurant",
             text: "The food was absolutely amazing and the service was excellent.",

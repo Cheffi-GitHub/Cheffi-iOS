@@ -9,11 +9,11 @@ import SwiftUI
 import Kingfisher
 
 struct PlaceCell: View {
-    let review: PopularReviewModel
+    let review: ReviewModel
     let type: PlaceType
     let screenWidth = UIWindow().screen.bounds.width
     
-    init(review: PopularReviewModel = .dummyData, type: PlaceType) {
+    init(review: ReviewModel = .dummyData, type: PlaceType) {
         self.review = review
         self.type = type
     }

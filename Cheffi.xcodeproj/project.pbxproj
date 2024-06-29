@@ -40,7 +40,7 @@
 		54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */; };
 		54E285FA2C2FE28700AD7939 /* TagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E285F92C2FE28700AD7939 /* TagsModel.swift */; };
 		54F217A92C2BC42A00892DBD /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */; };
-		54F217AB2C2D2F1B00892DBD /* PopularReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AA2C2D2F1B00892DBD /* PopularReviewModel.swift */; };
+		54F217AB2C2D2F1B00892DBD /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */; };
 		54F217AD2C2D2FDB00892DBD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AC2C2D2FDB00892DBD /* Photo.swift */; };
 		54F217AF2C2D30AD00892DBD /* HomeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AE2C2D30AD00892DBD /* HomeClient.swift */; };
 		54F217B22C2D685400892DBD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F217B12C2D685400892DBD /* Kingfisher */; };
@@ -124,7 +124,7 @@
 		54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
 		54E285F92C2FE28700AD7939 /* TagsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModel.swift; sourceTree = "<group>"; };
 		54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
-		54F217AA2C2D2F1B00892DBD /* PopularReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularReviewModel.swift; sourceTree = "<group>"; };
+		54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		54F217AC2C2D2FDB00892DBD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		54F217AE2C2D30AD00892DBD /* HomeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClient.swift; sourceTree = "<group>"; };
 		A611D9D02C187D6500ABF38C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -185,8 +185,9 @@
 		54073B7B2C0C55C400597973 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				54DF6D972C1D60EB0031E95B /* CheffiPlace */,
 				54073B7C2C0C564700597973 /* HomeView.swift */,
+				54F217AE2C2D30AD00892DBD /* HomeClient.swift */,
+				54DF6D972C1D60EB0031E95B /* CheffiPlace */,
 				54073B862C0D90B400597973 /* NavigationBar */,
 				54073B812C0D904200597973 /* Popular */,
 				543F0AE22C10261B00DFBDB1 /* CheffiStory */,
@@ -199,7 +200,6 @@
 			children = (
 				54073B892C0D932D00597973 /* HomePopularView.swift */,
 				54073B822C0D906300597973 /* HomePopularFeature.swift */,
-				54F217AE2C2D30AD00892DBD /* HomeClient.swift */,
 			);
 			path = Popular;
 			sourceTree = "<group>";
@@ -444,7 +444,7 @@
 			children = (
 				A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */,
 				A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */,
-				54F217AA2C2D2F1B00892DBD /* PopularReviewModel.swift */,
+				54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */,
 				54E285F92C2FE28700AD7939 /* TagsModel.swift */,
 				A688B0AE2C29B69600E4E3A2 /* Objects */,
 			);
@@ -679,7 +679,7 @@
 				A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
 				A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */,
-				54F217AB2C2D2F1B00892DBD /* PopularReviewModel.swift in Sources */,
+				54F217AB2C2D2F1B00892DBD /* ReviewModel.swift in Sources */,
 				A6F5E6E82C245EBD0053C2E8 /* KakaoAuthClient.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,

@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PlaceCell: View {
+    let review: PopularReviewModel
     let type: PlaceType
     let screenWidth = UIWindow().screen.bounds.width
+    
+    init(review: PopularReviewModel = .dummyData, type: PlaceType) {
+        self.review = review
+        self.type = type
+    }
     
     var body: some View {
         let smallSize = (screenWidth - 45) / 2
@@ -19,21 +26,28 @@ struct PlaceCell: View {
         
         VStack(spacing: 0) {
             ZStack(alignment: .topTrailing) {
-                Image(name: Dummy.sample)
-                    .resizable()
-                    .frame(
-                        width: type == .small
-                        ? smallSize
-                        : type == .medium
-                        ? mediumWidth
-                        : largeSize,
-                        height: type == .small
-                        ? smallSize
-                        : type == .medium
-                        ? mediumHeight
-                        : largeSize
-                    )
-                    .clipShape(.rect(cornerRadius: 8))
+                Group {
+                    if let url = URL(string: review.photo.photoUrl) {
+                        KFImage(url)
+                            .resizable()
+                    } else {
+                        // TODO: 이미지 불러오지 못했을 때 UI 요청
+                        Color.grey3
+                    }
+                }
+                .frame(
+                    width: type == .small
+                    ? smallSize
+                    : type == .medium
+                    ? mediumWidth
+                    : largeSize,
+                    height: type == .small
+                    ? smallSize
+                    : type == .medium
+                    ? mediumHeight
+                    : largeSize
+                )
+                .clipShape(.rect(cornerRadius: 8))
                 
                 HStack(spacing: 8) {
                     Image(name: Common.lock)
@@ -51,7 +65,7 @@ struct PlaceCell: View {
             Spacer().frame(height: 12)
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {
-                    Text("그시절낭만의 근본 경양식 돈가스")
+                    Text(review.title)
                         .foregroundStyle(Color.black)
                         .font(.suit(.bold, 18))
                         .lineLimit(type == .small ? 2 : 1)
@@ -59,7 +73,7 @@ struct PlaceCell: View {
                     Image(name: Common.emptyHeart)
                 }
                 Spacer().frame(height: 8)
-                Text("짬뽕 외길의 근본이 느껴지는 중식당짬뽕이 맛있는 집이 있습니다.")
+                Text(review.text)
                     .foregroundStyle(Color.grey6)
                     .font(.suit(.regular, 15))
                     .lineLimit(type == .medium ? 1 : 2)

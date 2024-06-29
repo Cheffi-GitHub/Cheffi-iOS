@@ -36,6 +36,7 @@ enum Home: String, ImageNameProtocol {
     case alarm = "alarm"
     case previousPage = "previousPage"
     case nextPage = "nextPage"
+    case homeEmpty = "homeEmpty"
 }
 
 enum Review: String, ImageNameProtocol {

@@ -47,6 +47,7 @@ extension RestRouter: EndPoint {
             return .post
             
         case .avatarsNickname,
+             .popularReviews,
              .testSessionIssue,
              .testAuth:
             return .get

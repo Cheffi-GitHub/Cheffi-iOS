@@ -15,6 +15,9 @@ enum RestRouter {
     // - MARK: 회원가입
     case avatarsNickname(nickName: String)
     
+    // - MARK: 홈
+    case popularReviews(province: String, city: String, cursor: Int, size: Int)
+    
     // - MARK: Test
     // 이미지 업로드 테스트 API
     case testUpload

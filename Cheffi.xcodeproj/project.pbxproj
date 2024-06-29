@@ -39,6 +39,10 @@
 		54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */; };
 		54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */; };
 		54F217A92C2BC42A00892DBD /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */; };
+		54F217AB2C2D2F1B00892DBD /* PopularReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AA2C2D2F1B00892DBD /* PopularReviewModel.swift */; };
+		54F217AD2C2D2FDB00892DBD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AC2C2D2FDB00892DBD /* Photo.swift */; };
+		54F217AF2C2D30AD00892DBD /* HomeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AE2C2D30AD00892DBD /* HomeClient.swift */; };
+		54F217B22C2D685400892DBD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F217B12C2D685400892DBD /* Kingfisher */; };
 		A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D02C187D6500ABF38C /* EndPoint.swift */; };
 		A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D22C187D7800ABF38C /* RestRouter.swift */; };
 		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
@@ -118,6 +122,9 @@
 		54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceFeature.swift; sourceTree = "<group>"; };
 		54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
 		54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
+		54F217AA2C2D2F1B00892DBD /* PopularReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularReviewModel.swift; sourceTree = "<group>"; };
+		54F217AC2C2D2FDB00892DBD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		54F217AE2C2D30AD00892DBD /* HomeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClient.swift; sourceTree = "<group>"; };
 		A611D9D02C187D6500ABF38C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A611D9D22C187D7800ABF38C /* RestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
 		A611D9D42C187D8400ABF38C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -148,6 +155,7 @@
 			files = (
 				54073B802C0CBC6500597973 /* ComposableArchitecture in Frameworks */,
 				A611D9DB2C187F6000ABF38C /* Alamofire in Frameworks */,
+				54F217B22C2D685400892DBD /* Kingfisher in Frameworks */,
 				A6F5E6DD2C23213D0053C2E8 /* KakaoSDK in Frameworks */,
 				A6F5E6E12C23215B0053C2E8 /* KakaoSDKUser in Frameworks */,
 				A6F5E6E32C23215F0053C2E8 /* KakaoSDKCommon in Frameworks */,
@@ -189,6 +197,7 @@
 			children = (
 				54073B892C0D932D00597973 /* HomePopularView.swift */,
 				54073B822C0D906300597973 /* HomePopularFeature.swift */,
+				54F217AE2C2D30AD00892DBD /* HomeClient.swift */,
 			);
 			path = Popular;
 			sourceTree = "<group>";
@@ -433,6 +442,7 @@
 			children = (
 				A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */,
 				A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */,
+				54F217AA2C2D2F1B00892DBD /* PopularReviewModel.swift */,
 				A688B0AE2C29B69600E4E3A2 /* Objects */,
 			);
 			path = Models;
@@ -442,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				A688B0AF2C29B6A800E4E3A2 /* Authority.swift */,
+				54F217AC2C2D2FDB00892DBD /* Photo.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -506,6 +517,7 @@
 				A6F5E6DE2C23213F0053C2E8 /* KakaoSDKAuth */,
 				A6F5E6E02C23215B0053C2E8 /* KakaoSDKUser */,
 				A6F5E6E22C23215F0053C2E8 /* KakaoSDKCommon */,
+				54F217B12C2D685400892DBD /* Kingfisher */,
 			);
 			productName = Cheffi;
 			productReference = 549B1F8B2C0607C7005C9432 /* Cheffi.app */;
@@ -583,6 +595,7 @@
 				54073B7E2C0CBC6500597973 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				A611D9D82C187F5600ABF38C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A6F5E6DB2C2321360053C2E8 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				54F217B02C2D685400892DBD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 549B1F8C2C0607C7005C9432 /* Products */;
 			projectDirPath = "";
@@ -631,6 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F217AD2C2D2FDB00892DBD /* Photo.swift in Sources */,
 				A6F5E6ED2C246A750053C2E8 /* KakaoLoginHandler.swift in Sources */,
 				54073B7D2C0C564700597973 /* HomeView.swift in Sources */,
 				548FC68C2C2177E8003866A9 /* ReviewDetailView.swift in Sources */,
@@ -639,6 +653,7 @@
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
+				54F217AF2C2D30AD00892DBD /* HomeClient.swift in Sources */,
 				54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */,
 				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
 				54073B852C0D908200597973 /* NavigationBarView.swift in Sources */,
@@ -660,6 +675,7 @@
 				A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
 				A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */,
+				54F217AB2C2D2F1B00892DBD /* PopularReviewModel.swift in Sources */,
 				A6F5E6E82C245EBD0053C2E8 /* KakaoAuthClient.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,
@@ -1028,6 +1044,14 @@
 				version = 1.10.0;
 			};
 		};
+		54F217B02C2D685400892DBD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 		A611D9D82C187F5600ABF38C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1051,6 +1075,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 54073B7E2C0CBC6500597973 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		54F217B12C2D685400892DBD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54F217B02C2D685400892DBD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		A611D9DA2C187F6000ABF38C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

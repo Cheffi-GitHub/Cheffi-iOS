@@ -16,6 +16,8 @@ extension RestRouter {
             return "/api/v1/avatars/nickname/inuse"
         case .popularReviews:
             return "/api/v1/reviews/areas"
+        case .tags:
+            return "/api/v1/tags"
         case .testUpload:
             return "/test/upload"
         case .testSessionIssue:

@@ -18,6 +18,9 @@ enum RestRouter {
     // - MARK: 홈
     case popularReviews(province: String, city: String, cursor: Int, size: Int)
     
+    // - MARK: 태그
+    case tags(type: String)
+    
     // - MARK: Test
     // 이미지 업로드 테스트 API
     case testUpload

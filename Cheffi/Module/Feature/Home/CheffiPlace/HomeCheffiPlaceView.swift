@@ -42,8 +42,22 @@ struct HomeCheffiPlaceView: View {
                                         .tag(index)
                                     }
                                 } else {
-                                    Text("Empty View")
-                                        .tag(index)
+                                    VStack(alignment: .center, spacing: 0) {
+                                        Image(name: Home.homeEmpty)
+                                            .padding(.bottom, 12)
+                                        Text("아직 주변의 \(viewStore.state.tags[index].name) 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
+                                            .font(.suit(.medium, 14))
+                                            .foregroundStyle(Color.grey6)
+                                            .padding(.bottom, 18)
+                                            .multilineTextAlignment(.center)
+                                        Text("맛집 직접 등록하기")
+                                            .font(.suit(.semiBold, 15))
+                                            .foregroundStyle(Color.primary)
+                                            .padding(.horizontal, 14)
+                                            .padding(.vertical, 9)
+                                            .background(Color.background)
+                                            .clipShape(.rect(cornerRadius: 10))
+                                    }
                                 }
                             }
                         }

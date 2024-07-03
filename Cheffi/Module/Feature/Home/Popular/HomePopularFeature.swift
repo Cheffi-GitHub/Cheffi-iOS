@@ -10,8 +10,8 @@ import Alamofire
 import Combine
 import ComposableArchitecture
 
-struct HomePopularFeature: Reducer {
-    @Dependency(\.homeClient) var homeClient
+struct HomePopularFeature: Reducer {    
+    @Dependency(\.networkClient) var networkClient
     
     struct State: Equatable {
         var totalPage: Int {
@@ -23,7 +23,7 @@ struct HomePopularFeature: Reducer {
     
     enum Action {
         case requestPopularReviews
-        case popularReviewsResponse(Result<ReviewResponse, Error>)
+        case popularReviewsResponse(Result<ReviewResponse, AFError>)
         case toolTipTapped
         case viewAllTapped
     }
@@ -32,25 +32,26 @@ struct HomePopularFeature: Reducer {
         Reduce { state, action in
             switch action {
             case .requestPopularReviews:
-                return .run { send in
-                    do {
-                        let reviews = try await homeClient.popularReviews("서울특별시", "강남구", 0, 16)
-                        await send(.popularReviewsResponse(.success(reviews)))
-                    } catch {
-                        await send(.popularReviewsResponse(.failure(error)))
-                    }
+                return .publisher {
+                    return networkClient
+                        .request(.popularReviews(province: "서울특별시", city: "강남구", cursor: 0, size: 16))
+                        .map { Action.popularReviewsResponse(.success($0)) }
+                        .catch { Just(Action.popularReviewsResponse(.failure($0))) }
                 }
-            case let .popularReviewsResponse(.success(response)):
-                state.popularReviews = response.data ?? []
-                return .none
                 
-            case let .popularReviewsResponse(.failure(error)):
-                print(error)
+            case .popularReviewsResponse(let response):
+                switch response {
+                case .success(let result):
+                    state.popularReviews = result.data ?? []
+                case .failure(let error):
+                    print(error)
+                }
                 return .none
                 
             case .toolTipTapped:
                 print("툴팁 보여주기")
                 return .none
+                
             case .viewAllTapped:
                 print("전체보기 화면 이동")
                 return .none

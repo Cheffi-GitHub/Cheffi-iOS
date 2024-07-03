@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Combine
 import ComposableArchitecture
 
 struct HomeCheffiPlaceFeature: Reducer {
-    @Dependency(\.homeClient) var homeClient
+    @Dependency(\.networkClient) var networkClient
     
     struct State: Equatable {
         var tags: [TagsModel] = []
@@ -30,14 +31,13 @@ struct HomeCheffiPlaceFeature: Reducer {
         Reduce { state, action in
             switch action {
             case .requestTags:
-                return .run { send in
-                    do {
-                        let tags = try await homeClient.tags("FOOD")
-                        await send(.tagsResponse(.success(tags)))
-                    } catch {
-                        await send(.tagsResponse(.failure(error)))
-                    }
+                return .publisher {
+                    return networkClient
+                        .request(.tags(type: "FOOD"))
+                        .map { Action.tagsResponse(.success($0)) }
+                        .catch { Just(Action.tagsResponse(.failure($0))) }
                 }
+                
             case let .cheffiPlaceResponse(tagId, .success(response)):
                 state.cheffiPlaceReviews[tagId] = response.data ?? []
                 return .none
@@ -49,22 +49,23 @@ struct HomeCheffiPlaceFeature: Reducer {
             case let .tagsResponse(.success(response)):
                 state.tags = response.data ?? []
                 return .none
+                
             case let .tagsResponse(.failure(error)):
                 print(error)
                 return .none
                 
             case .requestCheffiPlace(let cursor, let tagId):
-                return .run { send in
-                    do {
-                        let reviews = try await homeClient.cheffiPlaceReviews("서울특별시", "강남구", cursor, 16, tagId)
-                        await send(.cheffiPlaceResponse(tagId: tagId, .success(reviews)))
-                    } catch {
-                        await send(.cheffiPlaceResponse(tagId: tagId, .failure(error)))
-                    }
+                return .publisher {
+                    return networkClient
+                        .request(.cheffiPlace(province: "서울특별시", city: "강남구", cursor: cursor, size: 16, tag_id: tagId))
+                        .map { Action.cheffiPlaceResponse(tagId: tagId, .success($0)) }
+                        .catch { Just(Action.cheffiPlaceResponse(tagId: tagId, .failure($0))) }
                 }
+                
             case .toolTipTapped:
                 print("툴팁 보여주기")
                 return .none
+                
             case .tagTapped:
                 print("api 호출")
                 return .none

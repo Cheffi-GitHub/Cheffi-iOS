@@ -14,6 +14,12 @@ extension RestRouter {
             return "/api/v1/oauth/login/kakao"
         case .avatarsNickname:
             return "/api/v1/avatars/nickname/inuse"
+        case .popularReviews:
+            return "/api/v1/reviews/areas"
+        case .cheffiPlace:
+            return "/api/v1/reviews/areas/tags"
+        case .tags:
+            return "/api/v1/tags"
         case .testUpload:
             return "/test/upload"
         case .testSessionIssue:

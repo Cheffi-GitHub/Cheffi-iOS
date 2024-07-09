@@ -10,25 +10,29 @@ import Alamofire
 import Combine
 import ComposableArchitecture
 
-struct HomePopularFeature: Reducer {    
+@Reducer
+struct HomePopularFeature {
+    
     @Dependency(\.networkClient) var networkClient
     
+    @ObservableState
     struct State: Equatable {
         var totalPage: Int {
             let count = popularReviews.count
             return count > 3 ? min(4, ((count - 4) / 4) + 2) : 1
         }
         var popularReviews: [ReviewModel] = []
+        var path = StackState<Path.State>()
     }
     
     enum Action {
         case requestPopularReviews
         case popularReviewsResponse(Result<ReviewResponse, AFError>)
         case toolTipTapped
-        case viewAllTapped
+        case path(StackAction<Path.State, Path.Action>)
     }
     
-    var body: some ReducerOf<Self> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .requestPopularReviews:
@@ -51,10 +55,36 @@ struct HomePopularFeature: Reducer {
             case .toolTipTapped:
                 print("툴팁 보여주기")
                 return .none
-                
-            case .viewAllTapped:
-                print("전체보기 화면 이동")
+            case .path:
                 return .none
+            }
+        }
+        .forEach(\.path, action: /Action.path) {
+            Path()
+        }
+    }
+}
+
+extension HomePopularFeature {
+    @Reducer
+    struct Path {
+        @ObservableState
+        enum State: Equatable {
+            case moveToReviewDetailView(ReviewDetailFeature.State)
+            case moveToAllReviewView(AllReviewFeature.State = .init())
+        }
+        
+        enum Action {
+            case moveToReviewDetailView(ReviewDetailFeature.Action)
+            case moveToAllReviewView(AllReviewFeature.Action)
+        }
+        
+        var body: some ReducerOf<Self> {
+            Scope(state: /State.moveToReviewDetailView, action: /Action.moveToReviewDetailView) {
+                ReviewDetailFeature()
+            }
+            Scope(state: /State.moveToAllReviewView, action: /Action.moveToAllReviewView) {
+                AllReviewFeature()
             }
         }
     }

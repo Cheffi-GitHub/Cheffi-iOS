@@ -1,17 +1,17 @@
 //
-//  ReviewDetailFeature.swift
+//  AllReviewFeature.swift
 //  Cheffi
 //
-//  Created by 정건호 on 6/19/24.
+//  Created by 정건호 on 7/9/24.
 //
 
 import Foundation
 import ComposableArchitecture
 
-struct ReviewDetailFeature: Reducer {
+struct AllReviewFeature: Reducer {
     
     struct State: Equatable {
-        var id: Int
+        
     }
     
     enum Action: Equatable {

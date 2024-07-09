@@ -17,6 +17,8 @@
 		54073B8C2C0D98E500597973 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54073B8B2C0D98E400597973 /* PlaceCell.swift */; };
 		540BE9B02C22C607009180AE /* ReviewDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540BE9AF2C22C607009180AE /* ReviewDetailFeature.swift */; };
 		540BE9B42C231036009180AE /* WriterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540BE9B32C231036009180AE /* WriterRow.swift */; };
+		541930492C3D49640080CA57 /* AllReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541930482C3D49640080CA57 /* AllReviewView.swift */; };
+		5419304B2C3D497D0080CA57 /* AllReviewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5419304A2C3D497D0080CA57 /* AllReviewFeature.swift */; };
 		543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */; };
 		543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */; };
 		544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BB7662C168F8400BD43E0 /* MainTabView.swift */; };
@@ -96,6 +98,8 @@
 		540BE9AF2C22C607009180AE /* ReviewDetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailFeature.swift; sourceTree = "<group>"; };
 		540BE9B12C22C853009180AE /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		540BE9B32C231036009180AE /* WriterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterRow.swift; sourceTree = "<group>"; };
+		541930482C3D49640080CA57 /* AllReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewView.swift; sourceTree = "<group>"; };
+		5419304A2C3D497D0080CA57 /* AllReviewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewFeature.swift; sourceTree = "<group>"; };
 		543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryView.swift; sourceTree = "<group>"; };
 		543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryFeature.swift; sourceTree = "<group>"; };
 		544BB7662C168F8400BD43E0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -210,6 +214,15 @@
 			path = NavigationBar;
 			sourceTree = "<group>";
 		};
+		541930472C3D49550080CA57 /* AllReviewView */ = {
+			isa = PBXGroup;
+			children = (
+				541930482C3D49640080CA57 /* AllReviewView.swift */,
+				5419304A2C3D497D0080CA57 /* AllReviewFeature.swift */,
+			);
+			path = AllReviewView;
+			sourceTree = "<group>";
+		};
 		543F0AE22C10261B00DFBDB1 /* CheffiStory */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +319,7 @@
 				A6F5E6CF2C2065420053C2E8 /* LoginView */,
 				549B1F902C0607C7005C9432 /* ContentView.swift */,
 				548FC68A2C2177C1003866A9 /* Review */,
+				541930472C3D49550080CA57 /* AllReviewView */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -648,6 +662,7 @@
 				A6F5E6ED2C246A750053C2E8 /* KakaoLoginHandler.swift in Sources */,
 				54073B7D2C0C564700597973 /* HomeView.swift in Sources */,
 				548FC68C2C2177E8003866A9 /* ReviewDetailView.swift in Sources */,
+				541930492C3D49640080CA57 /* AllReviewView.swift in Sources */,
 				549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */,
 				544BB7692C1699C800BD43E0 /* UIImageExtension.swift in Sources */,
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
@@ -661,6 +676,7 @@
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
 				540BE9B42C231036009180AE /* WriterRow.swift in Sources */,
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
+				5419304B2C3D497D0080CA57 /* AllReviewFeature.swift in Sources */,
 				543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */,
 				A6F5E7002C284E400053C2E8 /* KeychainManager.swift in Sources */,
 				A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */,

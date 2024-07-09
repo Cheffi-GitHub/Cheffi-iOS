@@ -242,6 +242,7 @@ struct ReviewDetailView: View {
                 .padding(.horizontal, 16)
             }
             .edgesIgnoringSafeArea(.top)
+            .navigationBarHidden(true)
         }
     }
 }

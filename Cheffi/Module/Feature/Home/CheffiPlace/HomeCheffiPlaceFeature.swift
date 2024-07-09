@@ -34,7 +34,7 @@ struct HomeCheffiPlaceFeature {
         Reduce { state, action in
             switch action {
             case .requestTags:
-                return .publisher {
+                return Effect.publisher {
                     return networkClient
                         .request(.tags(type: "FOOD"))
                         .map { Action.tagsResponse(.success($0)) }
@@ -58,7 +58,7 @@ struct HomeCheffiPlaceFeature {
                 return .none
                 
             case .requestCheffiPlace(let cursor, let tagId):
-                return .publisher {
+                return Effect.publisher {
                     return networkClient
                         .request(.cheffiPlace(province: "서울특별시", city: "강남구", cursor: cursor, size: 16, tag_id: tagId))
                         .map { Action.cheffiPlaceResponse(tagId: tagId, .success($0)) }

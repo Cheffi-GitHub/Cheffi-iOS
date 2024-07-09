@@ -168,8 +168,8 @@ struct HomePopularView: View {
             } destination: { store in
                 switch store.state {
                 case .moveToReviewDetailView:
-                    if let _ = store.scope(state: \.moveToReviewDetailView, action: \.moveToReviewDetailView) {
-                        ReviewDetailView()
+                    if let store = store.scope(state: \.moveToReviewDetailView, action: \.moveToReviewDetailView) {
+                        ReviewDetailView(store: store)
                     }
                 case .moveToAllReviewView:
                     if let _ = store.scope(state: \.moveToAllReviewView, action: \.moveToAllReviewView) {

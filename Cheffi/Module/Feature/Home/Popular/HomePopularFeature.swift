@@ -36,7 +36,7 @@ struct HomePopularFeature {
         Reduce { state, action in
             switch action {
             case .requestPopularReviews:
-                return .publisher {
+                return Effect.publisher {
                     return networkClient
                         .request(.popularReviews(province: "서울특별시", city: "강남구", cursor: 0, size: 16))
                         .map { Action.popularReviewsResponse(.success($0)) }

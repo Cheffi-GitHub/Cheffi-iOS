@@ -27,7 +27,7 @@ struct HomePopularFeature {
     
     enum Action {
         case requestPopularReviews
-        case popularReviewsResponse(Result<ReviewResponse, AFError>)
+        case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
         case toolTipTapped
         case path(StackAction<Path.State, Path.Action>)
     }

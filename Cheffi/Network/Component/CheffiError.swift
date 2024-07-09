@@ -11,5 +11,7 @@ enum CheffiError: Error {
     case unknown(message: String)
     case invaildSpec(message: String)
     case internalServerError(statusCode: Int)
-    case failureResponse(statusCode: Int, error: RestErrorResponse)
+    case failedParsingErrorData(statusCode: Int)
+    case failureWithErrorData(statusCode: Int, error: Data)
+    case failureWithParsedError(statusCode: Int, error: RestErrorResponse)
 }

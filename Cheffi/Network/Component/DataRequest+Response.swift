@@ -26,9 +26,8 @@ extension DataRequest {
                         return
                     }
                     
-                    if let data = response.data,
-                       let errorResponse = try? JSONDecoder().decode(RestErrorResponse.self, from: data) {
-                        promise(.failure(.failureResponse(statusCode: statusCode, error: errorResponse)))
+                    if let data = response.data {
+                        promise(.failure(.failureWithErrorData(statusCode: statusCode, error: data)))
                     }
                     else if error.isResponseSerializationError {
                         promise(.failure(.invaildSpec(message: error.localizedDescription)))
@@ -43,5 +42,28 @@ extension DataRequest {
             }
         }
         .eraseToAnyPublisher()
+    }
+}
+
+extension Publisher where Failure == CheffiError {
+    func mapErrorResponse() -> Publishers.MapError<Self, CheffiError> {
+        return self.mapError { error in
+            if case let .failureWithErrorData(statusCode, data) = error {
+                if let errorResponse = try? JSONDecoder().decode(
+                    RestErrorResponse.self,
+                    from: data
+                ) {
+                    return CheffiError.failureWithParsedError(
+                        statusCode: statusCode,
+                        error: errorResponse
+                    )
+                } else {
+                    return CheffiError.failedParsingErrorData(
+                        statusCode: statusCode
+                    )
+                }
+            }
+            return error
+        }
     }
 }

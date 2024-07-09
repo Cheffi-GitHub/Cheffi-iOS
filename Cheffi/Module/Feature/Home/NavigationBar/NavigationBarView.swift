@@ -46,6 +46,7 @@ struct NavigationBarView: View {
                         viewStore.send(.alarmTapped)
                     }
             }
+            .padding(.horizontal, 16)
         }
     }
 }

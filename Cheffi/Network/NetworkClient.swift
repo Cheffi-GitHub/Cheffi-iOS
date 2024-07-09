@@ -54,7 +54,7 @@ extension NetworkClient: DependencyKey {
             session: Session(
                 configuration: configuration,
                 interceptor: NetworkRequestInterceptor(
-                    limit: 30,
+                    limit: 3,
                     delay: 3
                 ),
                 eventMonitors: [

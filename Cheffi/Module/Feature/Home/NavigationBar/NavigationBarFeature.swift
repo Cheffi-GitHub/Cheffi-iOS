@@ -8,8 +8,10 @@
 import Foundation
 import ComposableArchitecture
 
-struct NavigationBarFeature: Reducer {
+@Reducer
+struct NavigationBarFeature {
     
+    @ObservableState
     struct State: Equatable {
         
     }

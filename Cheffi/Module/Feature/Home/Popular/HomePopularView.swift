@@ -87,47 +87,49 @@ struct HomePopularView: View {
                         
                         TabView(selection: $currentpage) {
                             ForEach(0..<store.totalPage, id: \.self) { index in
-                                VStack {
-                                    if index == 0 {
-                                        NavigationLink(
-                                            state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[0].id))
-                                        ) {
-                                            PlaceCell(review: store.popularReviews[0], type: .medium)
-                                        }
-                                        LazyVGrid(columns: columns) {
-                                            if store.popularReviews.count-1 >= 1 {
-                                                NavigationLink(
-                                                    state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[1].id))
-                                                ) {
-                                                    PlaceCell(review: store.popularReviews[1], type: .small)
-                                                }
+                                WithPerceptionTracking {
+                                    VStack {
+                                        if index == 0 {
+                                            NavigationLink(
+                                                state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[0].id))
+                                            ) {
+                                                PlaceCell(review: store.popularReviews[0], type: .medium)
                                             }
-                                            if store.popularReviews.count-1 >= 2 {
-                                                NavigationLink(
-                                                    state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[2].id))
-                                                ) {
-                                                    PlaceCell(review: store.popularReviews[2], type: .small)
-                                                }
-                                            }
-                                        }
-                                    } else {
-                                        LazyVGrid(columns: columns) {
-                                            ForEach(0..<4) { offset in
-                                                let reviewIndex = 3 + (index - 1) * 4 + offset
-                                                if store.popularReviews.count-1 >= reviewIndex {
+                                            LazyVGrid(columns: columns) {
+                                                if store.popularReviews.count-1 >= 1 {
                                                     NavigationLink(
-                                                        state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[reviewIndex].id))
+                                                        state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[1].id))
                                                     ) {
-                                                        PlaceCell(review: store.popularReviews[reviewIndex], type: .small)
+                                                        PlaceCell(review: store.popularReviews[1], type: .small)
+                                                    }
+                                                }
+                                                if store.popularReviews.count-1 >= 2 {
+                                                    NavigationLink(
+                                                        state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[2].id))
+                                                    ) {
+                                                        PlaceCell(review: store.popularReviews[2], type: .small)
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            LazyVGrid(columns: columns) {
+                                                ForEach(0..<4) { offset in
+                                                    let reviewIndex = 3 + (index - 1) * 4 + offset
+                                                    if store.popularReviews.count-1 >= reviewIndex {
+                                                        NavigationLink(
+                                                            state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[reviewIndex].id))
+                                                        ) {
+                                                            PlaceCell(review: store.popularReviews[reviewIndex], type: .small)
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
                                     }
+                                    .padding(.horizontal, 16)
+                                    .tag(index + 1)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                                 }
-                                .padding(.horizontal, 16)
-                                .tag(index + 1)
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                             }
                         }
                         .frame(height: store.popularReviews.count == 1 ? 270 : 573, alignment: .center)

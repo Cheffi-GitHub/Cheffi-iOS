@@ -8,10 +8,13 @@
 import Foundation
 import Combine
 import ComposableArchitecture
+import Perception
 
-struct HomeCheffiPlaceFeature: Reducer {
+@Reducer
+struct HomeCheffiPlaceFeature {
     @Dependency(\.networkClient) var networkClient
     
+    @ObservableState
     struct State: Equatable {
         var tags: [TagsModel] = []
         var cursors: [Int: Int] = [:]

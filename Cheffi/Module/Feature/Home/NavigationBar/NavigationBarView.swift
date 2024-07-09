@@ -10,13 +10,13 @@ import ComposableArchitecture
 
 struct NavigationBarView: View {
     
-    let store: StoreOf<NavigationBarFeature> = .init(
+    @Perception.Bindable var store: StoreOf<NavigationBarFeature> = .init(
         initialState: NavigationBarFeature.State()) {
             NavigationBarFeature()
         }
     
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
+        WithPerceptionTracking {
             HStack(spacing: 0) {
                 HStack(spacing: 8) {
                     Text("서울특별시 성동구")
@@ -32,18 +32,18 @@ struct NavigationBarView: View {
                         .clipShape(.rect(cornerRadius: 16))
                 }
                 .onTapGesture {
-                    viewStore.send(.regionTapped)
+                    store.send(.regionTapped)
                 }
                 Spacer()
                 Image(name: Home.search)
                     .padding(10)
                     .onTapGesture {
-                        viewStore.send(.searchTapped)
+                        store.send(.searchTapped)
                     }
                 Image(name: Home.alarm)
                     .padding(10)
                     .onTapGesture {
-                        viewStore.send(.alarmTapped)
+                        store.send(.alarmTapped)
                     }
             }
             .padding(.horizontal, 16)

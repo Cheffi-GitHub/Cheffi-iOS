@@ -27,12 +27,10 @@ struct NetworkClient {
         self.queue = queue
     }
     
-    func request<Value: Codable>(_ endPoint: RestRouter) -> AnyPublisher<Value, AFError> {
+    func request<Value: Codable>(_ endPoint: RestRouter) -> AnyPublisher<Value, CheffiError> {
         return session.request(endPoint)
             .validate()
-            // TODO: Progress 핸들링 -> Loading indicator 표시
-            .publishDecodable(type: Value.self)
-            .value()
+            .cheffiResponseDecodable(of: Value.self)
             .subscribe(on: queue)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()

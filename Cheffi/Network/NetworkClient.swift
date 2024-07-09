@@ -31,6 +31,7 @@ struct NetworkClient {
         return session.request(endPoint)
             .validate()
             .cheffiResponseDecodable(of: Value.self)
+            .mapErrorResponse()
             .subscribe(on: queue)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()

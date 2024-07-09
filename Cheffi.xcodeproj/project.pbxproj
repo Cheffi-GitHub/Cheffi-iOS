@@ -61,6 +61,7 @@
 		A61FC3CA2C3D689200C732C6 /* RestErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC3C92C3D689200C732C6 /* RestErrorResponse.swift */; };
 		A61FC3CD2C3D68D900C732C6 /* CheffiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC3CC2C3D68D900C732C6 /* CheffiError.swift */; };
 		A61FC3CF2C3D68E200C732C6 /* DataRequest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */; };
+		A61FC3D22C3D849700C732C6 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = A61FC3D12C3D849700C732C6 /* AnyCodable */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 		A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */; };
 		A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */; };
@@ -185,6 +186,7 @@
 				A611D9DB2C187F6000ABF38C /* Alamofire in Frameworks */,
 				54F217B22C2D685400892DBD /* Kingfisher in Frameworks */,
 				A6F5E6DD2C23213D0053C2E8 /* KakaoSDK in Frameworks */,
+				A61FC3D22C3D849700C732C6 /* AnyCodable in Frameworks */,
 				A6F5E6E12C23215B0053C2E8 /* KakaoSDKUser in Frameworks */,
 				A6F5E6E32C23215F0053C2E8 /* KakaoSDKCommon in Frameworks */,
 				A6F5E6DF2C23213F0053C2E8 /* KakaoSDKAuth in Frameworks */,
@@ -576,6 +578,7 @@
 				A6F5E6E02C23215B0053C2E8 /* KakaoSDKUser */,
 				A6F5E6E22C23215F0053C2E8 /* KakaoSDKCommon */,
 				54F217B12C2D685400892DBD /* Kingfisher */,
+				A61FC3D12C3D849700C732C6 /* AnyCodable */,
 			);
 			productName = Cheffi;
 			productReference = 549B1F8B2C0607C7005C9432 /* Cheffi.app */;
@@ -654,6 +657,7 @@
 				A611D9D82C187F5600ABF38C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A6F5E6DB2C2321360053C2E8 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				54F217B02C2D685400892DBD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A61FC3D02C3D848B00C732C6 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 			);
 			productRefGroup = 549B1F8C2C0607C7005C9432 /* Products */;
 			projectDirPath = "";
@@ -1132,6 +1136,14 @@
 				version = 5.9.0;
 			};
 		};
+		A61FC3D02C3D848B00C732C6 /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flight-School/AnyCodable";
+			requirement = {
+				kind = exactVersion;
+				version = 0.6.0;
+			};
+		};
 		A6F5E6DB2C2321360053C2E8 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
@@ -1157,6 +1169,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A611D9D82C187F5600ABF38C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		A61FC3D12C3D849700C732C6 /* AnyCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A61FC3D02C3D848B00C732C6 /* XCRemoteSwiftPackageReference "AnyCodable" */;
+			productName = AnyCodable;
 		};
 		A6F5E6DC2C23213D0053C2E8 /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import AnyCodable
 
 struct RestErrorResponse: Codable, Error {
     var errorCode: String?
     var errorMessage: String?
-    // TODO: Cheffi Server Error Response 규격에 맞추어 data 타입 고정
-    //var data: T?
+    var data: [String: AnyCodable]?
     
     enum CodingKeys: String, CodingKey {
         case errorCode = "error_code"
         case errorMessage = "error_message"
+        case data = "data"
     }
 }

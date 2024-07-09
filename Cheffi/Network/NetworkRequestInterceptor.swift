@@ -51,5 +51,9 @@ struct NetworkRequestInterceptor: RequestInterceptor {
         
         // TODO: 재시도 불가능 케이스 수집
         // ex) 접근 권한 없음, 토큰 만료 등
+        
+        // TODO: retry(_: ) 메서드 제거, Custom Alert/UserAction을 통한 retry flow 구현
+        
+        completion(.retry)
     }
 }

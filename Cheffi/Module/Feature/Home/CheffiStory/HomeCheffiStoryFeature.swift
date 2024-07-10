@@ -8,8 +8,10 @@
 import Foundation
 import ComposableArchitecture
 
-struct HomeCheffiStoryFeature: Reducer {
+@Reducer
+struct HomeCheffiStoryFeature {
     
+    @ObservableState
     struct State: Equatable {
         var selectedCategories: [String] = []
         var recommendList: [RecommendData] = []

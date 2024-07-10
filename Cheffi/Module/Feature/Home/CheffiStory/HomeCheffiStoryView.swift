@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct HomeCheffiStoryView: View {
     
-    private let store: StoreOf<HomeCheffiStoryFeature> = .init(
+    @Perception.Bindable var store: StoreOf<HomeCheffiStoryFeature> = .init(
         initialState: HomeCheffiStoryFeature.State()) {
             HomeCheffiStoryFeature()
         }
@@ -39,7 +39,7 @@ struct HomeCheffiStoryView: View {
     }
     
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
+        WithPerceptionTracking {
             VStack {
                 HStack {
                     Text("음식, 분위기 맛\n나와 비슷한 쉐피들의 이야기")
@@ -53,30 +53,32 @@ struct HomeCheffiStoryView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach($dummyCategories, id: \.self) { category in
-                            Group {
-                                if !viewStore.state.selectedCategories.contains(category.wrappedValue) {
-                                    Text("\(category.wrappedValue)")
-                                        .foregroundStyle(Color.grey5)
-                                        .font(.suit(.semiBold, 15))
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 6)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 20)
-                                                .strokeBorder(Color.grey1)
-                                        )
-                                    
-                                } else {
-                                    Text("\(category.wrappedValue)")
-                                        .foregroundStyle(Color.white)
-                                        .font(.suit(.semiBold, 15))
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 6)
-                                        .background(Color.primary)
-                                        .clipShape(.rect(cornerRadius: 20))
+                            WithPerceptionTracking {
+                                Group {
+                                    if !store.state.selectedCategories.contains(category.wrappedValue) {
+                                        Text("\(category.wrappedValue)")
+                                            .foregroundStyle(Color.grey5)
+                                            .font(.suit(.semiBold, 15))
+                                            .padding(.horizontal, 16)
+                                            .padding(.vertical, 6)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 20)
+                                                    .strokeBorder(Color.grey1)
+                                            )
+                                        
+                                    } else {
+                                        Text("\(category.wrappedValue)")
+                                            .foregroundStyle(Color.white)
+                                            .font(.suit(.semiBold, 15))
+                                            .padding(.horizontal, 16)
+                                            .padding(.vertical, 6)
+                                            .background(Color.primary)
+                                            .clipShape(.rect(cornerRadius: 20))
+                                    }
                                 }
-                            }
-                            .onTapGesture {
-                                viewStore.send(.categoryTapped(category.wrappedValue))
+                                .onTapGesture {
+                                    store.send(.categoryTapped(category.wrappedValue))
+                                }
                             }
                         }
                     }
@@ -86,21 +88,25 @@ struct HomeCheffiStoryView: View {
                 
                 TabView(selection: $currentpage) {
                     ForEach(1...totalPage, id: \.self) { index in
-                        VStack(spacing: 16) {
-                            let startIndex = (index - 1) * itemsPerPage
-                            let endIndex = min(startIndex + itemsPerPage, dummyDatas.count)
-                            let items = Array(dummyDatas[startIndex..<endIndex])
-                            ForEach(items, id: \.title) { item in
-                                WriterRow(
-                                    imageUrl: String(),
-                                    title: item.title,
-                                    intro: item.intro,
-                                    isFollowed: item.isFollowed
-                                )
-                            }
-                            .padding(.horizontal, 16)
-                            if items.count != 3 {
-                                Spacer()
+                        WithPerceptionTracking {
+                            VStack(spacing: 16) {
+                                let startIndex = (index - 1) * itemsPerPage
+                                let endIndex = min(startIndex + itemsPerPage, dummyDatas.count)
+                                let items = Array(dummyDatas[startIndex..<endIndex])
+                                ForEach(items, id: \.title) { item in
+                                    WithPerceptionTracking {
+                                        WriterRow(
+                                            imageUrl: String(),
+                                            title: item.title,
+                                            intro: item.intro,
+                                            isFollowed: item.isFollowed
+                                        )
+                                    }
+                                }
+                                .padding(.horizontal, 16)
+                                if items.count != 3 {
+                                    Spacer()
+                                }
                             }
                         }
                     }
@@ -135,7 +141,7 @@ struct HomeCheffiStoryView: View {
                 }
             }
             .onAppear {
-                viewStore.send(.onAppear)
+                store.send(.onAppear)
             }
         }
     }

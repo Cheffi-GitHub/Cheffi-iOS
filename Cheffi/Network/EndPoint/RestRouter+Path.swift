@@ -18,6 +18,8 @@ extension RestRouter {
             return "/api/v1/reviews/areas"
         case .cheffiPlace:
             return "/api/v1/reviews/areas/tags"
+        case .reviewDetail:
+            return "/api/v1/reviews"
         case .tags:
             return "/api/v1/tags"
         case .testUpload:

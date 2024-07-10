@@ -19,6 +19,7 @@ enum Common: String, ImageNameProtocol {
     case clock = "clock"
     case info = "info"
     case lock = "lock"
+    case check = "check"
 }
 
 enum Tab: String, ImageNameProtocol {

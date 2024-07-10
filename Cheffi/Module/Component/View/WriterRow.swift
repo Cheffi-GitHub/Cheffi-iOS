@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct WriterRow: View {
     let imageUrl: String
@@ -15,10 +16,17 @@ struct WriterRow: View {
     
     var body: some View {
         HStack {
-            Image(name: Dummy.sample)
-                .resizable()
-                .frame(width: 64, height: 64)
-                .clipShape(.rect(cornerRadius: 8))
+            Group {
+                if let url = URL(string: imageUrl) {
+                    KFImage(url)
+                        .resizable()
+                } else {
+                    // TODO: 이미지 불러오지 못했을 때 UI 요청
+                    Color.grey3
+                }
+            }
+            .frame(width: 64, height: 64)
+            .clipShape(.rect(cornerRadius: 8))
             Spacer().frame(width: 12)
             VStack(alignment: .leading, spacing: 6) {
                 Text(title)

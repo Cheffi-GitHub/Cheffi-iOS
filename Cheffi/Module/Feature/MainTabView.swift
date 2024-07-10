@@ -13,7 +13,7 @@ struct MainTabView: View {
     @State private var presentWriteView: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             TabView(selection: $selectedIndex) {
                 ForEach(TabType.allCases, id: \.self) { type in
                     getTabView(type: type)
@@ -115,4 +115,11 @@ enum TabType: Int, CaseIterable {
 
 #Preview {
     MainTabView()
+}
+
+extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = nil
+    }
 }

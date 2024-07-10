@@ -10,7 +10,8 @@ import ComposableArchitecture
 
 struct HomeView: View {
     var body: some View {
-        NavigationView {
+        VStack {
+            NavigationBarView()
             ScrollView(showsIndicators: false) {
                 // 인기 급등 맛집
                 HomePopularView()
@@ -24,20 +25,6 @@ struct HomeView: View {
                 HomeCheffiPlaceView()
                     .padding(.top, 32)
             }
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    NavigationBarView()
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-        }
-        .onAppear {
-            // NavigationBar의 shadow 제거
-            let appearace = UINavigationBarAppearance()
-            appearace.shadowColor = .clear
-            appearace.backgroundColor = .white
-            UINavigationBar.appearance().standardAppearance = appearace
-            UINavigationBar.appearance().scrollEdgeAppearance = appearace
         }
     }
 }

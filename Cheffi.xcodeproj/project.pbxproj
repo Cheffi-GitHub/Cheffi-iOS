@@ -35,6 +35,8 @@
 		54588AD92C074CF9000DD5A9 /* SUIT-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */; };
 		54588ADA2C074CF9000DD5A9 /* SUIT-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD52C074CF9000DD5A9 /* SUIT-ExtraBold.otf */; };
 		54588ADB2C074CF9000DD5A9 /* SUIT-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54588AD62C074CF9000DD5A9 /* SUIT-SemiBold.otf */; };
+		5488EDD22C3E534700252A92 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488EDD12C3E534700252A92 /* ViewExtension.swift */; };
+		5488EDD42C3E66D700252A92 /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488EDD32C3E66D700252A92 /* ToastMessage.swift */; };
 		548FC68C2C2177E8003866A9 /* ReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FC68B2C2177E8003866A9 /* ReviewDetailView.swift */; };
 		549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1F8E2C0607C7005C9432 /* CheffiApp.swift */; };
 		549B1F912C0607C7005C9432 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1F902C0607C7005C9432 /* ContentView.swift */; };
@@ -123,6 +125,8 @@
 		54588AD42C074CF9000DD5A9 /* SUIT-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.otf"; sourceTree = "<group>"; };
 		54588AD52C074CF9000DD5A9 /* SUIT-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-ExtraBold.otf"; sourceTree = "<group>"; };
 		54588AD62C074CF9000DD5A9 /* SUIT-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-SemiBold.otf"; sourceTree = "<group>"; };
+		5488EDD12C3E534700252A92 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		5488EDD32C3E66D700252A92 /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
 		548FC68B2C2177E8003866A9 /* ReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailView.swift; sourceTree = "<group>"; };
 		549B1F8B2C0607C7005C9432 /* Cheffi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheffi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549B1F8E2C0607C7005C9432 /* CheffiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheffiApp.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 			children = (
 				54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */,
 				A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */,
+				5488EDD32C3E66D700252A92 /* ToastMessage.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				544BB7682C1699C800BD43E0 /* UIImageExtension.swift */,
 				A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */,
 				541930582C3D8BEC0080CA57 /* StringExtension.swift */,
+				5488EDD12C3E534700252A92 /* ViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -686,6 +692,7 @@
 				548FC68C2C2177E8003866A9 /* ReviewDetailView.swift in Sources */,
 				541930492C3D49640080CA57 /* AllReviewView.swift in Sources */,
 				549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */,
+				5488EDD42C3E66D700252A92 /* ToastMessage.swift in Sources */,
 				544BB7692C1699C800BD43E0 /* UIImageExtension.swift in Sources */,
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
@@ -721,6 +728,7 @@
 				541930572C3D7B410080CA57 /* Menu.swift in Sources */,
 				541930552C3D7B2E0080CA57 /* Ratings.swift in Sources */,
 				A6F5E6E82C245EBD0053C2E8 /* KakaoAuthClient.swift in Sources */,
+				5488EDD22C3E534700252A92 /* ViewExtension.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,
 				A6F5E6EB2C246A670053C2E8 /* KakaoTokenVerifier.swift in Sources */,

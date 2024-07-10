@@ -18,11 +18,13 @@ struct ReviewDetailFeature {
     struct State: Equatable {
         var id: Int?
         var reviewDetail: ReviewDetailModel?
+        var showToast: Bool = false
     }
     
     enum Action {
         case requestReviewDetail
         case reviewDetailResponse(Result<ReviewDetailResponse, Error>)
+        case toggleShowToast(Bool)
     }
     
     var body: some ReducerOf<Self> {
@@ -43,6 +45,10 @@ struct ReviewDetailFeature {
                 case .failure(let error):
                     print(error)
                 }
+                return .none
+                
+            case .toggleShowToast(let value):
+                state.showToast = value
                 return .none
             }
         }

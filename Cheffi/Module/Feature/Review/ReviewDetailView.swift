@@ -194,6 +194,10 @@ struct ReviewDetailView: View {
                                             .underline()
                                             .font(.suit(.regular, 14))
                                             .foregroundStyle(Color.init(hex: 0x34AFF7))
+                                            .onTapGesture {
+                                                UIPasteboard.general.string = review.restaurant.address.fullRoadNameAddress
+                                                store.send(.toggleShowToast(true))
+                                            }
                                     }
                                 }
                                 .padding(.bottom, 32)
@@ -266,6 +270,11 @@ struct ReviewDetailView: View {
                         }
                         .edgesIgnoringSafeArea(.top)
                         .navigationBarHidden(true)
+                        .toast(
+                            message: "주소가 클립보드에 복사되었습니다.",
+                            type: .check,
+                            isShowing: $store.showToast.sending(\.toggleShowToast)
+                        )
                     }
                 } else {
                     ProgressView()

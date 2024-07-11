@@ -8,19 +8,24 @@
 import Foundation
 import ComposableArchitecture
 
-struct AllReviewFeature: Reducer {
+@Reducer
+struct AllReviewFeature {
     
+    @ObservableState
     struct State: Equatable {
-        
+        var viewType: ReviewViewType = .expand
     }
     
     enum Action: Equatable {
+        case changeViewType(type: ReviewViewType)
     }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-                
+            case .changeViewType(let type):
+                state.viewType = type
+                return .none
             }
         }
     }

@@ -38,6 +38,10 @@ enum Home: String, ImageNameProtocol {
     case previousPage = "previousPage"
     case nextPage = "nextPage"
     case homeEmpty = "homeEmpty"
+    case normalCollapse = "normalCollapse"
+    case selectedCollapse = "selectedCollapse"
+    case normalExpand = "normalExpand"
+    case selectedExpand = "selectedExpand"
 }
 
 enum Review: String, ImageNameProtocol {

@@ -68,7 +68,9 @@ struct HomePopularView: View {
                                         store.send(.toolTipTapped)
                                     }
                                 Spacer()
-                                NavigationLink(state: HomePopularFeature.Path.State.moveToAllReviewView()) {
+                                NavigationLink(state: HomePopularFeature.Path.State.moveToAllReviewView(
+                                    .init(popularReviews: store.popularReviews)
+                                )) {
                                     HStack {
                                         Text("전체보기")
                                             .foregroundStyle(Color.grey6)
@@ -93,21 +95,21 @@ struct HomePopularView: View {
                                             NavigationLink(
                                                 state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[0].id))
                                             ) {
-                                                PlaceCell(review: store.popularReviews[0], type: .medium)
+                                                ReviewCell(review: store.popularReviews[0], type: .medium)
                                             }
                                             LazyVGrid(columns: columns) {
                                                 if store.popularReviews.count-1 >= 1 {
                                                     NavigationLink(
                                                         state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[1].id))
                                                     ) {
-                                                        PlaceCell(review: store.popularReviews[1], type: .small)
+                                                        ReviewCell(review: store.popularReviews[1], type: .small)
                                                     }
                                                 }
                                                 if store.popularReviews.count-1 >= 2 {
                                                     NavigationLink(
                                                         state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[2].id))
                                                     ) {
-                                                        PlaceCell(review: store.popularReviews[2], type: .small)
+                                                        ReviewCell(review: store.popularReviews[2], type: .small)
                                                     }
                                                 }
                                             }
@@ -119,7 +121,7 @@ struct HomePopularView: View {
                                                         NavigationLink(
                                                             state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[reviewIndex].id))
                                                         ) {
-                                                            PlaceCell(review: store.popularReviews[reviewIndex], type: .small)
+                                                            ReviewCell(review: store.popularReviews[reviewIndex], type: .small)
                                                         }
                                                     }
                                                 }
@@ -172,8 +174,8 @@ struct HomePopularView: View {
                         ReviewDetailView(store: store)
                     }
                 case .moveToAllReviewView:
-                    if let _ = store.scope(state: \.moveToAllReviewView, action: \.moveToAllReviewView) {
-                        AllReviewView()
+                    if let store = store.scope(state: \.moveToAllReviewView, action: \.moveToAllReviewView) {
+                        AllReviewView(store: store)
                     }
                 }
             }

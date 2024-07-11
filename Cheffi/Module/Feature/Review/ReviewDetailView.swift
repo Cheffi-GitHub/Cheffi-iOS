@@ -269,7 +269,7 @@ struct ReviewDetailView: View {
                             .padding(.horizontal, 16)
                         }
                         .edgesIgnoringSafeArea(.top)
-                        .navigationBarHidden(true)
+                        .toolbar(.hidden, for: .navigationBar)
                         .toast(
                             message: "주소가 클립보드에 복사되었습니다.",
                             type: .check,
@@ -278,7 +278,7 @@ struct ReviewDetailView: View {
                     }
                 } else {
                     ProgressView()
-                        .navigationBarHidden(true)
+                        .toolbar(.hidden, for: .navigationBar)
                 }
             }
             .onAppear {

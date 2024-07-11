@@ -71,7 +71,7 @@ extension HomePopularFeature {
         @ObservableState
         enum State: Equatable {
             case moveToReviewDetailView(ReviewDetailFeature.State)
-            case moveToAllReviewView(AllReviewFeature.State = .init())
+            case moveToAllReviewView(AllReviewFeature.State)
         }
         
         enum Action {

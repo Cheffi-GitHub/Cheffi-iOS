@@ -33,7 +33,6 @@ struct NavigationBarView: View {
                             .padding(.leading, 10)
                         Spacer()
                     }
-                    Spacer()
                 }
                 regionButton()
                 Spacer()
@@ -52,6 +51,7 @@ struct NavigationBarView: View {
                 }
             }
             .padding(.horizontal, 16)
+            .frame(height: 44)
         }
     }
     

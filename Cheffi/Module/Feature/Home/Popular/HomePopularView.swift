@@ -68,7 +68,9 @@ struct HomePopularView: View {
                                         store.send(.toolTipTapped)
                                     }
                                 Spacer()
-                                NavigationLink(state: HomePopularFeature.Path.State.moveToAllReviewView()) {
+                                NavigationLink(state: HomePopularFeature.Path.State.moveToAllReviewView(
+                                    .init(popularReviews: store.popularReviews)
+                                )) {
                                     HStack {
                                         Text("전체보기")
                                             .foregroundStyle(Color.grey6)
@@ -172,8 +174,8 @@ struct HomePopularView: View {
                         ReviewDetailView(store: store)
                     }
                 case .moveToAllReviewView:
-                    if let _ = store.scope(state: \.moveToAllReviewView, action: \.moveToAllReviewView) {
-                        AllReviewView()
+                    if let store = store.scope(state: \.moveToAllReviewView, action: \.moveToAllReviewView) {
+                        AllReviewView(store: store)
                     }
                 }
             }

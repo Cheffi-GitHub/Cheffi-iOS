@@ -18,6 +18,11 @@ struct AllReviewView: View {
     @Perception.Bindable var store: StoreOf<AllReviewFeature>
     @Environment(\.dismiss) private var dismiss
     
+    private let columns = [
+        GridItem(.flexible(), alignment: .top),
+        GridItem(.flexible(), alignment: .top)
+    ]
+    
     var body: some View {
         WithPerceptionTracking {
             VStack(spacing: 0) {
@@ -55,20 +60,42 @@ struct AllReviewView: View {
                         }
                         
                     }
+                    .padding(.horizontal, 16)
+                    .padding(.top, 32)
                     
-                    
-                    // Cell
-                    PlaceCell(type: .large)
-                        .padding(.top, 24)
+                    Group {
+                        if let popularReviews = store.popularReviews {
+                            if store.viewType == .expand {
+                                ForEach(0..<popularReviews.count, id: \.self) { index in
+                                    WithPerceptionTracking {
+                                        PlaceCell(
+                                            review: popularReviews[index],
+                                            type: .large
+                                        )
+                                    }
+                                }
+                            } else {
+                                LazyVGrid(columns: columns) {
+                                    ForEach(0..<popularReviews.count, id: \.self) { index in
+                                        WithPerceptionTracking {
+                                            PlaceCell(
+                                                review: popularReviews[index],
+                                                type: .small
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .padding(.top, 24)
+                    .padding(.horizontal, 16)
                 }
-                .padding(.top, 32)
-                .padding(.horizontal, 16)
             }
             .toolbar(.hidden, for: .navigationBar)
         }
     }
 }
-
 
 #Preview {
     AllReviewView(store: .init(

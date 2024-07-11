@@ -14,6 +14,7 @@ struct AllReviewFeature {
     @ObservableState
     struct State: Equatable {
         var viewType: ReviewViewType = .expand
+        var popularReviews: [ReviewModel]?
     }
     
     enum Action: Equatable {

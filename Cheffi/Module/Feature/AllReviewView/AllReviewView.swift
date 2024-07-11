@@ -66,12 +66,19 @@ struct AllReviewView: View {
                     Group {
                         if let popularReviews = store.popularReviews {
                             if store.viewType == .expand {
-                                ForEach(0..<popularReviews.count, id: \.self) { index in
-                                    WithPerceptionTracking {
-                                        PlaceCell(
-                                            review: popularReviews[index],
-                                            type: .large
-                                        )
+                                LazyVStack {
+                                    ForEach(0..<popularReviews.count, id: \.self) { index in
+                                        WithPerceptionTracking {
+                                            PlaceCell(
+                                                review: popularReviews[index],
+                                                type: .large
+                                            )
+                                            .onAppear {
+                                                if popularReviews.count - 3 == index, store.hasNext {
+                                                    store.send(.requestPopularReviews)
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             } else {
@@ -82,6 +89,11 @@ struct AllReviewView: View {
                                                 review: popularReviews[index],
                                                 type: .small
                                             )
+                                            .onAppear {
+                                                if popularReviews.count - 3 == index, store.hasNext {
+                                                    store.send(.requestPopularReviews)
+                                                }
+                                            }
                                         }
                                     }
                                 }

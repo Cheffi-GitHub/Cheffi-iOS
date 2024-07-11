@@ -12,3 +12,17 @@ struct RestResponse<T: Codable>: Codable {
     var code: Int?
     var message: String?
 }
+
+struct RestPagingResponse<T: Codable>: Codable {
+    var data: T?
+    var code: Int?
+    var message: String?
+    var hasNext: Bool?
+    
+    enum CodingKeys: String, CodingKey {
+        case data
+        case code
+        case message
+        case hasNext = "has_next"
+    }
+}

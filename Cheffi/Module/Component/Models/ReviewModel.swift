@@ -8,6 +8,7 @@
 import Foundation
 
 typealias ReviewResponse = RestResponse<[ReviewModel]>
+typealias ReviewPagingResponse = RestPagingResponse<[ReviewModel]>
 
 struct ReviewModel: Codable, Equatable {
     let id: Int

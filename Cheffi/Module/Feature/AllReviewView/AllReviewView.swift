@@ -69,7 +69,7 @@ struct AllReviewView: View {
                                 LazyVStack {
                                     ForEach(0..<popularReviews.count, id: \.self) { index in
                                         WithPerceptionTracking {
-                                            PlaceCell(
+                                            ReviewCell(
                                                 review: popularReviews[index],
                                                 type: .large
                                             )
@@ -85,7 +85,7 @@ struct AllReviewView: View {
                                 LazyVGrid(columns: columns) {
                                     ForEach(0..<popularReviews.count, id: \.self) { index in
                                         WithPerceptionTracking {
-                                            PlaceCell(
+                                            ReviewCell(
                                                 review: popularReviews[index],
                                                 type: .small
                                             )

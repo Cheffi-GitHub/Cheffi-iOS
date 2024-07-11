@@ -1,5 +1,5 @@
 //
-//  PlaceCell.swift
+//  ReviewCell.swift
 //  Cheffi
 //
 //  Created by 정건호 on 6/3/24.
@@ -8,12 +8,12 @@
 import SwiftUI
 import Kingfisher
 
-struct PlaceCell: View {
+struct ReviewCell: View {
     let review: ReviewModel
-    let type: PlaceType
+    let type: ReviewType
     let screenWidth = UIWindow().screen.bounds.width
     
-    init(review: ReviewModel = .dummyData, type: PlaceType) {
+    init(review: ReviewModel = .dummyData, type: ReviewType) {
         self.review = review
         self.type = type
     }
@@ -89,12 +89,12 @@ struct PlaceCell: View {
     }
 }
 
-enum PlaceType {
+enum ReviewType {
     case small
     case medium
     case large
 }
 
 #Preview {
-    PlaceCell(type: .medium)
+    ReviewCell(type: .medium)
 }

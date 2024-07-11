@@ -36,7 +36,7 @@ struct HomeCheffiPlaceView: View {
                                         ScrollView(showsIndicators: false) {
                                             LazyVGrid(columns: columns, spacing: 24) {
                                                 ForEach(reviews, id: \.id) { review in
-                                                    PlaceCell(review: review, type: .small)
+                                                    ReviewCell(review: review, type: .small)
                                                 }
                                             }
                                             .padding(.horizontal, 16)

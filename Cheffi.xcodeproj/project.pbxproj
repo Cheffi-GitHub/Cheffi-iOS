@@ -58,14 +58,15 @@
 		A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D22C187D7800ABF38C /* RestRouter.swift */; };
 		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
 		A611D9DB2C187F6000ABF38C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A611D9DA2C187F6000ABF38C /* Alamofire */; };
-		A62EEAD92C2D9BA000926242 /* LaunchScreenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62EEAD82C2D9BA000926242 /* LaunchScreenFeature.swift */; };
 		A61FC3CA2C3D689200C732C6 /* RestErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC3C92C3D689200C732C6 /* RestErrorResponse.swift */; };
 		A61FC3CD2C3D68D900C732C6 /* CheffiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC3CC2C3D68D900C732C6 /* CheffiError.swift */; };
 		A61FC3CF2C3D68E200C732C6 /* DataRequest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */; };
 		A61FC3D22C3D849700C732C6 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = A61FC3D12C3D849700C732C6 /* AnyCodable */; };
+		A62EEAD92C2D9BA000926242 /* LaunchScreenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62EEAD82C2D9BA000926242 /* LaunchScreenFeature.swift */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 		A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */; };
 		A678A4882C2C632F00A3D16B /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */; };
+		A6801E5A2C417DDA00471691 /* LoginFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6801E592C417DDA00471691 /* LoginFeature.swift */; };
 		A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */; };
 		A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */; };
 		A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AF2C29B6A800E4E3A2 /* Authority.swift */; };
@@ -157,16 +158,17 @@
 		A611D9D02C187D6500ABF38C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A611D9D22C187D7800ABF38C /* RestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
 		A611D9D42C187D8400ABF38C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
-		A62EEAD82C2D9BA000926242 /* LaunchScreenFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenFeature.swift; sourceTree = "<group>"; };
 		A61FC3C92C3D689200C732C6 /* RestErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestErrorResponse.swift; sourceTree = "<group>"; };
 		A61FC3CC2C3D68D900C732C6 /* CheffiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheffiError.swift; sourceTree = "<group>"; };
 		A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+Response.swift"; sourceTree = "<group>"; };
+		A62EEAD82C2D9BA000926242 /* LaunchScreenFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenFeature.swift; sourceTree = "<group>"; };
 		A67677E92C1730C60089A269 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		A67677F22C1738EF0089A269 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A67677F62C1740230089A269 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		A67677F72C1740600089A269 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		A6801E592C417DDA00471691 /* LoginFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFeature.swift; sourceTree = "<group>"; };
 		A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKakaoModel.swift; sourceTree = "<group>"; };
 		A688B0AF2C29B6A800E4E3A2 /* Authority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authority.swift; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				A6F5E6D02C2065750053C2E8 /* LoginView.swift */,
+				A6801E592C417DDA00471691 /* LoginFeature.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 			files = (
 				54F217AD2C2D2FDB00892DBD /* Photo.swift in Sources */,
 				5419304F2C3D7B030080CA57 /* Restaurant.swift in Sources */,
+				A6801E5A2C417DDA00471691 /* LoginFeature.swift in Sources */,
 				A6F5E6ED2C246A750053C2E8 /* KakaoLoginHandler.swift in Sources */,
 				54073B7D2C0C564700597973 /* HomeView.swift in Sources */,
 				548FC68C2C2177E8003866A9 /* ReviewDetailView.swift in Sources */,

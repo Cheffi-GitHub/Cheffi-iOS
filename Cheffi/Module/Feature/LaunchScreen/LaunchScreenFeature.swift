@@ -13,20 +13,17 @@ import ComposableArchitecture
 @Reducer
 struct LaunchScreenFeature {
     
-    @Reducer(state: .equatable)
-    enum Destination {
-        case alert(AlertState<LaunchScreenFeature.Action.Alert>)
-    }
-    
     @ObservableState
     struct State: Equatable {
-        @Presents var destination: Destination.State?
+        @Presents var alert: AlertState<Action.Alert>?
+        var path = StackState<LoginFeature.State>()
     }
     
     enum Action {
         case onAppear
         case configureKakaoSDK
-        case destination(PresentationAction<Destination.Action>)
+        case alert(PresentationAction<Alert>)
+        case path(StackAction<LoginFeature.State, LoginFeature.Action>)
         
         enum Alert: Equatable {
             case errorKakaoSocialLogin
@@ -43,22 +40,27 @@ struct LaunchScreenFeature {
             case .configureKakaoSDK:
                 do {
                     try configureKakaoSDK()
+                    state.path.append(LoginFeature.State())
                 } catch {
                     // TODO: 기획 문의 후 title, message 문구 변경
-                    state.destination = .alert(
-                        AlertState(
-                            title: TextState("안내"),
-                            message: TextState("카카오 로그인 기능을 이용할 수 없어요.")
-                        )
+                    state.alert = AlertState(
+                        title: TextState("안내"),
+                        message: TextState("카카오 로그인 기능을 이용할 수 없어요.")
                     )
                 }
                 return .none
                 
-            case .destination:
+            case .alert:
+                return .none
+                
+            case .path:
                 return .none
             }
         }
-        .ifLet(\.$destination, action: \.destination)
+        .forEach(\.path, action: \.path) {
+            LoginFeature()
+        }
+        .ifLet(\.$alert, action: \.alert)
     }
 }
 

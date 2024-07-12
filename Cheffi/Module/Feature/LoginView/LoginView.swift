@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct LoginView: View {
+    
+    @Perception.Bindable var store: StoreOf<LoginFeature>
     
     var body: some View {
         VStack {
@@ -26,5 +29,9 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(
+        store: Store(initialState: LoginFeature.State()) {
+            LoginFeature()
+        }
+    )
 }

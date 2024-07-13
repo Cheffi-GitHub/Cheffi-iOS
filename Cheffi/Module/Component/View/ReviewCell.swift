@@ -10,10 +10,10 @@ import Kingfisher
 
 struct ReviewCell: View {
     let review: ReviewModel
-    let type: ReviewType
+    let type: ReviewSize
     let screenWidth = UIWindow().screen.bounds.width
     
-    init(review: ReviewModel = .dummyData, type: ReviewType) {
+    init(review: ReviewModel = .dummyData, type: ReviewSize) {
         self.review = review
         self.type = type
     }
@@ -89,7 +89,7 @@ struct ReviewCell: View {
     }
 }
 
-enum ReviewType {
+enum ReviewSize {
     case small
     case medium
     case large

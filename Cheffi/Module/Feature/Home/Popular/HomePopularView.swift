@@ -52,7 +52,7 @@ struct HomePopularView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(spacing: 0) {
                                 Image(name: Common.clock)
-                                Text("00 : 13 : 43")
+                                Text(store.remainTime.toHourMinuteSecond())
                                     .foregroundStyle(Color.primary)
                                     .font(.suit(.bold, 18))
                                 Text("초 뒤에")
@@ -69,7 +69,7 @@ struct HomePopularView: View {
                                     }
                                 Spacer()
                                 NavigationLink(state: HomePopularFeature.Path.State.moveToAllReviewView(
-                                    .init(popularReviews: store.popularReviews)
+                                    .init(popularReviews: store.popularReviews, remainTime: store.remainTime)
                                 )) {
                                     HStack {
                                         Text("전체보기")
@@ -165,7 +165,7 @@ struct HomePopularView: View {
                     }
                 }
                 .onAppear {
-                    store.send(.requestPopularReviews)
+                    store.send(.onAppear)
                 }
             } destination: { store in
                 switch store.state {

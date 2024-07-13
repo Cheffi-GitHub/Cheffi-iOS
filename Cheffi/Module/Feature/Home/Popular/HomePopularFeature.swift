@@ -8,12 +8,14 @@
 import Foundation
 import Alamofire
 import Combine
+import CombineSchedulers
 import ComposableArchitecture
 
 @Reducer
 struct HomePopularFeature {
     
     @Dependency(\.networkClient) var networkClient
+    @Dependency(\.continuousClock) var clock
     
     @ObservableState
     struct State: Equatable {
@@ -23,9 +25,13 @@ struct HomePopularFeature {
         }
         var popularReviews: [ReviewModel] = []
         var path = StackState<Path.State>()
+        var remainTime: Int = 0
     }
     
     enum Action {
+        case onAppear
+        case startTimer
+        case updateTimer
         case requestPopularReviews
         case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
         case toolTipTapped
@@ -35,6 +41,26 @@ struct HomePopularFeature {
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
+            case .onAppear:
+                return .merge([.send(.startTimer), .send(.requestPopularReviews)])
+                
+            case .startTimer:
+                state.remainTime = calculateRemainSeconds()
+                return .run { send in
+                    for await _ in self.clock.timer(interval: .seconds(1)) {
+                        await send(.updateTimer)
+                    }
+                }
+                
+            case .updateTimer:
+                if state.remainTime > 0 {
+                    state.remainTime -= 1
+                } else {
+                    state.remainTime = 3600
+                    return .send(.requestPopularReviews)
+                }
+                return .none
+                
             case .requestPopularReviews:
                 return Effect.publisher {
                     return networkClient
@@ -62,6 +88,15 @@ struct HomePopularFeature {
         .forEach(\.path, action: /Action.path) {
             Path()
         }
+    }
+    
+    private func calculateRemainSeconds() -> Int {
+        let now = Date()
+        let calendar = Calendar.current
+        let startOfCurrentTime = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: now)) ?? Date()
+        let nextHour = calendar.date(byAdding: .hour, value: 1, to: startOfCurrentTime) ?? Date()
+        let seconds = calendar.dateComponents([.second], from: now, to: nextHour).second ?? 0
+        return seconds
     }
 }
 

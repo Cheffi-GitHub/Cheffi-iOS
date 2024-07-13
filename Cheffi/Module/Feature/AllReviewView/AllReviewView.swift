@@ -34,7 +34,7 @@ struct AllReviewView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         HStack(spacing: 0) {
                             Image(name: Common.clock)
-                            Text("00 : 13 : 43")
+                            Text(store.remainTime.toHourMinuteSecond())
                                 .foregroundStyle(Color.primary)
                                 .font(.suit(.bold, 18))
                             Text("초 뒤에")
@@ -105,13 +105,16 @@ struct AllReviewView: View {
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
+            .onAppear {
+                store.send(.startTimer)
+            }
         }
     }
 }
 
 #Preview {
     AllReviewView(store: .init(
-        initialState: AllReviewFeature.State()) {
+        initialState: AllReviewFeature.State(remainTime: 3600)) {
             AllReviewFeature()
         })
 }

@@ -105,7 +105,7 @@ struct AllReviewView: View {
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
-            .onAppear {
+            .onFirstAppear {
                 store.send(.startTimer)
             }
         }

@@ -140,8 +140,8 @@ struct HomeCheffiStoryView: View {
                         }
                 }
             }
-            .onAppear {
-                store.send(.onAppear)
+            .onFirstAppear {
+                store.send(.onFirstAppear)
             }
         }
     }

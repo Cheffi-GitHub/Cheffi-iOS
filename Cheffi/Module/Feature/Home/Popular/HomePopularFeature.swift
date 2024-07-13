@@ -29,7 +29,7 @@ struct HomePopularFeature {
     }
     
     enum Action {
-        case onAppear
+        case onFirstAppear
         case startTimer
         case updateTimer
         case requestPopularReviews
@@ -41,7 +41,7 @@ struct HomePopularFeature {
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .onAppear:
+            case .onFirstAppear:
                 return .merge([.send(.startTimer), .send(.requestPopularReviews)])
                 
             case .startTimer:

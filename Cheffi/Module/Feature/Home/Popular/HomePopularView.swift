@@ -164,8 +164,8 @@ struct HomePopularView: View {
                         }
                     }
                 }
-                .onAppear {
-                    store.send(.onAppear)
+                .onFirstAppear {
+                    store.send(.onFirstAppear)
                 }
             } destination: { store in
                 switch store.state {

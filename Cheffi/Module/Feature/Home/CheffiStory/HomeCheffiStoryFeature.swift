@@ -18,7 +18,7 @@ struct HomeCheffiStoryFeature {
     }
     
     enum Action: Equatable {
-        case onAppear
+        case onFirstAppear
         case categoryTapped(String)
         case followTapped
     }
@@ -26,7 +26,7 @@ struct HomeCheffiStoryFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .onAppear:
+            case .onFirstAppear:
                 // 프로필 카테고리 조회 후, 첫 카테고리 넣기
                 state.selectedCategories.append("한식")
                 return .none

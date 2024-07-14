@@ -16,7 +16,7 @@ struct LaunchScreenView: View {
         WithPerceptionTracking {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
                 ZStack {
-                    Color.cheffiPrimary
+                    Color.primary
                         .ignoresSafeArea()
                     
                     Image("launchScreenLogo")

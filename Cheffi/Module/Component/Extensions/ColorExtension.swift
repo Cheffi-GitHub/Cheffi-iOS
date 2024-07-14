@@ -20,7 +20,7 @@ extension Color {
         self.init(.sRGB, red: red, green: green, blue: blue, opacity: opacity)
     }
     
-    static let cheffiPrimary = Color(hex: 0xEB4351)
+    static let primary = Color(hex: 0xEB4351)
     
     static let sub1 = Color(hex: 0xFFBFC9)
     static let sub2 = Color(hex: 0xFF8EA0)

@@ -12,20 +12,37 @@ import ComposableArchitecture
 @main
 struct CheffiApp: App {
     
+    @StateObject private var appRootManager = AppRootManager()
+    
     var body: some Scene {
         WindowGroup {
-            // TODO: Navigation (View Transition 설계)
-            // RootView로 MainTabView 설정
-            // MainTabView에서 FullScreen으로 LaunchScreen Present(With NavigationStack)
-            // 회원가입, 프로필 설정 Flow 등등 Push, 모두 완료되면 FullScreen Modal Dismiss
-            LaunchScreenView(store: Store(initialState: LaunchScreenFeature.State()) {
-                LaunchScreenFeature()
-            })
+            Group {
+                switch appRootManager.currentRoot {
+                case .launchScreen:
+                    LaunchScreenView(store: Store(initialState: LaunchScreenFeature.State()) {
+                        LaunchScreenFeature()
+                    })
+                    
+                case .login:
+                    LoginView(store: Store(initialState: LoginFeature.State()) {
+                        LoginFeature()
+                    })
+                    .transition(.opacity.animation(.easeInOut(duration: 0.3)))
+                    
+                case .main:
+                    MainTabView(store: Store(initialState: MainTabFeature.State()) {
+                        MainTabFeature()
+                    })
+                    .transition(.opacity.animation(.easeInOut(duration: 0.3)))
+                }
+            }
             .onOpenURL { url in
                 if AuthApi.isKakaoTalkLoginUrl(url) {
                     _ = AuthController.handleOpenUrl(url: url)
                 }
             }
+            .background(appRootManager.currentRoot == .login ? .black : .white)
+            .environmentObject(appRootManager)
         }
     }
 }

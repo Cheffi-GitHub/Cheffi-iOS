@@ -70,6 +70,7 @@
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 		A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */; };
 		A678A4882C2C632F00A3D16B /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */; };
+		A678F6062C47C2F9005AF6F9 /* AppRootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678F6052C47C2F9005AF6F9 /* AppRootManager.swift */; };
 		A6801E5A2C417DDA00471691 /* LoginFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6801E592C417DDA00471691 /* LoginFeature.swift */; };
 		A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */; };
 		A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */; };
@@ -176,6 +177,7 @@
 		A67677F72C1740600089A269 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		A678F6052C47C2F9005AF6F9 /* AppRootManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootManager.swift; sourceTree = "<group>"; };
 		A6801E592C417DDA00471691 /* LoginFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFeature.swift; sourceTree = "<group>"; };
 		A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKakaoModel.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			children = (
 				549B1F8E2C0607C7005C9432 /* CheffiApp.swift */,
 				A67677F22C1738EF0089A269 /* AppEnvironment.swift */,
+				A678F6052C47C2F9005AF6F9 /* AppRootManager.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				5488EDD42C3E66D700252A92 /* ToastMessage.swift in Sources */,
 				544BB7692C1699C800BD43E0 /* UIImageExtension.swift in Sources */,
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
+				A678F6062C47C2F9005AF6F9 /* AppRootManager.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
 				54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */,

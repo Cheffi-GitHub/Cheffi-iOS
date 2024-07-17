@@ -22,7 +22,7 @@ struct LaunchScreenFeature {
     enum Action {
         case onAppear
         case configureKakaoSDK
-        case dismiss
+        case presentAuthentication
         case alert(PresentationAction<Alert>)
         
         enum Alert: Equatable {
@@ -40,7 +40,7 @@ struct LaunchScreenFeature {
             case .configureKakaoSDK:
                 do {
                     try configureKakaoSDK()
-                    return .send(.dismiss)
+                    return .send(.presentAuthentication)
                 } catch {
                     // TODO: 기획 문의 후 title, message 문구 변경
                     state.alert = AlertState(
@@ -50,8 +50,7 @@ struct LaunchScreenFeature {
                     return .none
                 }
                 
-            case .dismiss:
-                state.completedLaunchScreen = true
+            case .presentAuthentication:
                 return .none
                 
             case .alert:

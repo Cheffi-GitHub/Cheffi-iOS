@@ -70,11 +70,12 @@
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 		A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */; };
 		A678A4882C2C632F00A3D16B /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */; };
-		A678F6062C47C2F9005AF6F9 /* AppRootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678F6052C47C2F9005AF6F9 /* AppRootManager.swift */; };
 		A6801E5A2C417DDA00471691 /* LoginFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6801E592C417DDA00471691 /* LoginFeature.swift */; };
 		A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */; };
 		A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */; };
 		A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AF2C29B6A800E4E3A2 /* Authority.swift */; };
+		A69989FC2C47FF8700850EE7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69989FB2C47FF8700850EE7 /* RootView.swift */; };
+		A69989FE2C47FF8D00850EE7 /* RootFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69989FD2C47FF8D00850EE7 /* RootFeature.swift */; };
 		A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */; };
 		A6F5E6CC2C1B22C00053C2E8 /* NetworkEventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */; };
 		A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */; };
@@ -177,11 +178,12 @@
 		A67677F72C1740600089A269 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
-		A678F6052C47C2F9005AF6F9 /* AppRootManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootManager.swift; sourceTree = "<group>"; };
 		A6801E592C417DDA00471691 /* LoginFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFeature.swift; sourceTree = "<group>"; };
 		A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKakaoModel.swift; sourceTree = "<group>"; };
 		A688B0AF2C29B6A800E4E3A2 /* Authority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authority.swift; sourceTree = "<group>"; };
+		A69989FB2C47FF8700850EE7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A69989FD2C47FF8D00850EE7 /* RootFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFeature.swift; sourceTree = "<group>"; };
 		A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestInterceptor.swift; sourceTree = "<group>"; };
 		A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEventLogger.swift; sourceTree = "<group>"; };
 		A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
@@ -299,7 +301,6 @@
 			children = (
 				549B1F8E2C0607C7005C9432 /* CheffiApp.swift */,
 				A67677F22C1738EF0089A269 /* AppEnvironment.swift */,
-				A678F6052C47C2F9005AF6F9 /* AppRootManager.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -372,6 +373,7 @@
 		548BC06D2C086B4D00A73F66 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				A69989FA2C47FF1400850EE7 /* Root */,
 				547B4BC72C4566D400C4B1B4 /* Main */,
 				54073B7B2C0C55C400597973 /* Home */,
 				A678A4862C2C626E00A3D16B /* LaunchScreen */,
@@ -557,6 +559,15 @@
 				541D2A802C4FB08C00488999 /* PhotoInfo.swift */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		A69989FA2C47FF1400850EE7 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				A69989FB2C47FF8700850EE7 /* RootView.swift */,
+				A69989FD2C47FF8D00850EE7 /* RootFeature.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 		A6F5E6CF2C2065420053C2E8 /* LoginView */ = {
@@ -762,7 +773,6 @@
 				5488EDD42C3E66D700252A92 /* ToastMessage.swift in Sources */,
 				544BB7692C1699C800BD43E0 /* UIImageExtension.swift in Sources */,
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
-				A678F6062C47C2F9005AF6F9 /* AppRootManager.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
 				54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */,
@@ -779,10 +789,12 @@
 				547B4BC92C4566F300C4B1B4 /* MainTabFeature.swift in Sources */,
 				A6F5E7002C284E400053C2E8 /* KeychainManager.swift in Sources */,
 				A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */,
+				A69989FE2C47FF8D00850EE7 /* RootFeature.swift in Sources */,
 				A6F5E6CC2C1B22C00053C2E8 /* NetworkEventLogger.swift in Sources */,
 				541930592C3D8BEC0080CA57 /* StringExtension.swift in Sources */,
 				A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */,
 				54F217A92C2BC42A00892DBD /* ScrollViewOffset.swift in Sources */,
+				A69989FC2C47FF8700850EE7 /* RootView.swift in Sources */,
 				54073B8C2C0D98E500597973 /* ReviewCell.swift in Sources */,
 				5419304D2C3D798A0080CA57 /* ReviewDetailModel.swift in Sources */,
 				543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */,

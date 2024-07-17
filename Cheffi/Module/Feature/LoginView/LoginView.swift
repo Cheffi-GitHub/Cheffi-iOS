@@ -10,6 +10,8 @@ import ComposableArchitecture
 
 struct LoginView: View {
     
+    @EnvironmentObject private var appRootManager: AppRootManager
+    
     @Perception.Bindable var store: StoreOf<LoginFeature>
     
     var body: some View {

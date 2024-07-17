@@ -10,21 +10,20 @@ import ComposableArchitecture
 
 struct LaunchScreenView: View {
     
+    @EnvironmentObject private var appRootManager: AppRootManager
+    
     @Perception.Bindable var store: StoreOf<LaunchScreenFeature>
     
     var body: some View {
         WithPerceptionTracking {
-            NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
-                ZStack {
-                    Color.primary
-                        .ignoresSafeArea()
-                    
-                    Image("launchScreenLogo")
-                        .resizable()
-                        .frame(width: 120, height: 36)
-                }
-            } destination: { store in
-                LoginView(store: store)
+            ZStack {
+                Color.primary
+                    .ignoresSafeArea()
+                
+                Image("launchScreenLogo")
+                    .resizable()
+                    .frame(width: 120, height: 36)
+                    .offset(y: -12.2)
             }
             .onAppear {
                 store.send(.onAppear)

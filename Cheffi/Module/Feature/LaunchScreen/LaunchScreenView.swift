@@ -10,8 +10,6 @@ import ComposableArchitecture
 
 struct LaunchScreenView: View {
     
-    @EnvironmentObject private var appRootManager: AppRootManager
-    
     @Perception.Bindable var store: StoreOf<LaunchScreenFeature>
     
     var body: some View {

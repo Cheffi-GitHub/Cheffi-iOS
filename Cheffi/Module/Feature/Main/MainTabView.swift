@@ -6,53 +6,62 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct MainTabView: View {
+    
+    @Perception.Bindable var store: StoreOf<MainTabFeature> = .init(
+        initialState: MainTabFeature.State()) {
+            MainTabFeature()
+        }
+
+    
     @State private var selectedIndex: Int = 0
     @State private var oldIndex = 0
-    @State private var presentWriteView: Bool = false
     
     var body: some View {
-        NavigationStack {
-            TabView(selection: $selectedIndex) {
-                ForEach(TabType.allCases, id: \.self) { type in
-                    getTabView(type: type)
-                        .tag(type.rawValue)
-                        .tabItem {
-                            VStack(spacing: 4) {
-                                selectedIndex == type.rawValue
-                                ? type.tabItem.selectedImage
-                                : type.tabItem.normalImage
-                                
-                                Text(type.tabItem.title)
-                                    .foregroundStyle(Color.grey4)
-                                    .font(.suit(.regular, 12))
+        WithPerceptionTracking {
+            NavigationStack {
+                TabView(selection: $selectedIndex) {
+                    ForEach(TabType.allCases, id: \.self) { type in
+                        getTabView(type: type)
+                            .tag(type.rawValue)
+                            .tabItem {
+                                VStack(spacing: 4) {
+                                    selectedIndex == type.rawValue
+                                    ? type.tabItem.selectedImage
+                                    : type.tabItem.normalImage
+                                    
+                                    Text(type.tabItem.title)
+                                        .foregroundStyle(Color.grey4)
+                                        .font(.suit(.regular, 12))
+                                }
                             }
-                        }
+                    }
+                }
+                .accentColor(Color.primary)
+            }
+            .fullScreenCover(isPresented: $store.presentRegisterView.sending(\.toggleRegisterView)) {
+                Text("맛집등록 뷰")
+                    .onTapGesture {
+                        store.send(.toggleRegisterView(false))
+                    }
+            }
+            .onChange(of: selectedIndex) { newIndex in
+                if newIndex == TabType.write.rawValue {
+                    store.send(.toggleRegisterView(true))
+                    selectedIndex = oldIndex
+                } else {
+                    oldIndex = newIndex
                 }
             }
-            .accentColor(Color.primary)
-        }
-        .fullScreenCover(isPresented: $presentWriteView) {
-            Text("맛집등록 뷰")
-                .onTapGesture {
-                    presentWriteView = false
-                }
-        }
-        .onChange(of: selectedIndex) { newIndex in
-            if newIndex == TabType.write.rawValue {
-                presentWriteView = true
-                selectedIndex = oldIndex
-            } else {
-                oldIndex = newIndex
+            .onAppear {
+                let appearance = UITabBarAppearance()
+                appearance.backgroundImage = UIImage.borderForTabBar(color: Color.white)
+                appearance.shadowImage = UIImage.borderForTabBar(color: Color.grey1)
+                UITabBar.appearance().standardAppearance = appearance
+                UITabBar.appearance().scrollEdgeAppearance = appearance
             }
-        }
-        .onAppear {
-            let appearance = UITabBarAppearance()
-            appearance.backgroundImage = UIImage.borderForTabBar(color: Color.white)
-            appearance.shadowImage = UIImage.borderForTabBar(color: Color.grey1)
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
         }
     }
     

@@ -7,30 +7,25 @@
 
 import SwiftUI
 import KakaoSDKAuth
-import KakaoSDKCommon
+import ComposableArchitecture
 
 @main
 struct CheffiApp: App {
     
-    init() {
-        try? configureKakaoSDK()
-    }
-    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .onOpenURL { url in
-                    if AuthApi.isKakaoTalkLoginUrl(url) {
-                        _ = AuthController.handleOpenUrl(url: url)
-                    }
+            // TODO: Navigation (View Transition 설계)
+            // RootView로 MainTabView 설정
+            // MainTabView에서 FullScreen으로 LaunchScreen Present(With NavigationStack)
+            // 회원가입, 프로필 설정 Flow 등등 Push, 모두 완료되면 FullScreen Modal Dismiss
+            LaunchScreenView(store: Store(initialState: LaunchScreenFeature.State()) {
+                LaunchScreenFeature()
+            })
+            .onOpenURL { url in
+                if AuthApi.isKakaoTalkLoginUrl(url) {
+                    _ = AuthController.handleOpenUrl(url: url)
                 }
+            }
         }
-    }
-}
-
-extension CheffiApp {
-    private func configureKakaoSDK() throws {
-        let appKey: String = try AppEnvironment.kakaoNativeAppKey.getValue()
-        KakaoSDK.initSDK(appKey: appKey)
     }
 }

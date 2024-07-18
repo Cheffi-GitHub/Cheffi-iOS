@@ -9,12 +9,15 @@ import SwiftUI
 import Kingfisher
 
 struct ReviewCell: View {
+    
+    @Environment(\.scenePhase) var scenePhase
+    @State private var timeLeftToLock: Int = 0
+    
     let review: ReviewModel
     let type: ReviewSize
     let screenWidth = UIWindow().screen.bounds.width
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State private var timeLeftToLock: Int = 0
     
     init(review: ReviewModel = .dummyData, type: ReviewSize) {
         self.review = review
@@ -101,6 +104,14 @@ struct ReviewCell: View {
         .onReceive(timer) { time in
             if timeLeftToLock > 0 {
                 timeLeftToLock -= 1
+            }
+        }
+        .onChange(of: scenePhase) { state in
+            switch state {
+            case .active: timeLeftToLock = review.timeToLock.secondsUntilLock()
+            case .inactive: break
+            case .background: break
+            default: break
             }
         }
         .onAppear {

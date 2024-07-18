@@ -27,6 +27,7 @@ struct AllReviewFeature {
     enum Action {
         case startTimer
         case updateTimer
+        case sceneActive
         case changeViewType(type: ReviewViewType)
         case requestPopularReviews
         case popularReviewsResponse(Result<ReviewPagingResponse, Error>)
@@ -50,6 +51,10 @@ struct AllReviewFeature {
                     state.remainTime = 3600
                     return .send(.requestPopularReviews)
                 }
+                return .none
+                
+            case .sceneActive:
+                state.remainTime = calculateRemainSeconds()
                 return .none
                 
             case .changeViewType(let type):
@@ -76,5 +81,14 @@ struct AllReviewFeature {
                 return .none
             }
         }
+    }
+    
+    private func calculateRemainSeconds() -> Int {
+        let now = Date()
+        let calendar = Calendar.current
+        let startOfCurrentTime = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: now)) ?? Date()
+        let nextHour = calendar.date(byAdding: .hour, value: 1, to: startOfCurrentTime) ?? Date()
+        let seconds = calendar.dateComponents([.second], from: now, to: nextHour).second ?? 0
+        return seconds
     }
 }

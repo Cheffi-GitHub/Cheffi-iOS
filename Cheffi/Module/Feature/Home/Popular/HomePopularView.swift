@@ -14,6 +14,7 @@ struct HomePopularView: View {
         initialState: HomePopularFeature.State()) {
             HomePopularFeature()
         }
+    @Environment(\.scenePhase) var scenePhase
     
     private let columns = [
         GridItem(.flexible()),
@@ -162,6 +163,14 @@ struct HomePopularView: View {
                                 }
                             Spacer()
                         }
+                    }
+                }
+                .onChange(of: scenePhase) { state in
+                    switch state {
+                    case .active: store.send(.sceneActive)
+                    case .inactive: break
+                    case .background: break
+                    default: break
                     }
                 }
                 .onFirstAppear {

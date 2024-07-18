@@ -17,6 +17,7 @@ struct AllReviewView: View {
     
     @Perception.Bindable var store: StoreOf<AllReviewFeature>
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.scenePhase) var scenePhase
     
     private let columns = [
         GridItem(.flexible(), alignment: .top),
@@ -105,6 +106,14 @@ struct AllReviewView: View {
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
+            .onChange(of: scenePhase) { state in
+                switch state {
+                case .active: store.send(.sceneActive)
+                case .inactive: break
+                case .background: break
+                default: break
+                }
+            }
             .onFirstAppear {
                 store.send(.startTimer)
             }

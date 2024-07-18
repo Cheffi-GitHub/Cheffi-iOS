@@ -32,6 +32,7 @@ struct HomePopularFeature {
         case onFirstAppear
         case startTimer
         case updateTimer
+        case sceneActive
         case requestPopularReviews
         case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
         case toolTipTapped
@@ -59,6 +60,10 @@ struct HomePopularFeature {
                     state.remainTime = 3600
                     return .send(.requestPopularReviews)
                 }
+                return .none
+                
+            case .sceneActive:
+                state.remainTime = calculateRemainSeconds()
                 return .none
                 
             case .requestPopularReviews:

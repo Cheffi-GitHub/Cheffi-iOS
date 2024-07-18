@@ -42,6 +42,8 @@ enum Home: String, ImageNameProtocol {
     case selectedCollapse = "selectedCollapse"
     case normalExpand = "normalExpand"
     case selectedExpand = "selectedExpand"
+    case popularTooptip = "popularTooptip"
+    case placeTooltip = "placeTooltip"
 }
 
 enum Review: String, ImageNameProtocol {

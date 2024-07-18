@@ -23,6 +23,7 @@ struct HomePopularFeature {
         }
         var popularReviews: [ReviewModel] = []
         var path = StackState<Path.State>()
+        var showTooltip = false
     }
     
     enum Action {
@@ -53,7 +54,7 @@ struct HomePopularFeature {
                 return .none
                 
             case .toolTipTapped:
-                print("툴팁 보여주기")
+                state.showTooltip.toggle()
                 return .none
             case .path:
                 return .none

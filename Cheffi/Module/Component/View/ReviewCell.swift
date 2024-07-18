@@ -13,6 +13,9 @@ struct ReviewCell: View {
     let type: ReviewSize
     let screenWidth = UIWindow().screen.bounds.width
     
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timeLeftToLock: Int = 0
+    
     init(review: ReviewModel = .dummyData, type: ReviewSize) {
         self.review = review
         self.type = type
@@ -49,18 +52,27 @@ struct ReviewCell: View {
                 )
                 .clipShape(.rect(cornerRadius: 8))
                 
-                HStack(spacing: 8) {
-                    Image(name: Common.lock)
-                    Text("00:30")
-                        .foregroundStyle(Color.white)
+                if !review.writtenByUser {
+                    HStack(spacing: 8) {
+                        Image(name: Common.lock)
+                        Text(
+                            review.purchased
+                            ? "구매한 리뷰"
+                            : timeLeftToLock == 0
+                            ? "리뷰 잠김"
+                            : timeLeftToLock >= 300
+                            ? timeLeftToLock.toHourMinute()
+                            : timeLeftToLock.toHourMinuteSecond()
+                        )
+                        .foregroundStyle(timeLeftToLock >= 300 || timeLeftToLock == 0 ? Color.white : Color.expiration)
                         .font(.suit(.semiBold, 14))
+                    }
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 12)
+                    .background(Color.black.opacity(0.32))
+                    .clipShape(.rect(cornerRadius: 20))
+                    .padding([.top, .trailing], 10)
                 }
-                .padding(.vertical, 4)
-                .padding(.horizontal, 12)
-                .background(Color.black.opacity(0.32))
-                .clipShape(.rect(cornerRadius: 20))
-                .padding([.top, .trailing], 10)
-                
             }
             Spacer().frame(height: 12)
             VStack(alignment: .leading) {
@@ -85,6 +97,14 @@ struct ReviewCell: View {
                 ? mediumWidth
                 : largeSize
             )
+        }
+        .onReceive(timer) { time in
+            if timeLeftToLock > 0 {
+                timeLeftToLock -= 1
+            }
+        }
+        .onAppear {
+            timeLeftToLock = review.timeToLock.secondsUntilLock()
         }
     }
 }

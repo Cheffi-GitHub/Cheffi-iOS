@@ -49,6 +49,8 @@ struct AllReviewFeature {
                     state.remainTime -= 1
                 } else {
                     state.remainTime = 3600
+                    state.cursor = 0
+                    state.popularReviews = []
                     return .send(.requestPopularReviews)
                 }
                 return .none

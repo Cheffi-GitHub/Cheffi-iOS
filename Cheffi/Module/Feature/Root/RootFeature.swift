@@ -20,11 +20,10 @@ struct RootFeature {
     }
     
     enum Action {
-        case presentAuthentication
-        case successKakaoAutoLogin(LoginKakaoResponse)
         case launchScreenAction(LaunchScreenFeature.Action)
         case loginAction(LoginFeature.Action)
         case mainTabAction(MainTabFeature.Action)
+        case tryKakaoAuthLogin(Result<LoginKakaoResponse, Error>)
     }
     
     enum AppRootState {
@@ -55,16 +54,18 @@ struct RootFeature {
                     return Effect.publisher {
                         // TODO: Apple Login 구현 후 2가지 자동 로그인 시나리오 분기처리
                         return kakaoClient.requestAutoLogin()
-                            .map { Action.successKakaoAutoLogin($0) }
-                            .catch { _ in Just(Action.presentAuthentication) }
+                            .map { Action.tryKakaoAuthLogin(.success($0)) }
+                            .catch { Just(Action.tryKakaoAuthLogin(.failure($0))) }
                     }
                     
-                case .successKakaoAutoLogin:
-                    state.currentRoot = .main
-                    return .none
-                    
-                case .presentAuthentication:
-                    state.currentRoot = .authentication
+                case .tryKakaoAuthLogin(let result):
+                    // TODO: 화면 전환 시 LoginKakaoResponse 또는 KakaoAuthError 데이터가 필요한지 확인
+                    switch result {
+                    case .success:
+                        state.currentRoot = .main
+                    case .failure:
+                        state.currentRoot = .authentication
+                    }
                     return .none
                     
                 case .loginAction(.presentMain):

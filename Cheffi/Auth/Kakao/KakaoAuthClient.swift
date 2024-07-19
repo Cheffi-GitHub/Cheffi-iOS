@@ -15,11 +15,12 @@ import ComposableArchitecture
 struct KakaoAuthClient {
     
     enum KakaoAuthError: Error {
-        case unknown(Error?)
-        case sdk(SdkError)
+        case emptyToken
         case invalidToken
         case notFoundKakaotalk
         case failedOAuthLoginKakao
+        case sdk(SdkError)
+        case unknown(Error?)
     }
     
     @Dependency(\.networkClient) private var networkClient

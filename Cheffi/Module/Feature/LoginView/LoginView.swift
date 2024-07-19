@@ -44,7 +44,7 @@ struct LoginView: View {
                         .padding(.bottom, 128)
                     
                     Button(action: {
-                        print("tapped login")
+                        store.send(.loginWithKakao)
                     }, label: {
                         Image(name: Login.loginKakao)
                     })
@@ -53,7 +53,7 @@ struct LoginView: View {
                     .padding(.bottom, 8)
                     
                     Button(action: {
-                        print("tapped apple")
+                        store.send(.loginWithApple)
                     }, label: {
                         Image(name: Login.loginApple)
                     })
@@ -65,9 +65,9 @@ struct LoginView: View {
                 
             }
             .ignoresSafeArea()
-            .onAppear {
-                store.send(.onAppear)
-            }
+            .alert(
+                $store.scope(state: \.alert, action: \.alert)
+            )
         }
     }
 }

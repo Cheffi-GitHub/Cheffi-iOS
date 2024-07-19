@@ -43,7 +43,7 @@ struct LoginFeature {
             case .loginWithKakao:
                 return Effect.publisher {
                     kakaoClient
-                        .requestOAuthLoginKakao()
+                        .requestManualLogin()
                         .map { Action.successKakaoLogin($0) }
                         .catch { Just(Action.failureKakaoLogin($0)) }
                 }

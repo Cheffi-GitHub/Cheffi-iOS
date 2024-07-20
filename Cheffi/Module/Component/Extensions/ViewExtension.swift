@@ -23,4 +23,8 @@ extension View {
             )
         )
     }
+    
+    func hidden(_ hidden: Bool) -> some View {
+        opacity(hidden ? 0 : 1)
+    }
 }

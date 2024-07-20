@@ -54,6 +54,7 @@ enum Review: String, ImageNameProtocol {
     case selectedGood = "selectedGood"
     case selectedSoso = "selectedSoso"
     case selectedBad = "selectedBad"
+    case deletedImage = "deletedImage"
 }
 
 enum Login: String, ImageNameProtocol {

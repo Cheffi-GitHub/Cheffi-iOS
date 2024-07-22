@@ -26,6 +26,7 @@
 		541930552C3D7B2E0080CA57 /* Ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541930542C3D7B2E0080CA57 /* Ratings.swift */; };
 		541930572C3D7B410080CA57 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541930562C3D7B410080CA57 /* Menu.swift */; };
 		541930592C3D8BEC0080CA57 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541930582C3D8BEC0080CA57 /* StringExtension.swift */; };
+		5433CAA12C42A647005B62F2 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433CAA02C42A647005B62F2 /* IntExtension.swift */; };
 		543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */; };
 		543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */; };
 		544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BB7662C168F8400BD43E0 /* MainTabView.swift */; };
@@ -48,6 +49,7 @@
 		549B1FAC2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */; };
 		549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FD42C0618D7005C9432 /* FontExtension.swift */; };
 		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
+		54C30E312C47EDDE00DA6FF8 /* FirstAppearModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */; };
 		54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */; };
 		54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */; };
 		54E285FA2C2FE28700AD7939 /* TagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E285F92C2FE28700AD7939 /* TagsModel.swift */; };
@@ -125,6 +127,7 @@
 		541930542C3D7B2E0080CA57 /* Ratings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ratings.swift; sourceTree = "<group>"; };
 		541930562C3D7B410080CA57 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		541930582C3D8BEC0080CA57 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		5433CAA02C42A647005B62F2 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		543F0AE32C10263100DFBDB1 /* HomeCheffiStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryView.swift; sourceTree = "<group>"; };
 		543F0AE52C10264800DFBDB1 /* HomeCheffiStoryFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiStoryFeature.swift; sourceTree = "<group>"; };
 		544BB7662C168F8400BD43E0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 		549B1FD42C0618D7005C9432 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		549B1FD62C061A68005C9432 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstAppearModifer.swift; sourceTree = "<group>"; };
 		54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceFeature.swift; sourceTree = "<group>"; };
 		54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
 		54E285F92C2FE28700AD7939 /* TagsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModel.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 		548BC0632C086AE300A73F66 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */,
 				54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */,
 				A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */,
 				5488EDD32C3E66D700252A92 /* ToastMessage.swift */,
@@ -463,6 +468,7 @@
 				A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */,
 				541930582C3D8BEC0080CA57 /* StringExtension.swift */,
 				5488EDD12C3E534700252A92 /* ViewExtension.swift */,
+				5433CAA02C42A647005B62F2 /* IntExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -784,6 +790,7 @@
 				A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */,
 				54F217AB2C2D2F1B00892DBD /* ReviewModel.swift in Sources */,
 				541930572C3D7B410080CA57 /* Menu.swift in Sources */,
+				5433CAA12C42A647005B62F2 /* IntExtension.swift in Sources */,
 				541930552C3D7B2E0080CA57 /* Ratings.swift in Sources */,
 				A6F5E6E82C245EBD0053C2E8 /* KakaoAuthClient.swift in Sources */,
 				5488EDD22C3E534700252A92 /* ViewExtension.swift in Sources */,
@@ -797,6 +804,7 @@
 				A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */,
 				A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */,
 				A61FC3CA2C3D689200C732C6 /* RestErrorResponse.swift in Sources */,
+				54C30E312C47EDDE00DA6FF8 /* FirstAppearModifer.swift in Sources */,
 				A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */,
 				540BE9B02C22C607009180AE /* ReviewDetailFeature.swift in Sources */,
 			);

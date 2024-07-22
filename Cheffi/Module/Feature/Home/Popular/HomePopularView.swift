@@ -14,6 +14,7 @@ struct HomePopularView: View {
         initialState: HomePopularFeature.State()) {
             HomePopularFeature()
         }
+    @Environment(\.scenePhase) var scenePhase
     
     private let columns = [
         GridItem(.flexible()),
@@ -52,7 +53,7 @@ struct HomePopularView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(spacing: 0) {
                                 Image(name: Common.clock)
-                                Text("00 : 13 : 43")
+                                Text(store.remainTime.toHourMinuteSecond())
                                     .foregroundStyle(Color.primary)
                                     .font(.suit(.bold, 18))
                                 Text("초 뒤에")
@@ -69,7 +70,7 @@ struct HomePopularView: View {
                                     }
                                 Spacer()
                                 NavigationLink(state: HomePopularFeature.Path.State.moveToAllReviewView(
-                                    .init(popularReviews: store.popularReviews)
+                                    .init(popularReviews: store.popularReviews, remainTime: store.remainTime)
                                 )) {
                                     HStack {
                                         Text("전체보기")
@@ -164,8 +165,16 @@ struct HomePopularView: View {
                         }
                     }
                 }
-                .onAppear {
-                    store.send(.requestPopularReviews)
+                .onChange(of: scenePhase) { state in
+                    switch state {
+                    case .active: store.send(.sceneActive)
+                    case .inactive: break
+                    case .background: break
+                    default: break
+                    }
+                }
+                .onFirstAppear {
+                    store.send(.onFirstAppear)
                 }
             } destination: { store in
                 switch store.state {

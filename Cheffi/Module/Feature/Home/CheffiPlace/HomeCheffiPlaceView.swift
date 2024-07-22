@@ -116,7 +116,7 @@ struct HomeCheffiPlaceView: View {
                     .background(Color.white)
                 })
             }
-            .onAppear {
+            .onFirstAppear {
                 store.send(.requestTags)
                 store.send(.requestCheffiPlace(tagId: 1))
             }

@@ -32,4 +32,15 @@ extension String {
         
         return String()
     }
+    
+    func secondsUntilLock() -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.timeZone = TimeZone.current
+        
+        let futureDate = dateFormatter.date(from: self) ?? Date()
+        let timeInterval = futureDate.timeIntervalSince(Date())
+        
+        return timeInterval > 0 ? Int(timeInterval) : 0
+    }
 }

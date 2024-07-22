@@ -23,4 +23,8 @@ extension View {
             )
         )
     }
+    
+    func onFirstAppear(_ action: @escaping () async -> Void) -> some View {
+           modifier(FirstAppearModifer(action))
+       }
 }

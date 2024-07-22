@@ -281,7 +281,7 @@ struct ReviewDetailView: View {
                         .toolbar(.hidden, for: .navigationBar)
                 }
             }
-            .onAppear {
+            .onFirstAppear {
                 store.send(.requestReviewDetail)
             }
         }

@@ -107,11 +107,8 @@ struct ReviewCell: View {
             }
         }
         .onChange(of: scenePhase) { state in
-            switch state {
-            case .active: timeLeftToLock = review.timeToLock.secondsUntilLock()
-            case .inactive: break
-            case .background: break
-            default: break
+            if state == .active {
+                timeLeftToLock = review.timeToLock.secondsUntilLock()
             }
         }
         .onAppear {

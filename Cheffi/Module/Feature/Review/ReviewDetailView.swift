@@ -73,7 +73,8 @@ struct ReviewDetailView: View {
                                 TabView(selection: $selection) {
                                     ForEach(0..<review.photos.count, id: \.self) { index in
                                         Group {
-                                            if let url = URL(string: review.photos[index].photoUrl) {
+                                            if let photoUrl = review.photos[index].photo.url,
+                                               let url = URL(string: photoUrl) {
                                                 KFImage(url)
                                                     .resizable()
                                             } else {
@@ -211,7 +212,7 @@ struct ReviewDetailView: View {
                                         .foregroundStyle(Color.black)
                                         .padding(.bottom, 6)
                                     WriterRow(
-                                        imageUrl: review.writer.photoURL,
+                                        photoUrl: review.writer.photo.url,
                                         title: review.writer.nickname,
                                         intro: review.writer.introduction,
                                         isFollowed: true

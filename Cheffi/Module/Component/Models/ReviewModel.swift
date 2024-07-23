@@ -52,7 +52,7 @@ extension ReviewModel {
             id: 1,
             title: "Amazing Restaurant",
             text: "The food was absolutely amazing and the service was excellent.",
-            photo: Photo(id: 1, order: 3, photoUrl: ""),
+            photo: Photo(id: 1, order: 3, photo: PhotoInfo(url: String(), width: 120, height: 120)),
             timeToLock: "2024-07-16T08:14:33",
             timeLeftToLock: 3600,
             locked: false,

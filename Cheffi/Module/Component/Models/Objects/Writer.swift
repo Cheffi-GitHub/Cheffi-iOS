@@ -10,14 +10,14 @@ import Foundation
 struct Writer: Codable, Equatable {
     let id: Int
     let nickname: String
-    let photoURL: String
+    let photo: PhotoInfo
     let introduction: String
     let writtenByViewer: Bool
     
     enum CodingKeys: String, CodingKey {
         case id
         case nickname
-        case photoURL = "photo_url"
+        case photo
         case introduction
         case writtenByViewer = "written_by_viewer"
     }

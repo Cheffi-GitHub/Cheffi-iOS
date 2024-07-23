@@ -33,7 +33,8 @@ struct ReviewCell: View {
         VStack(spacing: 0) {
             ZStack(alignment: .topTrailing) {
                 Group {
-                    if let url = URL(string: review.photo.photoUrl) {
+                    if let photoUrl = review.photo.photo.url,
+                       let url = URL(string: photoUrl) {
                         KFImage(url)
                             .resizable()
                     } else {

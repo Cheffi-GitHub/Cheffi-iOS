@@ -62,7 +62,9 @@ struct RootFeature {
                     // TODO: 화면 전환 시 LoginKakaoResponse 또는 KakaoAuthError 데이터가 필요한지 확인
                     switch result {
                     case .success:
-                        state.currentRoot = .main
+                        // FIXME: 약관 화면 개발을 위한 자동로그인 비활성화
+                        //state.currentRoot = .main
+                        state.currentRoot = .authentication
                     case .failure:
                         state.currentRoot = .authentication
                     }

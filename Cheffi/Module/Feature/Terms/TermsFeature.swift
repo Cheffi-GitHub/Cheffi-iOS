@@ -11,7 +11,7 @@ import ComposableArchitecture
 struct TermsFeature {
     
     @ObservableState
-    struct State {
+    struct State: Equatable {
         
     }
     

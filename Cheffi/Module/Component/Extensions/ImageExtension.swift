@@ -58,7 +58,10 @@ enum Review: String, ImageNameProtocol {
 }
 
 enum Login: String, ImageNameProtocol {
+    case loginBackgroundImage = "loginBackgroundImage"
+    case loginServiceOverview = "loginServiceOverview"
     case loginKakao = "loginKakao"
+    case loginApple = "loginApple"
 }
 
 // TODO: 추후 삭제

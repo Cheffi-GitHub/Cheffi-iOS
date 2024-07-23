@@ -96,7 +96,7 @@ struct HomeCheffiStoryView: View {
                                 ForEach(items, id: \.title) { item in
                                     WithPerceptionTracking {
                                         WriterRow(
-                                            imageUrl: String(),
+                                            photoUrl: String(),
                                             title: item.title,
                                             intro: item.intro,
                                             isFollowed: item.isFollowed
@@ -140,8 +140,8 @@ struct HomeCheffiStoryView: View {
                         }
                 }
             }
-            .onAppear {
-                store.send(.onAppear)
+            .onFirstAppear {
+                store.send(.onFirstAppear)
             }
         }
     }

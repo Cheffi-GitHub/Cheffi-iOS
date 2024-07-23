@@ -17,6 +17,7 @@ struct AllReviewView: View {
     
     @Perception.Bindable var store: StoreOf<AllReviewFeature>
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.scenePhase) var scenePhase
     
     private let columns = [
         GridItem(.flexible(), alignment: .top),
@@ -34,7 +35,7 @@ struct AllReviewView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         HStack(spacing: 0) {
                             Image(name: Common.clock)
-                            Text("00 : 13 : 43")
+                            Text(store.remainTime.toHourMinuteSecond())
                                 .foregroundStyle(Color.primary)
                                 .font(.suit(.bold, 18))
                             Text("초 뒤에")
@@ -116,13 +117,24 @@ struct AllReviewView: View {
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
+            .onChange(of: scenePhase) { state in
+                switch state {
+                case .active: store.send(.sceneActive)
+                case .inactive: break
+                case .background: break
+                default: break
+                }
+            }
+            .onFirstAppear {
+                store.send(.startTimer)
+            }
         }
     }
 }
 
 #Preview {
     AllReviewView(store: .init(
-        initialState: AllReviewFeature.State()) {
+        initialState: AllReviewFeature.State(remainTime: 3600)) {
             AllReviewFeature()
         })
 }

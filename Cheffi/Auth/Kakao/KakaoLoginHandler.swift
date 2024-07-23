@@ -28,9 +28,10 @@ struct KakaoLoginHandler {
                     }
                 }
             }
-            
-            // TODO: Open Kakao LoginWeb?
-            promise(.failure(.notFoundKakaotalk))
+            else {
+                // TODO: Open Kakao LoginWeb?
+                promise(.failure(.notFoundKakaotalk))
+            }
         }
     }
 }

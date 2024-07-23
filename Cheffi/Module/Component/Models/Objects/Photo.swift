@@ -10,5 +10,5 @@ import Foundation
 struct Photo: Codable, Equatable {
     let id: Int
     let order: Int
-    let photoUrl: String
+    let photo: PhotoInfo
 }

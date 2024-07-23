@@ -54,4 +54,6 @@ extension Color {
     static let littletime = Color(hex: 0xF63E4D)
     
     static let heart = Color(hex: 0xF65A68)
+    
+    static let expiration = Color(hex: 0xE53746)
 }

@@ -15,6 +15,7 @@ struct ReviewModel: Codable, Equatable {
     let title: String
     let text: String
     let photo: Photo
+    let timeToLock: String
     let timeLeftToLock: Int
     let locked: Bool
     let viewCount: Int
@@ -32,6 +33,7 @@ extension ReviewModel {
         case title
         case text
         case photo
+        case timeToLock = "time_to_lock"
         case timeLeftToLock = "time_left_to_lock"
         case locked
         case viewCount = "view_count"
@@ -50,7 +52,8 @@ extension ReviewModel {
             id: 1,
             title: "Amazing Restaurant",
             text: "The food was absolutely amazing and the service was excellent.",
-            photo: Photo(id: 1, order: 3, photoUrl: ""),
+            photo: Photo(id: 1, order: 3, photo: PhotoInfo(url: String(), width: 120, height: 120)),
+            timeToLock: "2024-07-16T08:14:33",
             timeLeftToLock: 3600,
             locked: false,
             viewCount: 1234,

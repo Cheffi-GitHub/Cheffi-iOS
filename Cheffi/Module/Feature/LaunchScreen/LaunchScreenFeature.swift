@@ -16,14 +16,14 @@ struct LaunchScreenFeature {
     @ObservableState
     struct State: Equatable {
         @Presents var alert: AlertState<Action.Alert>?
-        var path = StackState<LoginFeature.State>()
+        var completedLaunchScreen: Bool = false
     }
     
     enum Action {
         case onAppear
         case configureKakaoSDK
+        case presentAuthentication
         case alert(PresentationAction<Alert>)
-        case path(StackAction<LoginFeature.State, LoginFeature.Action>)
         
         enum Alert: Equatable {
             case errorKakaoSocialLogin
@@ -40,25 +40,22 @@ struct LaunchScreenFeature {
             case .configureKakaoSDK:
                 do {
                     try configureKakaoSDK()
-                    state.path.append(LoginFeature.State())
+                    return .send(.presentAuthentication)
                 } catch {
                     // TODO: 기획 문의 후 title, message 문구 변경
                     state.alert = AlertState(
                         title: TextState("안내"),
                         message: TextState("카카오 로그인 기능을 이용할 수 없어요.")
                     )
+                    return .none
                 }
+                
+            case .presentAuthentication:
                 return .none
                 
             case .alert:
                 return .none
-                
-            case .path:
-                return .none
             }
-        }
-        .forEach(\.path, action: \.path) {
-            LoginFeature()
         }
         .ifLet(\.$alert, action: \.alert)
     }

@@ -9,11 +9,17 @@ import SwiftUI
 import Kingfisher
 
 struct ReviewCell: View {
+    
+    @Environment(\.scenePhase) var scenePhase
+    @State private var timeLeftToLock: Int = 0
+    
     let review: ReviewModel
-    let type: ReviewType
+    let type: ReviewSize
     let screenWidth = UIWindow().screen.bounds.width
     
-    init(review: ReviewModel = .dummyData, type: ReviewType) {
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    init(review: ReviewModel = .dummyData, type: ReviewSize) {
         self.review = review
         self.type = type
     }
@@ -32,7 +38,8 @@ struct ReviewCell: View {
                             .clipShape(.rect(cornerRadius: 8))
                         Image(name: Review.deletedImage)
                     } else {
-                        if let url = URL(string: review.photo.photoUrl) {
+                        if let photoUrl = review.photo.photo.url,
+                           let url = URL(string: photoUrl) {
                             KFImage(url)
                                 .resizable()
                         } else {
@@ -56,18 +63,28 @@ struct ReviewCell: View {
                 )
                 .clipShape(.rect(cornerRadius: 8))
                 
-                HStack(spacing: 8) {
-                    Image(name: Common.lock)
-                    Text("00:30")
-                        .foregroundStyle(Color.white)
+                if !review.writtenByUser {
+                    HStack(spacing: 8) {
+                        Image(name: Common.lock)
+                        Text(
+                            review.purchased
+                            ? "구매한 리뷰"
+                            : timeLeftToLock == 0
+                            ? "리뷰 잠김"
+                            : timeLeftToLock >= 300
+                            ? timeLeftToLock.toHourMinute()
+                            : timeLeftToLock.toHourMinuteSecond()
+                        )
+                        .foregroundStyle(timeLeftToLock >= 300 || timeLeftToLock == 0 ? Color.white : Color.expiration)
                         .font(.suit(.semiBold, 14))
+                    }
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 12)
+                    .background(Color.black.opacity(0.32))
+                    .clipShape(.rect(cornerRadius: 20))
+                    .padding([.top, .trailing], 10)
+                    .opacity(review.active ? 1 : 0)
                 }
-                .padding(.vertical, 4)
-                .padding(.horizontal, 12)
-                .background(Color.black.opacity(0.32))
-                .clipShape(.rect(cornerRadius: 20))
-                .padding([.top, .trailing], 10)
-                .opacity(review.active ? 1 : 0)
             }
             Spacer().frame(height: 12)
             VStack(alignment: .leading) {
@@ -95,10 +112,23 @@ struct ReviewCell: View {
                 : largeSize
             )
         }
+        .onReceive(timer) { time in
+            if timeLeftToLock > 0 {
+                timeLeftToLock -= 1
+            }
+        }
+        .onChange(of: scenePhase) { state in
+            if state == .active {
+                timeLeftToLock = review.timeToLock.secondsUntilLock()
+            }
+        }
+        .onAppear {
+            timeLeftToLock = review.timeToLock.secondsUntilLock()
+        }
     }
 }
 
-enum ReviewType {
+enum ReviewSize {
     case small
     case medium
     case large

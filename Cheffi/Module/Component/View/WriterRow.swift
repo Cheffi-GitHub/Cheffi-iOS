@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct WriterRow: View {
-    let imageUrl: String
+    let photoUrl: String?
     let title: String
     let intro: String
     let isFollowed: Bool
@@ -17,7 +17,8 @@ struct WriterRow: View {
     var body: some View {
         HStack {
             Group {
-                if let url = URL(string: imageUrl) {
+                if let photoUrl = photoUrl,
+                   let url = URL(string: photoUrl) {
                     KFImage(url)
                         .resizable()
                 } else {

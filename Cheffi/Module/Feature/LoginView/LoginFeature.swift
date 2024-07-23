@@ -19,16 +19,18 @@ struct LoginFeature {
     @ObservableState
     struct State: Equatable {
         @Presents var alert: AlertState<Action.Alert>?
+        var path = StackState<TermsFeature.State>()
     }
     
     enum Action {
-        case alert(PresentationAction<Alert>)
         case loginWithKakao
         case successKakaoLogin(LoginKakaoResponse)
         case failureKakaoLogin(KakaoAuthError)
         case loginWithApple
         case completedLogin
         case presentMain
+        case alert(PresentationAction<Alert>)
+        case path(StackAction<TermsFeature.State, TermsFeature.Action>)
         
         enum Alert: Equatable {
             case notReadyAppleLogin
@@ -49,8 +51,13 @@ struct LoginFeature {
                 }
                 
             case .successKakaoLogin(let response):
-                print("로그인 결과: \(response)")
-                return .send(.completedLogin)
+                // FIXME: 약관 화면 개발을 위한 신규 유저 체크 비활성화
+                //if response.data?.isNewUser ?? false {
+                    state.path.append(TermsFeature.State())
+                    return .none
+                //} else {
+                //    return .send(.completedLogin)
+                //}
                 
             case .failureKakaoLogin(let error):
                 state.alert = AlertState(
@@ -74,8 +81,14 @@ struct LoginFeature {
                 
             case .alert:
                 return .none
+                
+            case .path:
+                return .none
             }
         }
         .ifLet(\.$alert, action: \.alert)
+        .forEach(\.path, action: \.path) {
+            TermsFeature()
+        }
     }
 }

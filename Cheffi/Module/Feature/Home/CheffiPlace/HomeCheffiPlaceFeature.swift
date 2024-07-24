@@ -19,6 +19,7 @@ struct HomeCheffiPlaceFeature {
         var tags: [TagsModel] = []
         var cursors: [Int: Int] = [:]
         var cheffiPlaceReviews: [Int: [ReviewModel]] = [:]
+        var showTooltip = false
     }
     
     enum Action {
@@ -66,7 +67,7 @@ struct HomeCheffiPlaceFeature {
                 }
                 
             case .toolTipTapped:
-                print("툴팁 보여주기")
+                state.showTooltip.toggle()
                 return .none
                 
             case .tagTapped:

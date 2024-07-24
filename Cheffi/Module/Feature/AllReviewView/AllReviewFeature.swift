@@ -21,6 +21,7 @@ struct AllReviewFeature {
         var cursor: Int = 1
         var hasNext: Bool = true
         var popularReviews: [ReviewModel]?
+        var showTooltip = false
         var remainTime: Int
     }
     
@@ -31,6 +32,7 @@ struct AllReviewFeature {
         case changeViewType(type: ReviewViewType)
         case requestPopularReviews
         case popularReviewsResponse(Result<ReviewPagingResponse, Error>)
+        case toolTipTapped
     }
     
     var body: some ReducerOf<Self> {
@@ -80,6 +82,10 @@ struct AllReviewFeature {
                 case .failure(let error):
                     print(error)
                 }
+                return .none
+                
+            case .toolTipTapped:
+                state.showTooltip.toggle()
                 return .none
             }
         }

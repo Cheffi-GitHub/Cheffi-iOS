@@ -73,7 +73,19 @@ struct HomeCheffiPlaceView: View {
                                 .foregroundStyle(Color.black)
                                 .font(.suit(.bold, 20))
                             Image(name: Common.info)
+                                .overlay(
+                                    Group {
+                                        if store.state.showTooltip {
+                                            Image(name: Home.placeTooltip)
+                                                .offset(x: -60, y: 50)
+                                        }
+                                    }
+                                )
+                                .onTapGesture {
+                                    store.send(.toolTipTapped)
+                                }
                         }
+                        .zIndex(2)
                         .padding(.leading, 16)
                         .padding(.bottom, 24)
                         ScrollViewReader { proxy in

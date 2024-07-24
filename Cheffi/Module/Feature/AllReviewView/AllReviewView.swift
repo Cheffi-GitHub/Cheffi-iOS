@@ -47,6 +47,17 @@ struct AllReviewView: View {
                                 .foregroundStyle(Color.black)
                                 .font(.suit(.regular, 18))
                             Image(name: Common.info)
+                                .overlay(
+                                    Group {
+                                        if store.state.showTooltip {
+                                            Image(name: Home.popularTooptip)
+                                                .offset(x: -60, y: 50)
+                                        }
+                                    }
+                                )
+                                .onTapGesture {
+                                    store.send(.toolTipTapped)
+                                }
                             Spacer()
                             HStack(spacing: 20) {
                                 Image(name: store.viewType == .expand ? Home.selectedExpand : Home.normalExpand)
@@ -59,8 +70,8 @@ struct AllReviewView: View {
                                     }
                             }
                         }
-                        
                     }
+                    .zIndex(1)
                     .padding(.horizontal, 16)
                     .padding(.top, 32)
                     

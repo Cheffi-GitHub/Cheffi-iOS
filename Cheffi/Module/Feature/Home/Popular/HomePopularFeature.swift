@@ -8,7 +8,6 @@
 import Foundation
 import Alamofire
 import Combine
-import CombineSchedulers
 import ComposableArchitecture
 
 @Reducer
@@ -25,6 +24,7 @@ struct HomePopularFeature {
         }
         var popularReviews: [ReviewModel] = []
         var path = StackState<Path.State>()
+        var showTooltip = false
         var remainTime: Int = 0
     }
     
@@ -84,7 +84,7 @@ struct HomePopularFeature {
                 return .none
                 
             case .toolTipTapped:
-                print("툴팁 보여주기")
+                state.showTooltip.toggle()
                 return .none
             case .path:
                 return .none

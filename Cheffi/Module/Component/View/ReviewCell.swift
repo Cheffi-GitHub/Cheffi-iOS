@@ -33,13 +33,20 @@ struct ReviewCell: View {
         VStack(spacing: 0) {
             ZStack(alignment: .topTrailing) {
                 Group {
-                    if let photoUrl = review.photo.photo.url,
-                       let url = URL(string: photoUrl) {
-                        KFImage(url)
-                            .resizable()
+                    if !review.active {
+                        Color.grey05
+                            .clipShape(.rect(cornerRadius: 8))
+                        Image(name: Review.deletedImage)
                     } else {
-                        // TODO: 이미지 불러오지 못했을 때 UI 요청
-                        Color.grey3
+                        if let photoUrl = review.photo.photo.url,
+                           let url = URL(string: photoUrl) {
+                            KFImage(url)
+                                .resizable()
+                        } else {
+                            Color.grey05
+                                .clipShape(.rect(cornerRadius: 8))
+                            Image(name: Review.deletedImage)
+                        }
                     }
                 }
                 .frame(
@@ -76,23 +83,26 @@ struct ReviewCell: View {
                     .background(Color.black.opacity(0.32))
                     .clipShape(.rect(cornerRadius: 20))
                     .padding([.top, .trailing], 10)
+                    .opacity(review.active ? 1 : 0)
                 }
             }
             Spacer().frame(height: 12)
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {
-                    Text(review.title)
+                    Text(review.active ? review.title : "삭제된 리뷰입니다.")
                         .foregroundStyle(Color.black)
                         .font(.suit(.bold, 18))
                         .lineLimit(type == .small ? 2 : 1)
                     Spacer()
                     Image(name: Common.emptyHeart)
+                        .hidden(!review.active)
                 }
                 Spacer().frame(height: 8)
                 Text(review.text)
                     .foregroundStyle(Color.grey6)
                     .font(.suit(.regular, 15))
                     .lineLimit(type == .medium ? 1 : 2)
+                    .hidden(!review.active)
             }
             .frame(
                 width: type == .small

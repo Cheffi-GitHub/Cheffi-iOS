@@ -133,6 +133,13 @@ struct ReviewDetailView: View {
                                 }
                                 .padding(.horizontal, 16)
                             }
+                            .overlay(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [Color.black.opacity(0), Color.black.opacity(0.4)]),
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                            )
                             .frame(width: screenWidth, height: screenWidth + (scrollOffset > 0 ? scrollOffset : 0))
                             .offset(y: (scrollOffset > 0 ? -scrollOffset : 0))
                             

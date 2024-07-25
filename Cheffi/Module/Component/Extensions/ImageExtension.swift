@@ -65,6 +65,13 @@ enum Login: String, ImageNameProtocol {
     case loginApple = "loginApple"
 }
 
+enum Terms: String, ImageNameProtocol {
+    case checkMark = "checkMark"
+    case checkMarkFill = "checkMarkFill"
+    case checkMarkCircle = "checkMarkCircle"
+    case checkMarkCircleFill = "checkMarkCircleFill"
+}
+
 // TODO: 추후 삭제
 enum Dummy: String, ImageNameProtocol {
     case sample = "sample"

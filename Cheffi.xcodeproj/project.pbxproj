@@ -78,6 +78,7 @@
 		A6801E5A2C417DDA00471691 /* LoginFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6801E592C417DDA00471691 /* LoginFeature.swift */; };
 		A681E99E2C4FDF7D00B796AA /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681E99D2C4FDF7D00B796AA /* TermsView.swift */; };
 		A681E9A02C4FDF8400B796AA /* TermsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681E99F2C4FDF8400B796AA /* TermsFeature.swift */; };
+		A681E9A22C53DD1700B796AA /* SignupTermsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681E9A12C53DD1700B796AA /* SignupTermsModel.swift */; };
 		A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */; };
 		A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */; };
 		A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AF2C29B6A800E4E3A2 /* Authority.swift */; };
@@ -194,6 +195,7 @@
 		A6801E592C417DDA00471691 /* LoginFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFeature.swift; sourceTree = "<group>"; };
 		A681E99D2C4FDF7D00B796AA /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		A681E99F2C4FDF8400B796AA /* TermsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsFeature.swift; sourceTree = "<group>"; };
+		A681E9A12C53DD1700B796AA /* SignupTermsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTermsModel.swift; sourceTree = "<group>"; };
 		A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKakaoModel.swift; sourceTree = "<group>"; };
 		A688B0AF2C29B6A800E4E3A2 /* Authority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authority.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 				A6DC44172C5C98E200423B90 /* OtherProfileModel.swift */,
 				54E285F92C2FE28700AD7939 /* TagsModel.swift */,
 				5419304C2C3D798A0080CA57 /* ReviewDetailModel.swift */,
+				A681E9A12C53DD1700B796AA /* SignupTermsModel.swift */,
 				A688B0AE2C29B69600E4E3A2 /* Objects */,
 			);
 			path = Models;
@@ -835,6 +838,7 @@
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
 				A670024E2C5CA61E00B7F336 /* URLParameterEncoding.swift in Sources */,
 				5419304B2C3D497D0080CA57 /* AllReviewFeature.swift in Sources */,
+				A681E9A22C53DD1700B796AA /* SignupTermsModel.swift in Sources */,
 				543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */,
 				547B4BC92C4566F300C4B1B4 /* MainTabFeature.swift in Sources */,
 				A6F5E7002C284E400053C2E8 /* KeychainManager.swift in Sources */,

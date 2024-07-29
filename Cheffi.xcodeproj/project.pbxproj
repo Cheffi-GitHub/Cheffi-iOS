@@ -50,7 +50,10 @@
 		549B1FAC2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FAB2C0607C9005C9432 /* CheffiUITestsLaunchTests.swift */; };
 		549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FD42C0618D7005C9432 /* FontExtension.swift */; };
 		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
+		54AC22072C576ABC00652A91 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AC22062C576ABC00652A91 /* ProfileView.swift */; };
+		54AC22092C576AC500652A91 /* ProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AC22082C576AC500652A91 /* ProfileFeature.swift */; };
 		54C30E312C47EDDE00DA6FF8 /* FirstAppearModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */; };
+		54C3BF1D2C57CFEF000DBE21 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 54C3BF1C2C57CFEF000DBE21 /* WrappingHStack */; };
 		54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */; };
 		54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */; };
 		54E285FA2C2FE28700AD7939 /* TagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E285F92C2FE28700AD7939 /* TagsModel.swift */; };
@@ -158,6 +161,8 @@
 		549B1FD42C0618D7005C9432 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		549B1FD62C061A68005C9432 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		54AC22062C576ABC00652A91 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		54AC22082C576AC500652A91 /* ProfileFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeature.swift; sourceTree = "<group>"; };
 		54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstAppearModifer.swift; sourceTree = "<group>"; };
 		54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceFeature.swift; sourceTree = "<group>"; };
 		54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
@@ -206,6 +211,7 @@
 				A611D9DB2C187F6000ABF38C /* Alamofire in Frameworks */,
 				54F217B22C2D685400892DBD /* Kingfisher in Frameworks */,
 				A6F5E6DD2C23213D0053C2E8 /* KakaoSDK in Frameworks */,
+				54C3BF1D2C57CFEF000DBE21 /* WrappingHStack in Frameworks */,
 				A61FC3D22C3D849700C732C6 /* AnyCodable in Frameworks */,
 				A6F5E6E12C23215B0053C2E8 /* KakaoSDKUser in Frameworks */,
 				A6F5E6E32C23215F0053C2E8 /* KakaoSDKCommon in Frameworks */,
@@ -381,6 +387,7 @@
 				549B1F902C0607C7005C9432 /* ContentView.swift */,
 				548FC68A2C2177C1003866A9 /* Review */,
 				541930472C3D49550080CA57 /* AllReviewView */,
+				54AC22052C576AA300652A91 /* Profile */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -478,6 +485,15 @@
 				5433CAA02C42A647005B62F2 /* IntExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		54AC22052C576AA300652A91 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				54AC22062C576ABC00652A91 /* ProfileView.swift */,
+				54AC22082C576AC500652A91 /* ProfileFeature.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		54DF6D972C1D60EB0031E95B /* CheffiPlace */ = {
@@ -633,6 +649,7 @@
 				A6F5E6E22C23215F0053C2E8 /* KakaoSDKCommon */,
 				54F217B12C2D685400892DBD /* Kingfisher */,
 				A61FC3D12C3D849700C732C6 /* AnyCodable */,
+				54C3BF1C2C57CFEF000DBE21 /* WrappingHStack */,
 			);
 			productName = Cheffi;
 			productReference = 549B1F8B2C0607C7005C9432 /* Cheffi.app */;
@@ -712,6 +729,7 @@
 				A6F5E6DB2C2321360053C2E8 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				54F217B02C2D685400892DBD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A61FC3D02C3D848B00C732C6 /* XCRemoteSwiftPackageReference "AnyCodable" */,
+				54C3BF1B2C57CFEF000DBE21 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = 549B1F8C2C0607C7005C9432 /* Products */;
 			projectDirPath = "";
@@ -771,6 +789,7 @@
 				541930492C3D49640080CA57 /* AllReviewView.swift in Sources */,
 				549B1FD52C0618D7005C9432 /* FontExtension.swift in Sources */,
 				5488EDD42C3E66D700252A92 /* ToastMessage.swift in Sources */,
+				54AC22072C576ABC00652A91 /* ProfileView.swift in Sources */,
 				544BB7692C1699C800BD43E0 /* UIImageExtension.swift in Sources */,
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
@@ -812,6 +831,7 @@
 				541930572C3D7B410080CA57 /* Menu.swift in Sources */,
 				5433CAA12C42A647005B62F2 /* IntExtension.swift in Sources */,
 				541930552C3D7B2E0080CA57 /* Ratings.swift in Sources */,
+				54AC22092C576AC500652A91 /* ProfileFeature.swift in Sources */,
 				A6F5E6E82C245EBD0053C2E8 /* KakaoAuthClient.swift in Sources */,
 				5488EDD22C3E534700252A92 /* ViewExtension.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
@@ -1186,6 +1206,14 @@
 				version = 1.10.0;
 			};
 		};
+		54C3BF1B2C57CFEF000DBE21 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		54F217B02C2D685400892DBD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -1225,6 +1253,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 54073B7E2C0CBC6500597973 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		54C3BF1C2C57CFEF000DBE21 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54C3BF1B2C57CFEF000DBE21 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
 		};
 		54F217B12C2D685400892DBD /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

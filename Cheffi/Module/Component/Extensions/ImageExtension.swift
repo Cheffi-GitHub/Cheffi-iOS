@@ -20,6 +20,7 @@ enum Common: String, ImageNameProtocol {
     case info = "info"
     case lock = "lock"
     case check = "check"
+    case dots = "dots"
 }
 
 enum Tab: String, ImageNameProtocol {
@@ -47,7 +48,6 @@ enum Home: String, ImageNameProtocol {
 }
 
 enum Review: String, ImageNameProtocol {
-    case dots = "dots"
     case normalGood = "normalGood"
     case normalSoso = "normalSoso"
     case normalBad = "normalBad"

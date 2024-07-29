@@ -51,7 +51,7 @@ struct ReviewDetailView: View {
                                     dismiss()
                                 }
                             Spacer()
-                            Image(name: Review.dots)
+                            Image(name: Common.dots)
                                 .resizable()
                                 .renderingMode(.template)
                                 .foregroundStyle(navigationForegroundColor)

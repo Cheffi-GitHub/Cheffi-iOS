@@ -1,5 +1,5 @@
 {
-  "originHash" : "f46822e2e176d33472ad9dc0a5fdd6b84cd81a2c7dac095c4d27c80204cd09c5",
+  "originHash" : "4763ce748fdca74f59cc6514f34ef7ccfa87a48f2d0d720f079f42847048aea1",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -143,6 +143,15 @@
       "state" : {
         "revision" : "7ab04c6e2e6a73d34d5a762970ef88bf0aedb084",
         "version" : "1.4.0"
+      }
+    },
+    {
+      "identity" : "wrappinghstack",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dkk/WrappingHStack.git",
+      "state" : {
+        "revision" : "425d9488ba55f58f0b34498c64c054c77fc2a44b",
+        "version" : "2.2.11"
       }
     },
     {

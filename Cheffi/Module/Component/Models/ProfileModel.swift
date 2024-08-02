@@ -1,5 +1,5 @@
 //
-//  OtherProfileModel.swift
+//  ProfileModel.swift
 //  Cheffi
 //
 //  Created by 이서준 on 8/2/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-typealias OtherProfileResponse = RestResponse<OtherProfileModel>
+typealias ProfileResponse = RestResponse<ProfileModel>
 
-struct OtherProfileModel: Codable {
+struct ProfileModel: Codable, Equatable {
     let id: Int
     let nickname: String
     let introduction: String?

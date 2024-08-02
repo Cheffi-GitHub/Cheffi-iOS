@@ -40,11 +40,11 @@ extension RestRouter: EndPoint {
         return parameters
     }
     
-    var method: HTTPMethod {
+    var options: HTTPOptions {
         switch self {
         case .oauthLoginKakao,
              .testUpload:
-            return .post
+            return (.post, .body)
             
         case .avatarsNickname,
              .popularReviews,
@@ -53,7 +53,10 @@ extension RestRouter: EndPoint {
              .tags,
              .testSessionIssue,
              .testAuth:
-            return .get
+            return (.get, .query)
+            
+        case .profile:
+            return (.get, .path)
         }
     }
 }

@@ -70,6 +70,7 @@
 		A61FC3CF2C3D68E200C732C6 /* DataRequest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */; };
 		A61FC3D22C3D849700C732C6 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = A61FC3D12C3D849700C732C6 /* AnyCodable */; };
 		A62EEAD92C2D9BA000926242 /* LaunchScreenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62EEAD82C2D9BA000926242 /* LaunchScreenFeature.swift */; };
+		A670024E2C5CA61E00B7F336 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670024D2C5CA61E00B7F336 /* URLParameterEncoding.swift */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 		A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */; };
 		A678A4882C2C632F00A3D16B /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678A4872C2C632F00A3D16B /* LaunchScreenView.swift */; };
@@ -79,6 +80,7 @@
 		A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688B0AF2C29B6A800E4E3A2 /* Authority.swift */; };
 		A69989FC2C47FF8700850EE7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69989FB2C47FF8700850EE7 /* RootView.swift */; };
 		A69989FE2C47FF8D00850EE7 /* RootFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69989FD2C47FF8D00850EE7 /* RootFeature.swift */; };
+		A6DC44182C5C98E200423B90 /* OtherProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DC44172C5C98E200423B90 /* OtherProfileModel.swift */; };
 		A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */; };
 		A6F5E6CC2C1B22C00053C2E8 /* NetworkEventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */; };
 		A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */; };
@@ -177,6 +179,7 @@
 		A61FC3CC2C3D68D900C732C6 /* CheffiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheffiError.swift; sourceTree = "<group>"; };
 		A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+Response.swift"; sourceTree = "<group>"; };
 		A62EEAD82C2D9BA000926242 /* LaunchScreenFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenFeature.swift; sourceTree = "<group>"; };
+		A670024D2C5CA61E00B7F336 /* URLParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
 		A67677E92C1730C60089A269 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		A67677F22C1738EF0089A269 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A67677F62C1740230089A269 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 		A688B0AF2C29B6A800E4E3A2 /* Authority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authority.swift; sourceTree = "<group>"; };
 		A69989FB2C47FF8700850EE7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A69989FD2C47FF8D00850EE7 /* RootFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFeature.swift; sourceTree = "<group>"; };
+		A6DC44172C5C98E200423B90 /* OtherProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileModel.swift; sourceTree = "<group>"; };
 		A6F5E6C72C1B21630053C2E8 /* NetworkRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestInterceptor.swift; sourceTree = "<group>"; };
 		A6F5E6CB2C1B22C00053C2E8 /* NetworkEventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEventLogger.swift; sourceTree = "<group>"; };
 		A6F5E6CD2C1B2BA80053C2E8 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
@@ -524,6 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				A61FC3CC2C3D68D900C732C6 /* CheffiError.swift */,
+				A670024D2C5CA61E00B7F336 /* URLParameterEncoding.swift */,
 				A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */,
 			);
 			path = Component;
@@ -555,6 +560,7 @@
 				A61FC3C92C3D689200C732C6 /* RestErrorResponse.swift */,
 				A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */,
 				54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */,
+				A6DC44172C5C98E200423B90 /* OtherProfileModel.swift */,
 				54E285F92C2FE28700AD7939 /* TagsModel.swift */,
 				5419304C2C3D798A0080CA57 /* ReviewDetailModel.swift */,
 				A688B0AE2C29B69600E4E3A2 /* Objects */,
@@ -801,8 +807,10 @@
 				A6F5E6FE2C284D350053C2E8 /* TokenStorageEventMonitor.swift in Sources */,
 				A61FC3CF2C3D68E200C732C6 /* DataRequest+Response.swift in Sources */,
 				549B1F8F2C0607C7005C9432 /* CheffiApp.swift in Sources */,
+				A6DC44182C5C98E200423B90 /* OtherProfileModel.swift in Sources */,
 				540BE9B42C231036009180AE /* WriterRow.swift in Sources */,
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
+				A670024E2C5CA61E00B7F336 /* URLParameterEncoding.swift in Sources */,
 				5419304B2C3D497D0080CA57 /* AllReviewFeature.swift in Sources */,
 				543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */,
 				547B4BC92C4566F300C4B1B4 /* MainTabFeature.swift in Sources */,

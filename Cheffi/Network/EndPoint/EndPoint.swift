@@ -13,7 +13,7 @@ protocol EndPoint: URLRequestConvertible {
     var path: String { get }
     var headers: HTTPHeaders { get }
     var parameters: Parameters { get }
-    var method: HTTPMethod { get }
+    var options: HTTPOptions { get }
 }
 
 extension EndPoint {
@@ -21,19 +21,23 @@ extension EndPoint {
         guard let url = URL(string: baseURL.appending(path)) else {
             throw AFError.createURLRequestFailed(error: URLError(.badURL))
         }
-        
-        var urlRequest = try URLRequest(url: url, method: method)
-        urlRequest.headers = headers
 
-        switch method {
-        case .get:
-            urlRequest = try URLEncoding.queryString
-                .encode(urlRequest, with: parameters)
-        default:
-            urlRequest = try JSONEncoding(options: .prettyPrinted)
-                .encode(urlRequest, with: parameters)
-        }
+        var urlRequest = try URLRequest(url: url, method: options.method)
+        urlRequest.headers = headers
         
-        return urlRequest
+        return try encodeParameters(urlRequest)
+    }
+    
+    private func encodeParameters(_ request: URLRequest) throws -> URLRequest {
+        switch options.encodingType {
+        case .path:
+            return request
+            
+        case .query, .pathQuery:
+            return try URLEncoding.queryString.encode(request, with: parameters)
+            
+        case .body:
+            return try JSONEncoding.prettyPrinted.encode(request, with: parameters)
+        }
     }
 }

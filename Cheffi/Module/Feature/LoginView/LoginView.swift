@@ -67,7 +67,10 @@ struct LoginView: View {
                 }
                 .ignoresSafeArea()
             } destination: { store in
-                TermsView(store: store)
+                switch store.case {
+                case .navigateToTerms(let store):
+                    TermsView(store: store)
+                }
             }
             .alert(
                 $store.scope(state: \.alert, action: \.alert)

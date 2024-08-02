@@ -19,7 +19,7 @@ struct LoginFeature {
     @ObservableState
     struct State: Equatable {
         @Presents var alert: AlertState<Action.Alert>?
-        var path = StackState<TermsFeature.State>()
+        var path = StackState<Path.State>()
     }
     
     enum Action {
@@ -30,11 +30,17 @@ struct LoginFeature {
         case completedLogin
         case presentMain
         case alert(PresentationAction<Alert>)
-        case path(StackAction<TermsFeature.State, TermsFeature.Action>)
+        case path(StackActionOf<Path>)
         
         enum Alert: Equatable {
             case notReadyAppleLogin
         }
+    }
+    
+    @Reducer(state: .equatable)
+    enum Path {
+        case navigateToTerms(TermsFeature)
+        //case navigateToTermsWeb
     }
     
     @Dependency(\.kakaoClient) var kakaoClient
@@ -51,13 +57,12 @@ struct LoginFeature {
                 }
                 
             case .successKakaoLogin(let response):
-                // FIXME: 약관 화면 개발을 위한 신규 유저 체크 비활성화
-                //if response.data?.isNewUser ?? false {
-                    state.path.append(TermsFeature.State())
+                if response.data?.isNewUser ?? false {
+                    state.path.append(.navigateToTerms(TermsFeature.State()))
                     return .none
-                //} else {
-                //    return .send(.completedLogin)
-                //}
+                } else {
+                    return .send(.completedLogin)
+                }
                 
             case .failureKakaoLogin(let error):
                 state.alert = AlertState(
@@ -67,11 +72,15 @@ struct LoginFeature {
                 return .none
                 
             case .loginWithApple:
-                state.alert = AlertState(
-                    title: TextState("안내"),
-                    message: TextState("Apple 로그인은 준비중입니다.")
-                )
+                state.path.append(.navigateToTerms(TermsFeature.State()))
                 return .none
+                
+                // FIXME: 약관 화면 개발을 위한 신규 유저 체크 비활성화
+                //state.alert = AlertState(
+                //    title: TextState("안내"),
+                //    message: TextState("Apple 로그인은 준비중입니다.")
+                //)
+                //return .none
                 
             case .completedLogin:
                 return .send(.presentMain)
@@ -87,8 +96,6 @@ struct LoginFeature {
             }
         }
         .ifLet(\.$alert, action: \.alert)
-        .forEach(\.path, action: \.path) {
-            TermsFeature()
-        }
+        .forEach(\.path, action: \.path)
     }
 }

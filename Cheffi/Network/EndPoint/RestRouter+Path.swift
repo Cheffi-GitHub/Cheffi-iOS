@@ -20,8 +20,10 @@ extension RestRouter {
             return "/api/v1/reviews/areas/tags"
         case .reviewDetail:
             return "/api/v1/reviews"
-        case .profile(let id):
-            return "/api/v1/profile/\(id)"
+        case .profile:
+            return "/api/v1/profile/{id}"
+        case .profileReviews:
+            return "/api/v1/profile/{id}/reviews"
         case .tags:
             return "/api/v1/tags"
         case .testUpload:

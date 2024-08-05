@@ -23,21 +23,12 @@ extension RestRouter: EndPoint {
         ]
     }
     
-    var parameters: Parameters {
-        let mirror = Mirror(reflecting: self)
-        var parameters: Parameters = [:]
-        
-        for case let (_, rest) in mirror.children {
-            let api = Mirror(reflecting: rest)
-            
-            for case let (key, value) in api.children {
-                if let key = key, !key.isEmpty {
-                    parameters.updateValue(value, forKey: key)
-                }
-            }
-        }
-        
-        return parameters
+    var pathParameters: Parameters {
+        return extractParameters { path.contains("{\($0)}") }
+    }
+    
+    var queryParameters: Parameters {
+        return extractParameters { !path.contains("{\($0)}") }
     }
     
     var options: HTTPOptions {
@@ -57,6 +48,30 @@ extension RestRouter: EndPoint {
             
         case .profile:
             return (.get, .path)
+            
+        case .profileReviews:
+            return (.get, .pathQuery)
         }
+    }
+}
+
+extension RestRouter {
+    private func extractParameters(_ condition: (String) -> Bool) -> Parameters {
+        let mirror = Mirror(reflecting: self)
+        var parameters: Parameters = [:]
+        
+        for case let (_, rest) in mirror.children {
+            let api = Mirror(reflecting: rest)
+            
+            for case let (key, value) in api.children {
+                guard let key = key, !key.isEmpty else { continue }
+                
+                if condition(key) {
+                    parameters.updateValue(value, forKey: key)
+                }
+            }
+        }
+        
+        return parameters
     }
 }

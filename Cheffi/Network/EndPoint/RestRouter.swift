@@ -23,6 +23,7 @@ enum RestRouter {
     
     // - MARK: 05. 프로필 조회
     case profile(id: String)
+    case profileReviews(id: String, size: Int)
     
     // - MARK: 06. 리뷰 상세 페이지
     

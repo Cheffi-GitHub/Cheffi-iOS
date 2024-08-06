@@ -66,6 +66,8 @@ extension RestRouter {
             for case let (key, value) in api.children {
                 guard let key = key, !key.isEmpty else { continue }
                 
+                if case Optional<Any>.none = value { continue }
+                
                 if condition(key) {
                     parameters.updateValue(value, forKey: key)
                 }

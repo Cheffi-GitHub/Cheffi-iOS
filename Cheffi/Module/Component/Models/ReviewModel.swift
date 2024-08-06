@@ -19,10 +19,10 @@ struct ReviewModel: Codable, Equatable {
     let timeLeftToLock: Int
     let locked: Bool
     let viewCount: Int
-    let number: Int
+    let number: Int?
     let reviewStatus: String
     let writtenByUser: Bool
-    let bookmarked: Bool
+    let bookmarked: Bool?
     let purchased: Bool
     let active: Bool
 }

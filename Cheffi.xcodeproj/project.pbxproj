@@ -67,6 +67,9 @@
 		A61FC3CF2C3D68E200C732C6 /* DataRequest+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */; };
 		A61FC3D22C3D849700C732C6 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = A61FC3D12C3D849700C732C6 /* AnyCodable */; };
 		A62EEAD92C2D9BA000926242 /* LaunchScreenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62EEAD82C2D9BA000926242 /* LaunchScreenFeature.swift */; };
+		A64056C82C6398B70045B127 /* RepresentableWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64056C72C6398B70045B127 /* RepresentableWebView.swift */; };
+		A64056CB2C6399290045B127 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64056CA2C6399290045B127 /* WebView.swift */; };
+		A64056CD2C6399340045B127 /* WebFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64056CC2C6399340045B127 /* WebFeature.swift */; };
 		A670024E2C5CA61E00B7F336 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670024D2C5CA61E00B7F336 /* URLParameterEncoding.swift */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 		A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */; };
@@ -174,6 +177,9 @@
 		A61FC3CC2C3D68D900C732C6 /* CheffiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheffiError.swift; sourceTree = "<group>"; };
 		A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+Response.swift"; sourceTree = "<group>"; };
 		A62EEAD82C2D9BA000926242 /* LaunchScreenFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenFeature.swift; sourceTree = "<group>"; };
+		A64056C72C6398B70045B127 /* RepresentableWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableWebView.swift; sourceTree = "<group>"; };
+		A64056CA2C6399290045B127 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		A64056CC2C6399340045B127 /* WebFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebFeature.swift; sourceTree = "<group>"; };
 		A670024D2C5CA61E00B7F336 /* URLParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
 		A67677E92C1730C60089A269 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		A67677F22C1738EF0089A269 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
@@ -348,6 +354,7 @@
 			children = (
 				54073B8B2C0D98E400597973 /* ReviewCell.swift */,
 				540BE9B32C231036009180AE /* WriterRow.swift */,
+				A64056C72C6398B70045B127 /* RepresentableWebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,6 +389,7 @@
 				54073B7B2C0C55C400597973 /* Home */,
 				A678A4862C2C626E00A3D16B /* LaunchScreen */,
 				A6F5E6CF2C2065420053C2E8 /* LoginView */,
+				A64056C92C6399090045B127 /* Web */,
 				549B1F902C0607C7005C9432 /* ContentView.swift */,
 				548FC68A2C2177C1003866A9 /* Review */,
 				541930472C3D49550080CA57 /* AllReviewView */,
@@ -516,6 +524,15 @@
 				A61FC3CE2C3D68E200C732C6 /* DataRequest+Response.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		A64056C92C6399090045B127 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				A64056CA2C6399290045B127 /* WebView.swift */,
+				A64056CC2C6399340045B127 /* WebFeature.swift */,
+			);
+			path = Web;
 			sourceTree = "<group>";
 		};
 		A67677F82C1740790089A269 /* Environment */ = {
@@ -808,8 +825,10 @@
 				543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */,
 				541930532C3D7B200080CA57 /* Writer.swift in Sources */,
 				54E285FA2C2FE28700AD7939 /* TagsModel.swift in Sources */,
+				A64056CB2C6399290045B127 /* WebView.swift in Sources */,
 				541930512C3D7B160080CA57 /* Address.swift in Sources */,
 				A61FC3CD2C3D68D900C732C6 /* CheffiError.swift in Sources */,
+				A64056CD2C6399340045B127 /* WebFeature.swift in Sources */,
 				A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */,
 				A62EEAD92C2D9BA000926242 /* LaunchScreenFeature.swift in Sources */,
 				A6F5E6F92C280AC00053C2E8 /* RestRouter+EndPoint.swift in Sources */,
@@ -827,6 +846,7 @@
 				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,
 				A6F5E6EB2C246A670053C2E8 /* KakaoTokenVerifier.swift in Sources */,
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,
+				A64056C82C6398B70045B127 /* RepresentableWebView.swift in Sources */,
 				54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */,
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,
 				A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */,

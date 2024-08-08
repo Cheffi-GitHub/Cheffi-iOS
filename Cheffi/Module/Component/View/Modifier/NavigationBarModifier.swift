@@ -10,11 +10,18 @@ import SwiftUI
 struct NavigationBarItem: Identifiable {
     let id = UUID()
     let image: Image
-    let action: () -> Void
+    let imageSize: CGSize
     let color: Color
+    let action: () -> Void
     
-    init(image: Image, action: @escaping () -> Void, color: Color = .black) {
+    init(
+        image: Image,
+        imageSize: CGSize = CGSize(width: 24, height: 24),
+        action: @escaping () -> Void,
+        color: Color = .black
+    ) {
         self.image = image
+        self.imageSize = imageSize
         self.action = action
         self.color = color
     }
@@ -24,8 +31,11 @@ struct NavigationBarItem: Identifiable {
     }
     
     static func closeButton(action: @escaping () -> Void) -> NavigationBarItem {
-        // TODO: Cheffi Image Resource로 xmark 교체
-        NavigationBarItem(image: Image(systemName: "xmark"), action: action)
+        NavigationBarItem(
+            image: Image(name: Common.xmark),
+            imageSize: CGSize(width: 16, height: 16),
+            action: action
+        )
     }
 }
 
@@ -43,7 +53,7 @@ struct NavigationBarModifier: ViewModifier {
                             item.image
                                 .resizable()
                                 .renderingMode(.template)
-                                .frame(width: 24, height: 24)
+                                .frame(size: item.imageSize)
                                 .foregroundStyle(item.color)
                         }
                         .buttonStyle(.plain)
@@ -59,7 +69,7 @@ struct NavigationBarModifier: ViewModifier {
                                 item.image
                                     .resizable()
                                     .renderingMode(.template)
-                                    .frame(width: 24, height: 24)
+                                    .frame(size: item.imageSize)
                                     .foregroundStyle(item.color)
                             }
                             .buttonStyle(.plain)
@@ -77,8 +87,6 @@ struct NavigationBarModifier: ViewModifier {
             .background(.white)
             
             content
-            
-            Spacer()
         }
         .toolbar(.hidden)
     }

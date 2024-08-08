@@ -29,6 +29,10 @@ extension View {
     }
     
     func onFirstAppear(_ action: @escaping () async -> Void) -> some View {
-           modifier(FirstAppearModifer(action))
-       }
+        modifier(FirstAppearModifer(action))
+    }
+    
+    func frame(size: CGSize) -> some View {
+        self.frame(width: size.width, height: size.height)
+    }
 }

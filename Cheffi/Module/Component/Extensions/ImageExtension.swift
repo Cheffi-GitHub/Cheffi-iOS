@@ -64,6 +64,12 @@ enum Login: String, ImageNameProtocol {
     case loginApple = "loginApple"
 }
 
+enum Profile: String, ImageNameProtocol {
+    case reviewsEmpty = "reviewsEmpty"
+    case purchaseEmpty = "purchaseEmpty"
+    case bookmarksEmpty = "bookmarksEmpty"
+}
+
 // TODO: 추후 삭제
 enum Dummy: String, ImageNameProtocol {
     case sample = "sample"

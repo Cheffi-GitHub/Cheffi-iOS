@@ -10,6 +10,11 @@ import Kingfisher
 import WrappingHStack
 import ComposableArchitecture
 
+
+/*
+ TODO: Empty View의 높이 설정하기, 스와이프로 탭 바꿀 경우에 자연스럽게 바뀌도록 수정하기
+ */
+
 struct ProfileView: View {
     
     @Perception.Bindable var store: StoreOf<ProfileFeature> = .init(
@@ -155,30 +160,166 @@ struct ProfileView: View {
                     // Review Tabview
                     Section(content: {
                         ZStack {
-                            if let reviews = store.reviews {
-                                LazyVGrid(columns: columns, spacing: 24) {
-                                    ForEach(0..<reviews.count, id: \.self) { index in
-                                        ReviewCell(type: .small)
-                                            .onAppear {
-                                                if let _ = store.reviewsHasNext, reviews.count-3 == index {
-                                                    store.send(.requestReviews)
+                            Group {
+                                WithPerceptionTracking {
+                                    if selectedTab == 0 {
+                                        Group {
+                                            if let reviews = store.reviews, reviews.count != 0 {
+                                                LazyVGrid(columns: columns, spacing: 24) {
+                                                    ForEach(0..<reviews.count, id: \.self) { index in
+                                                        ReviewCell(review: reviews[index], type: .small)
+                                                            .onAppear {
+                                                                if let _ = store.reviewsHasNext, reviews.count-3 == index {
+                                                                    store.send(.requestReviews)
+                                                                }
+                                                            }
+                                                    }
                                                 }
+                                                .padding(.horizontal, 16)
+                                            } else {
+                                                VStack(spacing: 14) {
+                                                    Spacer()
+                                                    Image(name: Profile.reviewsEmpty)
+                                                    Text("작성한 리뷰가 없어요")
+                                                        .font(.suit(.regular, 16))
+                                                        .foregroundStyle(Color.grey6)
+                                                    Spacer()
+                                                }
+                                                .frame(height: 400)
                                             }
+                                        }
+                                    } else if selectedTab == 1 {
+                                        Group {
+                                            if let purchase = store.purchase, purchase.count != 0 {
+                                                LazyVGrid(columns: columns, spacing: 24) {
+                                                    ForEach(0..<purchase.count, id: \.self) { index in
+                                                        ReviewCell(review: purchase[index], type: .small)
+                                                            .onAppear {
+                                                                if let _ = store.purchaseHasNext, purchase.count-3 == index {
+                                                                    store.send(.requestPurchase)
+                                                                }
+                                                            }
+                                                    }
+                                                }
+                                                .padding(.horizontal, 16)
+                                            } else {
+                                                VStack(spacing: 14) {
+                                                    Spacer()
+                                                    Image(name: Profile.purchaseEmpty)
+                                                    Text("구매한 리뷰가 없어요")
+                                                        .font(.suit(.regular, 16))
+                                                        .foregroundStyle(Color.grey6)
+                                                    Spacer()
+                                                }
+                                                .frame(height: 400)
+                                            }
+                                        }
+                                        
+                                    } else if selectedTab == 2 {
+                                        Group {
+                                            if let bookmarks = store.bookmarks, bookmarks.count != 0 {
+                                                LazyVGrid(columns: columns, spacing: 24) {
+                                                    ForEach(0..<bookmarks.count, id: \.self) { index in
+                                                        ReviewCell(review: bookmarks[index], type: .small)
+                                                            .onAppear {
+                                                                if let _ = store.bookmarksHasNext, bookmarks.count-3 == index {
+                                                                    store.send(.requestBookmarks)
+                                                                }
+                                                            }
+                                                    }
+                                                }
+                                                .padding(.horizontal, 16)
+                                            } else {
+                                                VStack(spacing: 14) {
+                                                    Spacer()
+                                                    Image(name: Profile.bookmarksEmpty)
+                                                    Text("찜한 리뷰가 없어요")
+                                                        .font(.suit(.regular, 16))
+                                                        .foregroundStyle(Color.grey6)
+                                                    Spacer()
+                                                }
+                                                .frame(height: 400)
+                                            }
+                                        }
                                     }
                                 }
-                                .padding(.horizontal, 16)
-                                .hidden(true)
                             }
+                            .padding(.horizontal, 16)
+                            .hidden(true)
                             TabView(selection: $selectedTab) {
-                                ForEach(0..<tabs.count, id: \.self) { _ in
+                                ForEach(0..<tabs.count, id: \.self) { index in
                                     WithPerceptionTracking {
-                                        if let reviews = store.reviews {
-                                            LazyVGrid(columns: columns, spacing: 24) {
-                                                ForEach(0..<reviews.count, id: \.self) { index in
-                                                    ReviewCell(review: reviews[index], type: .small)
+                                        if index == 0 {
+                                            Group {
+                                                if let reviews = store.reviews, reviews.count != 0 {
+                                                    LazyVGrid(columns: columns, spacing: 24) {
+                                                        ForEach(0..<reviews.count, id: \.self) { index in
+                                                            ReviewCell(review: reviews[index], type: .small)
+                                                        }
+                                                    }
+                                                    .padding(.horizontal, 16)
+                                                } else {
+                                                    VStack(spacing: 14) {
+                                                        Spacer()
+                                                        Image(name: Profile.reviewsEmpty)
+                                                        Text("작성한 리뷰가 없어요")
+                                                            .font(.suit(.regular, 16))
+                                                            .foregroundStyle(Color.grey6)
+                                                        Spacer()
+                                                    }
+                                                    .frame(height: 400)
                                                 }
                                             }
-                                            .padding(.horizontal, 16)
+                                            .tag(index)
+                                        } else if index == 1 {
+                                            Group {
+                                                if let purchase = store.purchase, purchase.count != 0 {
+                                                    LazyVGrid(columns: columns, spacing: 24) {
+                                                        ForEach(0..<purchase.count, id: \.self) { index in
+                                                            ReviewCell(review: purchase[index], type: .small)
+                                                        }
+                                                    }
+                                                    .padding(.horizontal, 16)
+                                                } else {
+                                                    VStack(spacing: 14) {
+                                                        Spacer()
+                                                        Image(name: Profile.purchaseEmpty)
+                                                        Text("구매한 리뷰가 없어요")
+                                                            .font(.suit(.regular, 16))
+                                                            .foregroundStyle(Color.grey6)
+                                                        Spacer()
+                                                    }
+                                                    .frame(height: 400)
+                                                }
+                                            }
+                                            .tag(index)
+                                            .onFirstAppear {
+                                                store.send(.requestPurchase)
+                                            }
+                                        } else if index == 2 {
+                                            Group {
+                                                if let bookmarks = store.bookmarks, bookmarks.count != 0 {
+                                                    LazyVGrid(columns: columns, spacing: 24) {
+                                                        ForEach(0..<bookmarks.count, id: \.self) { index in
+                                                            ReviewCell(review: bookmarks[index], type: .small)
+                                                        }
+                                                    }
+                                                    .padding(.horizontal, 16)
+                                                } else {
+                                                    VStack(spacing: 14) {
+                                                        Spacer()
+                                                        Image(name: Profile.bookmarksEmpty)
+                                                        Text("찜한 리뷰가 없어요")
+                                                            .font(.suit(.regular, 16))
+                                                            .foregroundStyle(Color.grey6)
+                                                        Spacer()
+                                                    }
+                                                    .frame(height: 400)
+                                                }
+                                            }
+                                            .onFirstAppear {
+                                                store.send(.requestBookmarks)
+                                            }
                                         }
                                     }
                                 }
@@ -195,9 +336,7 @@ struct ProfileView: View {
                                         .frame(maxWidth: .infinity)
                                         .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
                                         .onTapGesture {
-                                            withAnimation {
-                                                selectedTab = index
-                                            }
+                                            selectedTab = index
                                         }
                                     ZStack {
                                         Color.grey05.frame(height: 2)
@@ -206,9 +345,6 @@ struct ProfileView: View {
                                             .foregroundStyle(selectedTab == index ? Color.grey9 : Color.clear)
                                             .padding(.horizontal, 16)
                                     }
-                                }
-                                .onChange(of: selectedTab) { index in
-                                    selectedTab = index
                                 }
                             }
                         }

@@ -24,6 +24,10 @@ extension RestRouter {
             return "/api/v1/profile/{id}"
         case .profileReviews:
             return "/api/v1/profile/{id}/reviews"
+        case .profilePurchase:
+            return "/api/v1/profile/{id}/purchase"
+        case .profileBookmarks:
+            return "/api/v1/profile/{id}/bookmarks"
         case .tags:
             return "/api/v1/tags"
         case .testUpload:

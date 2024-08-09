@@ -49,7 +49,9 @@ extension RestRouter: EndPoint {
         case .profile:
             return (.get, .path)
             
-        case .profileReviews:
+        case .profileReviews,
+             .profilePurchase,
+             .profileBookmarks:
             return (.get, .pathQuery)
         }
     }

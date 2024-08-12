@@ -54,6 +54,8 @@
 		54AC22092C576AC500652A91 /* ProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AC22082C576AC500652A91 /* ProfileFeature.swift */; };
 		54C30E312C47EDDE00DA6FF8 /* FirstAppearModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */; };
 		54C3BF1D2C57CFEF000DBE21 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 54C3BF1C2C57CFEF000DBE21 /* WrappingHStack */; };
+		54D7395B2C69E4A000688125 /* PlainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7395A2C69E4A000688125 /* PlainList.swift */; };
+		54D7395D2C69E6A700688125 /* ProfileReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7395C2C69E6A700688125 /* ProfileReviewList.swift */; };
 		54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */; };
 		54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */; };
 		54E285FA2C2FE28700AD7939 /* TagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E285F92C2FE28700AD7939 /* TagsModel.swift */; };
@@ -61,6 +63,7 @@
 		54F217AB2C2D2F1B00892DBD /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */; };
 		54F217AD2C2D2FDB00892DBD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AC2C2D2FDB00892DBD /* Photo.swift */; };
 		54F217B22C2D685400892DBD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F217B12C2D685400892DBD /* Kingfisher */; };
+		54FE4DC92C68AE6E00ACD18B /* PagerTabStripView in Frameworks */ = {isa = PBXBuildFile; productRef = 54FE4DC82C68AE6E00ACD18B /* PagerTabStripView */; };
 		A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D02C187D6500ABF38C /* EndPoint.swift */; };
 		A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D22C187D7800ABF38C /* RestRouter.swift */; };
 		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
@@ -166,6 +169,8 @@
 		54AC22062C576ABC00652A91 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		54AC22082C576AC500652A91 /* ProfileFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeature.swift; sourceTree = "<group>"; };
 		54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstAppearModifer.swift; sourceTree = "<group>"; };
+		54D7395A2C69E4A000688125 /* PlainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainList.swift; sourceTree = "<group>"; };
+		54D7395C2C69E6A700688125 /* ProfileReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewList.swift; sourceTree = "<group>"; };
 		54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceFeature.swift; sourceTree = "<group>"; };
 		54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
 		54E285F92C2FE28700AD7939 /* TagsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModel.swift; sourceTree = "<group>"; };
@@ -219,6 +224,7 @@
 				A61FC3D22C3D849700C732C6 /* AnyCodable in Frameworks */,
 				A6F5E6E12C23215B0053C2E8 /* KakaoSDKUser in Frameworks */,
 				A6F5E6E32C23215F0053C2E8 /* KakaoSDKCommon in Frameworks */,
+				54FE4DC92C68AE6E00ACD18B /* PagerTabStripView in Frameworks */,
 				A6F5E6DF2C23213F0053C2E8 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +360,7 @@
 			children = (
 				54073B8B2C0D98E400597973 /* ReviewCell.swift */,
 				540BE9B32C231036009180AE /* WriterRow.swift */,
+				54D7395C2C69E6A700688125 /* ProfileReviewList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,6 +372,7 @@
 				54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */,
 				A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */,
 				5488EDD32C3E66D700252A92 /* ToastMessage.swift */,
+				54D7395A2C69E4A000688125 /* PlainList.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -656,6 +664,7 @@
 				54F217B12C2D685400892DBD /* Kingfisher */,
 				A61FC3D12C3D849700C732C6 /* AnyCodable */,
 				54C3BF1C2C57CFEF000DBE21 /* WrappingHStack */,
+				54FE4DC82C68AE6E00ACD18B /* PagerTabStripView */,
 			);
 			productName = Cheffi;
 			productReference = 549B1F8B2C0607C7005C9432 /* Cheffi.app */;
@@ -736,6 +745,7 @@
 				54F217B02C2D685400892DBD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A61FC3D02C3D848B00C732C6 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 				54C3BF1B2C57CFEF000DBE21 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				54FE4DC72C68AE6E00ACD18B /* XCRemoteSwiftPackageReference "PagerTabStripView" */,
 			);
 			productRefGroup = 549B1F8C2C0607C7005C9432 /* Products */;
 			projectDirPath = "";
@@ -810,6 +820,7 @@
 				A6DC44182C5C98E200423B90 /* ProfileModel.swift in Sources */,
 				540BE9B42C231036009180AE /* WriterRow.swift in Sources */,
 				54073B882C0D913800597973 /* NavigationBarFeature.swift in Sources */,
+				54D7395B2C69E4A000688125 /* PlainList.swift in Sources */,
 				A670024E2C5CA61E00B7F336 /* URLParameterEncoding.swift in Sources */,
 				5419304B2C3D497D0080CA57 /* AllReviewFeature.swift in Sources */,
 				543F0AE42C10263100DFBDB1 /* HomeCheffiStoryView.swift in Sources */,
@@ -825,6 +836,7 @@
 				54073B8C2C0D98E500597973 /* ReviewCell.swift in Sources */,
 				5419304D2C3D798A0080CA57 /* ReviewDetailModel.swift in Sources */,
 				543F0AE62C10264800DFBDB1 /* HomeCheffiStoryFeature.swift in Sources */,
+				54D7395D2C69E6A700688125 /* ProfileReviewList.swift in Sources */,
 				541930532C3D7B200080CA57 /* Writer.swift in Sources */,
 				54E285FA2C2FE28700AD7939 /* TagsModel.swift in Sources */,
 				541930512C3D7B160080CA57 /* Address.swift in Sources */,
@@ -1230,6 +1242,14 @@
 				minimumVersion = 7.12.0;
 			};
 		};
+		54FE4DC72C68AE6E00ACD18B /* XCRemoteSwiftPackageReference "PagerTabStripView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xmartlabs/PagerTabStripView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		A611D9D82C187F5600ABF38C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1271,6 +1291,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 54F217B02C2D685400892DBD /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		54FE4DC82C68AE6E00ACD18B /* PagerTabStripView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54FE4DC72C68AE6E00ACD18B /* XCRemoteSwiftPackageReference "PagerTabStripView" */;
+			productName = PagerTabStripView;
 		};
 		A611D9DA2C187F6000ABF38C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

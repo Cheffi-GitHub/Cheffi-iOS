@@ -1,5 +1,5 @@
 {
-  "originHash" : "4763ce748fdca74f59cc6514f34ef7ccfa87a48f2d0d720f079f42847048aea1",
+  "originHash" : "4f0d2d1ef168806c2f83cc7bf8187cebbc526e11b9202c5bb3f920d671cd0535",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -44,6 +44,15 @@
       "state" : {
         "revision" : "2ef543ee21d63734e1c004ad6c870255e8716c50",
         "version" : "7.12.0"
+      }
+    },
+    {
+      "identity" : "pagertabstripview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/xmartlabs/PagerTabStripView.git",
+      "state" : {
+        "revision" : "39ec00d2577adf75d82d1c7023c56950b96d2298",
+        "version" : "4.0.0"
       }
     },
     {

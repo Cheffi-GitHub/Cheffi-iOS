@@ -1,6 +1,6 @@
 # Cheffi iOS
 
-<p align="center" ><img src= "https://github.com/Cheffi-Git/Cheffi-Server/assets/85255237/55627dbc-030a-4d8d-a53c-24b6f4e4188e" width="400"/></p>
+<p align="center" ><img src= "https://github.com/user-attachments/assets/7cd59078-b700-450b-abc2-48303165c9dc" width="400"/></p>
 
 ## 개요
 전국 맛집의 인기 리뷰를 한눈에 확인하고 지역별/취향별 인기 리뷰를 확인할 수 있는 음식을 사랑하는 사람들을 위한 iOS 애플리케이션 입니다 :)
@@ -11,7 +11,7 @@
 
 #### [2. 기술 스택](#기술-스택)
 
-#### [3. 앱 아키텍처](#앱-아키텍처)
+#### [3. 프로젝트](#프로젝트)
 
 #### [4. 스크린샷](#스크린샷)
 
@@ -64,11 +64,11 @@
 
 #### 앱 아키텍처/디렉토리 구조도 다이어그램
 Cheffi iOS 앱은 The Composable Architecture (TCA)를 기반으로 구현되었습니다.  
-... TBD
+... TBC
 
-#### 스크린샷
+## 스크린샷
 
-... TBD
+... TBC
 
 ## 설치 방법
 

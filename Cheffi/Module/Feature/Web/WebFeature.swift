@@ -23,12 +23,19 @@ struct WebFeature {
     }
     
     enum Action {
-        
+        case dismiss
     }
+    
+    @Dependency(\.dismiss) var dismiss
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
-            return .none
+            switch action {
+            case .dismiss:
+                return .run { _ in
+                    await self.dismiss()
+                }
+            }
         }
     }
 }

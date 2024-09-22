@@ -40,7 +40,7 @@ struct LoginFeature {
     @Reducer(state: .equatable)
     enum Path {
         case navigateToTerms(TermsFeature)
-        //case navigateToTermsWeb
+        case navigateToTermsWebPage(WebFeature)
     }
     
     @Dependency(\.kakaoClient) var kakaoClient
@@ -81,6 +81,10 @@ struct LoginFeature {
                 //    message: TextState("Apple 로그인은 준비중입니다.")
                 //)
                 //return .none
+                
+            case .path(.element(id: _, action: .navigateToTerms(.navigateToTermsWebPage(let url)))):
+                state.path.append(.navigateToTermsWebPage(WebFeature.State(url: url)))
+                return .none
                 
             case .completedLogin:
                 return .send(.presentMain)

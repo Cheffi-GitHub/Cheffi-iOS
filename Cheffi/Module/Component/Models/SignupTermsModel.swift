@@ -54,19 +54,19 @@ enum SignupTermsType: CaseIterable {
         }
     }
     
+    /// Notion Fixed Terms Urls.
     var url: URL? {
-        // TODO: Notion 약관 링크로 업데이트
         switch self {
         case .ageConfirmation:
             return nil
         case .serviceAgreement:
-            return URL(string: "https://www.naver.com")!
+            return URL(string: "https://busy-blade-e02.notion.site/Cheffi-def1fb4728cb4783b50525f922be3f3f")!
         case .personalAgreement:
-            return URL(string: "https://www.naver.com")!
+            return URL(string: "https://busy-blade-e02.notion.site/Cheffi-539bb47ca22442fe966d4b9cbeadea5b")!
         case .locationAgreement:
-            return URL(string: "https://www.naver.com")!
+            return URL(string: "https://busy-blade-e02.notion.site/4baa3fca69d7458695afd8be3ee2e716")!
         case .marketingConsent:
-            return URL(string: "https://www.naver.com")!
+            return URL(string: "https://busy-blade-e02.notion.site/7e942210c2d34778bb69e88526dd34e4")!
         }
     }
 }

@@ -70,6 +70,8 @@ struct LoginView: View {
                 switch store.case {
                 case .navigateToTerms(let store):
                     TermsView(store: store)
+                case .navigateToTermsWebPage(let store):
+                    WebView(store: store)
                 }
             }
             .alert(

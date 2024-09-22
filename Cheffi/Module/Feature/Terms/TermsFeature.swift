@@ -14,29 +14,22 @@ struct TermsFeature {
     @ObservableState
     struct State: Equatable {
         var isSelectedAgreeAll: Bool = false
-        var signupTerms: [SignupTerms] = []
+        var signupTerms: [SignupTerms] = SignupTermsType.allCases.map { SignupTerms(type: $0) }
         var isNextEnabled: Bool = false
     }
     
     enum Action {
-        case onAppear
         case tappedAgreeAll
         case toggleTerms(SignupTerms)
         case updateAgreeAll
         case updateNextEnabled
-        case presentTermsPage(URL)
-        case presentWelcomeToCheffi
+        case navigateToTermsWebPage(URL)
+        case navigateToWelcomeToCheffi
     }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .onAppear:
-                state.signupTerms = SignupTermsType.allCases.map {
-                    SignupTerms(type: $0)
-                }
-                return .none
-                
             case .tappedAgreeAll:
                 state.signupTerms = state.signupTerms.map {
                     var updatedTerms = $0
@@ -72,11 +65,10 @@ struct TermsFeature {
                     .allSatisfy { $0.isSelected }
                 return .none
                 
-            case .presentTermsPage(let url):
-                // TODO: 약관 URL 링크 보여주기.. WebView? Safari?
+            case .navigateToTermsWebPage:
                 return .none
                 
-            case .presentWelcomeToCheffi:
+            case .navigateToWelcomeToCheffi:
                 // TODO: 가입 완료! 쉐피에 오신걸 환영합니다!
                 return .none
             }

@@ -13,6 +13,7 @@ enum HomeNavigationType {
     case back
 }
 
+// TODO: 위치에 따른 네비게이션 타이틀 변경 및 각 버튼 기능동작
 struct NavigationBarView: View {
     
     @Perception.Bindable var store: StoreOf<NavigationBarFeature> = .init(
@@ -55,7 +56,6 @@ struct NavigationBarView: View {
         }
     }
     
-    @ViewBuilder
     private func regionButton() -> some View {
         HStack(spacing: 8) {
             Text("서울특별시 성동구")
@@ -79,3 +79,7 @@ struct NavigationBarView: View {
     }
 }
 
+#Preview {
+    NavigationBarView(type: .back)
+    NavigationBarView(type: .normal)
+}

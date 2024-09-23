@@ -71,7 +71,7 @@ struct HomePopularView: View {
         Text("인기 급등 맛집")
             .foregroundStyle(.black)
             .font(.suit(.bold, 20))
-                    .padding(.leading, 16)
+            .padding(.leading, 16)
     }
     
     private var reviewEmpty: some View {
@@ -227,4 +227,25 @@ struct HomePopularView: View {
             Spacer()
         }
     }
+}
+
+#Preview("without Reviews") {
+    HomePopularView()
+}
+
+#Preview("with Reviews") {
+    let store: StoreOf<HomePopularFeature> = StoreOf<HomePopularFeature>(
+        initialState: HomePopularFeature.State(
+            popularReviews: [
+                ReviewModel.dummyData,
+                ReviewModel.dummyData,
+                ReviewModel.dummyData,
+                ReviewModel.dummyData,
+                ReviewModel.dummyData,
+            ]
+        )
+    ) {
+        HomePopularFeature()
+    }
+    HomePopularView(store: store)
 }

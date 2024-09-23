@@ -91,8 +91,8 @@ struct HomeCheffiPlaceView: View {
                         ScrollViewReader { proxy in
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 0) {
+                                    WithPerceptionTracking {
                                     ForEach(0..<store.state.tags.count, id: \.self) { index in
-                                        WithPerceptionTracking {
                                             VStack {
                                                 Text(store.state.tags[index].name)
                                                     .foregroundColor(selectedTab == index ? Color.primary : Color.grey5)

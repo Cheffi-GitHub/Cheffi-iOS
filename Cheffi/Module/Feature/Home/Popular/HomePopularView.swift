@@ -26,7 +26,7 @@ struct HomePopularView: View {
     var body: some View {
         WithPerceptionTracking {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(spacing: 0) {
                     headline
                     if store.popularReviews.count == 0 {
                         reviewEmpty
@@ -68,25 +68,33 @@ struct HomePopularView: View {
     }
     
     private var headline: some View {
-        Text("인기 급등 맛집")
-            .foregroundStyle(.black)
-            .font(.suit(.bold, 20))
-            .padding(.leading, 16)
+        HStack {
+            Text("인기 급등 맛집")
+                .foregroundStyle(.black)
+                .font(.suit(.bold, 20))
+                .lineHeight(22, fontHeight: 20)
+                .padding(.leading, 16)
+            Spacer()
+        }
     }
     
     private var reviewEmpty: some View {
         VStack(alignment: .center, spacing: 0) {
             Image(name: Home.homeEmpty)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity)
                 .padding(.bottom, 12)
-            // TODO: linehgight 수정 필요
             Text("아직 주변의 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
                 .font(.suit(.medium, 14))
                 .foregroundStyle(Color.grey6)
+                .lineHeight(22, fontHeight: 14)
                 .padding(.bottom, 18)
                 .multilineTextAlignment(.center)
             Text("맛집 직접 등록하기")
                 .font(.suit(.semiBold, 15))
                 .foregroundStyle(Color.primary)
+                .lineHeight(22, fontHeight: 15)
                 .padding(.horizontal, 14)
                 .padding(.vertical, 9)
                 .background(Color.background)

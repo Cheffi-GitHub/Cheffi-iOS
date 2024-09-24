@@ -29,6 +29,10 @@ extension View {
     }
     
     func onFirstAppear(_ action: @escaping () async -> Void) -> some View {
-           modifier(FirstAppearModifer(action))
-       }
+        modifier(FirstAppearModifer(action))
+    }
+    
+    func lineHeight(_ height: CGFloat, fontHeight: CGFloat) -> some View {
+        modifier(LineHeightModifier(lineHeight: height, fontHeight: fontHeight))
+    }
 }

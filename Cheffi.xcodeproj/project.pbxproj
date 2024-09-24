@@ -58,6 +58,7 @@
 		54F217AB2C2D2F1B00892DBD /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */; };
 		54F217AD2C2D2FDB00892DBD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AC2C2D2FDB00892DBD /* Photo.swift */; };
 		54F217B22C2D685400892DBD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F217B12C2D685400892DBD /* Kingfisher */; };
+		6040AAF52CA275FA0016338E /* LineHeightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6040AAF42CA275F30016338E /* LineHeightModifier.swift */; };
 		A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D02C187D6500ABF38C /* EndPoint.swift */; };
 		A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D22C187D7800ABF38C /* RestRouter.swift */; };
 		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
@@ -170,6 +171,7 @@
 		54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		54F217AC2C2D2FDB00892DBD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		6040AAF42CA275F30016338E /* LineHeightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightModifier.swift; sourceTree = "<group>"; };
 		A611D9D02C187D6500ABF38C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A611D9D22C187D7800ABF38C /* RestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
 		A611D9D42C187D8400ABF38C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		548BC0632C086AE300A73F66 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6040AAF42CA275F30016338E /* LineHeightModifier.swift */,
 				54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */,
 				54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */,
 				A6F5E6FF2C284E400053C2E8 /* KeychainManager.swift */,
@@ -851,6 +854,7 @@
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,
 				A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */,
 				A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */,
+				6040AAF52CA275FA0016338E /* LineHeightModifier.swift in Sources */,
 				A61FC3CA2C3D689200C732C6 /* RestErrorResponse.swift in Sources */,
 				54C30E312C47EDDE00DA6FF8 /* FirstAppearModifer.swift in Sources */,
 				A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */,

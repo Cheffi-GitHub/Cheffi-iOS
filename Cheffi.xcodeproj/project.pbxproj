@@ -71,6 +71,7 @@
 		A64056C82C6398B70045B127 /* RepresentableWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64056C72C6398B70045B127 /* RepresentableWebView.swift */; };
 		A64056CB2C6399290045B127 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64056CA2C6399290045B127 /* WebView.swift */; };
 		A64056CD2C6399340045B127 /* WebFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64056CC2C6399340045B127 /* WebFeature.swift */; };
+		A66AB5D82C63B2470035A361 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AB5D72C63B2470035A361 /* NavigationBarModifier.swift */; };
 		A670024E2C5CA61E00B7F336 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670024D2C5CA61E00B7F336 /* URLParameterEncoding.swift */; };
 		A67677F32C1738EF0089A269 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67677F22C1738EF0089A269 /* AppEnvironment.swift */; };
 		A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */; };
@@ -182,6 +183,7 @@
 		A64056C72C6398B70045B127 /* RepresentableWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableWebView.swift; sourceTree = "<group>"; };
 		A64056CA2C6399290045B127 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A64056CC2C6399340045B127 /* WebFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebFeature.swift; sourceTree = "<group>"; };
+		A66AB5D72C63B2470035A361 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		A670024D2C5CA61E00B7F336 /* URLParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
 		A67677E92C1730C60089A269 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		A67677F22C1738EF0089A269 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 		548BC0622C086ADE00A73F66 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A66AB5D62C63B20D0035A361 /* Modifier */,
 				54073B8B2C0D98E400597973 /* ReviewCell.swift */,
 				540BE9B32C231036009180AE /* WriterRow.swift */,
 				A64056C72C6398B70045B127 /* RepresentableWebView.swift */,
@@ -536,6 +539,14 @@
 				A64056CC2C6399340045B127 /* WebFeature.swift */,
 			);
 			path = Web;
+			sourceTree = "<group>";
+		};
+		A66AB5D62C63B20D0035A361 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				A66AB5D72C63B2470035A361 /* NavigationBarModifier.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 		A67677F82C1740790089A269 /* Environment */ = {
@@ -852,6 +863,7 @@
 				A64056C82C6398B70045B127 /* RepresentableWebView.swift in Sources */,
 				54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */,
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,
+				A66AB5D82C63B2470035A361 /* NavigationBarModifier.swift in Sources */,
 				A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */,
 				A6F5E6CE2C1B2BA80053C2E8 /* DataExtension.swift in Sources */,
 				6040AAF52CA275FA0016338E /* LineHeightModifier.swift in Sources */,

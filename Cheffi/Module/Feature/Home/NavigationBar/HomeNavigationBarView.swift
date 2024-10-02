@@ -14,11 +14,11 @@ enum HomeNavigationType {
 }
 
 // TODO: 위치에 따른 네비게이션 타이틀 변경 및 각 버튼 기능동작
-struct NavigationBarView: View {
+struct HomeNavigationBarView: View {
     
-    @Perception.Bindable var store: StoreOf<NavigationBarFeature> = .init(
-        initialState: NavigationBarFeature.State()) {
-            NavigationBarFeature()
+    @Perception.Bindable var store: StoreOf<HomeNavigationBarFeature> = .init(
+        initialState: HomeNavigationBarFeature.State()) {
+            HomeNavigationBarFeature()
         }
     let type: HomeNavigationType
     
@@ -80,6 +80,6 @@ struct NavigationBarView: View {
 }
 
 #Preview {
-    NavigationBarView(type: .back)
-    NavigationBarView(type: .normal)
+    HomeNavigationBarView(type: .back)
+    HomeNavigationBarView(type: .normal)
 }

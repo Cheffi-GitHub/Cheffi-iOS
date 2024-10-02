@@ -11,7 +11,7 @@ import ComposableArchitecture
 struct HomeView: View {
     var body: some View {
         VStack {
-            NavigationBarView(type: .normal)
+            HomeNavigationBarView(type: .normal)
             ScrollView(showsIndicators: false) {
                 // 인기 급등 맛집
                 HomePopularView()

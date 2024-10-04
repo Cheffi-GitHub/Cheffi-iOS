@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-/*
- ex) Text("example")
-        .foregroundStyle(Color.primary)
- */
-
 extension Color {
     init(hex: Int, opacity: Double = 1.0) {
         let red = Double((hex & 0xff0000) >> 16) / 255.0
@@ -19,41 +14,33 @@ extension Color {
         let blue = Double((hex & 0xff) >> 0) / 255.0
         self.init(.sRGB, red: red, green: green, blue: blue, opacity: opacity)
     }
+}
+
+/* 
+ Usage)
+ Colors Asset 파일의 Color Resource별 hex 값 검색/참조만을 위한 열거형입니다.
+ 
+ Figma의 hex 값으로 Xcode 프로젝트 내부 검색, Xcode15 ColorResource/Color 타입을 사용하세요.
+ ex) .foregroundStyle(.cheffiPrimary)
+ */
+private enum ColorReference {
+    case black          // 0A0A0A
+    case white          // FFFFFF
     
-    static let primary = Color(hex: 0xEB4351)
+    case cheffiDark     // E53746
+    case cheffiLight    // FFF2F4
+    case cheffiPrimary  // EB4351
     
-    static let sub1 = Color(hex: 0xFFBFC9)
-    static let sub2 = Color(hex: 0xFF8EA0)
+    case gray05         // F5F5F5
+    case gray1          // ECECEC
+    case gray2          // D9D9D9
+    case gray3          // C5C5C5
+    case gray4          // B1B1B1
+    case gray5          // 9E9E9E
+    case gray6          // 808080
+    case gray7          // 636363
+    case gray8          // 454545
+    case gray9          // 282828
     
-    static let grey05 = Color(hex: 0xF5F5F5)
-    static let grey1 = Color(hex: 0xECECEC)
-    static let grey2 = Color(hex: 0xD9D9D9)
-    static let grey3 = Color(hex: 0xC5C5C5)
-    static let grey4 = Color(hex: 0xB1B1B1)
-    static let grey5 = Color(hex: 0x9E9E9E)
-    static let grey6 = Color(hex: 0x808080)
-    static let grey7 = Color(hex: 0x636363)
-    static let grey8 = Color(hex: 0x454545)
-    static let grey9 = Color(hex: 0x282828)
-    
-    static let black = Color(hex: 0x0A0A0A)
-    static let white = Color(hex: 0xFFFFFF)
-    
-    static let dimmed = Color(hex: 0x000000, opacity: 0.4)
-    static let alarm_bg = Color(hex: 0x707070, opacity: 0.9)
-    
-    static let background = Color(hex: 0xFFF2F4)
-    
-    static let `true` = Color(hex: 0x3972E1)
-    static let `false` = Color(hex: 0xD82231)
-    
-    static let good = Color(hex: 0x437CEB)
-    static let soso = Color(hex: 0x28DB85)
-    static let bad = Color(hex: 0xF33D4C)
-    
-    static let littletime = Color(hex: 0xF63E4D)
-    
-    static let heart = Color(hex: 0xF65A68)
-    
-    static let expiration = Color(hex: 0xE53746)
+    case toastGray      // 707070
 }

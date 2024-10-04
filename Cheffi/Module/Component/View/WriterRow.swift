@@ -23,7 +23,7 @@ struct WriterRow: View {
                         .resizable()
                 } else {
                     // TODO: 이미지 불러오지 못했을 때 UI 요청
-                    Color.grey3
+                    Color.gray3
                 }
             }
             .frame(width: 64, height: 64)
@@ -31,11 +31,11 @@ struct WriterRow: View {
             Spacer().frame(width: 12)
             VStack(alignment: .leading, spacing: 6) {
                 Text(title)
-                    .foregroundStyle(Color.black)
+                    .foregroundStyle(.black)
                     .font(.suit(.semiBold, 16))
                     .lineLimit(1)
                 Text(intro)
-                    .foregroundStyle(Color.grey5)
+                    .foregroundStyle(.gray5)
                     .font(.suit(.regular, 12))
                     .lineLimit(2)
             }
@@ -46,19 +46,19 @@ struct WriterRow: View {
                     Text("팔로우")
                         .padding(.vertical, 6)
                         .padding(.horizontal, 20)
-                        .background(Color.black)
-                        .foregroundStyle(Color.white)
+                        .background(.black)
+                        .foregroundStyle(.white)
                         .font(.suit(.bold, 12))
                         .clipShape(.rect(cornerRadius: 8))
                 } else {
                     Text("팔로잉")
                         .padding(.vertical, 6)
                         .padding(.horizontal, 20)
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(.black)
                         .font(.suit(.bold, 12))
                         .background(
                             RoundedRectangle(cornerRadius: 8)
-                                .strokeBorder(Color.grey2)
+                                .strokeBorder(.gray2)
                         )
                 }
             }

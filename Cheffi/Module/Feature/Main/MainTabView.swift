@@ -33,13 +33,13 @@ struct MainTabView: View {
                                     : type.tabItem.normalImage
                                     
                                     Text(type.tabItem.title)
-                                        .foregroundStyle(Color.grey4)
+                                        .foregroundStyle(.gray4)
                                         .font(.suit(.regular, 12))
                                 }
                             }
                     }
                 }
-                .accentColor(Color.primary)
+                .accentColor(.cheffiPrimary)
             }
             .fullScreenCover(isPresented: $store.presentRegisterView.sending(\.toggleRegisterView)) {
                 Text("맛집등록 뷰")
@@ -57,8 +57,8 @@ struct MainTabView: View {
             }
             .onAppear {
                 let appearance = UITabBarAppearance()
-                appearance.backgroundImage = UIImage.borderForTabBar(color: Color.white)
-                appearance.shadowImage = UIImage.borderForTabBar(color: Color.grey1)
+                appearance.backgroundImage = UIImage.borderForTabBar(color: .white)
+                appearance.shadowImage = UIImage.borderForTabBar(color: .gray1)
                 UITabBar.appearance().standardAppearance = appearance
                 UITabBar.appearance().scrollEdgeAppearance = appearance
             }

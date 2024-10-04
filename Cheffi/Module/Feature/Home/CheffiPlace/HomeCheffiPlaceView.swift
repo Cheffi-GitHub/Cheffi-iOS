@@ -48,15 +48,15 @@ struct HomeCheffiPlaceView: View {
                                                 .padding(.bottom, 12)
                                             Text("아직 주변의 \(store.state.tags[index].name) 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
                                                 .font(.suit(.medium, 14))
-                                                .foregroundStyle(Color.grey6)
+                                                .foregroundStyle(.gray6)
                                                 .padding(.bottom, 18)
                                                 .multilineTextAlignment(.center)
                                             Text("맛집 직접 등록하기")
                                                 .font(.suit(.semiBold, 15))
-                                                .foregroundStyle(Color.primary)
+                                                .foregroundStyle(.cheffiPrimary)
                                                 .padding(.horizontal, 14)
                                                 .padding(.vertical, 9)
-                                                .background(Color.background)
+                                                .background(.cheffiLight)
                                                 .clipShape(.rect(cornerRadius: 10))
                                         }
                                     }
@@ -70,7 +70,7 @@ struct HomeCheffiPlaceView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         HStack(spacing: 8) {
                             Text("쉐피들의 인정 맛집")
-                                .foregroundStyle(Color.black)
+                                .foregroundStyle(.black)
                                 .font(.suit(.bold, 20))
                             Image(name: Common.info)
                                 .overlay(
@@ -95,7 +95,7 @@ struct HomeCheffiPlaceView: View {
                                         WithPerceptionTracking {
                                             VStack {
                                                 Text(store.state.tags[index].name)
-                                                    .foregroundColor(selectedTab == index ? Color.primary : Color.grey5)
+                                                    .foregroundColor(selectedTab == index ? .cheffiPrimary : .gray5)
                                                     .font(.suit(.bold, 15))
                                                     .frame(maxWidth: .infinity)
                                                     .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
@@ -122,10 +122,10 @@ struct HomeCheffiPlaceView: View {
                         .zIndex(1)
                         .padding(.horizontal, 16)
                         
-                        Color.grey05.frame(height: 2).offset(y: -2)
+                        Color.gray05.frame(height: 2).offset(y: -2)
                             .padding(.bottom, 12)
                     }
-                    .background(Color.white)
+                    .background(.white)
                 })
             }
             .onFirstAppear {

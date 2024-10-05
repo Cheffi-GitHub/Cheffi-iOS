@@ -40,109 +40,122 @@ struct HomeCheffiStoryView: View {
     
     var body: some View {
         WithPerceptionTracking {
-            VStack {
-                HStack {
-                    Text("음식, 분위기 맛\n나와 비슷한 쉐피들의 이야기")
-                        .foregroundStyle(.black)
-                        .font(.suit(.bold, 20))
-                        .padding(.bottom, 16)
-                    Spacer()
-                }
-                .padding(.horizontal, 16)
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach($dummyCategories, id: \.self) { category in
-                            WithPerceptionTracking {
-                                Group {
-                                    if !store.state.selectedCategories.contains(category.wrappedValue) {
-                                        Text("\(category.wrappedValue)")
-                                            .foregroundStyle(Color.grey5)
-                                            .font(.suit(.semiBold, 15))
-                                            .padding(.horizontal, 16)
-                                            .padding(.vertical, 6)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .strokeBorder(Color.grey1)
-                                            )
-                                        
-                                    } else {
-                                        Text("\(category.wrappedValue)")
-                                            .foregroundStyle(Color.white)
-                                            .font(.suit(.semiBold, 15))
-                                            .padding(.horizontal, 16)
-                                            .padding(.vertical, 6)
-                                            .background(Color.primary)
-                                            .clipShape(.rect(cornerRadius: 20))
-                                    }
-                                }
-                                .onTapGesture {
-                                    store.send(.categoryTapped(category.wrappedValue))
-                                }
-                            }
-                        }
-                    }
+            VStack(spacing: 0) {
+                header
                     .padding(.horizontal, 16)
-                }
-                .padding(.bottom, 16)
-                
-                TabView(selection: $currentpage) {
-                    ForEach(1...totalPage, id: \.self) { index in
-                        WithPerceptionTracking {
-                            VStack(spacing: 16) {
-                                let startIndex = (index - 1) * itemsPerPage
-                                let endIndex = min(startIndex + itemsPerPage, dummyDatas.count)
-                                let items = Array(dummyDatas[startIndex..<endIndex])
-                                ForEach(items, id: \.title) { item in
-                                    WithPerceptionTracking {
-                                        WriterRow(
-                                            photoUrl: String(),
-                                            title: item.title,
-                                            intro: item.intro,
-                                            isFollowed: item.isFollowed
-                                        )
-                                    }
-                                }
-                                .padding(.horizontal, 16)
-                                if items.count != 3 {
-                                    Spacer()
-                                }
-                            }
-                        }
-                    }
-                }
-                .frame(height: CGFloat(itemsPerPage * 64 + ((itemsPerPage - 1) * 16)))
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                .animation(.easeInOut, value: currentpage)
-                .padding(.bottom, 16)
-                
-                // 탭뷰 페이징
-                HStack(spacing: 0) {
-                    Image(name: Home.previousPage)
-                        .padding(.trailing, 12)
-                        .onTapGesture {
-                            if currentpage != 1 {
-                                currentpage -= 1
-                            }
-                        }
-                    Text("\(currentpage)")
-                        .foregroundStyle(Color.black)
-                        .font(.suit(.medium, 16))
-                    Text(" / \(totalPage)")
-                        .foregroundStyle(Color.grey8)
-                        .font(.suit(.medium, 16))
-                    Image(name: Home.nextPage)
-                        .padding(.leading, 12)
-                        .onTapGesture {
-                            if currentpage != totalPage {
-                                currentpage += 1
-                            }
-                        }
-                }
+                chipButtons
+                    .padding(.bottom, 16)
+                tabView
+                paging
             }
             .onFirstAppear {
                 store.send(.onFirstAppear)
             }
+        }
+    }
+    
+    private var header: some View {
+        HStack {
+            Text("음식, 분위기 맛\n나와 비슷한 쉐피들의 이야기")
+                .foregroundStyle(.black)
+                .font(.suit(.bold, 20))
+                .padding(.bottom, 16)
+            Spacer()
+        }
+    }
+    
+    private var chipButtons: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach($dummyCategories, id: \.self) { category in
+                    WithPerceptionTracking {
+                        Group {
+                            if !store.state.selectedCategories.contains(category.wrappedValue) {
+                                Text("\(category.wrappedValue)")
+                                    .foregroundStyle(Color.grey5)
+                                    .font(.suit(.semiBold, 15))
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 6)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .strokeBorder(Color.grey1)
+                                    )
+                                
+                            } else {
+                                Text("\(category.wrappedValue)")
+                                    .foregroundStyle(Color.white)
+                                    .font(.suit(.semiBold, 15))
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 6)
+                                    .background(Color.primary)
+                                    .clipShape(.rect(cornerRadius: 20))
+                            }
+                        }
+                        .onTapGesture {
+                            store.send(.categoryTapped(category.wrappedValue))
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, 16)
+        }
+    }
+    
+    private var tabView: some View {
+        TabView(selection: $currentpage) {
+            ForEach(1...totalPage, id: \.self) { index in
+                WithPerceptionTracking {
+                    VStack(spacing: 16) {
+                        let startIndex = (index - 1) * itemsPerPage
+                        let endIndex = min(startIndex + itemsPerPage, dummyDatas.count)
+                        let items = Array(dummyDatas[startIndex..<endIndex])
+                        ForEach(items, id: \.title) { item in
+                            WithPerceptionTracking {
+                                WriterRow(
+                                    photoUrl: String(),
+                                    title: item.title,
+                                    intro: item.intro,
+                                    isFollowed: item.isFollowed
+                                )
+                            }
+                        }
+                        .padding(.horizontal, 16)
+                        if items.count != 3 {
+                            Spacer()
+                        }
+                    }
+                }
+            }
+        }
+        .frame(height: CGFloat(itemsPerPage * 64 + ((itemsPerPage - 1) * 16)))
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .animation(.easeInOut, value: currentpage)
+        .padding(.bottom, 16)
+    }
+    
+    private var paging: some View {
+        // 탭뷰 페이징
+        HStack(spacing: 0) {
+            Image(name: Home.previousPage)
+                .padding(.trailing, 12)
+                .onTapGesture {
+                    if currentpage != 1 {
+                        currentpage -= 1
+                    }
+                }
+            Text("\(currentpage)")
+                .foregroundStyle(Color.black)
+                .font(.suit(.medium, 16))
+            Text(" / \(totalPage)")
+                .foregroundStyle(Color.grey8)
+                .font(.suit(.medium, 16))
+            Image(name: Home.nextPage)
+                .padding(.leading, 12)
+                .onTapGesture {
+                    if currentpage != totalPage {
+                        currentpage += 1
+                    }
+                }
         }
     }
 }

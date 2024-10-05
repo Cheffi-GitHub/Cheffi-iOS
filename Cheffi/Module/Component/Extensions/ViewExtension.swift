@@ -32,6 +32,10 @@ extension View {
         modifier(FirstAppearModifer(action))
     }
     
+    func lineHeight(_ height: CGFloat, fontHeight: CGFloat) -> some View {
+        modifier(LineHeightModifier(lineHeight: height, fontHeight: fontHeight))
+    }
+  
     func frame(size: CGSize) -> some View {
         self.frame(width: size.width, height: size.height)
     }

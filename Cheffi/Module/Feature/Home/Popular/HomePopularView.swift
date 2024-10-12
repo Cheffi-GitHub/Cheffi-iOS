@@ -53,17 +53,16 @@ struct HomePopularView: View {
                     store.send(.onFirstAppear)
                 }
             } destination: { store in
-                switch store.state {
-                case .moveToReviewDetailView:
-                    if let store = store.scope(state: \.moveToReviewDetailView, action: \.moveToReviewDetailView) {
-                        ReviewDetailView(store: store)
-                    }
-                case .moveToAllReviewView:
-                    if let store = store.scope(state: \.moveToAllReviewView, action: \.moveToAllReviewView) {
-                        AllReviewView(store: store)
-                    }
+                switch store.case {
+                case .moveToReviewDetailView(let store):
+                    ReviewDetailView(store: store)
+                case .moveToAllReviewView(let store):
+                    AllReviewView(store: store)
                 }
             }
+        }
+        .fullScreenCover(isPresented: $store.presentAddRestaurantView.sending(\.toggleAddRestaurantView)) {
+            AddRestaurantView()
         }
     }
     
@@ -99,6 +98,9 @@ struct HomePopularView: View {
                 .padding(.vertical, 9)
                 .background(Color.background)
                 .clipShape(.rect(cornerRadius: 10))
+                .onTapGesture {
+                    store.send(.addRestaurantButtonTapped)
+                }
         }
     }
     

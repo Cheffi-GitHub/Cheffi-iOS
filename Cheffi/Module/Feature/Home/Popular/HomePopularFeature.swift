@@ -25,6 +25,7 @@ struct HomePopularFeature {
         var popularReviews: [ReviewModel] = []
         var path = StackState<Path.State>()
         var showTooltip = false
+        var presentAddRestaurantView: Bool = false
         var remainTime: Int = 0
     }
     
@@ -34,12 +35,14 @@ struct HomePopularFeature {
         case updateTimer
         case sceneActive
         case requestPopularReviews
-        case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
         case toolTipTapped
-        case path(StackAction<Path.State, Path.Action>)
+        case addRestaurantButtonTapped
+        case toggleAddRestaurantView(Bool)
+        case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
+        case path(StackActionOf<Path>)
     }
     
-    var body: some Reducer<State, Action> {
+    var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .onFirstAppear:
@@ -74,6 +77,14 @@ struct HomePopularFeature {
                         .catch { Just(Action.popularReviewsResponse(.failure($0))) }
                 }
                 
+            case .addRestaurantButtonTapped:
+                state.presentAddRestaurantView = true
+                return .none
+                
+            case .toggleAddRestaurantView(let value):
+                state.presentAddRestaurantView = value
+                return .none
+                
             case .popularReviewsResponse(let response):
                 switch response {
                 case .success(let result):
@@ -86,13 +97,12 @@ struct HomePopularFeature {
             case .toolTipTapped:
                 state.showTooltip.toggle()
                 return .none
+                
             case .path:
                 return .none
             }
         }
-        .forEach(\.path, action: /Action.path) {
-            Path()
-        }
+        .forEach(\.path, action: \.path)
     }
     
     private func calculateRemainSeconds() -> Int {
@@ -106,26 +116,10 @@ struct HomePopularFeature {
 }
 
 extension HomePopularFeature {
-    @Reducer
-    struct Path {
-        @ObservableState
-        enum State: Equatable {
-            case moveToReviewDetailView(ReviewDetailFeature.State)
-            case moveToAllReviewView(AllReviewFeature.State)
-        }
-        
-        enum Action {
-            case moveToReviewDetailView(ReviewDetailFeature.Action)
-            case moveToAllReviewView(AllReviewFeature.Action)
-        }
-        
-        var body: some ReducerOf<Self> {
-            Scope(state: /State.moveToReviewDetailView, action: /Action.moveToReviewDetailView) {
-                ReviewDetailFeature()
-            }
-            Scope(state: /State.moveToAllReviewView, action: /Action.moveToAllReviewView) {
-                AllReviewFeature()
-            }
-        }
+    
+    @Reducer(state: .equatable)
+    enum Path {
+        case moveToReviewDetailView(ReviewDetailFeature)
+        case moveToAllReviewView(AllReviewFeature)
     }
 }

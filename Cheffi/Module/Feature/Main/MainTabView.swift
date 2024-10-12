@@ -40,7 +40,7 @@ struct MainTabView: View {
             }
             .accentColor(Color.primary)
             .fullScreenCover(isPresented: $store.presentRegisterView.sending(\.toggleRegisterView)) {
-                Text("맛집등록 뷰")
+                AddRestaurantView()
                     .onTapGesture {
                         store.send(.toggleRegisterView(false))
                     }

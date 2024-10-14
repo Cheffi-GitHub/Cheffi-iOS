@@ -111,11 +111,17 @@ struct HomeCheffiStoryView: View {
                         let items = Array(dummyDatas[startIndex..<endIndex])
                         ForEach(items, id: \.title) { item in
                             WithPerceptionTracking {
-                                WriterRow(
-                                    photoUrl: String(),
-                                    title: item.title,
-                                    intro: item.intro,
-                                    isFollowed: item.isFollowed
+                                WriterRowView(
+                                    store: StoreOf<WriterRowFeature>(
+                                        initialState: WriterRowFeature.State(
+                                            photoUrl: String(),
+                                            title: item.title,
+                                            intro: item.intro,
+                                            isFollowed: item.isFollowed
+                                        )
+                                    ) {
+                                        WriterRowFeature()
+                                    }
                                 )
                             }
                         }

@@ -218,11 +218,17 @@ struct ReviewDetailView: View {
                                         .font(.suit(.bold, 18))
                                         .foregroundStyle(Color.black)
                                         .padding(.bottom, 6)
-                                    WriterRow(
-                                        photoUrl: review.writer.photo.url,
-                                        title: review.writer.nickname,
-                                        intro: review.writer.introduction,
-                                        isFollowed: true
+                                    WriterRowView(
+                                        store: StoreOf<WriterRowFeature>(
+                                            initialState: WriterRowFeature.State(
+                                                photoUrl: review.writer.photo.url,
+                                                title: review.writer.nickname,
+                                                intro: review.writer.introduction,
+                                                isFollowed: true
+                                            )
+                                        ) {
+                                            WriterRowFeature()
+                                        }
                                     )
                                 }
                                 .padding(.bottom, 32)

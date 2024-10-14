@@ -27,18 +27,19 @@ struct WriterRowView: View {
                 }
                 .frame(width: 64, height: 64)
                 .clipShape(.rect(cornerRadius: 8))
+                Spacer().frame(width: 12)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(store.title)
+                        .foregroundStyle(Color.black)
+                        .font(.suit(.semiBold, 16))
+                        .lineLimit(1)
+                    Text(store.intro)
+                        .foregroundStyle(Color.grey5)
+                        .font(.suit(.regular, 12))
+                        .lineLimit(2)
+                }
             }
-            Spacer().frame(width: 12)
-            VStack(alignment: .leading, spacing: 6) {
-                Text(store.title)
-                    .foregroundStyle(Color.black)
-                    .font(.suit(.semiBold, 16))
-                    .lineLimit(1)
-                Text(store.intro)
-                    .foregroundStyle(Color.grey5)
-                    .font(.suit(.regular, 12))
-                    .lineLimit(2)
-            }
+            
             Spacer().frame(minWidth: 32)
             
             Group {

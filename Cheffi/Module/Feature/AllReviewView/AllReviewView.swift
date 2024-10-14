@@ -27,7 +27,12 @@ struct AllReviewView: View {
     var body: some View {
         WithPerceptionTracking {
             VStack(spacing: 0) {
-                HomeNavigationBarView(type: .back)
+                HomeNavigationBarView(
+                    store: StoreOf<HomeNavigationBarFeature>(initialState: HomeNavigationBarFeature.State()) {
+                        HomeNavigationBarFeature()
+                    },
+                    type: .back
+                )
                     .onTapGesture {
                         dismiss()
                     }

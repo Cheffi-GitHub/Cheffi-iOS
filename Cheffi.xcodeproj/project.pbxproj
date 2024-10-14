@@ -63,6 +63,10 @@
 		607EC5642CBA97CA00DA1557 /* AddRestaurantFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607EC5632CBA97C500DA1557 /* AddRestaurantFeature.swift */; };
 		608223792CBAA9230062B0CF /* TermsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681E99F2C4FDF8400B796AA /* TermsFeature.swift */; };
 		6082237A2CBAA93C0062B0CF /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681E99D2C4FDF7D00B796AA /* TermsView.swift */; };
+		60BAE8BC2CBCBD34003EF52C /* SelectRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BAE8BB2CBCBD34003EF52C /* SelectRegionView.swift */; };
+		60BAE8BE2CBCBD3E003EF52C /* SearchRestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BAE8BD2CBCBD3E003EF52C /* SearchRestaurantsView.swift */; };
+		60BAE8C02CBCBD45003EF52C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BAE8BF2CBCBD45003EF52C /* NotificationView.swift */; };
+		60F55F5B2CBBDDA20074008D /* HomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F55F5A2CBBDDA00074008D /* HomeFeature.swift */; };
 		A611D9D12C187D6500ABF38C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D02C187D6500ABF38C /* EndPoint.swift */; };
 		A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D22C187D7800ABF38C /* RestRouter.swift */; };
 		A611D9D52C187D8400ABF38C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A611D9D42C187D8400ABF38C /* NetworkClient.swift */; };
@@ -180,6 +184,10 @@
 		6040AAF42CA275F30016338E /* LineHeightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightModifier.swift; sourceTree = "<group>"; };
 		607EC5612CBA965E00DA1557 /* AddRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantView.swift; sourceTree = "<group>"; };
 		607EC5632CBA97C500DA1557 /* AddRestaurantFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantFeature.swift; sourceTree = "<group>"; };
+		60BAE8BB2CBCBD34003EF52C /* SelectRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionView.swift; sourceTree = "<group>"; };
+		60BAE8BD2CBCBD3E003EF52C /* SearchRestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRestaurantsView.swift; sourceTree = "<group>"; };
+		60BAE8BF2CBCBD45003EF52C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		60F55F5A2CBBDDA00074008D /* HomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeature.swift; sourceTree = "<group>"; };
 		A611D9D02C187D6500ABF38C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A611D9D22C187D7800ABF38C /* RestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
 		A611D9D42C187D8400ABF38C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -258,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				54073B7C2C0C564700597973 /* HomeView.swift */,
+				60F55F5A2CBBDDA00074008D /* HomeFeature.swift */,
 				54073B862C0D90B400597973 /* NavigationBar */,
 				54073B812C0D904200597973 /* Popular */,
 				543F0AE22C10261B00DFBDB1 /* CheffiStory */,
@@ -400,6 +409,9 @@
 		548BC06D2C086B4D00A73F66 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				60BAE8BA2CBCBD26003EF52C /* Notification */,
+				60BAE8B92CBCBD10003EF52C /* SearchRestaurants */,
+				60BAE8B82CBCBD0A003EF52C /* SelectRegion */,
 				A69989FA2C47FF1400850EE7 /* Root */,
 				547B4BC72C4566D400C4B1B4 /* Main */,
 				A681E99C2C4FDF6500B796AA /* Terms */,
@@ -534,6 +546,30 @@
 				607EC5632CBA97C500DA1557 /* AddRestaurantFeature.swift */,
 			);
 			path = AddRestaurant;
+			sourceTree = "<group>";
+		};
+		60BAE8B82CBCBD0A003EF52C /* SelectRegion */ = {
+			isa = PBXGroup;
+			children = (
+				60BAE8BB2CBCBD34003EF52C /* SelectRegionView.swift */,
+			);
+			path = SelectRegion;
+			sourceTree = "<group>";
+		};
+		60BAE8B92CBCBD10003EF52C /* SearchRestaurants */ = {
+			isa = PBXGroup;
+			children = (
+				60BAE8BD2CBCBD3E003EF52C /* SearchRestaurantsView.swift */,
+			);
+			path = SearchRestaurants;
+			sourceTree = "<group>";
+		};
+		60BAE8BA2CBCBD26003EF52C /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				60BAE8BF2CBCBD45003EF52C /* NotificationView.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		A611D9D92C187F6000ABF38C /* Frameworks */ = {
@@ -845,6 +881,7 @@
 				544BB7672C168F8400BD43E0 /* MainTabView.swift in Sources */,
 				607EC5642CBA97CA00DA1557 /* AddRestaurantFeature.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
+				60BAE8BC2CBCBD34003EF52C /* SelectRegionView.swift in Sources */,
 				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
 				54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */,
 				54073B852C0D908200597973 /* HomeNavigationBarView.swift in Sources */,
@@ -880,6 +917,7 @@
 				A611D9D32C187D7800ABF38C /* RestRouter.swift in Sources */,
 				A62EEAD92C2D9BA000926242 /* LaunchScreenFeature.swift in Sources */,
 				A6F5E6F92C280AC00053C2E8 /* RestRouter+EndPoint.swift in Sources */,
+				60F55F5B2CBBDDA20074008D /* HomeFeature.swift in Sources */,
 				A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,
 				A688B0AB2C29B68600E4E3A2 /* RestResponse.swift in Sources */,
@@ -889,11 +927,13 @@
 				541930552C3D7B2E0080CA57 /* Ratings.swift in Sources */,
 				A6F5E6E82C245EBD0053C2E8 /* KakaoAuthClient.swift in Sources */,
 				5488EDD22C3E534700252A92 /* ViewExtension.swift in Sources */,
+				60BAE8C02CBCBD45003EF52C /* NotificationView.swift in Sources */,
 				54073B6C2C0C474200597973 /* ImageExtension.swift in Sources */,
 				A678A4882C2C632F00A3D16B /* LaunchScreenView.swift in Sources */,
 				A6F5E6C82C1B21630053C2E8 /* NetworkRequestInterceptor.swift in Sources */,
 				A6F5E6EB2C246A670053C2E8 /* KakaoTokenVerifier.swift in Sources */,
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,
+				60BAE8BE2CBCBD3E003EF52C /* SearchRestaurantsView.swift in Sources */,
 				A64056C82C6398B70045B127 /* RepresentableWebView.swift in Sources */,
 				54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */,
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,

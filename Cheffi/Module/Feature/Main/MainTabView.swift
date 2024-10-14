@@ -67,7 +67,10 @@ struct MainTabView: View {
     func getTabView(type: TabType) -> some View {
         switch type {
         case .home:
-            HomeView()
+            HomeView(
+                store: Store(initialState: HomeFeature.State()) {
+                HomeFeature()
+            })
         case .trend:
             Text("전국트렌트 탭")
         case .write:

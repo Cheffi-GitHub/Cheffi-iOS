@@ -10,12 +10,9 @@ import ComposableArchitecture
 
 struct HomeCheffiPlaceView: View {
     
-    @Perception.Bindable var store: StoreOf<HomeCheffiPlaceFeature> = .init(
-        initialState: HomeCheffiPlaceFeature.State()) {
-            HomeCheffiPlaceFeature()
-        }
-    
+    @Perception.Bindable var store: StoreOf<HomeCheffiPlaceFeature>
     @State private var selectedTab: Int = 0
+    
     let tabViewHeight: CGFloat = UIWindow().screen.bounds.height - 284
     
     private let columns = [

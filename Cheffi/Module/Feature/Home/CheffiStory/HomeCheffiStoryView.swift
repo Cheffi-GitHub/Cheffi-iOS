@@ -10,10 +10,7 @@ import ComposableArchitecture
 
 struct HomeCheffiStoryView: View {
     
-    @Perception.Bindable var store: StoreOf<HomeCheffiStoryFeature> = .init(
-        initialState: HomeCheffiStoryFeature.State()) {
-            HomeCheffiStoryFeature()
-        }
+    @Perception.Bindable var store: StoreOf<HomeCheffiStoryFeature>
     
     @State private var dummyCategories = ["한식", "노포", "아시아음식", "매운맛", "일식", "달콤한맛", "중식"]
     
@@ -167,7 +164,10 @@ struct HomeCheffiStoryView: View {
 }
 
 #Preview {
-    HomeCheffiStoryView()
+    let store = StoreOf<HomeCheffiStoryFeature>(initialState: HomeCheffiStoryFeature.State()) {
+        HomeCheffiStoryFeature()
+    }
+    HomeCheffiStoryView(store: store)
 }
 
 struct RecommendData: Hashable {

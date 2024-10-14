@@ -32,11 +32,20 @@ struct HomeView: View {
                             .padding(.top, 32)
                             
                             // 쉐피들의 이야기
-                            HomeCheffiStoryView()
+                            HomeCheffiStoryView(
+                                store: StoreOf<HomeCheffiStoryFeature>(initialState: HomeCheffiStoryFeature.State()) {
+                                    HomeCheffiStoryFeature()
+                                }
+                            )
                                 .padding(.top, 48)
                             
                             // 쉐피들의 인정 맛집
-                            HomeCheffiPlaceView()
+                            HomeCheffiPlaceView(
+                                store:
+                                    StoreOf<HomeCheffiPlaceFeature>(initialState: HomeCheffiPlaceFeature.State()) {
+                                        HomeCheffiPlaceFeature()
+                                    }
+                            )
                                 .padding(.top, 32)
                         }
                     }

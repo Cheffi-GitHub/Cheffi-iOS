@@ -53,6 +53,8 @@ struct HomeView: View {
                     ReviewDetailView(store: store)
                 case let .allReview(store):
                     AllReviewView(store: store)
+                case let .otherProfile(store):
+                    OtherProfileView()
                 }
             }
         }

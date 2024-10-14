@@ -53,5 +53,6 @@ extension HomeFeature {
         case notification
         case reviewDetail(ReviewDetailFeature)
         case allReview(AllReviewFeature)
+        case otherProfile(OtherProfileFeature)
     }
 }

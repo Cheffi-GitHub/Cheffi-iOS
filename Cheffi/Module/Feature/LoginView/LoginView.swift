@@ -72,6 +72,8 @@ struct LoginView: View {
                     TermsView(store: store)
                 case .navigateToTermsWebPage(let store):
                     WebView(store: store)
+                case .navigateToWelcomeToCheffi(let store):
+                    WelcomeView(store: store)
                 }
             }
             .alert(

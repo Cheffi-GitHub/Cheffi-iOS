@@ -69,7 +69,6 @@ struct TermsFeature {
                 return .none
                 
             case .navigateToWelcomeToCheffi:
-                // TODO: 가입 완료! 쉐피에 오신걸 환영합니다!
                 return .none
             }
         }

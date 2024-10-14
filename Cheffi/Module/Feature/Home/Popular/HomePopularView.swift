@@ -14,7 +14,7 @@ struct HomePopularView: View {
         initialState: HomePopularFeature.State()) {
             HomePopularFeature()
         }
-    @Environment(\.scenePhase) var scenePhase
+    @Environment(\.scenePhase) private var scenePhase
     
     private let columns = [
         GridItem(.flexible()),

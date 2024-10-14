@@ -17,7 +17,7 @@ struct AllReviewView: View {
     
     @Perception.Bindable var store: StoreOf<AllReviewFeature>
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.scenePhase) var scenePhase
+    @Environment(\.scenePhase) private var scenePhase
     
     private let columns = [
         GridItem(.flexible(), alignment: .top),

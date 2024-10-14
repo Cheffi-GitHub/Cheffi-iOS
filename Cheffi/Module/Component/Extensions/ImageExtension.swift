@@ -72,6 +72,10 @@ enum Terms: String, ImageNameProtocol {
     case checkMarkCircleFill = "checkMarkCircleFill"
 }
 
+enum Welcome: String, ImageNameProtocol {
+    case welcomeCheffi = "welcomeCheffi"
+}
+
 // TODO: 추후 삭제
 enum Dummy: String, ImageNameProtocol {
     case sample = "sample"

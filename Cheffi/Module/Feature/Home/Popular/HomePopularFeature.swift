@@ -23,7 +23,6 @@ struct HomePopularFeature {
             return count > 3 ? min(4, ((count - 4) / 4) + 2) : 1
         }
         var popularReviews: [ReviewModel] = []
-        var path = StackState<Path.State>()
         var showTooltip = false
         var presentAddRestaurantView: Bool = false
         var remainTime: Int = 0
@@ -39,7 +38,6 @@ struct HomePopularFeature {
         case addRestaurantButtonTapped
         case toggleAddRestaurantView(Bool)
         case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
-        case path(StackActionOf<Path>)
     }
     
     var body: some ReducerOf<Self> {
@@ -97,12 +95,8 @@ struct HomePopularFeature {
             case .toolTipTapped:
                 state.showTooltip.toggle()
                 return .none
-                
-            case .path:
-                return .none
             }
         }
-        .forEach(\.path, action: \.path)
     }
     
     private func calculateRemainSeconds() -> Int {
@@ -112,14 +106,5 @@ struct HomePopularFeature {
         let nextHour = calendar.date(byAdding: .hour, value: 1, to: startOfCurrentTime) ?? Date()
         let seconds = calendar.dateComponents([.second], from: now, to: nextHour).second ?? 0
         return seconds
-    }
-}
-
-extension HomePopularFeature {
-    
-    @Reducer(state: .equatable)
-    enum Path {
-        case moveToReviewDetailView(ReviewDetailFeature)
-        case moveToAllReviewView(AllReviewFeature)
     }
 }

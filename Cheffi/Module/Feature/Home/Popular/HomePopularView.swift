@@ -10,10 +10,7 @@ import ComposableArchitecture
 
 struct HomePopularView: View {
     
-    @Perception.Bindable var store: StoreOf<HomePopularFeature> = .init(
-        initialState: HomePopularFeature.State()) {
-            HomePopularFeature()
-        }
+    @Perception.Bindable var store: StoreOf<HomePopularFeature>
     @Environment(\.scenePhase) private var scenePhase
     
     private let columns = [
@@ -24,42 +21,31 @@ struct HomePopularView: View {
     @State private var currentpage = 1
     
     var body: some View {
-        WithPerceptionTracking {
-            NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
-                VStack(spacing: 0) {
-                    headline
-                    if store.popularReviews.count == 0 {
-                        reviewEmpty
-                            .padding(.top, 40)
-                    } else {
-                        timeIndicator
-                            .zIndex(1)
-                            .padding(.horizontal, 16)
-                            .padding(.bottom, 24)
-                            .padding(.top, 16)
-                        tabView
-                        paging
-                    }
-                }
-                .onChange(of: scenePhase) { state in
-                    switch state {
-                    case .active: store.send(.sceneActive)
-                    case .inactive: break
-                    case .background: break
-                    default: break
-                    }
-                }
-                .onFirstAppear {
-                    store.send(.onFirstAppear)
-                }
-            } destination: { store in
-                switch store.case {
-                case .moveToReviewDetailView(let store):
-                    ReviewDetailView(store: store)
-                case .moveToAllReviewView(let store):
-                    AllReviewView(store: store)
-                }
+        VStack(spacing: 0) {
+            headline
+            if store.popularReviews.count == 0 {
+                reviewEmpty
+                    .padding(.top, 40)
+            } else {
+                timeIndicator
+                    .zIndex(1)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 24)
+                    .padding(.top, 16)
+                tabView
+                paging
             }
+        }
+        .onChange(of: scenePhase) { state in
+            switch state {
+            case .active: store.send(.sceneActive)
+            case .inactive: break
+            case .background: break
+            default: break
+            }
+        }
+        .onFirstAppear {
+            store.send(.onFirstAppear)
         }
         .fullScreenCover(isPresented: $store.presentAddRestaurantView.sending(\.toggleAddRestaurantView)) {
             AddRestaurantView()
@@ -133,7 +119,7 @@ struct HomePopularView: View {
                         store.send(.toolTipTapped)
                     }
                 Spacer()
-                NavigationLink(state: HomePopularFeature.Path.State.moveToAllReviewView(
+                NavigationLink(state: HomeFeature.Path.State.allReview(
                     .init(popularReviews: store.popularReviews, remainTime: store.remainTime)
                 )) {
                     HStack {
@@ -160,7 +146,7 @@ struct HomePopularView: View {
                         // 첫 페이지
                         if index == 0 {
                             NavigationLink(
-                                state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[0].id))
+                                state: HomeFeature.Path.State.reviewDetail(.init(id: store.popularReviews[0].id))
                             ) {
                                 ReviewCell(review: store.popularReviews[0], type: .medium)
                             }
@@ -168,14 +154,14 @@ struct HomePopularView: View {
                             LazyVGrid(columns: columns) {
                                 if store.popularReviews.count-1 >= 1 {
                                     NavigationLink(
-                                        state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[1].id))
+                                        state: HomeFeature.Path.State.reviewDetail(.init(id: store.popularReviews[2].id))
                                     ) {
                                         ReviewCell(review: store.popularReviews[1], type: .small)
                                     }
                                 }
                                 if store.popularReviews.count-1 >= 2 {
                                     NavigationLink(
-                                        state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[2].id))
+                                        state: HomeFeature.Path.State.reviewDetail(.init(id: store.popularReviews[2].id))
                                     ) {
                                         ReviewCell(review: store.popularReviews[2], type: .small)
                                     }
@@ -189,7 +175,7 @@ struct HomePopularView: View {
                                         let reviewIndex = 3 + (index - 1) * 4 + offset
                                         if store.popularReviews.count-1 >= reviewIndex {
                                             NavigationLink(
-                                                state: HomePopularFeature.Path.State.moveToReviewDetailView(.init(id: store.popularReviews[reviewIndex].id))
+                                                state: HomeFeature.Path.State.reviewDetail(.init(id: store.popularReviews[reviewIndex].id))
                                             ) {
                                                 ReviewCell(review: store.popularReviews[reviewIndex], type: .small)
                                             }
@@ -240,7 +226,10 @@ struct HomePopularView: View {
 }
 
 #Preview("without Reviews") {
-    HomePopularView()
+    let store = StoreOf<HomePopularFeature>(initialState: .init()) {
+        HomePopularFeature()
+    }
+    HomePopularView(store: store)
 }
 
 #Preview("with Reviews") {

@@ -24,8 +24,12 @@ struct HomeView: View {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 0) {
                             // 인기 급등 맛집
-                            HomePopularView()
-                                .padding(.top, 32)
+                            HomePopularView(
+                                store: StoreOf<HomePopularFeature>(initialState: HomePopularFeature.State()) {
+                                    HomePopularFeature()
+                                }
+                            )
+                            .padding(.top, 32)
                             
                             // 쉐피들의 이야기
                             HomeCheffiStoryView()
@@ -59,6 +63,5 @@ struct HomeView: View {
     let store = Store(initialState: HomeFeature.State()) {
         HomeFeature()
     }
-
     HomeView(store: store)
 }

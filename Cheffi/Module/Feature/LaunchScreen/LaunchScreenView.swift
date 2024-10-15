@@ -15,7 +15,7 @@ struct LaunchScreenView: View {
     var body: some View {
         WithPerceptionTracking {
             ZStack {
-                Color.primary
+                Color.m100
                     .ignoresSafeArea()
                 
                 Image("launchScreenLogo")

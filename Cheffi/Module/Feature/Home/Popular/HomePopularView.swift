@@ -87,17 +87,17 @@ struct HomePopularView: View {
                 .padding(.bottom, 12)
             Text("아직 주변의 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
                 .font(.suit(.medium, 14))
-                .foregroundStyle(Color.grey6)
+                .foregroundStyle(.g60)
                 .lineHeight(22, fontHeight: 14)
                 .padding(.bottom, 18)
                 .multilineTextAlignment(.center)
             Text("맛집 직접 등록하기")
                 .font(.suit(.semiBold, 15))
-                .foregroundStyle(Color.primary)
+                .foregroundStyle(.m100)
                 .lineHeight(22, fontHeight: 15)
                 .padding(.horizontal, 14)
                 .padding(.vertical, 9)
-                .background(Color.background)
+                .background(.ms10)
                 .clipShape(.rect(cornerRadius: 10))
         }
     }
@@ -107,7 +107,7 @@ struct HomePopularView: View {
             HStack(spacing: 0) {
                 Image(name: Common.clock)
                 Text(store.remainTime.toHourMinuteSecond())
-                    .foregroundStyle(Color.primary)
+                    .foregroundStyle(.m100)
                     .font(.suit(.bold, 18))
                 Text("초 뒤에")
                     .foregroundStyle(.black)
@@ -115,7 +115,7 @@ struct HomePopularView: View {
             }
             HStack(spacing: 4) {
                 Text("인기 급등 맛집이 변경돼요.")
-                    .foregroundStyle(Color.black)
+                    .foregroundStyle(.black)
                     .font(.suit(.regular, 18))
                 Image(name: Common.info)
                     .overlay(
@@ -137,13 +137,13 @@ struct HomePopularView: View {
                     HStack {
                         // TODO: 전체보기 탭 했을 때 리뷰 전체보기 화면으로 네비게이션 기능 구현 필요
                         Text("전체보기")
-                            .foregroundStyle(Color.grey6)
+                            .foregroundStyle(.g60)
                             .font(.suit(.medium, 14))
                         Image(name: Common.rightArrow)
                             .resizable()
                             .renderingMode(.template)
                             .frame(width: 16, height: 16)
-                            .foregroundStyle(Color.grey6)
+                            .foregroundStyle(.g60)
                     }
                 }
             }
@@ -220,10 +220,10 @@ struct HomePopularView: View {
                     }
                 }
             Text("\(currentpage)")
-                .foregroundStyle(Color.black)
+                .foregroundStyle(.black)
                 .font(.suit(.medium, 16))
             Text(" / \(store.state.totalPage)")
-                .foregroundStyle(Color.grey8)
+                .foregroundStyle(.g80)
                 .font(.suit(.medium, 16))
             Image(name: Home.nextPage)
                 .padding(.leading, 12)
@@ -255,5 +255,5 @@ struct HomePopularView: View {
     ) {
         HomePopularFeature()
     }
-    HomePopularView(store: store)
+    return HomePopularView(store: store)
 }

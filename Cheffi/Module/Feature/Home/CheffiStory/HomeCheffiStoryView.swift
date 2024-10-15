@@ -72,22 +72,22 @@ struct HomeCheffiStoryView: View {
                         Group {
                             if !store.state.selectedCategories.contains(category.wrappedValue) {
                                 Text("\(category.wrappedValue)")
-                                    .foregroundStyle(Color.grey5)
+                                    .foregroundStyle(.g50)
                                     .font(.suit(.semiBold, 15))
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 6)
                                     .background(
                                         RoundedRectangle(cornerRadius: 20)
-                                            .strokeBorder(Color.grey1)
+                                            .strokeBorder(.g10)
                                     )
                                 
                             } else {
                                 Text("\(category.wrappedValue)")
-                                    .foregroundStyle(Color.white)
+                                    .foregroundStyle(.white)
                                     .font(.suit(.semiBold, 15))
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 6)
-                                    .background(Color.primary)
+                                    .background(.m100)
                                     .clipShape(.rect(cornerRadius: 20))
                             }
                         }
@@ -144,10 +144,10 @@ struct HomeCheffiStoryView: View {
                     }
                 }
             Text("\(currentpage)")
-                .foregroundStyle(Color.black)
+                .foregroundStyle(.black)
                 .font(.suit(.medium, 16))
             Text(" / \(totalPage)")
-                .foregroundStyle(Color.grey8)
+                .foregroundStyle(.g80)
                 .font(.suit(.medium, 16))
             Image(name: Home.nextPage)
                 .padding(.leading, 12)

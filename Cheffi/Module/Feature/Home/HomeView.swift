@@ -16,37 +16,27 @@ struct HomeView: View {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
                 VStack(spacing: 0) {
                     HomeNavigationBarView(
-                        store: StoreOf<HomeNavigationBarFeature>(initialState: HomeNavigationBarFeature.State()) {
-                            HomeNavigationBarFeature()
-                        },
-                        type: .normal
+                        store: store.scope(state: \.navigationBar, action: \.navigationBar), type: .normal
                     )
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 0) {
                             // 인기 급등 맛집
                             HomePopularView(
-                                store: StoreOf<HomePopularFeature>(initialState: HomePopularFeature.State()) {
-                                    HomePopularFeature()
-                                }
+                                store: store.scope(state: \.popular, action: \.popular)
                             )
                             .padding(.top, 32)
                             
                             // 쉐피들의 이야기
                             HomeCheffiStoryView(
-                                store: StoreOf<HomeCheffiStoryFeature>(initialState: HomeCheffiStoryFeature.State()) {
-                                    HomeCheffiStoryFeature()
-                                }
+                                store: store.scope(state: \.cheffiStory, action: \.cheffiStory)
                             )
-                                .padding(.top, 48)
+                            .padding(.top, 48)
                             
                             // 쉐피들의 인정 맛집
                             HomeCheffiPlaceView(
-                                store:
-                                    StoreOf<HomeCheffiPlaceFeature>(initialState: HomeCheffiPlaceFeature.State()) {
-                                        HomeCheffiPlaceFeature()
-                                    }
+                                store: store.scope(state: \.cheffiPlace, action: \.cheffiPlace)
                             )
-                                .padding(.top, 32)
+                            .padding(.top, 32)
                         }
                     }
                 }

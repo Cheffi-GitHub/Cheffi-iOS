@@ -32,10 +32,10 @@ struct HomeCheffiPlaceView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         header
                         categoryScroll
-                        Color.grey05.frame(height: 2).offset(y: -2)
+                        Color.g50.frame(height: 2).offset(y: -2)
                             .padding(.bottom, 12)
                     }
-                    .background(Color.white)
+                    .background(.white)
                 })
             }
             .onFirstAppear {
@@ -76,7 +76,7 @@ struct HomeCheffiPlaceView: View {
                         ForEach(0..<store.state.tags.count, id: \.self) { index in
                             VStack {
                                 Text(store.state.tags[index].name)
-                                    .foregroundColor(selectedTab == index ? Color.primary : Color.grey5)
+                                    .foregroundColor(selectedTab == index ? .m100 : .g50)
                                     .font(.suit(.bold, 15))
                                     .frame(maxWidth: .infinity)
                                     .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
@@ -126,15 +126,15 @@ struct HomeCheffiPlaceView: View {
                                     .padding(.bottom, 12)
                                 Text("아직 주변의 \(store.state.tags[index].name) 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
                                     .font(.suit(.medium, 14))
-                                    .foregroundStyle(Color.grey6)
+                                    .foregroundStyle(.g60)
                                     .padding(.bottom, 18)
                                     .multilineTextAlignment(.center)
                                 Text("맛집 직접 등록하기")
                                     .font(.suit(.semiBold, 15))
-                                    .foregroundStyle(Color.primary)
+                                    .foregroundStyle(.m100)
                                     .padding(.horizontal, 14)
                                     .padding(.vertical, 9)
-                                    .background(Color.background)
+                                    .background(.ms10)
                                     .clipShape(.rect(cornerRadius: 10))
                             }
                         }
@@ -175,7 +175,7 @@ struct HomeCheffiPlaceView: View {
     ) {
         HomeCheffiPlaceFeature()
     }
-    HomeCheffiPlaceView(store: store)
+    return HomeCheffiPlaceView(store: store)
 }
 
 struct TagType {

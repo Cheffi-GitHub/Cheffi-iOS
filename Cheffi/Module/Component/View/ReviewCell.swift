@@ -34,7 +34,7 @@ struct ReviewCell: View {
             ZStack(alignment: .topTrailing) {
                 Group {
                     if !review.active {
-                        Color.grey05
+                        Color.g50
                             .clipShape(.rect(cornerRadius: 8))
                         Image(name: Review.deletedImage)
                     } else {
@@ -43,7 +43,7 @@ struct ReviewCell: View {
                             KFImage(url)
                                 .resizable()
                         } else {
-                            Color.grey05
+                            Color.g50
                                 .clipShape(.rect(cornerRadius: 8))
                             Image(name: Review.deletedImage)
                         }
@@ -75,12 +75,12 @@ struct ReviewCell: View {
                             ? timeLeftToLock.toHourMinute()
                             : timeLeftToLock.toHourMinuteSecond()
                         )
-                        .foregroundStyle(timeLeftToLock >= 300 || timeLeftToLock == 0 ? Color.white : Color.expiration)
+                        .foregroundStyle(timeLeftToLock >= 300 || timeLeftToLock == 0 ? .white : Color(hex: 0xE53746))
                         .font(.suit(.semiBold, 14))
                     }
                     .padding(.vertical, 4)
                     .padding(.horizontal, 12)
-                    .background(Color.black.opacity(0.32))
+                    .background(.black.opacity(0.32))
                     .clipShape(.rect(cornerRadius: 20))
                     .padding([.top, .trailing], 10)
                     .opacity(review.active ? 1 : 0)
@@ -90,7 +90,7 @@ struct ReviewCell: View {
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {
                     Text(review.active ? review.title : "삭제된 리뷰입니다.")
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(.black)
                         .font(.suit(.bold, 18))
                         .lineLimit(type == .small ? 2 : 1)
                     Spacer()
@@ -99,7 +99,7 @@ struct ReviewCell: View {
                 }
                 Spacer().frame(height: 8)
                 Text(review.text)
-                    .foregroundStyle(Color.grey6)
+                    .foregroundStyle(.g60)
                     .font(.suit(.regular, 15))
                     .lineLimit(type == .medium ? 1 : 2)
                     .hidden(!review.active)

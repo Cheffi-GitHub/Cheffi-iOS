@@ -79,7 +79,10 @@ struct HomeNavigationBarView: View {
     }
 }
 
-#Preview {
-    HomeNavigationBarView(type: .back)
-    HomeNavigationBarView(type: .normal)
+#Preview("back") {
+    return HomeNavigationBarView(type: .back)
+}
+
+#Preview("normal") {
+    return HomeNavigationBarView(type: .normal)
 }

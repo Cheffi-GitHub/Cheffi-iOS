@@ -62,7 +62,7 @@ struct ReviewDetailView: View {
                         }
                         .padding(.horizontal, 16)
                         .padding(.bottom, 10)
-                        .background(Color.white.opacity(navigationBarOpacity))
+                        .background(.white.opacity(navigationBarOpacity))
                         .zIndex(1)
                         
                         ScrollViewOffset(onOffsetChange: { offset in
@@ -79,7 +79,7 @@ struct ReviewDetailView: View {
                                                     .resizable()
                                             } else {
                                                 // TODO: 이미지 불러오지 못했을 때 UI 요청
-                                                Color.grey3
+                                                Color.g30
                                             }
                                         }
                                         .scaledToFill()
@@ -92,14 +92,14 @@ struct ReviewDetailView: View {
                                     Spacer()
                                     Text("취향 \(review.matchedTagNum ?? 0)개 일치")
                                         .font(.suit(.bold, 14))
-                                        .foregroundStyle(Color.white)
+                                        .foregroundStyle(.white)
                                         .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
-                                        .background(Color.black.opacity(0.32))
+                                        .background(.black.opacity(0.32))
                                         .clipShape(.rect(cornerRadius: 20))
                                         .padding(.bottom, 5)
                                     Text(review.title)
                                         .font(.suit(.bold, 24))
-                                        .foregroundStyle(Color.white)
+                                        .foregroundStyle(.white)
                                         .lineLimit(2)
                                         .padding(.vertical, 5)
                                         .padding(.bottom, 3)
@@ -115,18 +115,18 @@ struct ReviewDetailView: View {
                                     HStack {
                                         Text(review.createdDate.timeAgo())
                                             .font(.suit(.medium, 14))
-                                            .foregroundStyle(Color.grey3)
+                                            .foregroundStyle(.g30)
                                         Spacer()
                                         HStack(spacing: 0) {
                                             Text("\(selection + 1)")
                                                 .font(.suit(.medium, 14))
-                                                .foregroundStyle(Color.white)
+                                                .foregroundStyle(.white)
                                             Text("/\(review.photos.count)")
                                                 .font(.suit(.medium, 14))
-                                                .foregroundStyle(Color.grey1)
+                                                .foregroundStyle(.g10)
                                         }
                                         .padding(EdgeInsets(top: 4, leading: 10, bottom: 4, trailing: 10))
-                                        .background(Color.black.opacity(0.32))
+                                        .background(.black.opacity(0.32))
                                         .clipShape(.rect(cornerRadius: 20))
                                     }
                                     .padding(.bottom, 16)
@@ -150,7 +150,7 @@ struct ReviewDetailView: View {
                                 HStack(alignment: .center) {
                                     Text(review.restaurant.name)
                                         .font(.suit(.bold, 24))
-                                        .foregroundStyle(Color.black)
+                                        .foregroundStyle(.black)
                                     Spacer()
                                     Image(name: Common.emptyHeart)
                                 }
@@ -158,26 +158,26 @@ struct ReviewDetailView: View {
                                 // 리뷰 본문
                                 Text(review.text)
                                     .font(.suit(.regular, 16))
-                                    .foregroundStyle(Color.grey8)
+                                    .foregroundStyle(.g80)
                                     .padding(.bottom, 32)
                                 // 메뉴
                                 if review.menus.count != 0 {
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("메뉴")
                                             .font(.suit(.bold, 18))
-                                            .foregroundStyle(Color.black)
+                                            .foregroundStyle(.black)
                                             .padding(.bottom, 8)
                                         ForEach(0..<review.menus.count, id: \.self) { index in
                                             HStack {
                                                 Text(review.menus[index].name)
                                                     .font(.suit(.regular, 16))
-                                                    .foregroundStyle(Color.grey8)
+                                                    .foregroundStyle(.g80)
                                                     .frame(width: (screenWidth - 32) * 0.58, alignment: .leading)
                                                     .lineLimit(1)
                                                 Spacer()
                                                 Text("\(review.menus[index].price)원")
                                                     .font(.suit(.medium, 16))
-                                                    .foregroundStyle(Color.grey7)
+                                                    .foregroundStyle(.g70)
                                                     .frame(width: (screenWidth - 32) * 0.36, alignment: .trailing)
                                                     .lineLimit(1)
                                             }
@@ -189,19 +189,19 @@ struct ReviewDetailView: View {
                                 VStack(alignment: .leading, spacing: 12) {
                                     Text("위치")
                                         .font(.suit(.bold, 18))
-                                        .foregroundStyle(Color.black)
+                                        .foregroundStyle(.black)
                                         .padding(.bottom, 6)
                                     HStack {
                                         Text(review.restaurant.address.fullRoadNameAddress)
                                             .font(.suit(.regular, 16))
-                                            .foregroundStyle(Color.grey8)
+                                            .foregroundStyle(.g80)
                                             .frame(width: (screenWidth - 32) * 0.88, alignment: .leading)
                                             .lineLimit(1)
                                         Spacer()
                                         Text("복사")
                                             .underline()
                                             .font(.suit(.regular, 14))
-                                            .foregroundStyle(Color.init(hex: 0x34AFF7))
+                                            .foregroundStyle(Color(hex: 0x34AFF7))
                                             .onTapGesture {
                                                 UIPasteboard.general.string = review.restaurant.address.fullRoadNameAddress
                                                 store.send(.toggleShowToast(true))
@@ -210,13 +210,13 @@ struct ReviewDetailView: View {
                                 }
                                 .padding(.bottom, 32)
                                 // 경계선
-                                Color.grey1.frame(height: 1)
+                                Color.g10.frame(height: 1)
                                     .padding(.bottom, 32)
                                 // 작성자
                                 VStack(alignment: .leading, spacing: 16) {
                                     Text("작성자")
                                         .font(.suit(.bold, 18))
-                                        .foregroundStyle(Color.black)
+                                        .foregroundStyle(.black)
                                         .padding(.bottom, 6)
                                     WriterRow(
                                         photoUrl: review.writer.photo.url,
@@ -230,7 +230,7 @@ struct ReviewDetailView: View {
                                 VStack(alignment: .leading, spacing: 16) {
                                     Text("이 식당 어떠셨나요?")
                                         .font(.suit(.bold, 18))
-                                        .foregroundStyle(Color.black)
+                                        .foregroundStyle(.black)
                                         .padding(.bottom, 12)
                                     HStack {
                                         Spacer()
@@ -238,37 +238,37 @@ struct ReviewDetailView: View {
                                             Image(name: Review.normalGood)
                                             Text("맛있어요")
                                                 .font(.suit(.regular, 12))
-                                                .foregroundStyle(Color.grey5)
+                                                .foregroundStyle(.g50)
                                             Text("\(review.ratings.good)")
                                                 .font(.suit(.regular, 15))
-                                                .foregroundStyle(Color.grey5)
+                                                .foregroundStyle(.g50)
                                         }
                                         Spacer()
                                         VStack(spacing: 8) {
                                             Image(name: Review.normalSoso)
                                             Text("평범해요")
                                                 .font(.suit(.regular, 12))
-                                                .foregroundStyle(Color.grey5)
+                                                .foregroundStyle(.g50)
                                             Text("\(review.ratings.average)")
                                                 .font(.suit(.regular, 15))
-                                                .foregroundStyle(Color.grey5)
+                                                .foregroundStyle(.g50)
                                         }
                                         Spacer()
                                         VStack(spacing: 8) {
                                             Image(name: Review.normalBad)
                                             Text("별로에요")
                                                 .font(.suit(.regular, 12))
-                                                .foregroundStyle(Color.grey5)
+                                                .foregroundStyle(.g50)
                                             Text("\(review.ratings.bad)")
                                                 .font(.suit(.regular, 15))
-                                                .foregroundStyle(Color.grey5)
+                                                .foregroundStyle(.g50)
                                         }
                                         Spacer()
                                     }
                                     .padding(.vertical, 16)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 16)
-                                            .stroke(Color.grey1, lineWidth: 1)
+                                            .stroke(.g10, lineWidth: 1)
                                     )
                                 }
                                 .padding(.bottom, 32)

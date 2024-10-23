@@ -1,5 +1,5 @@
 //
-//  WriterRowView.swift
+//  WriterRow.swift
 //  Cheffi
 //
 //  Created by 정건호 on 6/19/24.
@@ -9,15 +9,21 @@ import SwiftUI
 import Kingfisher
 import ComposableArchitecture
 
-struct WriterRowView: View {
-    let store: StoreOf<WriterRowFeature>
+struct WriterRow: View {
+    let photoURL: String?
+    let title: String
+    let intro: String
+    let isFollowed: Bool
+    
+    let navigationAreaTapped: () -> Void
+    let isFollowedTapped: () -> Void
     
     var body: some View {
         HStack {
-            NavigationLink(state: HomeFeature.Path.State.otherProfile(.init())) {
+            Group {
                 Group {
-                    if let photoUrl = store.photoUrl,
-                       let url = URL(string: photoUrl) {
+                    if let photoURL = photoURL,
+                       let url = URL(string: photoURL) {
                         KFImage(url)
                             .resizable()
                     } else {
@@ -29,21 +35,24 @@ struct WriterRowView: View {
                 .clipShape(.rect(cornerRadius: 8))
                 Spacer().frame(width: 12)
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(store.title)
+                    Text(title)
                         .foregroundStyle(Color.black)
                         .font(.suit(.semiBold, 16))
                         .lineLimit(1)
-                    Text(store.intro)
+                    Text(intro)
                         .foregroundStyle(Color.grey5)
                         .font(.suit(.regular, 12))
                         .lineLimit(2)
                 }
             }
+            .onTapGesture {
+                navigationAreaTapped()
+            }
             
             Spacer().frame(minWidth: 32)
             
             Group {
-                if store.isFollowed {
+                if isFollowed {
                     Text("팔로우")
                         .padding(.vertical, 6)
                         .padding(.horizontal, 20)
@@ -63,20 +72,21 @@ struct WriterRowView: View {
                         )
                 }
             }
+            .onTapGesture {
+                isFollowedTapped()
+            }
         }
         .frame(height: 64)
     }
 }
 
 #Preview {
-    let store = StoreOf<WriterRowFeature>(
-        initialState: WriterRowFeature.State(
-            title: "title",
-            intro: "intro",
-            isFollowed: false
-        )
-    ) {
-        WriterRowFeature()
-    }
-    WriterRowView(store: store)
+    WriterRow(
+        photoURL: nil,
+        title: "title",
+        intro: "intro",
+        isFollowed: false,
+        navigationAreaTapped: {},
+        isFollowedTapped: {}
+    )
 }

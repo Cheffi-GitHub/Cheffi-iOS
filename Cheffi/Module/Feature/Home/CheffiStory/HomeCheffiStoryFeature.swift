@@ -60,6 +60,7 @@ struct HomeCheffiStoryFeature {
         case writerRowNavigationAreaTapped
         case previeousPageButtonTapped
         case nextPageButtonTapped
+        case followButtonTapped(Int)
     }
     
     var body: some ReducerOf<Self> {
@@ -98,6 +99,10 @@ struct HomeCheffiStoryFeature {
                 if state.currentPage != state.totalPage {
                     state.currentPage += 1
                 }
+                return .none
+                
+            case .followButtonTapped(let index):
+                state.recommendList[index].isFollowed.toggle()
                 return .none
             }
         }

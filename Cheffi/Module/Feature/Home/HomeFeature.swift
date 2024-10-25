@@ -40,6 +40,22 @@ struct HomeFeature {
         Scope(state: \.cheffiPlace, action: \.cheffiPlace) {
             HomeCheffiPlaceFeature()
         }
+
+        Reduce { state, action in
+            switch action {
+            case .popular(_):
+                return .none
+            case .cheffiStory(.writerRowNavigationAreaTapped):
+                state.path.append(.otherProfile(.init()))
+                return .none
+            case .cheffiStory:
+                return .none
+            case .cheffiPlace:
+                return .none
+            case .path:
+                return .none
+            }
+        }
         .forEach(\.path, action: \.path)
     }
 }

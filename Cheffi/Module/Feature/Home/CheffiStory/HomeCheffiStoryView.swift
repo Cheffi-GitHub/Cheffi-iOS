@@ -90,10 +90,9 @@ struct HomeCheffiStoryView: View {
                         intro: store.recommendList[index].intro,
                         isFollowed: store.recommendList[index].isFollowed
                     ) {
-                        print("네비게이션 영역 탭")
+                        store.send(.writerRowNavigationAreaTapped)
                     } isFollowedTapped: {
-                        print("팔로워 영역 탭")
-                        store.recommendList[index].isFollowed.toggle()
+                        store.send(.followButtonTapped(index))
                     }
                 }
                 .padding(.horizontal, 16)

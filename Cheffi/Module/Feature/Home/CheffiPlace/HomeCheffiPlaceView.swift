@@ -137,29 +137,7 @@ struct HomeCheffiPlaceView: View {
 
 #Preview {
     let store: StoreOf<HomeCheffiPlaceFeature> = StoreOf<HomeCheffiPlaceFeature>(
-        initialState: HomeCheffiPlaceFeature.State(
-            tags: [
-                TagsModel(
-                    id: 0,
-                    name: "한식",
-                    type: "테스트"
-                ),
-                TagsModel(
-                    id: 1,
-                    name: "양식",
-                    type: "테스트"
-                ),
-                TagsModel(
-                    id: 2,
-                    name: "일식",
-                    type: "테스트"
-                )
-            ],
-            cheffiPlaceReviews: [
-                0: [ReviewModel.dummyData, ReviewModel.dummyData, ReviewModel.dummyData],
-                1: [ReviewModel.dummyData, ReviewModel.dummyData],
-            ]
-        )
+        initialState: HomeCheffiPlaceFeature.State.dummy
     ) {
         HomeCheffiPlaceFeature()
     }

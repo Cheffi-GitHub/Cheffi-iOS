@@ -20,6 +20,30 @@ struct HomeCheffiPlaceFeature {
         var cursors: [Int: Int] = [:]
         var cheffiPlaceReviews: [Int: [ReviewModel]] = [:]
         var showTooltip = false
+        
+        static let dummy: Self = .init(
+            tags: [
+                TagsModel(
+                    id: 0,
+                    name: "한식",
+                    type: "테스트"
+                ),
+                TagsModel(
+                    id: 1,
+                    name: "양식",
+                    type: "테스트"
+                ),
+                TagsModel(
+                    id: 2,
+                    name: "일식",
+                    type: "테스트"
+                )
+            ],
+            cheffiPlaceReviews: [
+                0: [ReviewModel.dummyData, ReviewModel.dummyData, ReviewModel.dummyData],
+                1: [ReviewModel.dummyData, ReviewModel.dummyData],
+            ]
+        )
     }
     
     enum Action {

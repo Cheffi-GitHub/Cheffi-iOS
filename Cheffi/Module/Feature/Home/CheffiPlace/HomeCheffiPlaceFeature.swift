@@ -53,6 +53,8 @@ struct HomeCheffiPlaceFeature {
         case cheffiPlaceResponse(tagId: Int, Result<ReviewResponse, Error>)
         case toolTipTapped
         case tagTapped
+        case reviewCellTapped
+        case registerRestaurantButtonTapped
     }
     
     var body: some ReducerOf<Self> {
@@ -96,6 +98,13 @@ struct HomeCheffiPlaceFeature {
                 
             case .tagTapped:
                 print("api 호출")
+                return .none
+                 
+            case .reviewCellTapped:
+                print("reviewCell 탭")
+                return .none
+                
+            case .registerRestaurantButtonTapped:
                 return .none
             }
         }

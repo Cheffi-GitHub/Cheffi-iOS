@@ -61,7 +61,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    let store = Store(initialState: HomeFeature.State()) {
+    let store = Store(initialState: HomeFeature.State(cheffiPlace: .dummy)) {
         HomeFeature()
     }
     HomeView(store: store)

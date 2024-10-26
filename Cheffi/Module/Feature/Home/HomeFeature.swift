@@ -50,6 +50,9 @@ struct HomeFeature {
                 return .none
             case .cheffiStory:
                 return .none
+            case .cheffiPlace(.reviewCellTapped):
+                state.path.append(.reviewDetail(.init()))
+                return .none
             case .cheffiPlace:
                 return .none
             case .path:

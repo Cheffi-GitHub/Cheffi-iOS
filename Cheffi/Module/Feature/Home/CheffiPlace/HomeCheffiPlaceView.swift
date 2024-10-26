@@ -13,7 +13,8 @@ struct HomeCheffiPlaceView: View {
     @Perception.Bindable var store: StoreOf<HomeCheffiPlaceFeature>
     
     @State private var selectedTabID = 0
-
+    @State private var isAddRestaurantPresented: Bool = false
+    
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     let tabViewHeight: CGFloat = UIWindow().screen.bounds.height - 284
     
@@ -24,6 +25,9 @@ struct HomeCheffiPlaceView: View {
                     .zIndex(1)
                 foodCategories
                 tabView
+            }
+            .fullScreenCover(isPresented: $isAddRestaurantPresented) {
+                AddRestaurantView()
             }
         }
     }
@@ -97,6 +101,9 @@ struct HomeCheffiPlaceView: View {
                             LazyVGrid(columns: columns, spacing: 13) {
                                 ForEach(reviewModel) { review in
                                     ReviewCell(review: review, type: .small)
+                                        .onTapGesture {
+                                            store.send(.reviewCellTapped)
+                                        }
                                         .padding(.bottom, 11)
                                 }
                             }
@@ -122,6 +129,9 @@ struct HomeCheffiPlaceView: View {
                                 .padding(.vertical, 9)
                                 .background(Color.background)
                                 .clipShape(.rect(cornerRadius: 10))
+                                .onTapGesture {
+                                    isAddRestaurantPresented = true
+                                }
                         }
                         .padding(.top, 60)
                     }

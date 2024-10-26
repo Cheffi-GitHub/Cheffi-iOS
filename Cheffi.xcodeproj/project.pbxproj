@@ -52,7 +52,6 @@
 		549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549B1FDA2C061CE3005C9432 /* ColorExtension.swift */; };
 		54C30E312C47EDDE00DA6FF8 /* FirstAppearModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */; };
 		54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */; };
-		54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */; };
 		54E285FA2C2FE28700AD7939 /* TagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E285F92C2FE28700AD7939 /* TagsModel.swift */; };
 		54F217A92C2BC42A00892DBD /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */; };
 		54F217AB2C2D2F1B00892DBD /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */; };
@@ -63,6 +62,7 @@
 		607EC5642CBA97CA00DA1557 /* AddRestaurantFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607EC5632CBA97C500DA1557 /* AddRestaurantFeature.swift */; };
 		608223792CBAA9230062B0CF /* TermsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681E99F2C4FDF8400B796AA /* TermsFeature.swift */; };
 		6082237A2CBAA93C0062B0CF /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681E99D2C4FDF7D00B796AA /* TermsView.swift */; };
+		60A6D9052CCC1A7C002443BF /* HomeCheffiPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A6D9042CCC1A65002443BF /* HomeCheffiPlaceView.swift */; };
 		60B51EFC2CBCD94E00555A98 /* OtherProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B51EFB2CBCD94E00555A98 /* OtherProfileView.swift */; };
 		60B51EFE2CBD05B200555A98 /* OtherProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B51EFD2CBD05AE00555A98 /* OtherProfileFeature.swift */; };
 		60BAE8BC2CBCBD34003EF52C /* SelectRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BAE8BB2CBCBD34003EF52C /* SelectRegionView.swift */; };
@@ -178,7 +178,6 @@
 		549B1FDA2C061CE3005C9432 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		54C30E302C47EDDE00DA6FF8 /* FirstAppearModifer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstAppearModifer.swift; sourceTree = "<group>"; };
 		54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceFeature.swift; sourceTree = "<group>"; };
-		54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
 		54E285F92C2FE28700AD7939 /* TagsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModel.swift; sourceTree = "<group>"; };
 		54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
@@ -186,6 +185,7 @@
 		6040AAF42CA275F30016338E /* LineHeightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightModifier.swift; sourceTree = "<group>"; };
 		607EC5612CBA965E00DA1557 /* AddRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantView.swift; sourceTree = "<group>"; };
 		607EC5632CBA97C500DA1557 /* AddRestaurantFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantFeature.swift; sourceTree = "<group>"; };
+		60A6D9042CCC1A65002443BF /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
 		60B51EFB2CBCD94E00555A98 /* OtherProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileView.swift; sourceTree = "<group>"; };
 		60B51EFD2CBD05AE00555A98 /* OtherProfileFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileFeature.swift; sourceTree = "<group>"; };
 		60BAE8BB2CBCBD34003EF52C /* SelectRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionView.swift; sourceTree = "<group>"; };
@@ -530,7 +530,7 @@
 		54DF6D972C1D60EB0031E95B /* CheffiPlace */ = {
 			isa = PBXGroup;
 			children = (
-				54DF6D9A2C1D611C0031E95B /* HomeCheffiPlaceView.swift */,
+				60A6D9042CCC1A65002443BF /* HomeCheffiPlaceView.swift */,
 				54DF6D982C1D61140031E95B /* HomeCheffiPlaceFeature.swift */,
 			);
 			path = CheffiPlace;
@@ -896,6 +896,7 @@
 				607EC5642CBA97CA00DA1557 /* AddRestaurantFeature.swift in Sources */,
 				549B1F912C0607C7005C9432 /* ContentView.swift in Sources */,
 				60BAE8BC2CBCBD34003EF52C /* SelectRegionView.swift in Sources */,
+				60A6D9052CCC1A7C002443BF /* HomeCheffiPlaceView.swift in Sources */,
 				A6F5E6D12C2065750053C2E8 /* LoginView.swift in Sources */,
 				54DF6D992C1D61140031E95B /* HomeCheffiPlaceFeature.swift in Sources */,
 				54073B852C0D908200597973 /* HomeNavigationBarView.swift in Sources */,
@@ -951,7 +952,6 @@
 				54073B832C0D906300597973 /* HomePopularFeature.swift in Sources */,
 				60BAE8BE2CBCBD3E003EF52C /* SearchRestaurantsView.swift in Sources */,
 				A64056C82C6398B70045B127 /* RepresentableWebView.swift in Sources */,
-				54DF6D9B2C1D611C0031E95B /* HomeCheffiPlaceView.swift in Sources */,
 				54073B8A2C0D932D00597973 /* HomePopularView.swift in Sources */,
 				A66AB5D82C63B2470035A361 /* NavigationBarModifier.swift in Sources */,
 				A688B0AD2C29B68E00E4E3A2 /* LoginKakaoModel.swift in Sources */,

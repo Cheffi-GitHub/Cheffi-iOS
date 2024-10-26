@@ -16,7 +16,8 @@ struct HomeCheffiPlaceView: View {
     @State private var isAddRestaurantPresented: Bool = false
     
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
-    let tabViewHeight: CGFloat = UIWindow().screen.bounds.height - 284
+    
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
     
     var body: some View {
         WithPerceptionTracking {
@@ -37,6 +38,7 @@ struct HomeCheffiPlaceView: View {
             Text("쉐피들의 인정 맛집")
                 .foregroundStyle(.black)
                 .font(.suit(.bold, 20))
+                .lineHeight(24, fontHeight: 20)
             Image(name: Common.info)
                 .resizable()
                 .scaledToFit()
@@ -141,7 +143,10 @@ struct HomeCheffiPlaceView: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        .frame(height: tabViewHeight)
+        // 화면 크기 - 네비게이션 + 타이틀 + 카테고리 높이 + safeArea 높이
+        .frame(
+            height: UIWindow().screen.bounds.height - 156 - (safeAreaInsets.top + safeAreaInsets.bottom)
+        )
     }
 }
 

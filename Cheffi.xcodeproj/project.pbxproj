@@ -57,6 +57,7 @@
 		54F217AB2C2D2F1B00892DBD /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */; };
 		54F217AD2C2D2FDB00892DBD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F217AC2C2D2FDB00892DBD /* Photo.swift */; };
 		54F217B22C2D685400892DBD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F217B12C2D685400892DBD /* Kingfisher */; };
+		602CE7522CCD946800A6E245 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CE7512CCD946100A6E245 /* UIApplicationExtension.swift */; };
 		6040AAF52CA275FA0016338E /* LineHeightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6040AAF42CA275F30016338E /* LineHeightModifier.swift */; };
 		607EC5622CBA965E00DA1557 /* AddRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607EC5612CBA965E00DA1557 /* AddRestaurantView.swift */; };
 		607EC5642CBA97CA00DA1557 /* AddRestaurantFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607EC5632CBA97C500DA1557 /* AddRestaurantFeature.swift */; };
@@ -182,6 +183,7 @@
 		54F217A82C2BC42A00892DBD /* ScrollViewOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		54F217AC2C2D2FDB00892DBD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		602CE7512CCD946100A6E245 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		6040AAF42CA275F30016338E /* LineHeightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightModifier.swift; sourceTree = "<group>"; };
 		607EC5612CBA965E00DA1557 /* AddRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantView.swift; sourceTree = "<group>"; };
 		607EC5632CBA97C500DA1557 /* AddRestaurantFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantFeature.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 		549B1FD32C0618B7005C9432 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				602CE7512CCD946100A6E245 /* UIApplicationExtension.swift */,
 				549B1FD42C0618D7005C9432 /* FontExtension.swift */,
 				549B1FDA2C061CE3005C9432 /* ColorExtension.swift */,
 				54073B6B2C0C474200597973 /* ImageExtension.swift */,
@@ -933,6 +936,7 @@
 				A62EEAD92C2D9BA000926242 /* LaunchScreenFeature.swift in Sources */,
 				60B51EFC2CBCD94E00555A98 /* OtherProfileView.swift in Sources */,
 				A6F5E6F92C280AC00053C2E8 /* RestRouter+EndPoint.swift in Sources */,
+				602CE7522CCD946800A6E245 /* UIApplicationExtension.swift in Sources */,
 				60F55F5B2CBBDDA20074008D /* HomeFeature.swift in Sources */,
 				A688B0B02C29B6A800E4E3A2 /* Authority.swift in Sources */,
 				549B1FDB2C061CE3005C9432 /* ColorExtension.swift in Sources */,

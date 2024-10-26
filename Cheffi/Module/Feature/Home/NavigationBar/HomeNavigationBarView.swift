@@ -54,11 +54,12 @@ struct HomeNavigationBarView: View {
         NavigationLink(state: HomeFeature.Path.State.selectRegion) {
             HStack(spacing: 8) {
                 Text("서울특별시 강남구")
+                    .font(.suit(.medium, 16))
+                    .lineHeight(20, fontHeight: 16)
                     .padding(.vertical, 6)
                     .padding(.horizontal, 12)
                     .background(.black)
                     .foregroundStyle(.white)
-                    .font(.suit(.medium, 16))
                     .clipShape(.rect(cornerRadius: 20))
                 if type == .normal {
                     Image(name: Common.rightArrow)

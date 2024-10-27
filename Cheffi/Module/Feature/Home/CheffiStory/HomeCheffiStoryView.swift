@@ -138,7 +138,7 @@ struct HomeCheffiStoryView: View {
 }
 
 #Preview {
-    let store = StoreOf<HomeCheffiStoryFeature>(initialState: HomeCheffiStoryFeature.State()) {
+    let store = StoreOf<HomeCheffiStoryFeature>(initialState: HomeCheffiStoryFeature.State.dummy) {
         HomeCheffiStoryFeature()
     }
     HomeCheffiStoryView(store: store)

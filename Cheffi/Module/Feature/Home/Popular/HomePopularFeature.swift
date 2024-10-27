@@ -26,6 +26,14 @@ struct HomePopularFeature {
         var showTooltip = false
         var presentAddRestaurantView: Bool = false
         var remainTime: Int = 0
+        
+        static let dummy: Self = .init(popularReviews: [
+            ReviewModel.dummyData,
+            ReviewModel.dummyData,
+            ReviewModel.dummyData,
+            ReviewModel.dummyData,
+            ReviewModel.dummyData
+        ])
     }
     
     enum Action {

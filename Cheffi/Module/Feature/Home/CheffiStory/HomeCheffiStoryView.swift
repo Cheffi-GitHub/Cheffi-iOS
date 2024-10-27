@@ -19,8 +19,12 @@ struct HomeCheffiStoryView: View {
                     .padding(.horizontal, 16)
                 chipButtons
                     .padding(.bottom, 16)
-                tabView
-                paging
+                if store.recommendList.isEmpty {
+                    recommendListEmptyView
+                } else {
+                    tabView
+                    paging
+                }
             }
             .onFirstAppear {
                 store.send(.onFirstAppear)
@@ -64,6 +68,21 @@ struct HomeCheffiStoryView: View {
             }
             .padding(.horizontal, 16)
         }
+    }
+    
+    private var recommendListEmptyView: some View {
+        VStack(spacing: 0) {
+            Image(.noUser)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 48, height: 48)
+                .padding(.bottom, 14)
+            Text("선택한 취향의 사용자가 아직 없어요")
+                .font(.suit(.medium, 14))
+                .lineHeight(22, fontHeight: 14)
+                .foregroundStyle(Color.grey5)
+        }
+        .frame(height: 224)
     }
     
     private var tabView: some View {

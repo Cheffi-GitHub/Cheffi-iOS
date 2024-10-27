@@ -21,34 +21,36 @@ struct HomePopularView: View {
     @State private var currentpage = 1
     
     var body: some View {
-        VStack(spacing: 0) {
-            headline
-            if store.popularReviews.count == 0 {
-                reviewEmpty
-                    .padding(.top, 40)
-            } else {
-                timeIndicator
-                    .zIndex(1)
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 24)
-                    .padding(.top, 16)
-                tabView
-                paging
+        WithPerceptionTracking {
+            VStack(spacing: 0) {
+                headline
+                if store.popularReviews.count == 0 {
+                    reviewEmpty
+                        .padding(.top, 40)
+                } else {
+                    timeIndicator
+                        .zIndex(1)
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 24)
+                        .padding(.top, 16)
+                    tabView
+                    paging
+                }
             }
-        }
-        .onChange(of: scenePhase) { state in
-            switch state {
-            case .active: store.send(.sceneActive)
-            case .inactive: break
-            case .background: break
-            default: break
+            .onChange(of: scenePhase) { state in
+                switch state {
+                case .active: store.send(.sceneActive)
+                case .inactive: break
+                case .background: break
+                default: break
+                }
             }
-        }
-        .onFirstAppear {
-            store.send(.onFirstAppear)
-        }
-        .fullScreenCover(isPresented: $store.presentAddRestaurantView.sending(\.toggleAddRestaurantView)) {
-            AddRestaurantView()
+            .onFirstAppear {
+                store.send(.onFirstAppear)
+            }
+            .fullScreenCover(isPresented: $store.presentAddRestaurantView.sending(\.toggleAddRestaurantView)) {
+                AddRestaurantView()
+            }
         }
     }
     

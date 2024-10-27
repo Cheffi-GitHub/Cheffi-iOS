@@ -42,22 +42,24 @@ struct HomeCheffiStoryView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 ForEach(store.categories) { category in
-                    Text("\(category.name)")
-                        .foregroundStyle(store.selectedCategory == category ? Color.white : Color.grey5)
-                        .font(.suit(.semiBold, 15))
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 6)
-                        .background(
-                            RoundedRectangle(cornerRadius: 20)
-                                .strokeBorder(store.selectedCategory == category ? Color.primary : Color.grey1)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .foregroundStyle(store.selectedCategory == category ? Color.primary : Color.white)
-                                }
-                        )
-                        .onTapGesture {
-                            store.send(.categoryTapped(category))
-                        }
+                    WithPerceptionTracking {
+                        Text("\(category.name)")
+                            .foregroundStyle(store.selectedCategory == category ? Color.white : Color.grey5)
+                            .font(.suit(.semiBold, 15))
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 6)
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .strokeBorder(store.selectedCategory == category ? Color.primary : Color.grey1)
+                                    .background {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .foregroundStyle(store.selectedCategory == category ? Color.primary : Color.white)
+                                    }
+                            )
+                            .onTapGesture {
+                                store.send(.categoryTapped(category))
+                            }
+                    }
                 }
             }
             .padding(.horizontal, 16)
@@ -67,8 +69,10 @@ struct HomeCheffiStoryView: View {
     private var tabView: some View {
         TabView(selection: $store.currentPage) {
             ForEach(1...store.totalPage, id: \.self) { page in
-                pageContent(for: page)
-                    .tag(page)
+                WithPerceptionTracking {
+                    pageContent(for: page)
+                        .tag(page)
+                }
             }
         }
         .frame(height: pageHeight)
@@ -76,7 +80,7 @@ struct HomeCheffiStoryView: View {
         .animation(.easeInOut, value: store.currentPage)
         .padding(.bottom, 16)
     }
-
+    
     private func pageContent(for page: Int) -> some View {
         WithPerceptionTracking {
             VStack(spacing: 16) {
@@ -84,15 +88,17 @@ struct HomeCheffiStoryView: View {
                 let endIndex = min(startIndex + store.itemsPerPage, store.recommendList.count)
                 
                 ForEach(startIndex..<endIndex, id: \.self) { index in
-                    WriterRow(
-                        photoURL: String(),
-                        title: store.recommendList[index].title,
-                        intro: store.recommendList[index].intro,
-                        isFollowed: store.recommendList[index].isFollowed
-                    ) {
-                        store.send(.writerRowNavigationAreaTapped)
-                    } isFollowedTapped: {
-                        store.send(.followButtonTapped(index))
+                    WithPerceptionTracking {
+                        WriterRow(
+                            photoURL: String(),
+                            title: store.recommendList[index].title,
+                            intro: store.recommendList[index].intro,
+                            isFollowed: store.recommendList[index].isFollowed
+                        ) {
+                            store.send(.writerRowNavigationAreaTapped)
+                        } isFollowedTapped: {
+                            store.send(.followButtonTapped(index))
+                        }
                     }
                 }
                 .padding(.horizontal, 16)
@@ -103,7 +109,7 @@ struct HomeCheffiStoryView: View {
             }
         }
     }
-
+    
     private var pageHeight: CGFloat {
         CGFloat(store.itemsPerPage * 64 + ((store.itemsPerPage - 1) * 16))
     }

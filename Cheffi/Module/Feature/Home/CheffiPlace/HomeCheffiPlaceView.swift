@@ -62,23 +62,25 @@ struct HomeCheffiPlaceView: View {
         ScrollView(.horizontal) {
             HStack(spacing: 0) {
                 ForEach(store.tags) { tag in
-                    Text(tag.name)
-                        .font(selectedTabID == tag.id ? .suit(.bold, 15) : .suit(.medium, 15))
-                        .foregroundStyle(selectedTabID == tag.id ? Color.red : Color.grey5)
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 16)
-                        .overlay {
-                            VStack {
-                                Spacer()
-                                Rectangle()
-                                    .frame(height: 2)
-                                    .foregroundStyle(.red)
-                                    .opacity(selectedTabID == tag.id ? 1 : 0)
+                    WithPerceptionTracking {
+                        Text(tag.name)
+                            .font(selectedTabID == tag.id ? .suit(.bold, 15) : .suit(.medium, 15))
+                            .foregroundStyle(selectedTabID == tag.id ? Color.red : Color.grey5)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 16)
+                            .overlay {
+                                VStack {
+                                    Spacer()
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .foregroundStyle(.red)
+                                        .opacity(selectedTabID == tag.id ? 1 : 0)
+                                }
                             }
-                        }
-                        .onTapGesture {
-                            selectedTabID = tag.id
-                        }
+                            .onTapGesture {
+                                selectedTabID = tag.id
+                            }
+                    }
                 }
             }
             .padding(.leading, 16)
@@ -97,49 +99,51 @@ struct HomeCheffiPlaceView: View {
     private var tabView: some View {
         TabView(selection: $selectedTabID) {
             ForEach(store.tags) { tag in
-                VStack(spacing: 0) {
-                    if let reviewModel = store.cheffiPlaceReviews[tag.id] {
-                        ScrollView {
-                            LazyVGrid(columns: columns, spacing: 13) {
-                                ForEach(reviewModel) { review in
-                                    ReviewCell(review: review, type: .small)
-                                        .onTapGesture {
-                                            store.send(.reviewCellTapped)
-                                        }
-                                        .padding(.bottom, 11)
+                WithPerceptionTracking {
+                    VStack(spacing: 0) {
+                        if let reviewModel = store.cheffiPlaceReviews[tag.id] {
+                            ScrollView {
+                                LazyVGrid(columns: columns, spacing: 13) {
+                                    ForEach(reviewModel) { review in
+                                        ReviewCell(review: review, type: .small)
+                                            .onTapGesture {
+                                                store.send(.reviewCellTapped)
+                                            }
+                                            .padding(.bottom, 11)
+                                    }
                                 }
+                                .padding(.horizontal, 16)
+                                .padding(.top, 24)
                             }
-                            .padding(.horizontal, 16)
-                            .padding(.top, 24)
+                        } else {
+                            // TODO: pagination 때문에 생기는 padding 없애기
+                            VStack(alignment: .center, spacing: 0) {
+                                Image(name: Home.homeEmpty)
+                                    .padding(.bottom, 12)
+                                Text("아직 주변의 \(tag.name) 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
+                                    .font(.suit(.medium, 14))
+                                    .lineHeight(22, fontHeight: 14)
+                                    .foregroundStyle(Color.grey6)
+                                    .padding(.bottom, 18)
+                                    .multilineTextAlignment(.center)
+                                Text("맛집 직접 등록하기")
+                                    .font(.suit(.semiBold, 15))
+                                    .lineHeight(22, fontHeight: 15)
+                                    .foregroundStyle(Color.primary)
+                                    .padding(.horizontal, 14)
+                                    .padding(.vertical, 9)
+                                    .background(Color.background)
+                                    .clipShape(.rect(cornerRadius: 10))
+                                    .onTapGesture {
+                                        isAddRestaurantPresented = true
+                                    }
+                            }
+                            .padding(.top, 60)
                         }
-                    } else {
-                        // TODO: pagination 때문에 생기는 padding 없애기
-                        VStack(alignment: .center, spacing: 0) {
-                            Image(name: Home.homeEmpty)
-                                .padding(.bottom, 12)
-                            Text("아직 주변의 \(tag.name) 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
-                                .font(.suit(.medium, 14))
-                                .lineHeight(22, fontHeight: 14)
-                                .foregroundStyle(Color.grey6)
-                                .padding(.bottom, 18)
-                                .multilineTextAlignment(.center)
-                            Text("맛집 직접 등록하기")
-                                .font(.suit(.semiBold, 15))
-                                .lineHeight(22, fontHeight: 15)
-                                .foregroundStyle(Color.primary)
-                                .padding(.horizontal, 14)
-                                .padding(.vertical, 9)
-                                .background(Color.background)
-                                .clipShape(.rect(cornerRadius: 10))
-                                .onTapGesture {
-                                    isAddRestaurantPresented = true
-                                }
-                        }
-                        .padding(.top, 60)
+                        Spacer()
                     }
-                    Spacer()
+                    .tag(tag.id)
                 }
-                .tag(tag.id)
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))

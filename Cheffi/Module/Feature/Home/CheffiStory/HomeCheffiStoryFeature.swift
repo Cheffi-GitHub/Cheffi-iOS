@@ -8,7 +8,7 @@
 import Foundation
 import ComposableArchitecture
 
-struct CheffiStoryCategory: Identifiable, Equatable {
+struct CheffiStoryCategory: Hashable, Identifiable, Equatable {
     let id = UUID()
     let name: String
     
@@ -24,7 +24,7 @@ struct HomeCheffiStoryFeature {
     struct State: Equatable {
         let itemsPerPage = 3
         var categories: [CheffiStoryCategory] = []
-        var selectedCategory: CheffiStoryCategory = CheffiStoryCategory(name: "한식")
+        var selectedCategories: [CheffiStoryCategory: Bool] = [:]
         var recommendList: [RecommendData] = []
         var currentPage = 1
         var totalPage: Int {
@@ -81,13 +81,18 @@ struct HomeCheffiStoryFeature {
                     print("서버로부터 전달받은 카테고리 없음")
                     return .none
                 }
-                state.selectedCategory = firstCategory
+                state.selectedCategories[firstCategory] = true
                 return .run { send in
                     
                 }
                 
             case .categoryTapped(let category):
-                state.selectedCategory = category
+                if state.selectedCategories[category] != nil {
+                    state.selectedCategories[category] = nil
+                } else {
+                    state.selectedCategories[category] = true
+                }
+                // 카테고리에 다라 recommendList 변경
                 print("추천 목록 조회 API 호출 후 recommendList에 결과 값 담기")
                 return .none
                 

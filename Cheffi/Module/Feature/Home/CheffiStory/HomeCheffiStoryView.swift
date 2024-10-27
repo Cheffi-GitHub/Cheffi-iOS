@@ -44,16 +44,16 @@ struct HomeCheffiStoryView: View {
                 ForEach(store.categories) { category in
                     WithPerceptionTracking {
                         Text("\(category.name)")
-                            .foregroundStyle(store.selectedCategory == category ? Color.white : Color.grey5)
+                            .foregroundStyle(store.selectedCategories[category] != nil ? Color.white : Color.grey5)
                             .font(.suit(.semiBold, 15))
                             .padding(.horizontal, 16)
                             .padding(.vertical, 6)
                             .background(
                                 RoundedRectangle(cornerRadius: 20)
-                                    .strokeBorder(store.selectedCategory == category ? Color.primary : Color.grey1)
+                                    .strokeBorder(store.selectedCategories[category] != nil ? Color.primary : Color.grey1)
                                     .background {
                                         RoundedRectangle(cornerRadius: 20)
-                                            .foregroundStyle(store.selectedCategory == category ? Color.primary : Color.white)
+                                            .foregroundStyle(store.selectedCategories[category] != nil ? Color.primary : Color.white)
                                     }
                             )
                             .onTapGesture {

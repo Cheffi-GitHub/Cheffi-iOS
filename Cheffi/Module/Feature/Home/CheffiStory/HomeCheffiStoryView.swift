@@ -80,7 +80,7 @@ struct HomeCheffiStoryView: View {
             Text("선택한 취향의 사용자가 아직 없어요")
                 .font(.suit(.medium, 14))
                 .lineHeight(22, fontHeight: 14)
-                .foregroundStyle(Color.grey5)
+                .foregroundStyle(.g50)
         }
         .frame(height: 224)
     }

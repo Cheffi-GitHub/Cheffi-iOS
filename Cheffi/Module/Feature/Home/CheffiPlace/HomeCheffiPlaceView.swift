@@ -65,7 +65,7 @@ struct HomeCheffiPlaceView: View {
                     WithPerceptionTracking {
                         Text(tag.name)
                             .font(selectedTabID == tag.id ? .suit(.bold, 15) : .suit(.medium, 15))
-                            .foregroundStyle(selectedTabID == tag.id ? Color.red : Color.grey5)
+                            .foregroundStyle(selectedTabID == tag.id ? Color.red : Color.g50)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 16)
                             .overlay {
@@ -91,7 +91,7 @@ struct HomeCheffiPlaceView: View {
                 Rectangle()
                     .frame(height: 2)
                     .frame(maxWidth: .infinity)
-                    .foregroundStyle(Color.grey1)
+                    .foregroundStyle(Color.g10)
             }
         }
     }

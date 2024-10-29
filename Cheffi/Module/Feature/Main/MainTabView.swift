@@ -38,7 +38,7 @@ struct MainTabView: View {
                         }
                 }
             }
-            .accentColor(Color.primary)
+            .accentColor(.m100)
             .fullScreenCover(isPresented: $store.presentRegisterView.sending(\.toggleRegisterView)) {
                 AddRestaurantView()
                     .onTapGesture {

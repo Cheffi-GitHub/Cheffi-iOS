@@ -123,16 +123,16 @@ struct HomeCheffiPlaceView: View {
                                 Text("아직 주변의 \(tag.name) 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
                                     .font(.suit(.medium, 14))
                                     .lineHeight(22, fontHeight: 14)
-                                    .foregroundStyle(Color.grey6)
+                                    .foregroundStyle(.g60)
                                     .padding(.bottom, 18)
                                     .multilineTextAlignment(.center)
                                 Text("맛집 직접 등록하기")
                                     .font(.suit(.semiBold, 15))
                                     .lineHeight(22, fontHeight: 15)
-                                    .foregroundStyle(Color.primary)
+                                    .foregroundStyle(.m100)
                                     .padding(.horizontal, 14)
                                     .padding(.vertical, 9)
-                                    .background(Color.background)
+                                    .background(.ms10)
                                     .clipShape(.rect(cornerRadius: 10))
                                     .onTapGesture {
                                         isAddRestaurantPresented = true
@@ -160,5 +160,5 @@ struct HomeCheffiPlaceView: View {
     ) {
         HomeCheffiPlaceFeature()
     }
-    HomeCheffiPlaceView(store: store)
+    return HomeCheffiPlaceView(store: store)
 }

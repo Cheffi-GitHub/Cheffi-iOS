@@ -36,7 +36,7 @@ struct ToastMessage: ViewModifier {
                     if type == .normal {
                         Text(message)
                             .multilineTextAlignment(.center)
-                            .foregroundStyle(Color.white)
+                            .foregroundStyle(.white)
                             .font(.suit(.medium, 16))
                             .onAppear {
                                 dismissWork()
@@ -46,7 +46,7 @@ struct ToastMessage: ViewModifier {
                             Image(name: Common.check)
                             Text(message)
                                 .multilineTextAlignment(.center)
-                                .foregroundStyle(Color.white)
+                                .foregroundStyle(.white)
                                 .font(.suit(.medium, 16))
                                 .onAppear {
                                     dismissWork()
@@ -56,16 +56,16 @@ struct ToastMessage: ViewModifier {
                         HStack(spacing: 22) {
                             Text(message)
                                 .multilineTextAlignment(.center)
-                                .foregroundStyle(Color.white)
+                                .foregroundStyle(.white)
                                 .font(.suit(.medium, 16))
                                 .onAppear {
                                     dismissWork()
                                 }
                             Text("취소")
-                                .foregroundStyle(Color.grey7)
+                                .foregroundStyle(.g70)
                                 .font(.suit(.medium, 16))
                                 .padding(EdgeInsets(top: 5, leading: 17, bottom: 5, trailing: 17))
-                                .background(Color.grey05)
+                                .background(.g50)
                                 .clipShape(.rect(cornerRadius: 10))
                                 .onTapGesture {
                                     isShowing = false
@@ -78,7 +78,7 @@ struct ToastMessage: ViewModifier {
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 54)
             .padding(.horizontal, 12)
-            .background(Color.alarm_bg.opacity(0.9))
+            .background(Color(hex: 0x707070, opacity: 0.9))
             .cornerRadius(8)
         }
         .padding(.horizontal, 16)

@@ -48,16 +48,16 @@ struct HomeCheffiStoryView: View {
                 ForEach(store.categories) { category in
                     WithPerceptionTracking {
                         Text("\(category.name)")
-                            .foregroundStyle(store.selectedCategories[category] != nil ? Color.white : Color.grey5)
+                            .foregroundStyle(store.selectedCategories[category] != nil ? Color.white : Color.g50)
                             .font(.suit(.semiBold, 15))
                             .padding(.horizontal, 16)
                             .padding(.vertical, 6)
                             .background(
                                 RoundedRectangle(cornerRadius: 20)
-                                    .strokeBorder(store.selectedCategories[category] != nil ? Color.primary : Color.grey1)
+                                    .strokeBorder(store.selectedCategories[category] != nil ? Color.m100 : Color.g10)
                                     .background {
                                         RoundedRectangle(cornerRadius: 20)
-                                            .foregroundStyle(store.selectedCategories[category] != nil ? Color.primary : Color.white)
+                                            .foregroundStyle(store.selectedCategories[category] != nil ? Color.m100 : Color.white)
                                     }
                             )
                             .onTapGesture {
@@ -142,10 +142,10 @@ struct HomeCheffiStoryView: View {
                     store.send(.previeousPageButtonTapped)
                 }
             Text("\(store.currentPage)")
-                .foregroundStyle(Color.black)
+                .foregroundStyle(.black)
                 .font(.suit(.medium, 16))
             Text(" / \(store.totalPage)")
-                .foregroundStyle(Color.grey8)
+                .foregroundStyle(.g80)
                 .font(.suit(.medium, 16))
             Image(name: Home.nextPage)
                 .padding(.leading, 12)

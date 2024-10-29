@@ -41,7 +41,7 @@ struct AllReviewView: View {
                         HStack(spacing: 0) {
                             Image(name: Common.clock)
                             Text(store.remainTime.toHourMinuteSecond())
-                                .foregroundStyle(Color.primary)
+                                .foregroundStyle(.m100)
                                 .font(.suit(.bold, 18))
                             Text("초 뒤에")
                                 .foregroundStyle(.black)
@@ -49,7 +49,7 @@ struct AllReviewView: View {
                         }
                         HStack(spacing: 4) {
                             Text("인기 급등 맛집이 변경돼요.")
-                                .foregroundStyle(Color.black)
+                                .foregroundStyle(.black)
                                 .font(.suit(.regular, 18))
                             Image(name: Common.info)
                                 .overlay(

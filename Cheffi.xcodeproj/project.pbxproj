@@ -59,6 +59,7 @@
 		54F217B22C2D685400892DBD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 54F217B12C2D685400892DBD /* Kingfisher */; };
 		602CE7522CCD946800A6E245 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CE7512CCD946100A6E245 /* UIApplicationExtension.swift */; };
 		6040AAF52CA275FA0016338E /* LineHeightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6040AAF42CA275F30016338E /* LineHeightModifier.swift */; };
+		A60FB02B2CBD065A00B0B4A1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60FB02A2CBD065A00B0B4A1 /* Colors.xcassets */; };
 		607EC5622CBA965E00DA1557 /* AddRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607EC5612CBA965E00DA1557 /* AddRestaurantView.swift */; };
 		607EC5642CBA97CA00DA1557 /* AddRestaurantFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607EC5632CBA97C500DA1557 /* AddRestaurantFeature.swift */; };
 		608223792CBAA9230062B0CF /* TermsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681E99F2C4FDF8400B796AA /* TermsFeature.swift */; };
@@ -185,6 +186,7 @@
 		54F217AC2C2D2FDB00892DBD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		602CE7512CCD946100A6E245 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		6040AAF42CA275F30016338E /* LineHeightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightModifier.swift; sourceTree = "<group>"; };
+		A60FB02A2CBD065A00B0B4A1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		607EC5612CBA965E00DA1557 /* AddRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantView.swift; sourceTree = "<group>"; };
 		607EC5632CBA97C500DA1557 /* AddRestaurantFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantFeature.swift; sourceTree = "<group>"; };
 		60A6D9042CCC1A65002443BF /* HomeCheffiPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheffiPlaceView.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			children = (
 				549B1FD62C061A68005C9432 /* Info.plist */,
 				549B1F922C0607C9005C9432 /* Assets.xcassets */,
+				A60FB02A2CBD065A00B0B4A1 /* Colors.xcassets */,
 				A678A4842C2C5F0800A3D16B /* Launch Screen.storyboard */,
 				A67677F82C1740790089A269 /* Environment */,
 				549B1FC72C0617C6005C9432 /* Fonts */,
@@ -850,6 +853,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A60FB02B2CBD065A00B0B4A1 /* Colors.xcassets in Resources */,
 				54588AD72C074CF9000DD5A9 /* SUIT-Bold.otf in Resources */,
 				54588AD82C074CF9000DD5A9 /* SUIT-Medium.otf in Resources */,
 				A678A4852C2C5F0800A3D16B /* Launch Screen.storyboard in Resources */,

@@ -48,16 +48,22 @@ struct HomeCheffiStoryView: View {
                 ForEach(store.categories) { category in
                     WithPerceptionTracking {
                         Text("\(category.name)")
-                            .foregroundStyle(store.selectedCategories[category] != nil ? Color.white : Color.g50)
+                            .foregroundStyle(store.selectedCategories[category] != nil
+                                             ? .white
+                                             : .g50)
                             .font(.suit(.semiBold, 15))
                             .padding(.horizontal, 16)
                             .padding(.vertical, 6)
                             .background(
                                 RoundedRectangle(cornerRadius: 20)
-                                    .strokeBorder(store.selectedCategories[category] != nil ? Color.m100 : Color.g10)
+                                    .strokeBorder(store.selectedCategories[category] != nil
+                                                  ? .m100
+                                                  : .g20)
                                     .background {
                                         RoundedRectangle(cornerRadius: 20)
-                                            .foregroundStyle(store.selectedCategories[category] != nil ? Color.m100 : Color.white)
+                                            .foregroundStyle(store.selectedCategories[category] != nil
+                                                             ? .m100
+                                                             : .white)
                                     }
                             )
                             .onTapGesture {
@@ -101,30 +107,28 @@ struct HomeCheffiStoryView: View {
     }
     
     private func pageContent(for page: Int) -> some View {
-        WithPerceptionTracking {
-            VStack(spacing: 16) {
-                let startIndex = page * store.itemsPerPage
-                let endIndex = min(startIndex + store.itemsPerPage, store.recommendList.count)
-                
-                ForEach(startIndex..<endIndex, id: \.self) { index in
-                    WithPerceptionTracking {
-                        WriterRow(
-                            photoURL: String(),
-                            title: store.recommendList[index].title,
-                            intro: store.recommendList[index].intro,
-                            isFollowed: store.recommendList[index].isFollowed
-                        ) {
-                            store.send(.writerRowNavigationAreaTapped)
-                        } isFollowedTapped: {
-                            store.send(.followButtonTapped(index))
-                        }
+        VStack(spacing: 16) {
+            let startIndex = page * store.itemsPerPage
+            let endIndex = min(startIndex + store.itemsPerPage, store.recommendList.count)
+            
+            ForEach(startIndex..<endIndex, id: \.self) { index in
+                WithPerceptionTracking {
+                    WriterRow(
+                        photoURL: String(),
+                        title: store.recommendList[index].title,
+                        intro: store.recommendList[index].intro,
+                        isFollowed: store.recommendList[index].isFollowed
+                    ) {
+                        store.send(.writerRowNavigationAreaTapped)
+                    } isFollowedTapped: {
+                        store.send(.followButtonTapped(index))
                     }
                 }
-                .padding(.horizontal, 16)
-                
-                if (endIndex - startIndex) + 1 < store.itemsPerPage {
-                    Spacer()
-                }
+            }
+            .padding(.horizontal, 16)
+            
+            if (endIndex - startIndex) + 1 < store.itemsPerPage {
+                Spacer()
             }
         }
     }

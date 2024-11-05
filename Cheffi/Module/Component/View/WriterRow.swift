@@ -7,38 +7,48 @@
 
 import SwiftUI
 import Kingfisher
+import ComposableArchitecture
 
 struct WriterRow: View {
-    let photoUrl: String?
+    let photoURL: String?
     let title: String
     let intro: String
     let isFollowed: Bool
     
+    let navigationAreaTapped: () -> Void
+    let isFollowedTapped: () -> Void
+    
     var body: some View {
         HStack {
             Group {
-                if let photoUrl = photoUrl,
-                   let url = URL(string: photoUrl) {
-                    KFImage(url)
-                        .resizable()
-                } else {
-                    // TODO: 이미지 불러오지 못했을 때 UI 요청
-                    Color.g30
+                Group {
+                    if let photoURL = photoURL,
+                       let url = URL(string: photoURL) {
+                        KFImage(url)
+                            .resizable()
+                    } else {
+                        // TODO: 이미지 불러오지 못했을 때 UI 요청
+                        Color.g30
+                    }
+                }
+                .frame(width: 64, height: 64)
+                .clipShape(.rect(cornerRadius: 8))
+                Spacer().frame(width: 12)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(title)
+                        .foregroundStyle(.black)
+                        .font(.suit(.semiBold, 16))
+                        .lineLimit(1)
+                    Text(intro)
+                        .foregroundStyle(.g50)
+                        .font(.suit(.regular, 12))
+                        .lineLimit(2)
                 }
             }
-            .frame(width: 64, height: 64)
-            .clipShape(.rect(cornerRadius: 8))
-            Spacer().frame(width: 12)
-            VStack(alignment: .leading, spacing: 6) {
-                Text(title)
-                    .foregroundStyle(.black)
-                    .font(.suit(.semiBold, 16))
-                    .lineLimit(1)
-                Text(intro)
-                    .foregroundStyle(.g50)
-                    .font(.suit(.regular, 12))
-                    .lineLimit(2)
+            .onTapGesture {
+                navigationAreaTapped()
             }
+            
             Spacer().frame(minWidth: 32)
             
             Group {
@@ -62,7 +72,21 @@ struct WriterRow: View {
                         )
                 }
             }
+            .onTapGesture {
+                isFollowedTapped()
+            }
         }
         .frame(height: 64)
     }
+}
+
+#Preview {
+    WriterRow(
+        photoURL: nil,
+        title: "title",
+        intro: "intro",
+        isFollowed: false,
+        navigationAreaTapped: {},
+        isFollowedTapped: {}
+    )
 }

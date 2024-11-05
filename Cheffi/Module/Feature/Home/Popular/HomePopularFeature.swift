@@ -23,9 +23,17 @@ struct HomePopularFeature {
             return count > 3 ? min(4, ((count - 4) / 4) + 2) : 1
         }
         var popularReviews: [ReviewModel] = []
-        var path = StackState<Path.State>()
         var showTooltip = false
+        var presentAddRestaurantView: Bool = false
         var remainTime: Int = 0
+        
+        static let dummy: Self = .init(popularReviews: [
+            ReviewModel.dummyData,
+            ReviewModel.dummyData,
+            ReviewModel.dummyData,
+            ReviewModel.dummyData,
+            ReviewModel.dummyData
+        ])
     }
     
     enum Action {
@@ -34,12 +42,13 @@ struct HomePopularFeature {
         case updateTimer
         case sceneActive
         case requestPopularReviews
-        case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
         case toolTipTapped
-        case path(StackAction<Path.State, Path.Action>)
+        case addRestaurantButtonTapped
+        case toggleAddRestaurantView(Bool)
+        case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
     }
     
-    var body: some Reducer<State, Action> {
+    var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .onFirstAppear:
@@ -74,6 +83,14 @@ struct HomePopularFeature {
                         .catch { Just(Action.popularReviewsResponse(.failure($0))) }
                 }
                 
+            case .addRestaurantButtonTapped:
+                state.presentAddRestaurantView = true
+                return .none
+                
+            case .toggleAddRestaurantView(let value):
+                state.presentAddRestaurantView = value
+                return .none
+                
             case .popularReviewsResponse(let response):
                 switch response {
                 case .success(let result):
@@ -86,12 +103,7 @@ struct HomePopularFeature {
             case .toolTipTapped:
                 state.showTooltip.toggle()
                 return .none
-            case .path:
-                return .none
             }
-        }
-        .forEach(\.path, action: /Action.path) {
-            Path()
         }
     }
     
@@ -102,30 +114,5 @@ struct HomePopularFeature {
         let nextHour = calendar.date(byAdding: .hour, value: 1, to: startOfCurrentTime) ?? Date()
         let seconds = calendar.dateComponents([.second], from: now, to: nextHour).second ?? 0
         return seconds
-    }
-}
-
-extension HomePopularFeature {
-    @Reducer
-    struct Path {
-        @ObservableState
-        enum State: Equatable {
-            case moveToReviewDetailView(ReviewDetailFeature.State)
-            case moveToAllReviewView(AllReviewFeature.State)
-        }
-        
-        enum Action {
-            case moveToReviewDetailView(ReviewDetailFeature.Action)
-            case moveToAllReviewView(AllReviewFeature.Action)
-        }
-        
-        var body: some ReducerOf<Self> {
-            Scope(state: /State.moveToReviewDetailView, action: /Action.moveToReviewDetailView) {
-                ReviewDetailFeature()
-            }
-            Scope(state: /State.moveToAllReviewView, action: /Action.moveToAllReviewView) {
-                AllReviewFeature()
-            }
-        }
     }
 }

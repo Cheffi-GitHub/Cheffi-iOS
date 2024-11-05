@@ -17,7 +17,7 @@ struct AllReviewView: View {
     
     @Perception.Bindable var store: StoreOf<AllReviewFeature>
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.scenePhase) var scenePhase
+    @Environment(\.scenePhase) private var scenePhase
     
     private let columns = [
         GridItem(.flexible(), alignment: .top),
@@ -27,7 +27,12 @@ struct AllReviewView: View {
     var body: some View {
         WithPerceptionTracking {
             VStack(spacing: 0) {
-                HomeNavigationBarView(type: .back)
+                HomeNavigationBarView(
+                    store: StoreOf<HomeNavigationBarFeature>(initialState: HomeNavigationBarFeature.State()) {
+                        HomeNavigationBarFeature()
+                    },
+                    type: .back
+                )
                     .onTapGesture {
                         dismiss()
                     }

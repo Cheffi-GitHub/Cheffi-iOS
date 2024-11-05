@@ -1,21 +1,23 @@
 //
-//  NavigationBarFeature.swift
+//  AddRestaurantFeature.swift
 //  Cheffi
 //
-//  Created by 정건호 on 6/3/24.
+//  Created by 권승용 on 10/12/24.
 //
 
 import Foundation
+import SwiftUI
 import ComposableArchitecture
 
 @Reducer
-struct HomeNavigationBarFeature {
+struct AddRestaurantFeature {
     
     @ObservableState
     struct State: Equatable {
+        
     }
     
-    enum Action: Equatable {
+    enum Action {
     }
     
     var body: some ReducerOf<Self> {
@@ -24,4 +26,5 @@ struct HomeNavigationBarFeature {
             }
         }
     }
+    
 }

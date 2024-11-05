@@ -2,7 +2,7 @@
 //  HomeCheffiPlaceView.swift
 //  Cheffi
 //
-//  Created by 정건호 on 6/10/24.
+//  Created by 권승용 on 10/26/24.
 //
 
 import SwiftUI
@@ -10,37 +10,25 @@ import ComposableArchitecture
 
 struct HomeCheffiPlaceView: View {
     
-    @Perception.Bindable var store: StoreOf<HomeCheffiPlaceFeature> = .init(
-        initialState: HomeCheffiPlaceFeature.State()) {
-            HomeCheffiPlaceFeature()
-        }
+    @Perception.Bindable var store: StoreOf<HomeCheffiPlaceFeature>
     
-    @State private var selectedTab: Int = 0
-    let tabViewHeight: CGFloat = UIWindow().screen.bounds.height - 284
+    @State private var selectedTabID = 0
+    @State private var isAddRestaurantPresented: Bool = false
     
-    private let columns = [
-        GridItem(.flexible(), alignment: .top),
-        GridItem(.flexible(), alignment: .top)
-    ]
+    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
     
     var body: some View {
         WithPerceptionTracking {
-            LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
-                Section(content: {
-                    tabView
-                }, header: {
-                    VStack(alignment: .leading, spacing: 0) {
-                        header
-                        categoryScroll
-                        Color.g50.frame(height: 2).offset(y: -2)
-                            .padding(.bottom, 12)
-                    }
-                    .background(.white)
-                })
+            VStack(spacing: 0) {
+                header
+                    .zIndex(1)
+                foodCategories
+                tabView
             }
-            .onFirstAppear {
-                store.send(.requestTags)
-                store.send(.requestCheffiPlace(tagId: 1))
+            .fullScreenCover(isPresented: $isAddRestaurantPresented) {
+                AddRestaurantView()
             }
         }
     }
@@ -48,138 +36,129 @@ struct HomeCheffiPlaceView: View {
     private var header: some View {
         HStack(spacing: 8) {
             Text("쉐피들의 인정 맛집")
-                .foregroundStyle(Color.black)
+                .foregroundStyle(.black)
                 .font(.suit(.bold, 20))
+                .lineHeight(24, fontHeight: 20)
             Image(name: Common.info)
-                .overlay(
-                    Group {
-                        if store.state.showTooltip {
-                            Image(name: Home.placeTooltip)
-                                .offset(x: -60, y: 50)
-                        }
+                .resizable()
+                .scaledToFit()
+                .frame(width: 16, height: 16)
+                .overlay {
+                    if store.state.showTooltip {
+                        Image(name: Home.placeTooltip)
+                            .offset(x: -60, y: 50)
                     }
-                )
+                }
                 .onTapGesture {
                     store.send(.toolTipTapped)
                 }
+            Spacer()
         }
-        .zIndex(2)
         .padding(.leading, 16)
         .padding(.bottom, 24)
     }
     
-    private var categoryScroll: some View {
-        ScrollViewReader { proxy in
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 0) {
+    private var foodCategories: some View {
+        ScrollView(.horizontal) {
+            HStack(spacing: 0) {
+                ForEach(store.tags) { tag in
                     WithPerceptionTracking {
-                        ForEach(0..<store.state.tags.count, id: \.self) { index in
-                            VStack {
-                                Text(store.state.tags[index].name)
-                                    .foregroundColor(selectedTab == index ? .m100 : .g50)
-                                    .font(.suit(.bold, 15))
-                                    .frame(maxWidth: .infinity)
-                                    .padding(EdgeInsets(top: 10, leading: 16, bottom: 8, trailing: 16))
-                                    .onTapGesture {
-                                        selectedTab = index
-                                    }
-                                Rectangle()
-                                    .frame(height: 2)
-                                    .foregroundColor(selectedTab == index ? .red : .clear)
-                                    .layoutPriority(1)
-                            }
-                            .id(index)
-                            .onChange(of: selectedTab) { index in
-                                withAnimation {
-                                    proxy.scrollTo(index, anchor: .center)
+                        Text(tag.name)
+                            .font(selectedTabID == tag.id ? .suit(.bold, 15) : .suit(.medium, 15))
+                            .foregroundStyle(selectedTabID == tag.id ? .m100 : .g50)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 16)
+                            .overlay {
+                                VStack {
+                                    Spacer()
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .foregroundStyle(.red)
+                                        .opacity(selectedTabID == tag.id ? 1 : 0)
                                 }
-                                store.send(.requestCheffiPlace(tagId: (store.state.tags[index].id)))
                             }
-                        }
+                            .onTapGesture {
+                                selectedTabID = tag.id
+                            }
                     }
                 }
             }
+            .padding(.leading, 16)
         }
-        .zIndex(1)
-        .padding(.horizontal, 16)
+        .background {
+            VStack {
+                Spacer()
+                Rectangle()
+                    .frame(height: 2)
+                    .frame(maxWidth: .infinity)
+                    .foregroundStyle(.g10)
+            }
+        }
     }
     
     private var tabView: some View {
-        VStack(spacing: 0) {
-            TabView(selection: $selectedTab) {
-                ForEach(0..<store.state.tags.count, id: \.self) { index in
-                    WithPerceptionTracking {
-                        let tagId = store.state.tags[index].id
-                        if let reviews = store.state.cheffiPlaceReviews[tagId], !reviews.isEmpty {
-                            ScrollView(showsIndicators: false) {
-                                LazyVGrid(columns: columns, spacing: 24) {
-                                    ForEach(reviews, id: \.id) { review in
+        TabView(selection: $selectedTabID) {
+            ForEach(store.tags) { tag in
+                WithPerceptionTracking {
+                    VStack(spacing: 0) {
+                        if let reviewModel = store.cheffiPlaceReviews[tag.id] {
+                            ScrollView {
+                                LazyVGrid(columns: columns, spacing: 13) {
+                                    ForEach(reviewModel) { review in
                                         ReviewCell(review: review, type: .small)
+                                            .onTapGesture {
+                                                store.send(.reviewCellTapped)
+                                            }
+                                            .padding(.bottom, 11)
                                     }
                                 }
                                 .padding(.horizontal, 16)
-                                .tag(index)
+                                .padding(.top, 24)
                             }
                         } else {
+                            // TODO: pagination 때문에 생기는 padding 없애기
                             VStack(alignment: .center, spacing: 0) {
                                 Image(name: Home.homeEmpty)
                                     .padding(.bottom, 12)
-                                Text("아직 주변의 \(store.state.tags[index].name) 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
+                                Text("아직 주변의 \(tag.name) 맛집 리뷰가 없어요\n먼저 주변 아는 맛집을 소개해주세요!")
                                     .font(.suit(.medium, 14))
+                                    .lineHeight(22, fontHeight: 14)
                                     .foregroundStyle(.g60)
                                     .padding(.bottom, 18)
                                     .multilineTextAlignment(.center)
                                 Text("맛집 직접 등록하기")
                                     .font(.suit(.semiBold, 15))
+                                    .lineHeight(22, fontHeight: 15)
                                     .foregroundStyle(.m100)
                                     .padding(.horizontal, 14)
                                     .padding(.vertical, 9)
                                     .background(.ms10)
                                     .clipShape(.rect(cornerRadius: 10))
+                                    .onTapGesture {
+                                        isAddRestaurantPresented = true
+                                    }
                             }
+                            .padding(.top, 60)
                         }
+                        Spacer()
                     }
+                    .tag(tag.id)
                 }
             }
         }
-        .frame(height: tabViewHeight)
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // TODO: Nested ScrollView 스크롤 버그 수정하기
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        // 화면 크기 - 네비게이션 + 타이틀 + 카테고리 높이 + safeArea 높이
+        .frame(
+            height: UIWindow().screen.bounds.height - 156 - (safeAreaInsets.top + safeAreaInsets.bottom)
+        )
     }
 }
 
 #Preview {
     let store: StoreOf<HomeCheffiPlaceFeature> = StoreOf<HomeCheffiPlaceFeature>(
-        initialState: HomeCheffiPlaceFeature.State(
-            tags: [
-                TagsModel(
-                    id: 0,
-                    name: "한식",
-                    type: "테스트"
-                ),
-                TagsModel(
-                    id: 1,
-                    name: "일식",
-                    type: "테스트"
-                ),
-                TagsModel(
-                    id: 2,
-                    name: "양식",
-                    type: "테스트"
-                )
-            ],
-            cheffiPlaceReviews: [
-                0: [ReviewModel.dummyData],
-                1: [ReviewModel.dummyData, ReviewModel.dummyData],
-            ]
-        )
+        initialState: HomeCheffiPlaceFeature.State.dummy
     ) {
         HomeCheffiPlaceFeature()
     }
     return HomeCheffiPlaceView(store: store)
-}
-
-struct TagType {
-    let id: Int
-    let name: String
-    let type: String
 }

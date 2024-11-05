@@ -10,33 +10,7 @@ import ComposableArchitecture
 
 struct HomeCheffiStoryView: View {
     
-    @Perception.Bindable var store: StoreOf<HomeCheffiStoryFeature> = .init(
-        initialState: HomeCheffiStoryFeature.State()) {
-            HomeCheffiStoryFeature()
-        }
-    
-    @State private var dummyCategories = ["한식", "노포", "아시아음식", "매운맛", "일식", "달콤한맛", "중식"]
-    
-    @State private var dummyDatas = [
-        RecommendData(title: "정맛집", intro: "안녕하세요 정맛집입니다", isFollowed: true),
-        RecommendData(title: "건맛집", intro: "안녕하세요 건맛집입니다", isFollowed: true),
-        RecommendData(title: "호맛집", intro: "안녕하세요 호맛집입니다", isFollowed: true),
-        RecommendData(title: "한맛집", intro: "안녕하세요 한맛집입니다", isFollowed: true),
-        RecommendData(title: "규맛집", intro: "안녕하세요 규맛집입니다", isFollowed: true),
-        RecommendData(title: "민맛집", intro: "안녕하세요 민맛집입니다", isFollowed: true),
-        RecommendData(title: "이맛집", intro: "안녕하세요 이맛집입니다", isFollowed: true),
-        RecommendData(title: "쿵맛집", intro: "안녕하세요 쿵집입니다", isFollowed: true),
-        RecommendData(title: "키잌맛집", intro: "안녕하세요 키잌맛집입니다", isFollowed: true),
-        RecommendData(title: "석맛집", intro: "안녕하세요 석맛집입니다", isFollowed: true),
-        RecommendData(title: "재맛집", intro: "안녕하세요 재맛집입니다", isFollowed: true),
-        RecommendData(title: "굿맛집", intro: "안녕하세요 굿맛집입니다", isFollowed: true)
-    ]
-    
-    @State private var currentpage = 1
-    private let itemsPerPage = 3
-    private var totalPage: Int {
-        (dummyDatas.count + itemsPerPage - 1) / itemsPerPage
-    }
+    @Perception.Bindable var store: StoreOf<HomeCheffiStoryFeature>
     
     var body: some View {
         WithPerceptionTracking {
@@ -45,8 +19,12 @@ struct HomeCheffiStoryView: View {
                     .padding(.horizontal, 16)
                 chipButtons
                     .padding(.bottom, 16)
-                tabView
-                paging
+                if store.recommendList.isEmpty {
+                    recommendListEmptyView
+                } else {
+                    tabView
+                    paging
+                }
             }
             .onFirstAppear {
                 store.send(.onFirstAppear)
@@ -67,33 +45,30 @@ struct HomeCheffiStoryView: View {
     private var chipButtons: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                ForEach($dummyCategories, id: \.self) { category in
+                ForEach(store.categories) { category in
                     WithPerceptionTracking {
-                        Group {
-                            if !store.state.selectedCategories.contains(category.wrappedValue) {
-                                Text("\(category.wrappedValue)")
-                                    .foregroundStyle(.g50)
-                                    .font(.suit(.semiBold, 15))
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 6)
-                                    .background(
+                        Text("\(category.name)")
+                            .foregroundStyle(store.selectedCategories[category] != nil
+                                             ? .white
+                                             : .g50)
+                            .font(.suit(.semiBold, 15))
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 6)
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .strokeBorder(store.selectedCategories[category] != nil
+                                                  ? .m100
+                                                  : .g20)
+                                    .background {
                                         RoundedRectangle(cornerRadius: 20)
-                                            .strokeBorder(.g10)
-                                    )
-                                
-                            } else {
-                                Text("\(category.wrappedValue)")
-                                    .foregroundStyle(.white)
-                                    .font(.suit(.semiBold, 15))
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 6)
-                                    .background(.m100)
-                                    .clipShape(.rect(cornerRadius: 20))
+                                            .foregroundStyle(store.selectedCategories[category] != nil
+                                                             ? .m100
+                                                             : .white)
+                                    }
+                            )
+                            .onTapGesture {
+                                store.send(.categoryTapped(category))
                             }
-                        }
-                        .onTapGesture {
-                            store.send(.categoryTapped(category.wrappedValue))
-                        }
                     }
                 }
             }
@@ -101,36 +76,65 @@ struct HomeCheffiStoryView: View {
         }
     }
     
+    private var recommendListEmptyView: some View {
+        VStack(spacing: 0) {
+            Image(.noUser)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 48, height: 48)
+                .padding(.bottom, 14)
+            Text("선택한 취향의 사용자가 아직 없어요")
+                .font(.suit(.medium, 14))
+                .lineHeight(22, fontHeight: 14)
+                .foregroundStyle(.g50)
+        }
+        .frame(height: 224)
+    }
+    
     private var tabView: some View {
-        TabView(selection: $currentpage) {
-            ForEach(1...totalPage, id: \.self) { index in
+        TabView(selection: $store.currentPage) {
+            ForEach(1...store.totalPage, id: \.self) { page in
                 WithPerceptionTracking {
-                    VStack(spacing: 16) {
-                        let startIndex = (index - 1) * itemsPerPage
-                        let endIndex = min(startIndex + itemsPerPage, dummyDatas.count)
-                        let items = Array(dummyDatas[startIndex..<endIndex])
-                        ForEach(items, id: \.title) { item in
-                            WithPerceptionTracking {
-                                WriterRow(
-                                    photoUrl: String(),
-                                    title: item.title,
-                                    intro: item.intro,
-                                    isFollowed: item.isFollowed
-                                )
-                            }
-                        }
-                        .padding(.horizontal, 16)
-                        if items.count != 3 {
-                            Spacer()
-                        }
-                    }
+                    pageContent(for: page)
+                        .tag(page)
                 }
             }
         }
-        .frame(height: CGFloat(itemsPerPage * 64 + ((itemsPerPage - 1) * 16)))
+        .frame(height: pageHeight)
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .animation(.easeInOut, value: currentpage)
+        .animation(.easeInOut, value: store.currentPage)
         .padding(.bottom, 16)
+    }
+    
+    private func pageContent(for page: Int) -> some View {
+        VStack(spacing: 16) {
+            let startIndex = page * store.itemsPerPage
+            let endIndex = min(startIndex + store.itemsPerPage, store.recommendList.count)
+            
+            ForEach(startIndex..<endIndex, id: \.self) { index in
+                WithPerceptionTracking {
+                    WriterRow(
+                        photoURL: String(),
+                        title: store.recommendList[index].title,
+                        intro: store.recommendList[index].intro,
+                        isFollowed: store.recommendList[index].isFollowed
+                    ) {
+                        store.send(.writerRowNavigationAreaTapped)
+                    } isFollowedTapped: {
+                        store.send(.followButtonTapped(index))
+                    }
+                }
+            }
+            .padding(.horizontal, 16)
+            
+            if (endIndex - startIndex) + 1 < store.itemsPerPage {
+                Spacer()
+            }
+        }
+    }
+    
+    private var pageHeight: CGFloat {
+        CGFloat(store.itemsPerPage * 64 + ((store.itemsPerPage - 1) * 16))
     }
     
     private var paging: some View {
@@ -139,33 +143,32 @@ struct HomeCheffiStoryView: View {
             Image(name: Home.previousPage)
                 .padding(.trailing, 12)
                 .onTapGesture {
-                    if currentpage != 1 {
-                        currentpage -= 1
-                    }
+                    store.send(.previeousPageButtonTapped)
                 }
-            Text("\(currentpage)")
+            Text("\(store.currentPage)")
                 .foregroundStyle(.black)
                 .font(.suit(.medium, 16))
-            Text(" / \(totalPage)")
+            Text(" / \(store.totalPage)")
                 .foregroundStyle(.g80)
                 .font(.suit(.medium, 16))
             Image(name: Home.nextPage)
                 .padding(.leading, 12)
                 .onTapGesture {
-                    if currentpage != totalPage {
-                        currentpage += 1
-                    }
+                    store.send(.nextPageButtonTapped)
                 }
         }
     }
 }
 
 #Preview {
-    HomeCheffiStoryView()
+    let store = StoreOf<HomeCheffiStoryFeature>(initialState: HomeCheffiStoryFeature.State.dummy) {
+        HomeCheffiStoryFeature()
+    }
+    HomeCheffiStoryView(store: store)
 }
 
 struct RecommendData: Hashable {
     let title: String
     let intro: String
-    let isFollowed: Bool
+    var isFollowed: Bool
 }

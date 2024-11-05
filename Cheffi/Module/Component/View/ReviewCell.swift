@@ -10,7 +10,7 @@ import Kingfisher
 
 struct ReviewCell: View {
     
-    @Environment(\.scenePhase) var scenePhase
+    @Environment(\.scenePhase) private var scenePhase
     @State private var timeLeftToLock: Int = 0
     
     let review: ReviewModel

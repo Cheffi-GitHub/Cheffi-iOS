@@ -10,7 +10,7 @@ import Foundation
 typealias ReviewResponse = RestResponse<[ReviewModel]>
 typealias ReviewPagingResponse = RestPagingResponse<[ReviewModel]>
 
-struct ReviewModel: Codable, Equatable {
+struct ReviewModel: Codable, Equatable, Identifiable {
     let id: Int
     let title: String
     let text: String
@@ -49,7 +49,7 @@ extension ReviewModel {
 extension ReviewModel {
     static var dummyData: ReviewModel {
         return ReviewModel(
-            id: 1,
+            id: Int.random(in: 1...100000),
             title: "Amazing Restaurant",
             text: "The food was absolutely amazing and the service was excellent.",
             photo: Photo(id: 1, order: 3, photo: PhotoInfo(url: String(), width: 120, height: 120)),

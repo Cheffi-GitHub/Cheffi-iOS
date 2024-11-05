@@ -218,12 +218,16 @@ struct ReviewDetailView: View {
                                         .font(.suit(.bold, 18))
                                         .foregroundStyle(.black)
                                         .padding(.bottom, 6)
+                                    
                                     WriterRow(
-                                        photoUrl: review.writer.photo.url,
+                                        photoURL: review.writer.photo.url,
                                         title: review.writer.nickname,
                                         intro: review.writer.introduction,
-                                        isFollowed: true
+                                        isFollowed: true,
+                                        navigationAreaTapped: {},
+                                        isFollowedTapped: {}
                                     )
+                                
                                 }
                                 .padding(.bottom, 32)
                                 // 평가

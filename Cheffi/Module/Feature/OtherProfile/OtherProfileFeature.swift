@@ -1,21 +1,22 @@
 //
-//  NavigationBarFeature.swift
+//  OtherProfileFeature.swift
 //  Cheffi
 //
-//  Created by 정건호 on 6/3/24.
+//  Created by 권승용 on 10/14/24.
 //
 
 import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct HomeNavigationBarFeature {
-    
+struct OtherProfileFeature {
     @ObservableState
     struct State: Equatable {
+        
     }
     
-    enum Action: Equatable {
+    enum Action {
+        
     }
     
     var body: some ReducerOf<Self> {

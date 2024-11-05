@@ -14,35 +14,33 @@ struct MainTabView: View {
         initialState: MainTabFeature.State()) {
             MainTabFeature()
         }
-
+    
     
     @State private var selectedIndex: Int = 0
     @State private var oldIndex = 0
     
     var body: some View {
         WithPerceptionTracking {
-            NavigationStack {
-                TabView(selection: $selectedIndex) {
-                    ForEach(TabType.allCases, id: \.self) { type in
-                        getTabView(type: type)
-                            .tag(type.rawValue)
-                            .tabItem {
-                                VStack(spacing: 4) {
-                                    selectedIndex == type.rawValue
-                                    ? type.tabItem.selectedImage
-                                    : type.tabItem.normalImage
-                                    
-                                    Text(type.tabItem.title)
-                                        .foregroundStyle(.g40)
-                                        .font(.suit(.regular, 12))
-                                }
+            TabView(selection: $selectedIndex) {
+                ForEach(TabType.allCases, id: \.self) { type in
+                    getTabView(type: type)
+                        .tag(type.rawValue)
+                        .tabItem {
+                            VStack(spacing: 4) {
+                                selectedIndex == type.rawValue
+                                ? type.tabItem.selectedImage
+                                : type.tabItem.normalImage
+                                
+                                Text(type.tabItem.title)
+                                    .foregroundStyle(Color.g40)
+                                    .font(.suit(.regular, 12))
                             }
-                    }
+                        }
                 }
-                .accentColor(.m100)
             }
+            .accentColor(.m100)
             .fullScreenCover(isPresented: $store.presentRegisterView.sending(\.toggleRegisterView)) {
-                Text("맛집등록 뷰")
+                AddRestaurantView()
                     .onTapGesture {
                         store.send(.toggleRegisterView(false))
                     }
@@ -69,7 +67,10 @@ struct MainTabView: View {
     func getTabView(type: TabType) -> some View {
         switch type {
         case .home:
-            HomeView()
+            HomeView(
+                store: Store(initialState: HomeFeature.State()) {
+                HomeFeature()
+            })
         case .trend:
             Text("전국트렌트 탭")
         case .write:

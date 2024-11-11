@@ -45,10 +45,10 @@ struct HomeCheffiStoryView: View {
     private var chipButtons: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                ForEach(store.categories) { category in
+                ForEach(store.tags) { tag in
                     WithPerceptionTracking {
-                        Text("\(category.name)")
-                            .foregroundStyle(store.selectedCategories[category] != nil
+                        Text("\(tag.name)")
+                            .foregroundStyle(store.selectedTags[tag] != nil
                                              ? .white
                                              : .g50)
                             .font(.suit(.semiBold, 15))
@@ -56,18 +56,18 @@ struct HomeCheffiStoryView: View {
                             .padding(.vertical, 6)
                             .background(
                                 RoundedRectangle(cornerRadius: 20)
-                                    .strokeBorder(store.selectedCategories[category] != nil
+                                    .strokeBorder(store.selectedTags[tag] != nil
                                                   ? .m100
                                                   : .g20)
                                     .background {
                                         RoundedRectangle(cornerRadius: 20)
-                                            .foregroundStyle(store.selectedCategories[category] != nil
+                                            .foregroundStyle(store.selectedTags[tag] != nil
                                                              ? .m100
                                                              : .white)
                                     }
                             )
                             .onTapGesture {
-                                store.send(.categoryTapped(category))
+                                store.send(.tagTapped(tag))
                             }
                     }
                 }

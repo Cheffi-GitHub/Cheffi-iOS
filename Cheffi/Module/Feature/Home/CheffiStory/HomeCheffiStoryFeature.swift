@@ -8,38 +8,32 @@
 import Foundation
 import ComposableArchitecture
 
-struct CheffiStoryCategory: Hashable, Identifiable, Equatable {
-    let id = UUID()
-    let name: String
-    
-    static func == (lhs: CheffiStoryCategory, rhs: CheffiStoryCategory) -> Bool {
-        lhs.name == rhs.name
-    }
-}
-
 @Reducer
 struct HomeCheffiStoryFeature {
+    
+    @Dependency(\.networkClient) var networkClient
     
     @ObservableState
     struct State: Equatable {
         let itemsPerPage = 3
-        var categories: [CheffiStoryCategory] = [CheffiStoryCategory(name: "한식")]
-        var selectedCategories: [CheffiStoryCategory: Bool] = [:]
+        var tags: [TagsModel] = [TagsModel(id: 0, name: "한식", type: "FOOD")]
+        var selectedTags: [TagsModel: Bool] = [:]
         var recommendList: [RecommendData] = []
+        var selectedRecommendList: [RecommendData] = []
         var currentPage = 1
         var totalPage: Int {
             (recommendList.count + itemsPerPage - 1) / itemsPerPage
         }
         
         static let dummy: Self = .init(
-            categories: [
-                CheffiStoryCategory(name: "한식"),
-                CheffiStoryCategory(name: "노포"),
-                CheffiStoryCategory(name: "아시아음식"),
-                CheffiStoryCategory(name: "매운맛"),
-                CheffiStoryCategory(name: "일식"),
-                CheffiStoryCategory(name: "달콤한맛"),
-                CheffiStoryCategory(name: "중식")
+            tags: [
+                TagsModel(id: 0, name: "한식", type: "FOOD"),
+                TagsModel(id: 1, name: "노포", type: "FOOD"),
+                TagsModel(id: 2, name: "아시아음식", type: "FOOD"),
+                TagsModel(id: 3, name: "매운맛", type: "TASTE"),
+                TagsModel(id: 4, name: "달달한맛", type: "TASTE"),
+                TagsModel(id: 5, name: "일식", type: "FOOD"),
+                TagsModel(id: 6, name: "중식", type: "FOOD")
             ],
             recommendList: [
                 RecommendData(title: "정맛집", intro: "안녕하세요 정맛집입니다", isFollowed: true),
@@ -61,7 +55,7 @@ struct HomeCheffiStoryFeature {
     enum Action: BindableAction {
         case binding(BindingAction<State>)
         case onFirstAppear
-        case categoryTapped(CheffiStoryCategory)
+        case tagTapped(TagsModel)
         case writerRowNavigationAreaTapped
         case previeousPageButtonTapped
         case nextPageButtonTapped
@@ -77,20 +71,20 @@ struct HomeCheffiStoryFeature {
                 
             case .onFirstAppear:
                 // 프로필 카테고리 조회 후, 첫 카테고리 넣기
-                guard let firstCategory = state.categories.first else {
-                    print("서버로부터 전달받은 카테고리 없음")
+                guard let firstTag = state.tags.first else {
+                    print("선택한 태그가 없음")
                     return .none
                 }
-                state.selectedCategories[firstCategory] = true
+                state.selectedTags[firstTag] = true
                 return .run { send in
                     
                 }
                 
-            case .categoryTapped(let category):
-                if state.selectedCategories[category] != nil {
-                    state.selectedCategories[category] = nil
+            case .tagTapped(let tag):
+                if state.selectedTags[tag] != nil {
+                    state.selectedTags[tag] = nil
                 } else {
-                    state.selectedCategories[category] = true
+                    state.selectedTags[tag] = true
                 }
                 // 카테고리에 다라 recommendList 변경
                 print("추천 목록 조회 API 호출 후 recommendList에 결과 값 담기")

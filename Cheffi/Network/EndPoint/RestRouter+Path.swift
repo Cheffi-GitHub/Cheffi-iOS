@@ -32,6 +32,8 @@ extension RestRouter {
             return "/test/session/issue"
         case .testAuth:
             return "/test/auth"
+        case .recommendedFollowsForTags:
+            return "/api/v1/follows/recommend/tags"
         }
     }
 }

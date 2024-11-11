@@ -18,6 +18,7 @@ enum RestRouter {
     case popularReviews(province: String, city: String, cursor: Int, size: Int)
     case cheffiPlace(province: String, city: String, cursor: Int, size: Int, tag_id: Int)
     case reviewDetail(id: Int)
+    case recommendedFollowsForTags(tagid: [Int])
     
     // - MARK: 04. 검색페이지
     

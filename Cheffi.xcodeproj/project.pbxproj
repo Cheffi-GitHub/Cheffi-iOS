@@ -662,13 +662,13 @@
 		A688B0A92C29B67600E4E3A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				60E725AC2CE212BE005F5C0F /* RecommendedFollower.swift */,
 				A688B0AA2C29B68600E4E3A2 /* RestResponse.swift */,
 				A61FC3C92C3D689200C732C6 /* RestErrorResponse.swift */,
 				A688B0AC2C29B68E00E4E3A2 /* LoginKakaoModel.swift */,
 				54F217AA2C2D2F1B00892DBD /* ReviewModel.swift */,
 				A6DC44172C5C98E200423B90 /* OtherProfileModel.swift */,
 				54E285F92C2FE28700AD7939 /* TagsModel.swift */,
+				60E725AC2CE212BE005F5C0F /* RecommendedFollower.swift */,
 				5419304C2C3D798A0080CA57 /* ReviewDetailModel.swift */,
 				A681E9A12C53DD1700B796AA /* SignupTermsModel.swift */,
 				A688B0AE2C29B69600E4E3A2 /* Objects */,

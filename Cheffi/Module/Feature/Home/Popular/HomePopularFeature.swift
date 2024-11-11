@@ -46,14 +46,21 @@ struct HomePopularFeature {
     }
     
     enum Action {
+        // life cycle
         case onFirstAppear
+        case sceneActive
+        
+        // timer
         case startTimer
         case updateTimer
-        case sceneActive
-        case requestPopularReviews
+        
+        // user interaction
         case toolTipTapped
         case addRestaurantButtonTapped
-        case toggleAddRestaurantView(Bool)
+        case toggleAddRestaurantViewPresentation(Bool)
+        
+        // network
+        case requestPopularReviews
         case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
     }
     
@@ -62,9 +69,15 @@ struct HomePopularFeature {
             state,
             action in
             switch action {
+                // MARK: - Life Cycle
             case .onFirstAppear:
                 return .merge([.send(.startTimer), .send(.requestPopularReviews)])
                 
+            case .sceneActive:
+                state.remainTime = calculateRemainSeconds()
+                return .none
+
+                // MARK: - Timer
             case .startTimer:
                 state.remainTime = calculateRemainSeconds()
                 return .run { send in
@@ -82,10 +95,20 @@ struct HomePopularFeature {
                 }
                 return .none
                 
-            case .sceneActive:
-                state.remainTime = calculateRemainSeconds()
+                // MARK: - User Interaction
+            case .addRestaurantButtonTapped:
+                state.presentAddRestaurantView = true
                 return .none
                 
+            case .toggleAddRestaurantViewPresentation(let value):
+                state.presentAddRestaurantView = value
+                return .none
+                
+            case .toolTipTapped:
+                state.showTooltip.toggle()
+                return .none
+                
+                // MARK: - Network
             case .requestPopularReviews:
                 return Effect.publisher {
                     return networkClient
@@ -101,14 +124,6 @@ struct HomePopularFeature {
                         .catch { Just(Action.popularReviewsResponse(.failure($0))) }
                 }
                 
-            case .addRestaurantButtonTapped:
-                state.presentAddRestaurantView = true
-                return .none
-                
-            case .toggleAddRestaurantView(let value):
-                state.presentAddRestaurantView = value
-                return .none
-                
             case .popularReviewsResponse(let response):
                 switch response {
                 case .success(let result):
@@ -116,10 +131,6 @@ struct HomePopularFeature {
                 case .failure(let error):
                     print(error)
                 }
-                return .none
-                
-            case .toolTipTapped:
-                state.showTooltip.toggle()
                 return .none
             }
         }

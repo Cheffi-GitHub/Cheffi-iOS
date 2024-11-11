@@ -91,12 +91,18 @@ struct HomeCheffiStoryFeature {
     
     enum Action: BindableAction {
         case binding(BindingAction<State>)
+        
+        // life cycle
         case onFirstAppear
+        
+        // user interaction
         case tagTapped(TagsModel)
         case writerRowNavigationAreaTapped
         case previeousPageButtonTapped
         case nextPageButtonTapped
         case followButtonTapped(Int)
+        
+        // network
         case recommendedFollowersForTagsRequest([Int])
         case recommendedFollowersForTagsResponse(Result<[RecommendedFollower], Error>)
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PhotoInfo: Codable, Equatable {
+struct PhotoInfo: Codable, Hashable {
     let url: String?
     let width: Int?
     let height: Int?

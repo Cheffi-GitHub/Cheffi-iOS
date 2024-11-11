@@ -15,7 +15,12 @@ struct HomeCheffiPlaceView: View {
     @State private var selectedTabID = 0
     @State private var isAddRestaurantPresented: Bool = false
     
-    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    private let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    
+    // 스크롤뷰 높이 = 화면 크기 - (네비게이션 + 타이틀 + 카테고리 높이 + safeArea 높이)
+    private var cheffiPlaceScrollViewHeight: CGFloat {
+        UIWindow().screen.bounds.height - (156 + safeAreaInsets.top + safeAreaInsets.bottom)
+    }
     
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     
@@ -24,8 +29,17 @@ struct HomeCheffiPlaceView: View {
             VStack(spacing: 0) {
                 header
                     .zIndex(1)
-                foodCategories
-                tabView
+                if !store.tags.isEmpty {
+                    tags
+                    tabView
+                        .frame(height: cheffiPlaceScrollViewHeight)
+                } else {
+                    tagEmpty
+                        .frame(height: cheffiPlaceScrollViewHeight)
+                }
+            }
+            .onFirstAppear {
+                store.send(.onFirstAppear)
             }
             .fullScreenCover(isPresented: $isAddRestaurantPresented) {
                 AddRestaurantView()
@@ -58,7 +72,7 @@ struct HomeCheffiPlaceView: View {
         .padding(.bottom, 24)
     }
     
-    private var foodCategories: some View {
+    private var tags: some View {
         ScrollView(.horizontal) {
             HStack(spacing: 0) {
                 ForEach(store.tags) { tag in
@@ -79,11 +93,13 @@ struct HomeCheffiPlaceView: View {
                             }
                             .onTapGesture {
                                 selectedTabID = tag.id
+                                store.send(.tagTapped(tag))
                             }
                     }
                 }
             }
             .padding(.leading, 16)
+            .frame(height: 40)
         }
         .background {
             VStack {
@@ -147,10 +163,21 @@ struct HomeCheffiPlaceView: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        // 화면 크기 - 네비게이션 + 타이틀 + 카테고리 높이 + safeArea 높이
-        .frame(
-            height: UIWindow().screen.bounds.height - 156 - (safeAreaInsets.top + safeAreaInsets.bottom)
-        )
+    }
+    
+    private var tagEmpty: some View {
+        Group {
+            VStack(alignment: .center, spacing: 0) {
+                Image(name: Home.homeEmpty)
+                    .padding(.bottom, 12)
+                Text("음식 카테고리를 불러오지 못했습니다 ㅠㅠ\n 조금 기다렸다가 다시 시도해 주세요!")
+                    .font(.suit(.medium, 14))
+                    .lineHeight(22, fontHeight: 14)
+                    .foregroundStyle(.g60)
+                    .padding(.bottom, 18)
+                    .multilineTextAlignment(.center)
+            }
+        }
     }
 }
 

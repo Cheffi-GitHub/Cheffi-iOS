@@ -10,6 +10,11 @@ import Alamofire
 import Combine
 import ComposableArchitecture
 
+struct Region: Equatable {
+    let province: String
+    let city: String
+}
+
 @Reducer
 struct HomePopularFeature {
     
@@ -26,6 +31,10 @@ struct HomePopularFeature {
         var showTooltip = false
         var presentAddRestaurantView: Bool = false
         var remainTime: Int = 0
+        var currentLocation: Region = Region(
+            province: "서울특별시",
+            city: "강남구"
+        )
         
         static let dummy: Self = .init(popularReviews: [
             ReviewModel.dummyData,
@@ -49,7 +58,9 @@ struct HomePopularFeature {
     }
     
     var body: some ReducerOf<Self> {
-        Reduce { state, action in
+        Reduce {
+            state,
+            action in
             switch action {
             case .onFirstAppear:
                 return .merge([.send(.startTimer), .send(.requestPopularReviews)])
@@ -78,7 +89,14 @@ struct HomePopularFeature {
             case .requestPopularReviews:
                 return Effect.publisher {
                     return networkClient
-                        .request(.popularReviews(province: "서울특별시", city: "강남구", cursor: 0, size: 16))
+                        .request(
+                            .popularReviews(
+                                province: state.currentLocation.province,
+                                city: state.currentLocation.city,
+                                cursor: 0,
+                                size: 16
+                            )
+                        )
                         .map { Action.popularReviewsResponse(.success($0)) }
                         .catch { Just(Action.popularReviewsResponse(.failure($0))) }
                 }

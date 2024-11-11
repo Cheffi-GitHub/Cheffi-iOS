@@ -7,6 +7,8 @@
 
 import Foundation
 import ComposableArchitecture
+import Combine
+
 
 @Reducer
 struct HomeCheffiStoryFeature {
@@ -18,11 +20,10 @@ struct HomeCheffiStoryFeature {
         let itemsPerPage = 3
         var tags: [TagsModel] = [TagsModel(id: 0, name: "한식", type: "FOOD")]
         var selectedTags: [TagsModel: Bool] = [:]
-        var recommendList: [RecommendData] = []
-        var selectedRecommendList: [RecommendData] = []
+        var recommendedFollowers: [RecommendedFollower] = []
         var currentPage = 1
         var totalPage: Int {
-            (recommendList.count + itemsPerPage - 1) / itemsPerPage
+            (recommendedFollowers.count + itemsPerPage - 1) / itemsPerPage
         }
         
         static let dummy: Self = .init(
@@ -35,19 +36,55 @@ struct HomeCheffiStoryFeature {
                 TagsModel(id: 5, name: "일식", type: "FOOD"),
                 TagsModel(id: 6, name: "중식", type: "FOOD")
             ],
-            recommendList: [
-                RecommendData(title: "정맛집", intro: "안녕하세요 정맛집입니다", isFollowed: true),
-                RecommendData(title: "건맛집", intro: "안녕하세요 건맛집입니다", isFollowed: true),
-                RecommendData(title: "호맛집", intro: "안녕하세요 호맛집입니다", isFollowed: true),
-                RecommendData(title: "한맛집", intro: "안녕하세요 한맛집입니다", isFollowed: true),
-                RecommendData(title: "규맛집", intro: "안녕하세요 규맛집입니다", isFollowed: true),
-                RecommendData(title: "민맛집", intro: "안녕하세요 민맛집입니다", isFollowed: true),
-                RecommendData(title: "이맛집", intro: "안녕하세요 이맛집입니다", isFollowed: true),
-                RecommendData(title: "쿵맛집", intro: "안녕하세요 쿵집입니다", isFollowed: true),
-                RecommendData(title: "키잌맛집", intro: "안녕하세요 키잌맛집입니다", isFollowed: true),
-                RecommendData(title: "석맛집", intro: "안녕하세요 석맛집입니다", isFollowed: true),
-                RecommendData(title: "재맛집", intro: "안녕하세요 재맛집입니다", isFollowed: true),
-                RecommendData(title: "굿맛집", intro: "안녕하세요 굿맛집입니다", isFollowed: true)
+            recommendedFollowers: [
+                RecommendedFollower(
+                    id: 0,
+                    nickname: "정맛집",
+                    photo: PhotoInfo(
+                        url: nil,
+                        width: nil,
+                        height: nil
+                    ),
+                    instruction: "안녕하세요 정맛집 입니다",
+                    followers: 16,
+                    isFollowed: false
+                ),
+                RecommendedFollower(
+                    id: 1,
+                    nickname: "호맛집",
+                    photo: PhotoInfo(
+                        url: nil,
+                        width: nil,
+                        height: nil
+                    ),
+                    instruction: "안녕하세요 호맛집 입니다",
+                    followers: 16,
+                    isFollowed: true
+                ),
+                RecommendedFollower(
+                    id: 2,
+                    nickname: "후맛집",
+                    photo: PhotoInfo(
+                        url: nil,
+                        width: nil,
+                        height: nil
+                    ),
+                    instruction: "안녕하세요 후맛집 입니다",
+                    followers: 16,
+                    isFollowed: false
+                ),
+                RecommendedFollower(
+                    id: 3,
+                    nickname: "하맛집",
+                    photo: PhotoInfo(
+                        url: nil,
+                        width: nil,
+                        height: nil
+                    ),
+                    instruction: "안녕하세요 하맛집 입니다",
+                    followers: 16,
+                    isFollowed: false
+                )
             ]
         )
     }
@@ -60,6 +97,8 @@ struct HomeCheffiStoryFeature {
         case previeousPageButtonTapped
         case nextPageButtonTapped
         case followButtonTapped(Int)
+        case recommendedFollowersForTagsRequest([Int])
+        case recommendedFollowersForTagsResponse(Result<[RecommendedFollower], Error>)
     }
     
     var body: some ReducerOf<Self> {
@@ -69,26 +108,29 @@ struct HomeCheffiStoryFeature {
             case .binding:
                 return .none
                 
+            // MARK: - Life Cycle
             case .onFirstAppear:
-                // 프로필 카테고리 조회 후, 첫 카테고리 넣기
+                // TODO: 마이페이지 정보에서 조회한 태그 정보 가져와서, request 하기
                 guard let firstTag = state.tags.first else {
                     print("선택한 태그가 없음")
                     return .none
                 }
                 state.selectedTags[firstTag] = true
                 return .run { send in
-                    
+                    await send(.recommendedFollowersForTagsRequest([firstTag.id]))
                 }
-                
+
+            // MARK: - User Interaction
             case .tagTapped(let tag):
                 if state.selectedTags[tag] != nil {
                     state.selectedTags[tag] = nil
                 } else {
                     state.selectedTags[tag] = true
                 }
-                // 카테고리에 다라 recommendList 변경
-                print("추천 목록 조회 API 호출 후 recommendList에 결과 값 담기")
-                return .none
+                let tagIDs = Array(state.selectedTags.keys.map { $0.id })
+                return .run { send in
+                    await send(.recommendedFollowersForTagsRequest(tagIDs))
+                }
                 
             case .writerRowNavigationAreaTapped:
                 return .none
@@ -106,7 +148,28 @@ struct HomeCheffiStoryFeature {
                 return .none
                 
             case .followButtonTapped(let index):
-                state.recommendList[index].isFollowed.toggle()
+                state.recommendedFollowers[index].isFollowed.toggle()
+                return .none
+                
+            // MARK: - Network
+            case let .recommendedFollowersForTagsRequest(tagIDs):
+                return Effect.publisher {
+                    return networkClient
+                        .request(
+                            .recommendedFollowsForTags(tagid: tagIDs)
+                        )
+                        .map { Action.recommendedFollowersForTagsResponse(.success($0)) }
+                        .catch { Just(Action.recommendedFollowersForTagsResponse(.failure($0))) }
+                }
+                
+            case let .recommendedFollowersForTagsResponse(response):
+                switch response {
+                case .success(let data):
+                    state.recommendedFollowers = data
+                    
+                case .failure(let error):
+                    print(error)
+                }
                 return .none
             }
         }

@@ -19,7 +19,7 @@ struct HomeCheffiStoryView: View {
                     .padding(.horizontal, 16)
                 chipButtons
                     .padding(.bottom, 16)
-                if store.recommendList.isEmpty {
+                if store.recommendedFollowers.isEmpty {
                     recommendListEmptyView
                 } else {
                     tabView
@@ -108,16 +108,16 @@ struct HomeCheffiStoryView: View {
     
     private func pageContent(for page: Int) -> some View {
         VStack(spacing: 16) {
-            let startIndex = page * store.itemsPerPage
-            let endIndex = min(startIndex + store.itemsPerPage, store.recommendList.count)
+            let startIndex = (page - 1) * store.itemsPerPage
+            let endIndex = min(startIndex + store.itemsPerPage, store.recommendedFollowers.count)
             
             ForEach(startIndex..<endIndex, id: \.self) { index in
                 WithPerceptionTracking {
                     WriterRow(
                         photoURL: String(),
-                        title: store.recommendList[index].title,
-                        intro: store.recommendList[index].intro,
-                        isFollowed: store.recommendList[index].isFollowed
+                        title: store.recommendedFollowers[index].nickname,
+                        intro: store.recommendedFollowers[index].instruction,
+                        isFollowed: store.recommendedFollowers[index].isFollowed
                     ) {
                         store.send(.writerRowNavigationAreaTapped)
                     } isFollowedTapped: {
@@ -167,8 +167,3 @@ struct HomeCheffiStoryView: View {
     HomeCheffiStoryView(store: store)
 }
 
-struct RecommendData: Hashable {
-    let title: String
-    let intro: String
-    var isFollowed: Bool
-}

@@ -48,7 +48,8 @@ struct HomePopularView: View {
             .onFirstAppear {
                 store.send(.onFirstAppear)
             }
-            .fullScreenCover(isPresented: $store.presentAddRestaurantView.sending(\.toggleAddRestaurantView)) {
+            .fullScreenCover(
+                isPresented: $store.presentAddRestaurantView.sending(\.toggleAddRestaurantViewPresentation)) {
                 AddRestaurantView()
             }
         }

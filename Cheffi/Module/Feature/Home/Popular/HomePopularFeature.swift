@@ -10,6 +10,11 @@ import Alamofire
 import Combine
 import ComposableArchitecture
 
+struct Region: Equatable {
+    let province: String
+    let city: String
+}
+
 @Reducer
 struct HomePopularFeature {
     
@@ -26,6 +31,10 @@ struct HomePopularFeature {
         var showTooltip = false
         var presentAddRestaurantView: Bool = false
         var remainTime: Int = 0
+        var currentLocation: Region = Region(
+            province: "서울특별시",
+            city: "강남구"
+        )
         
         static let dummy: Self = .init(popularReviews: [
             ReviewModel.dummyData,
@@ -37,23 +46,38 @@ struct HomePopularFeature {
     }
     
     enum Action {
+        // life cycle
         case onFirstAppear
+        case sceneActive
+        
+        // timer
         case startTimer
         case updateTimer
-        case sceneActive
-        case requestPopularReviews
+        
+        // user interaction
         case toolTipTapped
         case addRestaurantButtonTapped
-        case toggleAddRestaurantView(Bool)
+        case toggleAddRestaurantViewPresentation(Bool)
+        
+        // network
+        case requestPopularReviews
         case popularReviewsResponse(Result<ReviewResponse, CheffiError>)
     }
     
     var body: some ReducerOf<Self> {
-        Reduce { state, action in
+        Reduce {
+            state,
+            action in
             switch action {
+                // MARK: - Life Cycle
             case .onFirstAppear:
                 return .merge([.send(.startTimer), .send(.requestPopularReviews)])
                 
+            case .sceneActive:
+                state.remainTime = calculateRemainSeconds()
+                return .none
+
+                // MARK: - Timer
             case .startTimer:
                 state.remainTime = calculateRemainSeconds()
                 return .run { send in
@@ -71,25 +95,34 @@ struct HomePopularFeature {
                 }
                 return .none
                 
-            case .sceneActive:
-                state.remainTime = calculateRemainSeconds()
-                return .none
-                
-            case .requestPopularReviews:
-                return Effect.publisher {
-                    return networkClient
-                        .request(.popularReviews(province: "서울특별시", city: "강남구", cursor: 0, size: 16))
-                        .map { Action.popularReviewsResponse(.success($0)) }
-                        .catch { Just(Action.popularReviewsResponse(.failure($0))) }
-                }
-                
+                // MARK: - User Interaction
             case .addRestaurantButtonTapped:
                 state.presentAddRestaurantView = true
                 return .none
                 
-            case .toggleAddRestaurantView(let value):
+            case .toggleAddRestaurantViewPresentation(let value):
                 state.presentAddRestaurantView = value
                 return .none
+                
+            case .toolTipTapped:
+                state.showTooltip.toggle()
+                return .none
+                
+                // MARK: - Network
+            case .requestPopularReviews:
+                return Effect.publisher {
+                    return networkClient
+                        .request(
+                            .popularReviews(
+                                province: state.currentLocation.province,
+                                city: state.currentLocation.city,
+                                cursor: 0,
+                                size: 16
+                            )
+                        )
+                        .map { Action.popularReviewsResponse(.success($0)) }
+                        .catch { Just(Action.popularReviewsResponse(.failure($0))) }
+                }
                 
             case .popularReviewsResponse(let response):
                 switch response {
@@ -98,10 +131,6 @@ struct HomePopularFeature {
                 case .failure(let error):
                     print(error)
                 }
-                return .none
-                
-            case .toolTipTapped:
-                state.showTooltip.toggle()
                 return .none
             }
         }

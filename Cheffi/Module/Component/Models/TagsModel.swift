@@ -9,7 +9,7 @@ import Foundation
 
 typealias TagsResponse = RestResponse<[TagsModel]>
 
-struct TagsModel: Codable, Equatable, Identifiable {
+struct TagsModel: Codable, Hashable, Identifiable {
     let id: Int
     let name: String
     let type: String
